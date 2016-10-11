@@ -10,10 +10,10 @@ public class TowerFloorScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        leftArtillery = new ArtilleryScript();
-        rightArtillery = new ArtilleryScript();
-        leftSupport = new SupportScript();
-        rightSupport = new SupportScript();
+        leftArtillery = transform.GetChild(0).GetComponent<ArtilleryScript>();
+        rightArtillery = transform.GetChild(1).GetComponent<ArtilleryScript>();
+        leftSupport = gameObject.AddComponent<SupportScript>();
+        rightSupport = gameObject.AddComponent<SupportScript>();
         leftArtillery.setSupport(leftSupport);
         rightArtillery.setSupport(rightSupport);
 	}
@@ -23,8 +23,19 @@ public class TowerFloorScript : MonoBehaviour {
 	
 	}
 
+    public ArtilleryScript GetLeftArtillery()
+    {
+        return leftArtillery;
+    }
+
+    public ArtilleryScript GetRightArtillery()
+    {
+        return rightArtillery;
+    }
+
     public void LoadTowerFloorToUI()
     {
         ControlUI.GetUI().GetTowerInternalUI().LoadTowerFloor(leftArtillery, leftSupport, rightArtillery, rightSupport);
+        ControlUI.GetUI().GetTowerInternalUI().SetTowerFloorScript(this);
     }
 }

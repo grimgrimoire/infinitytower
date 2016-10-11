@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
-public class SupportScript : MonoBehaviour {
+public class InfoUI : MonoBehaviour {
 
-    private string supportName;
+    public Text goldText;
 
 	// Use this for initialization
 	void Start () {
-        supportName = "No support installed";
+	
 	}
 	
 	// Update is called once per frame
@@ -15,8 +16,8 @@ public class SupportScript : MonoBehaviour {
 	
 	}
 
-    public string getName()
+    public void UpdateGold(int gold)
     {
-        return supportName;
+        this.goldText.text = "Gold: " + gold;
     }
 }
