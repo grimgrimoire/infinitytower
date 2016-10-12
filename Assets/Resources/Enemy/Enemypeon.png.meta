@@ -1,13 +1,14 @@
 fileFormatVersion: 2
-guid: 8b4ac031bf035b144b29f860f263be7f
-timeCreated: 1476182832
+guid: de3033a69a7e9ce419208fdf8f586a70
+timeCreated: 1476255856
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Bow
-    21300002: Canon
-    21300004: Gun
-    21300006: Rod
+    21300000: Body
+    21300002: LowerArm
+    21300004: UpperArm
+    21300006: UpperLeg
+    21300008: LowerLeg
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -57,54 +58,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bow
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 390
-        width: 26
-        height: 110
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Canon
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 297
-        width: 115
-        height: 59
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Gun
+      name: Body
       rect:
         serializedVersion: 2
         x: 0
-        y: 210
-        width: 165
-        height: 29
+        y: 85
+        width: 63
+        height: 142
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Rod
+      name: LowerArm
       rect:
         serializedVersion: 2
-        x: 30
+        x: 115
+        y: 208
+        width: 68
+        height: 50
+      alignment: 9
+      pivot: {x: 0.10947317, y: 0.20039581}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: UpperArm
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 129
+        width: 73
+        height: 27
+      alignment: 9
+      pivot: {x: 0.070928074, y: 0.4747812}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: UpperLeg
+      rect:
+        serializedVersion: 2
+        x: 85
         y: 0
-        width: 46
-        height: 147
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 30
+        height: 92
+      alignment: 9
+      pivot: {x: 0.5237109, y: 0.94071645}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LowerLeg
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 1
+        width: 48
+        height: 80
+      alignment: 9
+      pivot: {x: 0.796388, y: 0.90901566}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
