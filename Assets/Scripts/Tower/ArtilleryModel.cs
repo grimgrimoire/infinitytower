@@ -4,8 +4,10 @@
     public float lockRange;
     public float fireDelay;
     public int lockNumber;
+    public string ingameModelPrefabName;
     public string projectilePrefabName;
     public int damage;
+    public DamageType damageType;
 }
 
 public class ArtilleryModelList
@@ -34,6 +36,8 @@ public class ArtilleryModelList
         arrow.fireDelay = 0.5f;
         arrow.lockNumber = 1;
         arrow.damage = 10;
+        arrow.ingameModelPrefabName = "Prefab/TowerArcher";
+        arrow.damageType = DamageType.Piercing;
         return arrow;
     }
 
@@ -45,6 +49,8 @@ public class ArtilleryModelList
         arrow.fireDelay = 1.5f;
         arrow.lockNumber = 1;
         arrow.damage = 15;
+        arrow.ingameModelPrefabName = "Prefab/TowerArcher";
+        arrow.damageType = DamageType.Piercing;
         return arrow;
     }
 }

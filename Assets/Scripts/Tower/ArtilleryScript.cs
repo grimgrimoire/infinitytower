@@ -52,6 +52,14 @@ public class ArtilleryScript : MonoBehaviour
         this.model = model;
         artilleryName = model.name;
         GetComponentInParent<TowerFloorScript>().LoadTowerFloorToUI();
+        if (transform.childCount > 0)
+        {
+            Destroy(transform.GetChild(0).gameObject);
+        }
+        GameObject graphics = (GameObject)Instantiate(Resources.Load(model.ingameModelPrefabName, typeof(GameObject)) as GameObject, transform);
+        graphics.transform.localPosition = Vector3.zero;
+        if (isLeft)
+            graphics.transform.localScale = new Vector3(-1, 1, 1);
     }
 
     public ArtilleryModel GetModel()
@@ -67,7 +75,9 @@ public class ArtilleryScript : MonoBehaviour
             {
                 GameObject bullet = Instantiate(projectile);
                 bullet.transform.position = transform.position;
-                bullet.GetComponent<ArtilleryProjectile>().SetTarget(lockedTarget.transform.position);
+                bullet.GetComponent<ArtilleryProjectile>()
+                    .SetDamageType(model.damage, model.damageType)
+                    .SetTarget(lockedTarget.transform.position);
                 yield return new WaitForSeconds(model.fireDelay);
             }
             yield return new WaitForEndOfFrame();

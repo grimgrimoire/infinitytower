@@ -38,4 +38,9 @@ public class TowerFloorScript : MonoBehaviour {
         ControlUI.GetUI().GetTowerInternalUI().LoadTowerFloor(leftArtillery, leftSupport, rightArtillery, rightSupport);
         ControlUI.GetUI().GetTowerInternalUI().SetTowerFloorScript(this);
     }
+
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        Debug.Log("Collide");
+    }
 }

@@ -5,6 +5,8 @@ public class ArtilleryProjectile : MonoBehaviour
 {
 
     private Vector2 target;
+    private int damage;
+    private DamageType damageType;
 
     // Use this for initialization
     void Start()
@@ -18,6 +20,13 @@ public class ArtilleryProjectile : MonoBehaviour
 
     }
 
+    public ArtilleryProjectile SetDamageType(int damage, DamageType damageType)
+    {
+        this.damage = damage;
+        this.damageType = damageType;
+        return this;
+    }
+
     public void SetTarget(Vector2 target)
     {
         this.target = target;
@@ -25,9 +34,22 @@ public class ArtilleryProjectile : MonoBehaviour
         StartCoroutine(move());
     }
 
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.tag == TagsAndLayers.TAG_HOSTILE)
+        {
+            collider.GetComponent<HostileMainScript>().TakeDamage(damage, damageType);
+            Destroy(gameObject);
+        }
+        else if (collider.tag == TagsAndLayers.TAG_WORLD)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     IEnumerator move()
     {
-        while (Vector2.Distance(transform.position, target) > 0.1f)
+        while (Vector2.Distance(transform.position, target) > 0.05f)
         {
             yield return new WaitForEndOfFrame();
             transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), target, 5 * Time.deltaTime);

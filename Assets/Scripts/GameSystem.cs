@@ -7,6 +7,7 @@ public class GameSystem : MonoBehaviour {
 
     public int gold;
     public InfoUI infoUI;
+    public ControlUI controlUI;
 
     static GameSystem instance;
     List<GameObject> hostiles;
@@ -20,7 +21,7 @@ public class GameSystem : MonoBehaviour {
         instance = this;
         hostiles = new List<GameObject>();
         StartCoroutine(updateHostile());
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -30,7 +31,6 @@ public class GameSystem : MonoBehaviour {
     IEnumerator updateHostile()
     {
         yield return new WaitForSeconds(1f);
-        hostiles = GameObject.FindGameObjectsWithTag(TagsAndLayers.TAG_HOSTILE).ToList();
         GameObject.FindGameObjectWithTag(TagsAndLayers.TAG_TOWER).GetComponent<TowerFloorScript>().LoadTowerFloorToUI();
         isGameStarted = true;
         isPaused = false;
@@ -71,8 +71,18 @@ public class GameSystem : MonoBehaviour {
         return hostiles;
     }
 
+    public void AddGold(int value) {
+        gold += value;
+        UpdateGoldValue();
+    }
+
     public void UpdateGoldValue()
     {
         infoUI.UpdateGold(gold);
+    }
+
+    public ControlUI GetControlUI()
+    {
+        return controlUI;
     }
 }
