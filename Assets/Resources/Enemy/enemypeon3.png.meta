@@ -1,20 +1,16 @@
 fileFormatVersion: 2
-guid: 287379d0eb9b54f42828636adb8aab87
-timeCreated: 1476258495
+guid: b43a280ad2cb862459cb360a2a7d9448
+timeCreated: 1476436674
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Head
-    21300002: MageHat
-    21300004: ArcherHat
-    21300006: CannonHat
-    21300008: UpperLeg
-    21300010: Body
+    21300000: UpperLeg
+    21300002: Body
+    21300004: LowerArm
+    21300006: Assassin
+    21300008: ninja
+    21300010: LowerLeg
     21300012: UpperArm
-    21300014: MageRobe
-    21300016: LowerLeg
-    21300018: LowerArm
-    21300020: GunnerHat
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -64,67 +60,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Head
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 105
-        width: 55
-        height: 53
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MageHat
-      rect:
-        serializedVersion: 2
-        x: 140
-        y: 96
-        width: 114
-        height: 89
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ArcherHat
-      rect:
-        serializedVersion: 2
-        x: 263
-        y: 109
-        width: 132
-        height: 62
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: CannonHat
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 110
-        width: 84
-        height: 41
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: UpperLeg
       rect:
         serializedVersion: 2
-        x: 5
-        y: 59
-        width: 8
-        height: 25
+        x: 7
+        y: 27
+        width: 9
+        height: 22
       alignment: 9
-      pivot: {x: 0.49999893, y: 0.9305466}
+      pivot: {x: 0.5, y: 0.8950835}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -132,36 +76,49 @@ TextureImporter:
       name: Body
       rect:
         serializedVersion: 2
-        x: 38
-        y: 19
-        width: 22
-        height: 63
+        x: 30
+        y: 9
+        width: 18
+        height: 39
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: UpperArm
+      name: LowerArm
       rect:
         serializedVersion: 2
-        x: 91
-        y: 71
+        x: 59
+        y: 31
         width: 24
-        height: 8
+        height: 14
       alignment: 9
-      pivot: {x: 0.096362434, y: 0.6345453}
+      pivot: {x: 0.11286386, y: 0.17887361}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: MageRobe
+      name: Assassin
       rect:
         serializedVersion: 2
-        x: 147
-        y: 0
-        width: 87
-        height: 73
+        x: 105
+        y: 18
+        width: 42
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ninja
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 14
+        width: 45
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,37 +129,24 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
+        y: 0
         width: 19
-        height: 30
+        height: 26
       alignment: 9
-      pivot: {x: 0.8823926, y: 0.93054646}
+      pivot: {x: 0.9101409, y: 0.8919393}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: LowerArm
+      name: UpperArm
       rect:
         serializedVersion: 2
-        x: 93
-        y: 33
-        width: 28
-        height: 13
+        x: 56
+        y: 12
+        width: 24
+        height: 6
       alignment: 9
-      pivot: {x: 0.08675221, y: 0.16881062}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: GunnerHat
-      rect:
-        serializedVersion: 2
-        x: 277
-        y: 6
-        width: 132
-        height: 63
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0.08788713, y: 0.5000003}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
