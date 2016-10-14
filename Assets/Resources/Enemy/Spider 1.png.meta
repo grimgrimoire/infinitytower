@@ -1,20 +1,18 @@
 fileFormatVersion: 2
-guid: 287379d0eb9b54f42828636adb8aab87
-timeCreated: 1476258495
+guid: f4d719b2326d90d43bdd2d92575da1a5
+timeCreated: 1476347713
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Head
-    21300002: MageHat
-    21300004: ArcherHat
-    21300006: CannonHat
-    21300008: UpperLeg
-    21300010: Body
-    21300012: UpperArm
-    21300014: MageRobe
-    21300016: LowerLeg
-    21300018: LowerArm
-    21300020: GunnerHat
+    21300000: Body
+    21300002: LowerFrontLeg
+    21300004: UpperFrontLeg
+    21300006: LowerMiddleFrontLeg
+    21300008: UpperMiddleFrontLeg
+    21300010: UpperMiddleBackLeg
+    21300012: LowerMiddleBackLeg
+    21300014: UpperBackLeg
+    21300016: LowerBackLeg
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -64,145 +62,119 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Head
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 105
-        width: 55
-        height: 53
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MageHat
-      rect:
-        serializedVersion: 2
-        x: 140
-        y: 96
-        width: 114
-        height: 89
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ArcherHat
-      rect:
-        serializedVersion: 2
-        x: 263
-        y: 109
-        width: 132
-        height: 62
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: CannonHat
-      rect:
-        serializedVersion: 2
-        x: 416
-        y: 110
-        width: 84
-        height: 41
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: UpperLeg
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 59
-        width: 8
-        height: 25
-      alignment: 9
-      pivot: {x: 0.49999893, y: 0.9305466}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
       name: Body
       rect:
         serializedVersion: 2
-        x: 38
-        y: 19
-        width: 22
-        height: 63
+        x: 170
+        y: 111
+        width: 177
+        height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: UpperArm
-      rect:
-        serializedVersion: 2
-        x: 91
-        y: 71
-        width: 24
-        height: 8
-      alignment: 9
-      pivot: {x: 0.096362434, y: 0.6345453}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MageRobe
-      rect:
-        serializedVersion: 2
-        x: 147
-        y: 0
-        width: 87
-        height: 73
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: LowerLeg
+      name: LowerFrontLeg
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
-        width: 19
-        height: 30
+        y: 0
+        width: 78
+        height: 93
       alignment: 9
-      pivot: {x: 0.8823926, y: 0.93054646}
+      pivot: {x: 0.79614747, y: 0.9346681}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: LowerArm
+      name: UpperFrontLeg
       rect:
         serializedVersion: 2
-        x: 93
-        y: 33
-        width: 28
-        height: 13
+        x: 80
+        y: 10
+        width: 52
+        height: 80
       alignment: 9
-      pivot: {x: 0.08675221, y: 0.16881062}
+      pivot: {x: 0.8966261, y: 0.056571938}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: GunnerHat
+      name: LowerMiddleFrontLeg
       rect:
         serializedVersion: 2
-        x: 277
-        y: 6
-        width: 132
-        height: 63
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 134
+        y: 11
+        width: 63
+        height: 92
+      alignment: 9
+      pivot: {x: 0.77499413, y: 0.95732707}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: UpperMiddleFrontLeg
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 26
+        width: 37
+        height: 77
+      alignment: 9
+      pivot: {x: 0.6783744, y: 0.07143776}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: UpperMiddleBackLeg
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 27
+        width: 37
+        height: 77
+      alignment: 9
+      pivot: {x: 0.29932877, y: 0.07143789}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LowerMiddleBackLeg
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 11
+        width: 63
+        height: 93
+      alignment: 9
+      pivot: {x: 0.21191067, y: 0.9346681}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: UpperBackLeg
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 23
+        width: 52
+        height: 80
+      alignment: 9
+      pivot: {x: 0.08750857, y: 0.066884115}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LowerBackLeg
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 10
+        width: 81
+        height: 92
+      alignment: 9
+      pivot: {x: 0.20463581, y: 0.9393927}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
