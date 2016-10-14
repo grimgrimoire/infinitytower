@@ -3,6 +3,9 @@ using System.Collections;
 
 public class Spawner : MonoBehaviour {
 
+    string peon1 = "Prefab/EnemyPeon";
+    string peon2 = "Prefab/EnemyPeon2";
+
     GameObject enemyPrefab;
 
 	// Use this for initialization

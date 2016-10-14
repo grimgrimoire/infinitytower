@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class InfoUI : MonoBehaviour {
 
     public Text goldText;
+    public Text levelText;
+    public Text timerText;
 
 	// Use this for initialization
 	void Start () {
@@ -19,5 +21,10 @@ public class InfoUI : MonoBehaviour {
     public void UpdateGold(int gold)
     {
         this.goldText.text = "Gold: " + gold;
+    }
+
+    public void UpdateTime(int time)
+    {
+        this.timerText.text = "Next Level:\n" + time;
     }
 }

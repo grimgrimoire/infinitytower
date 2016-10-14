@@ -39,7 +39,12 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler
         Transform find = upgradeList.FindChild(eventData.pointerEnter.name);
         if (find != null)
         {
-            artillery.SetModel(ArtilleryModelList.GetArtilleryAtIndex(find.GetSiblingIndex()));
+            ArtilleryModel model = ArtilleryModelList.GetArtilleryAtIndex(find.GetSiblingIndex());
+            if (model.price < GameSystem.GetGameSystem().GetGold())
+            {
+                GameSystem.GetGameSystem().AddGold(-model.price);
+                artillery.SetModel(model);
+            }
         }
     }
 

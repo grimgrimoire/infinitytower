@@ -20,7 +20,7 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
     bool isDragging;
     float minX = -6;
     float maxX = 6;
-    float minY = -1.5f;
+    float minY = -0.7f;
 
     public static ControlUI GetUI()
     {
@@ -34,7 +34,6 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
         towerUpgradeUI = GetComponentInChildren<TowerUpgradeUI>();
         minX -= mainCamera.ScreenToWorldPoint(new Vector3(0, 0, 0)).x;
         maxX -= mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, 0, 0)).x;
-        Debug.Log( (0.417f * Screen.height) / Screen.height);
     }
 
     // Update is called once per frame
@@ -92,11 +91,11 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
         {
             moveDirection = new Vector2(0, moveDirection.y);
         }
-        //if ()
-        //{
-        //    moveDirection = new Vector2(moveDirection.x, 0);
-        //}
-        if(eventData.pointerPressRaycast.gameObject.tag == "GameController")
+        if ((moveDirection.y * 0.01f) + mainCamera.transform.position.y < minY)
+        {
+            moveDirection = new Vector2(moveDirection.x, 0);
+        }
+        if (eventData.pointerPressRaycast.gameObject.tag == "GameController")
         {
             mainCamera.transform.Translate(moveDirection * 0.01f);
         }
@@ -114,7 +113,7 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
 
     private void AddNewFloor()
     {
-        tower.AddFloor();
+        tower.AddFloorDialog();
     }
 
     private void LoadTowerFloorToUI(GameObject tower)

@@ -3,20 +3,23 @@ using System.Collections;
 using UnityEngine.EventSystems;
 using System;
 
-public class TowerScript : MonoBehaviour {
+public class TowerScript : MonoBehaviour, DialogInterface
+{
 
     public GameObject towerBodyPrefab;
     public GameObject towerAddButton;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         //InvokeRepeating("Sink", 3, 3);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     public void Sink()
     {
@@ -28,11 +31,36 @@ public class TowerScript : MonoBehaviour {
         CancelInvoke();
     }
 
-    public void AddFloor()
+    public void AddFloorDialog()
+    {
+        DialogUI dialog = GameSystem.GetGameSystem().GetControlUI().dialogUI;
+        dialog.gameObject.SetActive(true);
+        dialog.SetMessage("Add new floor for 100 gold?");
+        dialog.SetDialogType(true);
+        dialog.SetInterface(this);
+    }
+
+    public void OnOkButtonClicked()
+    {
+    }
+
+    public void OnNoButtonClicked()
+    {
+    }
+
+    public void OnYesButtonClicked()
+    {
+        if (GameSystem.GetGameSystem().GetGold() > 100)
+        {
+            GameSystem.GetGameSystem().AddGold(-100);
+            AddFloor();
+        }
+    }
+
+    private void AddFloor()
     {
         GameObject newFloor = (GameObject)Instantiate(towerBodyPrefab, transform);
         newFloor.transform.position = new Vector2(0, 1.68f * (transform.childCount - 2));
         towerAddButton.transform.position = new Vector2(0, 1.68f * (transform.childCount - 2) + 1.23f);
     }
-
 }

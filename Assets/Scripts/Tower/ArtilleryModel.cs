@@ -8,6 +8,7 @@
     public string projectilePrefabName;
     public int damage;
     public DamageType damageType;
+    public int price;
 }
 
 public class ArtilleryModelList
@@ -38,6 +39,7 @@ public class ArtilleryModelList
         arrow.damage = 10;
         arrow.ingameModelPrefabName = "Prefab/TowerArcher";
         arrow.damageType = DamageType.Piercing;
+        arrow.price = 10;
         return arrow;
     }
 
@@ -45,12 +47,13 @@ public class ArtilleryModelList
     {
         ArtilleryModel arrow = new ArtilleryModel();
         arrow.name = "Longbowmen";
-        arrow.lockRange = 4f;
+        arrow.lockRange = 5f;
         arrow.fireDelay = 1.5f;
         arrow.lockNumber = 1;
         arrow.damage = 15;
         arrow.ingameModelPrefabName = "Prefab/TowerArcher";
         arrow.damageType = DamageType.Piercing;
+        arrow.price = 15;
         return arrow;
     }
 }

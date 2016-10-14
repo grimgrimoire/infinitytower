@@ -13,6 +13,7 @@ public class GameSystem : MonoBehaviour {
     List<GameObject> hostiles;
     bool isPaused;
     bool isGameStarted;
+    int nextLevel;
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +21,7 @@ public class GameSystem : MonoBehaviour {
             Destroy(instance);
         instance = this;
         hostiles = new List<GameObject>();
-        StartCoroutine(updateHostile());
+        StartCoroutine(initGame());
     }
 	
 	// Update is called once per frame
@@ -28,12 +29,15 @@ public class GameSystem : MonoBehaviour {
 	
 	}
 
-    IEnumerator updateHostile()
+    IEnumerator initGame()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.1f);
+        nextLevel = 120;
         GameObject.FindGameObjectWithTag(TagsAndLayers.TAG_TOWER).GetComponent<TowerFloorScript>().LoadTowerFloorToUI();
         isGameStarted = true;
         isPaused = false;
+        UpdateGoldValue();
+        StartCoroutine(CountdownNextLevelCoroutine());
     }
 
     public void SetGamePaused(bool pause)
@@ -76,13 +80,38 @@ public class GameSystem : MonoBehaviour {
         UpdateGoldValue();
     }
 
+    public int GetGold()
+    {
+        return gold;
+    }
+
     public void UpdateGoldValue()
     {
         infoUI.UpdateGold(gold);
     }
 
+    public void UpdateTime()
+    {
+        infoUI.UpdateTime(nextLevel);
+    }
+
     public ControlUI GetControlUI()
     {
         return controlUI;
+    }
+
+    IEnumerator CountdownNextLevelCoroutine()
+    {
+        while (isGameStarted)
+        {
+            CountdownNextLevel();
+            yield return new WaitForSeconds(1);
+        }
+    }
+
+    private void CountdownNextLevel()
+    {
+        nextLevel--;
+        UpdateTime();
     }
 }
