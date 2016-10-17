@@ -59,7 +59,7 @@ public class ArtilleryScript : MonoBehaviour
         GameObject graphics = (GameObject)Instantiate(Resources.Load(model.ingameModelPrefabName, typeof(GameObject)) as GameObject, transform);
         graphics.transform.localPosition = Vector3.zero;
         if (isLeft)
-            graphics.transform.localScale = new Vector3(-1, 1, 1);
+            graphics.transform.localScale = new Vector3(-graphics.transform.localScale.x, graphics.transform.localScale.y, graphics.transform.localScale.z);
     }
 
     public ArtilleryModel GetModel()
@@ -90,8 +90,10 @@ public class ArtilleryScript : MonoBehaviour
         {
             if (IsTargetInRange(hostile))
             {
-                lockedTarget = hostile;
-                break;
+                if(lockedTarget == null)
+                    lockedTarget = hostile;
+                else if(Vector2.Distance(transform.position, hostile.transform.position) < Vector2.Distance(transform.position, lockedTarget.transform.position))
+                    lockedTarget = hostile;
             }
         }
     }
