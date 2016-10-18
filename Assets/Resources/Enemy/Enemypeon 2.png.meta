@@ -1,14 +1,15 @@
 fileFormatVersion: 2
-guid: de3033a69a7e9ce419208fdf8f586a70
-timeCreated: 1476255856
+guid: c8355d50fc35fbb4c86e6a2304403319
+timeCreated: 1476783561
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Body
-    21300002: LowerArm
-    21300004: UpperArm
-    21300006: UpperLeg
-    21300008: LowerLeg
+    21300000: Helm
+    21300002: Body
+    21300004: LowerArm
+    21300006: UpperArm
+    21300008: UpperLeg
+    21300010: LowerLeg
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -58,13 +59,26 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Body
+      name: Helm
       rect:
         serializedVersion: 2
         x: 0
-        y: 85
-        width: 63
-        height: 142
+        y: 240
+        width: 108
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Body
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 79
+        width: 59
+        height: 132
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -74,12 +88,12 @@ TextureImporter:
       name: LowerArm
       rect:
         serializedVersion: 2
-        x: 115
-        y: 208
-        width: 68
-        height: 50
+        x: 121
+        y: 194
+        width: 63
+        height: 46
       alignment: 9
-      pivot: {x: 0.10947317, y: 0.20039581}
+      pivot: {x: 0.12296888, y: 0.19017859}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -87,12 +101,12 @@ TextureImporter:
       name: UpperArm
       rect:
         serializedVersion: 2
-        x: 127
-        y: 129
-        width: 73
-        height: 27
+        x: 132
+        y: 120
+        width: 68
+        height: 25
       alignment: 9
-      pivot: {x: 0.070928074, y: 0.4747812}
+      pivot: {x: 0.080829844, y: 0.46199524}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -100,12 +114,12 @@ TextureImporter:
       name: UpperLeg
       rect:
         serializedVersion: 2
-        x: 85
+        x: 93
         y: 0
-        width: 30
-        height: 92
+        width: 29
+        height: 86
       alignment: 9
-      pivot: {x: 0.5237109, y: 0.94071645}
+      pivot: {x: 0.46723676, y: 0.91981995}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -113,12 +127,12 @@ TextureImporter:
       name: LowerLeg
       rect:
         serializedVersion: 2
-        x: 149
+        x: 153
         y: 1
-        width: 48
-        height: 80
+        width: 44
+        height: 74
       alignment: 9
-      pivot: {x: 0.796388, y: 0.90901566}
+      pivot: {x: 0.84549785, y: 0.9108621}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

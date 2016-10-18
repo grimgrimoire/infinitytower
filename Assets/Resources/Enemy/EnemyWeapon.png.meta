@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: b43a280ad2cb862459cb360a2a7d9448
-timeCreated: 1476773573
+guid: e444e90cef8cf3143ab6549ba7b197f9
+timeCreated: 1476779919
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: UpperLeg
-    21300002: Body
-    21300004: LowerArm
-    21300006: Assassin
-    21300008: ninja
-    21300010: LowerLeg
-    21300012: UpperArm
+    21300000: Sword
+    21300002: Bow
+    21300004: Spear
+    21300006: Katana
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -60,93 +57,54 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UpperLeg
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 27
-        width: 9
-        height: 22
-      alignment: 9
-      pivot: {x: 0.5, y: 0.8950835}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Body
-      rect:
-        serializedVersion: 2
-        x: 30
-        y: 9
-        width: 18
-        height: 39
-      alignment: 9
-      pivot: {x: 0.52700806, y: 0.49159193}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: LowerArm
-      rect:
-        serializedVersion: 2
-        x: 59
-        y: 31
-        width: 24
-        height: 14
-      alignment: 9
-      pivot: {x: 0.09920088, y: 0.1671625}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Assassin
-      rect:
-        serializedVersion: 2
-        x: 105
-        y: 18
-        width: 42
-        height: 36
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: ninja
-      rect:
-        serializedVersion: 2
-        x: 153
-        y: 14
-        width: 45
-        height: 36
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: LowerLeg
+      name: Sword
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 19
-        height: 26
-      alignment: 9
-      pivot: {x: 0.8928824, y: 0.8919393}
+        width: 30
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: UpperArm
+      name: Bow
       rect:
         serializedVersion: 2
-        x: 56
-        y: 12
-        width: 24
-        height: 6
-      alignment: 9
-      pivot: {x: 0.09471861, y: 0.4180223}
+        x: 52
+        y: 11
+        width: 16
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spear
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 2
+        width: 8
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Katana
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 3
+        width: 10
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
