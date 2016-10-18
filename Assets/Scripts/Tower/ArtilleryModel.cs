@@ -56,4 +56,32 @@ public class ArtilleryModelList
         arrow.price = 15;
         return arrow;
     }
+
+    static ArtilleryModel Cannon()
+    {
+        ArtilleryModel cannon = new ArtilleryModel();
+        cannon.name = "Cannon";
+        cannon.lockRange = 6f;
+        cannon.fireDelay = 3f;
+        cannon.lockNumber = 1;
+        cannon.damage = 30;
+        cannon.ingameModelPrefabName = "Prefab/TowerCannon";
+        cannon.damageType = DamageType.Explosive;
+        cannon.price = 20;
+        return cannon;
+    }
+
+    static ArtilleryModel Mage()
+    {
+        ArtilleryModel mage = new ArtilleryModel();
+        mage.name = "Mage";
+        mage.lockRange = 7f;
+        mage.fireDelay = 2f;
+        mage.lockNumber = 1;
+        mage.damage = 20;
+        mage.ingameModelPrefabName = "Prefab/TowerMage";
+        mage.damageType = DamageType.Magic;
+        mage.price = 15;
+        return mage;
+    }
 }
