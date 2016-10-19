@@ -69,7 +69,7 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler
     {
         GameObject instance = (GameObject)Instantiate(prefabUI, upgradeList, false);
         instance.name = model.name;
-        instance.GetComponentInChildren<Text>().text = model.name;
+        instance.GetComponentInChildren<Text>().text = model.name + "\n" + "Price : " + model.price;
     }
 
 }

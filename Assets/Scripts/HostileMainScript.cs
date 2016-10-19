@@ -30,9 +30,7 @@ public class HostileMainScript : MonoBehaviour
         health -= Mathf.RoundToInt(CalculateDamageMultiplication(damageType) * damage);
         if (health <= 0)
         {
-            GameSystem.GetGameSystem().AddGold(goldValue);
-            GameSystem.GetGameSystem().RemoveHostile(this.gameObject);
-            Destroy(gameObject);
+            DestroyAndUnregister();
         }
     }
 
@@ -81,11 +79,18 @@ public class HostileMainScript : MonoBehaviour
         }
     }
 
-    //void OnTriggerEnter2D(Collider2D collider)
-    //{
-    //if(collider.tag == TagsAndLayers.TAG_PROJECTILE)
-    //{
-    //    Destroy(gameObject);
-    //}
-    //}
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.tag == TagsAndLayers.TAG_TOWER)
+        {
+            DestroyAndUnregister();
+        }
+    }
+
+    private void DestroyAndUnregister()
+    {
+        GameSystem.GetGameSystem().AddGold(goldValue);
+        GameSystem.GetGameSystem().RemoveHostile(this.gameObject);
+        Destroy(gameObject);
+    }
 }

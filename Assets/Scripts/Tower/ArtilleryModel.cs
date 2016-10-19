@@ -93,6 +93,7 @@ public class ArtilleryModelList
         mage.ingameModelPrefabName = "Prefab/TowerMage";
         mage.damageType = DamageType.Magic;
         mage.price = 15;
+        mage.projectilePrefabName = "prefab/arrow";
         mage.shootImpl = new MageArtillery(mage);
         return mage;
     }
