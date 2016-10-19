@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        enemyPrefab = Resources.Load("Prefab/EnemyPeon", typeof(GameObject)) as GameObject;
+        enemyPrefab = Resources.Load("Prefab/Assassin", typeof(GameObject)) as GameObject;
         Spawn();
 	}
 	

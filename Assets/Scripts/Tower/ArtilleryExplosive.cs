@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ArtilleryProjectile : MonoBehaviour
+public class ArtilleryExplosive : MonoBehaviour
 {
+
+    public GameObject explosionPrefab;
 
     private Vector2 target;
     private int damage;
@@ -18,9 +20,10 @@ public class ArtilleryProjectile : MonoBehaviour
     void Update()
     {
 
+
     }
 
-    public ArtilleryProjectile SetDamageType(int damage, DamageType damageType)
+    public ArtilleryExplosive SetDamageType(int damage, DamageType damageType)
     {
         this.damage = damage;
         this.damageType = damageType;
@@ -39,22 +42,23 @@ public class ArtilleryProjectile : MonoBehaviour
         if (collider.tag == TagsAndLayers.TAG_HOSTILE)
         {
             collider.GetComponent<HostileMainScript>().TakeDamage(damage, damageType);
-            Destroy(gameObject);
         }
         else if (collider.tag == TagsAndLayers.TAG_WORLD)
         {
+            GameObject explosion = Instantiate(explosionPrefab);
+            explosion.GetComponentInChildren<Explosion>().SetDamageType(damage, damageType);
+            explosion.transform.position = transform.position;
+            Destroy(explosion, 0.25f);
             Destroy(gameObject);
         }
     }
 
     IEnumerator Move()
     {
-        while (Vector2.Distance(transform.position, target) > 0.05f)
+        while (true)
         {
-            yield return new WaitForEndOfFrame();
             transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, 5 * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
         }
-        Destroy(this.gameObject);
-        yield return new WaitForEndOfFrame();
     }
 }
