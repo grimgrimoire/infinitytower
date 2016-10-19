@@ -15,7 +15,6 @@ public class ArtilleryScript : MonoBehaviour
     void Start()
     {
         artilleryName = "No weapon installed";
-        projectile = Resources.Load("prefab/arrow", typeof(GameObject)) as GameObject;
         StartCoroutine(shootTarget());
     }
 
@@ -51,6 +50,7 @@ public class ArtilleryScript : MonoBehaviour
     {
         this.model = model;
         artilleryName = model.name;
+        projectile = Resources.Load(model.projectilePrefabName, typeof(GameObject)) as GameObject;
         GetComponentInParent<TowerFloorScript>().LoadTowerFloorToUI();
         if (transform.childCount > 0)
         {
@@ -67,17 +67,30 @@ public class ArtilleryScript : MonoBehaviour
         return model;
     }
 
+    //IEnumerator shootTarget()
+    //{
+    //    while (true)
+    //    {
+    //        if (lockedTarget != null)
+    //        {
+    //            GameObject bullet = Instantiate(projectile);
+    //            bullet.transform.position = transform.position;
+    //            bullet.GetComponent<ArtilleryProjectile>()
+    //                .SetDamageType(model.damage, model.damageType)
+    //                .SetTarget(lockedTarget.transform.position);
+    //            yield return new WaitForSeconds(model.fireDelay);
+    //        }
+    //        yield return new WaitForEndOfFrame();
+    //    }
+    //}
+
     IEnumerator shootTarget()
     {
         while (true)
         {
             if (lockedTarget != null)
             {
-                GameObject bullet = Instantiate(projectile);
-                bullet.transform.position = transform.position;
-                bullet.GetComponent<ArtilleryProjectile>()
-                    .SetDamageType(model.damage, model.damageType)
-                    .SetTarget(lockedTarget.transform.position);
+                model.shootImpl.ShootAtTarget(lockedTarget, gameObject, projectile);
                 yield return new WaitForSeconds(model.fireDelay);
             }
             yield return new WaitForEndOfFrame();

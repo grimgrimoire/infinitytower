@@ -9,12 +9,13 @@
     public int damage;
     public DamageType damageType;
     public int price;
+    public ArtilleryInterface shootImpl;
 }
 
 public class ArtilleryModelList
 {
 
-    public static int TOTAL_ARTILLERY = 2;
+    public static int TOTAL_ARTILLERY = 4;
 
     public static ArtilleryModel GetArtilleryAtIndex(int index)
     {
@@ -24,6 +25,10 @@ public class ArtilleryModelList
                 return Archer();
             case 1:
                 return Longbowmen();
+            case 2:
+                return Cannon();
+            case 3:
+                return Mage();
             default:
                 return Archer();
         }
@@ -40,6 +45,8 @@ public class ArtilleryModelList
         arrow.ingameModelPrefabName = "Prefab/TowerArcher";
         arrow.damageType = DamageType.Piercing;
         arrow.price = 10;
+        arrow.projectilePrefabName = "prefab/arrow";
+        arrow.shootImpl = new LinearProjectileArtillery(arrow);
         return arrow;
     }
 
@@ -54,6 +61,8 @@ public class ArtilleryModelList
         arrow.ingameModelPrefabName = "Prefab/TowerArcher";
         arrow.damageType = DamageType.Piercing;
         arrow.price = 15;
+        arrow.projectilePrefabName = "prefab/arrow";
+        arrow.shootImpl = new LinearProjectileArtillery(arrow);
         return arrow;
     }
 
@@ -62,12 +71,14 @@ public class ArtilleryModelList
         ArtilleryModel cannon = new ArtilleryModel();
         cannon.name = "Cannon";
         cannon.lockRange = 6f;
-        cannon.fireDelay = 3f;
+        cannon.fireDelay = 5f;
         cannon.lockNumber = 1;
-        cannon.damage = 30;
+        cannon.damage = 15;
         cannon.ingameModelPrefabName = "Prefab/TowerCannon";
         cannon.damageType = DamageType.Explosive;
         cannon.price = 20;
+        cannon.projectilePrefabName = "prefab/CannonBall";
+        cannon.shootImpl = new CannonArtillery(cannon);
         return cannon;
     }
 
@@ -82,6 +93,8 @@ public class ArtilleryModelList
         mage.ingameModelPrefabName = "Prefab/TowerMage";
         mage.damageType = DamageType.Magic;
         mage.price = 15;
+        mage.projectilePrefabName = "prefab/arrow";
+        mage.shootImpl = new MageArtillery(mage);
         return mage;
     }
 }

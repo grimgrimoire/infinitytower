@@ -1,27 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TowerFloorScript : MonoBehaviour {
+public class TowerFloorScript : MonoBehaviour
+{
 
     ArtilleryScript leftArtillery;
     ArtilleryScript rightArtillery;
     SupportScript leftSupport;
     SupportScript rightSupport;
 
-	// Use this for initialization
-	void Start () {
+    int towerHealth = 20;
+
+    // Use this for initialization
+    void Start()
+    {
         leftArtillery = transform.GetChild(0).GetComponent<ArtilleryScript>();
         rightArtillery = transform.GetChild(1).GetComponent<ArtilleryScript>();
         leftSupport = gameObject.AddComponent<SupportScript>();
         rightSupport = gameObject.AddComponent<SupportScript>();
         leftArtillery.setSupport(leftSupport);
         rightArtillery.setSupport(rightSupport);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     public ArtilleryScript GetLeftArtillery()
     {
@@ -41,6 +46,22 @@ public class TowerFloorScript : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        Debug.Log("Collide");
+        if (coll.tag == TagsAndLayers.TAG_HOSTILE)
+        {
+            TakeDamage();
+        }
+    }
+
+    private void TakeDamage()
+    {
+        towerHealth -= 1;
+        Debug.Log("Health remaining : " + towerHealth);
+        if (towerHealth <= 0)
+            TowerDestroyed();
+    }
+
+    private void TowerDestroyed()
+    {
+
     }
 }
