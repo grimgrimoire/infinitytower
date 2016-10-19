@@ -51,6 +51,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011396949130}
   - 212: {fileID: 212000010834750032}
+  - 95: {fileID: 95000013434512658}
   m_Layer: 0
   m_Name: Bat_Body
   m_TagString: Untagged
@@ -99,6 +100,23 @@ Transform:
   - {fileID: 4000011396949130}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!95 &95000013434512658
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014236650952}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f658cc4b757e8d840b672599dde2b91c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!212 &212000010834750032
 SpriteRenderer:
   m_ObjectHideFlags: 1
