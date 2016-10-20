@@ -35,13 +35,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013711268360}
-  - 50: {fileID: 50000011862227328}
-  - 61: {fileID: 61000013567385598}
-  - 114: {fileID: 114000013420607026}
-  - 114: {fileID: 114000011906960232}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Bat
-  m_TagString: Hostile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,7 +51,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011396949130}
   - 212: {fileID: 212000010834750032}
-  - 95: {fileID: 95000011382140754}
+  - 95: {fileID: 95000013434512658}
   m_Layer: 0
   m_Name: Bat_Body
   m_TagString: Untagged
@@ -97,52 +93,21 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012168189976}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.26, y: 0.11, z: 0.09082031}
+  m_LocalPosition: {x: -3.191, y: 0.823, z: 0.09082031}
   m_LocalScale: {x: 0.35778964, y: 0.35778964, z: 0.35778964}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000011396949130}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &50000011862227328
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012168189976}
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!61 &61000013567385598
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012168189976}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: -0.04138262, y: 0.06621039}
-  serializedVersion: 2
-  m_Size: {x: 0.48686755, y: 0.32133898}
---- !u!95 &95000011382140754
+--- !u!95 &95000013434512658
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014236650952}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: f658cc4b757e8d840b672599dde2b91c, type: 2}
   m_CullingMode: 0
@@ -152,34 +117,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114000011906960232
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012168189976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0bf0c0eef680c247a013ee5acd8a5eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigid: {fileID: 50000011862227328}
-  speed: 0.5
---- !u!114 &114000013420607026
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012168189976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae584251527a5d747a6cea9a83202f42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goldValue: 1
-  health: 10
-  armor: 0
-  isAlive: 1
 --- !u!212 &212000010834750032
 SpriteRenderer:
   m_ObjectHideFlags: 1
