@@ -180,9 +180,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000010661598850}
-  m_Layer: 0
+  - 114: {fileID: 114000013282570976}
+  - 114: {fileID: 114000011765923438}
+  - 50: {fileID: 50000014157125668}
+  - 61: {fileID: 61000010163755974}
+  m_Layer: 10
   m_Name: Assassin
-  m_TagString: Untagged
+  m_TagString: Hostile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -224,7 +228,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014106442596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.913, y: -0.246, z: 0.09082031}
+  m_LocalPosition: {x: -2.611219, y: -0.61653495, z: 0.09082031}
   m_LocalScale: {x: 0.2716622, y: 0.2716623, z: 0.2716623}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -370,6 +374,37 @@ Transform:
   - {fileID: 4000013312384488}
   m_Father: {fileID: 4000011735906904}
   m_RootOrder: 2
+--- !u!50 &50000014157125668
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014106442596}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &61000010163755974
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014106442596}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.053925026, y: -0.08440549}
+  serializedVersion: 2
+  m_Size: {x: 0.30130807, y: 0.95310795}
 --- !u!95 &95000013324012458
 Animator:
   serializedVersion: 3
@@ -387,6 +422,34 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000011765923438
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014106442596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0bf0c0eef680c247a013ee5acd8a5eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigid: {fileID: 0}
+  speed: 0.3
+--- !u!114 &114000013282570976
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014106442596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae584251527a5d747a6cea9a83202f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldValue: 1
+  health: 25
+  armor: 0
+  isAlive: 0
 --- !u!212 &212000010150915124
 SpriteRenderer:
   m_ObjectHideFlags: 1

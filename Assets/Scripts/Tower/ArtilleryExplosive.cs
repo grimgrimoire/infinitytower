@@ -49,7 +49,9 @@ public class ArtilleryExplosive : MonoBehaviour
             explosion.GetComponentInChildren<Explosion>().SetDamageType(damage, damageType);
             explosion.transform.position = transform.position;
             Destroy(explosion, 0.25f);
-            Destroy(gameObject);
+            StopAllCoroutines();
+            transform.position = new Vector2(3, -10);
+            gameObject.SetActive(false);
         }
     }
 

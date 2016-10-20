@@ -39,11 +39,15 @@ public class ArtilleryProjectile : MonoBehaviour
         if (collider.tag == TagsAndLayers.TAG_HOSTILE)
         {
             collider.GetComponent<HostileMainScript>().TakeDamage(damage, damageType);
-            Destroy(gameObject);
+            StopAllCoroutines();
+            transform.position = new Vector2(3, -10);
+            gameObject.SetActive(false);
         }
         else if (collider.tag == TagsAndLayers.TAG_WORLD)
         {
-            Destroy(gameObject);
+            StopAllCoroutines();
+            transform.position = new Vector2(3, -10);
+            gameObject.SetActive(false);
         }
     }
 
@@ -54,7 +58,7 @@ public class ArtilleryProjectile : MonoBehaviour
             yield return new WaitForEndOfFrame();
             transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, 5 * Time.deltaTime);
         }
-        Destroy(this.gameObject);
+        transform.position = new Vector2(3, -10);
         yield return new WaitForEndOfFrame();
     }
 }
