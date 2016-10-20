@@ -183,7 +183,7 @@ GameObject:
   - 114: {fileID: 114000013197690844}
   - 114: {fileID: 114000012574397274}
   - 61: {fileID: 61000013223812520}
-  - 50: {fileID: 50000011562319392}
+  - 50: {fileID: 50000012994455508}
   m_Layer: 10
   m_Name: Assassin
   m_TagString: Hostile
@@ -216,7 +216,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0.4042443, w: 0.91465104}
   m_LocalPosition: {x: -0.026, y: 0.04572034, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -85.08139}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -59.87925}
   m_Children:
   - {fileID: 4000010737424616}
   m_Father: {fileID: 4000011735906904}
@@ -228,7 +228,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014106442596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.85, y: -0.7, z: 0}
+  m_LocalPosition: {x: -2.3819556, y: 0.105669886, z: 0}
   m_LocalScale: {x: 0.2716622, y: 0.2716623, z: 0.2716623}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -258,7 +258,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: 0.30744094, w: 0.9515672}
   m_LocalPosition: {x: 0.04, y: -0.152, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -6.5681887}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.66400003}
   m_Children:
   - {fileID: 4000012264736164}
   m_Father: {fileID: 4000011735906904}
@@ -290,7 +290,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.017, y: -0.171, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -6.8830004}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2.189478}
   m_Children: []
   m_Father: {fileID: 4000011462778658}
   m_RootOrder: 0
@@ -316,7 +316,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.014, y: -0.154, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 14.477}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1.8580017}
   m_Children: []
   m_Father: {fileID: 4000013045372554}
   m_RootOrder: 0
@@ -329,7 +329,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.007, y: -0.174, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 36.611397}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 25.122002}
   m_Children:
   - {fileID: 4000012597621236}
   m_Father: {fileID: 4000011735906904}
@@ -369,12 +369,12 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0.6826514, w: 0.7307442}
   m_LocalPosition: {x: -0.027, y: 0.045, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -57.61327}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -53.013126}
   m_Children:
   - {fileID: 4000013312384488}
   m_Father: {fileID: 4000011735906904}
   m_RootOrder: 2
---- !u!50 &50000011562319392
+--- !u!50 &50000012994455508
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
@@ -384,8 +384,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -436,6 +436,7 @@ MonoBehaviour:
   goldValue: 1
   health: 25
   armor: 0
+  isAlive: 0
 --- !u!114 &114000013197690844
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -447,7 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0bf0c0eef680c247a013ee5acd8a5eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigid: {fileID: 50000011562319392}
+  rigid: {fileID: 0}
   speed: 0.4
 --- !u!212 &212000010150915124
 SpriteRenderer:

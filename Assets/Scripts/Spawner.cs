@@ -1,23 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System;
 
-public class Spawner : MonoBehaviour {
+public class Spawner : MonoBehaviour
+{
 
-    string peon1 = "Prefab/EnemyPeon";
-    string peon2 = "Prefab/EnemyPeon2";
-
-    GameObject enemyPrefab;
-
-	// Use this for initialization
-	void Start () {
-        enemyPrefab = Resources.Load("Prefab/Assassin", typeof(GameObject)) as GameObject;
+    void Start()
+    {
         Spawn();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     void Spawn()
     {
@@ -26,7 +24,11 @@ public class Spawner : MonoBehaviour {
 
     void SpawnEnemy()
     {
-        Instantiate(enemyPrefab);
-        enemyPrefab.transform.position = transform.position;
+        GameObject peon = GameSystem.GetGameSystem().GetObjectPool().GetPeon1();
+        if (peon == null)
+            return ;
+        peon.SetActive(true);
+        peon.transform.position = transform.position;
+        peon.GetComponent<HostileMainScript>().Recycle();
     }
 }

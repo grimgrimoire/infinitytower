@@ -20,7 +20,7 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
     bool isDragging;
     float minX = -6;
     float maxX = 6;
-    float minY = -0.7f;
+    float minY = 1.45f;
 
     public static ControlUI GetUI()
     {

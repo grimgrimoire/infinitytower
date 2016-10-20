@@ -15,7 +15,7 @@
 public class ArtilleryModelList
 {
 
-    public static int TOTAL_ARTILLERY = 4;
+    public static int TOTAL_ARTILLERY = 3;
 
     public static ArtilleryModel GetArtilleryAtIndex(int index)
     {
@@ -24,11 +24,20 @@ public class ArtilleryModelList
             case 0:
                 return Archer();
             case 1:
-                return Longbowmen();
-            case 2:
                 return Cannon();
-            case 3:
+            case 2:
                 return Mage();
+            default:
+                return Archer();
+        }
+    }
+
+    public static ArtilleryModel GetArtilleryUpgradeArcher(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                return Longbowmen();
             default:
                 return Archer();
         }

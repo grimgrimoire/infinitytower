@@ -15,12 +15,15 @@ public class GameSystem : MonoBehaviour {
     bool isGameStarted;
     int nextLevel;
 
+    ObjectPool objectPool;
+
 	// Use this for initialization
 	void Start () {
         if (instance != null)
             Destroy(instance);
         instance = this;
         hostiles = new List<GameObject>();
+        objectPool = gameObject.AddComponent<ObjectPool>();
         StartCoroutine(initGame());
     }
 	
@@ -32,12 +35,20 @@ public class GameSystem : MonoBehaviour {
     IEnumerator initGame()
     {
         yield return new WaitForSeconds(0.1f);
+        float temp = Time.realtimeSinceStartup;
+        yield return objectPool.InitiatePooling();
+        Debug.Log("Time for initiatepooling " + (Time.realtimeSinceStartup - temp));
         nextLevel = 120;
         GameObject.FindGameObjectWithTag(TagsAndLayers.TAG_TOWER).GetComponent<TowerFloorScript>().LoadTowerFloorToUI();
         isGameStarted = true;
         isPaused = false;
         UpdateGoldValue();
         StartCoroutine(CountdownNextLevelCoroutine());
+    }
+
+    public ObjectPool GetObjectPool()
+    {
+        return objectPool;
     }
 
     public void SetGamePaused(bool pause)

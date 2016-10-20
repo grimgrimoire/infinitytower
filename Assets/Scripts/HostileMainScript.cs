@@ -1,23 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public interface HostileInterface
+{
+    void OnRecycled();
+    void OnKilled();
+}
+
 public class HostileMainScript : MonoBehaviour
 {
-
     public int goldValue;
     public int health;
     public ArmorType armor;
 
+    public bool isAlive;
+
+    private HostileInterface hostileInterface;
+    private int initialHealth;
+
     // Use this for initialization
     void Start()
     {
-        GameSystem.GetGameSystem().AddHostile(this.gameObject);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        hostileInterface = GetComponent<HostileInterface>();
+        gameObject.SetActive(false);
+        initialHealth = health;
     }
 
     void OnDestroy()
@@ -25,12 +31,20 @@ public class HostileMainScript : MonoBehaviour
 
     }
 
+    public void Recycle()
+    {
+        GameSystem.GetGameSystem().AddHostile(this.gameObject);
+        health = initialHealth;
+        isAlive = true;
+        hostileInterface.OnRecycled();
+    }
+
     public void TakeDamage(int damage, DamageType damageType)
     {
         health -= Mathf.RoundToInt(CalculateDamageMultiplication(damageType) * damage);
         if (health <= 0)
         {
-            DestroyAndUnregister();
+            Killed();
         }
     }
 
@@ -83,14 +97,17 @@ public class HostileMainScript : MonoBehaviour
     {
         if (collider.tag == TagsAndLayers.TAG_TOWER)
         {
-            DestroyAndUnregister();
+            Killed();
         }
     }
 
-    private void DestroyAndUnregister()
+    private void Killed()
     {
         GameSystem.GetGameSystem().AddGold(goldValue);
         GameSystem.GetGameSystem().RemoveHostile(this.gameObject);
-        Destroy(gameObject);
+        transform.position = new Vector2(0, -10);
+        isAlive = false;
+        hostileInterface.OnKilled();
+        gameObject.SetActive(false);
     }
 }

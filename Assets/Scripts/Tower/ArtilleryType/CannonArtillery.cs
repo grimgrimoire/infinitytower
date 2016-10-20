@@ -2,7 +2,8 @@
 using System.Collections;
 using System;
 
-public class CannonArtillery : ArtilleryInterface {
+public class CannonArtillery : ArtilleryInterface
+{
 
     ArtilleryModel model;
 
@@ -11,12 +12,13 @@ public class CannonArtillery : ArtilleryInterface {
         this.model = model;
     }
 
-    public void ShootAtTarget(GameObject target, GameObject artillery, GameObject projectilePrefab)
+    IEnumerator ArtilleryInterface.ShootAtTarget(GameObject target, GameObject artillery, GameObject projectilePrefab)
     {
-        GameObject bullet = GameObject.Instantiate(projectilePrefab);
-        bullet.transform.position = artillery.transform.position;
-        bullet.GetComponent<ArtilleryExplosive>()
+        projectilePrefab.SetActive(true);
+        projectilePrefab.transform.position = artillery.transform.position;
+        projectilePrefab.GetComponent<ArtilleryExplosive>()
             .SetDamageType(model.damage, model.damageType)
             .SetTarget(target.transform.position);
+        yield return null;
     }
 }

@@ -34,16 +34,25 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler
         LoadAvailableUpgrades();
     }
 
+    public void SetSupportToUpgrade(SupportScript support)
+    {
+        isArtillery = false;
+        this.support = support;
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         Transform find = upgradeList.FindChild(eventData.pointerEnter.name);
         if (find != null)
         {
-            ArtilleryModel model = ArtilleryModelList.GetArtilleryAtIndex(find.GetSiblingIndex());
-            if (model.price < GameSystem.GetGameSystem().GetGold())
+            if (isArtillery)
             {
-                GameSystem.GetGameSystem().AddGold(-model.price);
-                artillery.SetModel(model);
+                ArtilleryModel model = ArtilleryModelList.GetArtilleryAtIndex(find.GetSiblingIndex());
+                if (model.price < GameSystem.GetGameSystem().GetGold())
+                {
+                    GameSystem.GetGameSystem().AddGold(-model.price);
+                    artillery.SetModel(model);
+                }
             }
         }
     }
