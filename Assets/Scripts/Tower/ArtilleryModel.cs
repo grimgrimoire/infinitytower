@@ -10,6 +10,7 @@
     public DamageType damageType;
     public int price;
     public ArtilleryInterface shootImpl;
+    public ArtilleryTargetingInterface targetingImpl;
 }
 
 public class ArtilleryModelList

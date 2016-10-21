@@ -24,7 +24,18 @@ public class Spawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        GameObject peon = GameSystem.GetGameSystem().GetObjectPool().GetPeon1();
+        GameObject peon;
+        switch(UnityEngine.Random.Range(0, 2)){
+            case 0:
+                peon = GameSystem.GetGameSystem().GetObjectPool().GetPeon1();
+                break;
+            case 1:
+                peon = GameSystem.GetGameSystem().GetObjectPool().GetPeon2();
+                break;
+            default:
+                peon = GameSystem.GetGameSystem().GetObjectPool().GetPeon1();
+                break;
+        }
         if (peon == null)
             return ;
         peon.SetActive(true);

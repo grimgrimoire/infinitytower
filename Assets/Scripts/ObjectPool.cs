@@ -12,27 +12,37 @@ public class ObjectPool:MonoBehaviour {
     int peon1Index = 0;
     int peon2Index = 0;
 
-    int prefabNumber = 100;
+    int poolSize = 100;
 
     public IEnumerator InitiatePooling()
     {
-        InstantiatePooling(ref peon1Pool, prefabNumber, peon1);
-        InstantiatePooling(ref peon2Pool, prefabNumber, peon2);
+        InstantiatePooling(ref peon1Pool, poolSize, peon1);
+        InstantiatePooling(ref peon2Pool, poolSize, peon2);
         yield return new WaitForEndOfFrame();
     }
 
     public GameObject GetPeon1()
     {
-        int initialIndex = peon1Index;
-        while (peon1Pool[peon1Index].activeInHierarchy)
+        return GetObjectFromPool(ref peon1Index, peon1Pool, poolSize);
+    }
+
+    public GameObject GetPeon2()
+    {
+        return GetObjectFromPool(ref peon2Index, peon2Pool, poolSize);
+    }
+
+    private GameObject GetObjectFromPool(ref int index, GameObject[] poolArray, int poolSize)
+    {
+        int initialIndex = index;
+        while (poolArray[index].activeSelf)
         {
-            peon1Index = (peon1Index + 1) % prefabNumber;
-            if (peon1Index == initialIndex)
+            index = (index + 1) % poolSize;
+            if(index == initialIndex)
             {
                 return null;
             }
         }
-        return peon1Pool[peon1Index];
+        return poolArray[index];
     }
 
     private void InstantiatePooling(ref GameObject[] arrayPool, int totalObject, string prefabName)
@@ -42,7 +52,6 @@ public class ObjectPool:MonoBehaviour {
         for (int i = 0; i < totalObject; i++)
         {
             arrayPool[i] = Instantiate(enemyPrefab);
-            arrayPool[i].transform.position = new Vector2(transform.position.x, -10);
         }
     }
 
