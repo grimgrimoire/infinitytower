@@ -19,8 +19,7 @@ public class ArtilleryExplosive : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
+        transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, 5 * Time.deltaTime);
     }
 
     public ArtilleryExplosive SetDamageType(int damage, DamageType damageType)
@@ -34,7 +33,7 @@ public class ArtilleryExplosive : MonoBehaviour
     {
         this.target = target;
         transform.right = target - (Vector2)transform.position;
-        StartCoroutine(Move());
+        //StartCoroutine(Move());
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -49,18 +48,17 @@ public class ArtilleryExplosive : MonoBehaviour
             explosion.GetComponentInChildren<Explosion>().SetDamageType(damage, damageType);
             explosion.transform.position = transform.position;
             Destroy(explosion, 0.25f);
-            StopAllCoroutines();
-            transform.position = new Vector2(3, -10);
+            //StopAllCoroutines();
             gameObject.SetActive(false);
         }
     }
 
-    IEnumerator Move()
-    {
-        while (true)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, 5 * Time.deltaTime);
-            yield return new WaitForEndOfFrame();
-        }
-    }
+    //IEnumerator Move()
+    //{
+    //    while (true)
+    //    {
+            
+    //        yield return new WaitForEndOfFrame();
+    //    }
+    //}
 }

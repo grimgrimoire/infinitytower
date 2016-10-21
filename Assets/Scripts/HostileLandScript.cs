@@ -5,7 +5,6 @@ using System;
 public class HostileLandScript : MonoBehaviour, HostileInterface
 {
 
-    public Rigidbody2D rigid;
     public float speed;
     Vector2 direction;
 
@@ -20,11 +19,14 @@ public class HostileLandScript : MonoBehaviour, HostileInterface
 
     public void OnRecycled()
     {
-        //if (transform.position.x > 0)
-        //{
-        //    speed = -speed;
-        //    transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-        //}
+        if (transform.position.x > 0)
+        {
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
+        else
+        {
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
         //direction = new Vector2(1, 0) * speed;
         //rigid.velocity = direction;
         //animator.speed = 1;

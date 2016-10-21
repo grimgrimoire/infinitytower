@@ -105,7 +105,6 @@ public class HostileMainScript : MonoBehaviour
     {
         GameSystem.GetGameSystem().AddGold(goldValue);
         GameSystem.GetGameSystem().RemoveHostile(this.gameObject);
-        transform.position = new Vector2(0, -10);
         isAlive = false;
         hostileInterface.OnKilled();
         gameObject.SetActive(false);

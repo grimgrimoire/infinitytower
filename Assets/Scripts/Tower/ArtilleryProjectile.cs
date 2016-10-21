@@ -17,7 +17,9 @@ public class ArtilleryProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Vector2.Distance(transform.position, target) < 0.05f)
+            gameObject.SetActive(false);
+        transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, 5 * Time.deltaTime);
     }
 
     public ArtilleryProjectile SetDamageType(int damage, DamageType damageType)
@@ -31,7 +33,7 @@ public class ArtilleryProjectile : MonoBehaviour
     {
         this.target = target;
         transform.right = target - (Vector2)transform.position;
-        StartCoroutine(Move());
+        //StartCoroutine(Move());
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -39,14 +41,12 @@ public class ArtilleryProjectile : MonoBehaviour
         if (collider.tag == TagsAndLayers.TAG_HOSTILE)
         {
             collider.GetComponent<HostileMainScript>().TakeDamage(damage, damageType);
-            StopAllCoroutines();
-            transform.position = new Vector2(3, -10);
+            //StopAllCoroutines();
             gameObject.SetActive(false);
         }
         else if (collider.tag == TagsAndLayers.TAG_WORLD)
         {
-            StopAllCoroutines();
-            transform.position = new Vector2(3, -10);
+            //StopAllCoroutines();
             gameObject.SetActive(false);
         }
     }
@@ -58,7 +58,7 @@ public class ArtilleryProjectile : MonoBehaviour
             yield return new WaitForEndOfFrame();
             transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, 5 * Time.deltaTime);
         }
-        transform.position = new Vector2(3, -10);
+        gameObject.SetActive(false);
         yield return new WaitForEndOfFrame();
     }
 }

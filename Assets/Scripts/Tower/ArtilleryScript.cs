@@ -12,7 +12,6 @@ public class ArtilleryScript : MonoBehaviour
     private ArtilleryModel model;
 
     private GameObject[] projectilePool;
-    private int projectilePoolIndex;
 
     // Use this for initialization
     void Start()
@@ -59,7 +58,7 @@ public class ArtilleryScript : MonoBehaviour
     {
         while (true)
         {
-            if (lockedTarget == null)
+            if (lockedTarget == null || !lockedTarget.activeSelf)
             {
                 FindNewTarget();
             }
@@ -67,8 +66,7 @@ public class ArtilleryScript : MonoBehaviour
             {
                 if (IsTargetInRange(lockedTarget))
                 {
-                    yield return model.shootImpl.ShootAtTarget(lockedTarget, gameObject, projectilePool[projectilePoolIndex]);
-                    projectilePoolIndex = (projectilePoolIndex + 1) % 5;
+                    yield return model.shootImpl.ShootAtTarget(lockedTarget, gameObject, projectilePool);
                     yield return new WaitForSeconds(model.fireDelay);
                 }
                 else
@@ -84,13 +82,24 @@ public class ArtilleryScript : MonoBehaviour
     {
         foreach (GameObject hostile in GameSystem.GetGameSystem().GetHostiles())
         {
-            if (IsTargetInRange(hostile))
-            {
-                if (lockedTarget == null)
-                    lockedTarget = hostile;
-                else if (Vector2.Distance(transform.position, hostile.transform.position) < Vector2.Distance(transform.position, lockedTarget.transform.position))
-                    lockedTarget = hostile;
-            }
+            if (hostile.activeSelf)
+                if (IsTargetInRange(hostile))
+                {
+                    if (model.targetingImpl == null)
+                    {
+                        if (lockedTarget == null || !lockedTarget.activeSelf)
+                            lockedTarget = hostile;
+                        else if (Vector2.Distance(transform.position, hostile.transform.position) < Vector2.Distance(transform.position, lockedTarget.transform.position))
+                            lockedTarget = hostile;
+                    }
+                    else
+                    {
+                        if (model.targetingImpl.CheckPriorityCondition(lockedTarget, hostile))
+                        {
+                            lockedTarget = hostile;
+                        }
+                    }
+                }
         }
     }
 
@@ -108,9 +117,9 @@ public class ArtilleryScript : MonoBehaviour
 
     private void EmptyProjectilePrefab()
     {
-        if(projectilePool != null)
+        if (projectilePool != null)
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < projectilePool.Length; i++)
             {
                 Destroy(projectilePool[i]);
             }
@@ -124,7 +133,7 @@ public class ArtilleryScript : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             projectilePool[i] = Instantiate(projectile);
-            projectilePool[i].transform.position = new Vector2(3, -10) ;
+            projectilePool[i].transform.position = new Vector2(3, -10);
             projectilePool[i].SetActive(false);
         }
     }
