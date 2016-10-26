@@ -16,7 +16,7 @@
 public class ArtilleryModelList
 {
 
-    public static int TOTAL_ARTILLERY = 3;
+    public static int TOTAL_ARTILLERY = 4;
 
     public static ArtilleryModel GetArtilleryAtIndex(int index)
     {
@@ -262,7 +262,7 @@ public class ArtilleryModelList
         arrow.damageType = DamageType.Piercing;
         arrow.price = 10;
         arrow.projectilePrefabName = "prefab/arrow";
-        arrow.shootImpl = new LinearProjectileArtillery(arrow);
+        arrow.shootImpl = new FollowedArrow(arrow);
         return arrow;
     }
 
@@ -483,14 +483,14 @@ public class ArtilleryModelList
         ArtilleryModel gunner = new ArtilleryModel();
         gunner.name = "Gunner";
         gunner.lockRange = 6f;
-        gunner.fireDelay = 5f;
+        gunner.fireDelay = 4f;
         gunner.lockNumber = 1;
         gunner.damage = 15;
         gunner.ingameModelPrefabName = "Prefab/TowerGunner";
         gunner.damageType = DamageType.Explosive;
         gunner.price = 20;
-        gunner.projectilePrefabName = "prefab/CannonBall";
-        gunner.shootImpl = new LinearProjectileArtillery(gunner);
+        gunner.projectilePrefabName = "prefab/CannonBall 1";
+        gunner.shootImpl = new BouncingProjectile(gunner);
         return gunner;
     }
 
