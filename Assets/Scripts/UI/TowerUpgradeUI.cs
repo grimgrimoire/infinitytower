@@ -31,13 +31,15 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler
     {
         isArtillery = true;
         this.artillery = artillery;
-        LoadAvailableUpgrades();
+        LoadAvailableArtilleryUpgrades();
     }
 
-    public void SetSupportToUpgrade(SupportScript support)
+    public void SetSupportToUpgrade(ArtilleryScript support)
     {
         isArtillery = false;
-        this.support = support;
+        this.artillery = support;
+        this.support = support.GetSupport();
+        LoadAvailableSupportUpgrades();
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -54,10 +56,21 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler
                     artillery.SetModel(model);
                 }
             }
+            else
+            {
+                SupportModel model = SupportModelList.GetSupportAtIndex(find.GetSiblingIndex());
+                if (model.price < GameSystem.GetGameSystem().GetGold())
+                {
+                    GameSystem.GetGameSystem().AddGold(-model.price);
+                    artillery.RemoveSupportedEffect();
+                    support.SetImplements(model);
+                    artillery.ApplySupportedEffect();
+                }
+            }
         }
     }
 
-    public void LoadAvailableUpgrades()
+    public void LoadAvailableArtilleryUpgrades()
     {
         ClearList();
         for (int i = 0; i < ArtilleryModelList.TOTAL_ARTILLERY; i++)
@@ -74,6 +87,15 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler
         }
     }
 
+    public void LoadAvailableSupportUpgrades()
+    {
+        ClearList();
+        for (int i = 0; i < SupportModelList.TOTAL_SUPPORT; i++)
+        {
+            AddSupportUpgradeToList(SupportModelList.GetSupportAtIndex(i));
+        }
+    }
+
     private void AddArtilleryUpgradeToList(ArtilleryModel model)
     {
         GameObject instance = (GameObject)Instantiate(prefabUI, upgradeList, false);
@@ -81,4 +103,10 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler
         instance.GetComponentInChildren<Text>().text = model.name + "\n" + "Price : " + model.price;
     }
 
+    private void AddSupportUpgradeToList(SupportModel model)
+    {
+        GameObject instance = (GameObject)Instantiate(prefabUI, upgradeList, false);
+        instance.name = model.name;
+        instance.GetComponentInChildren<Text>().text = model.name + "\n" + "Price : " + model.price;
+    }
 }

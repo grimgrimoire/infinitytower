@@ -36,6 +36,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013935541448}
   - 114: {fileID: 114000013273746890}
+  - 114: {fileID: 114000013101585676}
   m_Layer: 8
   m_Name: LeftArtillery
   m_TagString: Untagged
@@ -52,6 +53,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010251643672}
   - 114: {fileID: 114000010307847396}
+  - 114: {fileID: 114000013522887484}
   m_Layer: 8
   m_Name: RightArtillery
   m_TagString: Untagged
@@ -210,6 +212,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4f09d778425334a85aba6c4cb6d4b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114000013101585676
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011887573726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c32fc5492a5f1a4c8aafeee52f85bf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000013273746890
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -222,6 +235,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLeft: 1
+--- !u!114 &114000013522887484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012362327510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c32fc5492a5f1a4c8aafeee52f85bf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000014037475070
 MonoBehaviour:
   m_ObjectHideFlags: 1

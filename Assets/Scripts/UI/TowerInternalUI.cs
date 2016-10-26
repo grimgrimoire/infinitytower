@@ -20,12 +20,12 @@ public class TowerInternalUI : MonoBehaviour {
 	
 	}
 
-    public void LoadTowerFloor(ArtilleryScript leftArtillery, SupportScript leftSupport, ArtilleryScript rightArtillery, SupportScript rightSupport)
+    public void LoadTowerFloor(ArtilleryScript leftArtillery, ArtilleryScript rightArtillery)
     {
         leftAUI.SetName(leftArtillery.getName());
-        leftSUI.SetName(leftSupport.getName());
+        leftSUI.SetName(leftArtillery.GetSupport().getName());
         rightAUI.SetName(rightArtillery.getName());
-        rightSUI.SetName(rightSupport.getName());
+        rightSUI.SetName(rightArtillery.GetSupport().getName());
     }
 
     public void ClearSelection()
@@ -49,5 +49,15 @@ public class TowerInternalUI : MonoBehaviour {
     public void SetRightArtilleryToUpgrade()
     {
         towerUpgradeUI.SetArtilleryToUpgrade(towerFloorScript.GetRightArtillery());
+    }
+
+    public void SetLeftSupportToUpgrade()
+    {
+        towerUpgradeUI.SetSupportToUpgrade(towerFloorScript.GetLeftArtillery());
+    }
+
+    public void SetRightSupportToUpgrade()
+    {
+        towerUpgradeUI.SetSupportToUpgrade(towerFloorScript.GetRightArtillery());
     }
 }

@@ -4,6 +4,7 @@ using System.Collections;
 public class SupportScript : MonoBehaviour {
 
     private string supportName;
+    private SupportInterface implements;
 
 	// Use this for initialization
 	void Start () {
@@ -15,8 +16,20 @@ public class SupportScript : MonoBehaviour {
 	
 	}
 
+    public void SetImplements(SupportModel model)
+    {
+        supportName = model.name;
+        implements = model.supportImpl;
+        GetComponentInParent<TowerFloorScript>().LoadTowerFloorToUI();
+    }
+
     public string getName()
     {
         return supportName;
+    }
+
+    public SupportInterface GetImplements()
+    {
+        return implements;
     }
 }

@@ -48,6 +48,11 @@ public class HostileMainScript : MonoBehaviour
         }
     }
 
+    public void SetBuff()
+    {
+
+    }
+
     private float CalculateDamageMultiplication(DamageType damageType)
     {
         switch (damageType)

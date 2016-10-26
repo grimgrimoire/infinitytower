@@ -2623,6 +2623,38 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1694636657}
+--- !u!1 &1708232292 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012362327510, guid: d6ba3011ebc04ed4d9b92c238986213b,
+    type: 2}
+  m_PrefabInternal: {fileID: 399905846}
+--- !u!114 &1708232295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1708232292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c32fc5492a5f1a4c8aafeee52f85bf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1774236338 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000011887573726, guid: d6ba3011ebc04ed4d9b92c238986213b,
+    type: 2}
+  m_PrefabInternal: {fileID: 399905846}
+--- !u!114 &1774236341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1774236338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c32fc5492a5f1a4c8aafeee52f85bf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1777780741
 GameObject:
   m_ObjectHideFlags: 0
@@ -2722,8 +2754,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1530462168}
-          m_MethodName: ClearList
+        - m_Target: {fileID: 1212585042}
+          m_MethodName: SetLeftSupportToUpgrade
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3016,8 +3048,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1530462168}
-          m_MethodName: ClearList
+        - m_Target: {fileID: 1212585042}
+          m_MethodName: SetRightSupportToUpgrade
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

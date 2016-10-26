@@ -17,6 +17,7 @@ public class ArtilleryScript : MonoBehaviour
     void Start()
     {
         artilleryName = "No weapon installed";
+        supportScript = GetComponent<SupportScript>();
     }
 
     public string getName()
@@ -24,9 +25,9 @@ public class ArtilleryScript : MonoBehaviour
         return artilleryName;
     }
 
-    public void setSupport(SupportScript supportScript)
+    public SupportScript GetSupport()
     {
-        this.supportScript = supportScript;
+        return supportScript;
     }
 
     public void SetModel(ArtilleryModel model)
@@ -87,10 +88,7 @@ public class ArtilleryScript : MonoBehaviour
                 {
                     if (model.targetingImpl == null)
                     {
-                        if (lockedTarget == null || !lockedTarget.activeSelf)
-                            lockedTarget = hostile;
-                        else if (Vector2.Distance(transform.position, hostile.transform.position) < Vector2.Distance(transform.position, lockedTarget.transform.position))
-                            lockedTarget = hostile;
+                        DefaultTargeting(hostile);
                     }
                     else
                     {
@@ -101,6 +99,14 @@ public class ArtilleryScript : MonoBehaviour
                     }
                 }
         }
+    }
+
+    private void DefaultTargeting(GameObject hostile)
+    {
+        if (lockedTarget == null || !lockedTarget.activeSelf)
+            lockedTarget = hostile;
+        else if (Vector2.Distance(transform.position, hostile.transform.position) < Vector2.Distance(transform.position, lockedTarget.transform.position))
+            lockedTarget = hostile;
     }
 
     private bool IsTargetInRange(GameObject hostile)
@@ -134,7 +140,37 @@ public class ArtilleryScript : MonoBehaviour
         {
             projectilePool[i] = Instantiate(projectile);
             projectilePool[i].transform.position = new Vector2(3, -10);
+            if (supportScript.GetImplements() != null)
+                supportScript.GetImplements().ProjectileSupport(projectilePool[i]);
             projectilePool[i].SetActive(false);
         }
+    }
+
+    private void ApplyProjectileSupport()
+    {
+        if (supportScript.GetImplements() != null)
+            for (int i = 0; i < 5; i++)
+            {
+                supportScript.GetImplements().ProjectileSupport(projectilePool[i]);
+            }
+    }
+
+    private void RemoveProjectileSupport()
+    {
+        if (supportScript.GetImplements() != null)
+            for (int i = 0; i < 5; i++)
+            {
+                supportScript.GetImplements().RemoveProjectileSupport(projectilePool[i]);
+            }
+    }
+
+    public void RemoveSupportedEffect()
+    {
+        RemoveProjectileSupport();
+    }
+
+    public void ApplySupportedEffect()
+    {
+        ApplyProjectileSupport();
     }
 }
