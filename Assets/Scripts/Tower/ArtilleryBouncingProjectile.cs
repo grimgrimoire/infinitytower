@@ -14,6 +14,7 @@ public class ArtilleryBouncingProjectile : MonoBehaviour
     bool CheckCollider=false;
     int count=0;
 
+
     // Use this for initialization
     void Start()
     {
@@ -23,13 +24,12 @@ public class ArtilleryBouncingProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, 5 * Time.deltaTime);
-        if (CheckCollider == true)
+        //transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, 5 * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, lockedTarget.transform.position, 5*Time.deltaTime);
+        /*if(transform.position == lockedTarget.transform.position)
         {
-            //Debug.Log(lockedTarget.transform.position);
-            //transform.LookAt(lockedTarget.transform.position);
-            transform.position = Vector2.MoveTowards(transform.position, lockedTarget.transform.position, Time.deltaTime);
-        }
+            FindNextTarget();
+        }*/
     }
 
     public ArtilleryBouncingProjectile SetDamageType(int damage, DamageType damageType)
@@ -53,22 +53,8 @@ public class ArtilleryBouncingProjectile : MonoBehaviour
         //StartCoroutine(Move());
     }*/
 
-    private bool IsTargetInRange(GameObject hostile)
-    {
-        if (isLeft)
-        {
-            return hostile.transform.position.x < transform.position.x && Vector2.Distance(transform.position, hostile.transform.position) < model.lockRange;
-        }
-        else
-        {
-            return hostile.transform.position.x > transform.position.x && Vector2.Distance(transform.position, hostile.transform.position) < model.lockRange;
-        }
-    }
-
     private void FindNextTarget()
     {
-        //Debug.Log(lockedTarget.transform.position);
-        //float distance = lockedTarget.transform.position.sqrMagnitude;
         float distance = Mathf.Infinity;
         count++;
         foreach (GameObject hostile in GameSystem.GetGameSystem().GetHostiles())
@@ -77,19 +63,13 @@ public class ArtilleryBouncingProjectile : MonoBehaviour
             {
                 if (hostile != lockedTarget)
                 {
-                    
-                    Vector2 diff = hostile.transform.position - transform.position;
-                    //Debug.Log(diff);
-                    float currdistance = diff.sqrMagnitude;
-                    //Debug.Log(currdistance);
-                    if (currdistance < distance)
+                    //Vector2 diff = transform.position - hostile.transform.position;
+                    //float currdistance = diff.sqrMagnitude;
+                    if (Vector2.Distance(transform.position,hostile.transform.position) < distance)
                     {
-                        Debug.Log(currdistance);
-                        //Debug.Log(hostile.transform.position);
                         lockedTarget = hostile;
-                        distance = currdistance;
-                        CheckCollider = true;
-                        
+                        distance = lockedTarget.transform.position.sqrMagnitude;
+                        Debug.Log(distance);
                     }
                 }
                 
@@ -111,7 +91,6 @@ public class ArtilleryBouncingProjectile : MonoBehaviour
             else
             {
                 gameObject.SetActive(false);
-                CheckCollider = false;
                 count = 0;
             }
 
@@ -124,14 +103,4 @@ public class ArtilleryBouncingProjectile : MonoBehaviour
         }
     }
 
-    IEnumerator Move()
-    {
-        while (Vector2.Distance(transform.position, target) > 0.05f)
-        {
-            yield return new WaitForEndOfFrame();
-            transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, 5 * Time.deltaTime);
-        }
-        gameObject.SetActive(false);
-        yield return new WaitForEndOfFrame();
-    }
 }
