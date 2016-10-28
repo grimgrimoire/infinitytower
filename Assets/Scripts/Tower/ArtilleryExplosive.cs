@@ -41,14 +41,14 @@ public class ArtilleryExplosive : MonoBehaviour
         if (collider.tag == TagsAndLayers.TAG_HOSTILE)
         {
             collider.GetComponent<HostileMainScript>().TakeDamage(damage, damageType);
-        }
-        else if (collider.tag == TagsAndLayers.TAG_WORLD)
-        {
             GameObject explosion = Instantiate(explosionPrefab);
             explosion.GetComponentInChildren<Explosion>().SetDamageType(damage, damageType);
             explosion.transform.position = transform.position;
             Destroy(explosion, 0.25f);
-            //StopAllCoroutines();
+            gameObject.SetActive(false);
+        }
+        else if (collider.tag == TagsAndLayers.TAG_WORLD)
+        {
             gameObject.SetActive(false);
         }
     }

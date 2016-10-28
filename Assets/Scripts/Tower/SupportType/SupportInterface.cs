@@ -6,3 +6,9 @@ public interface SupportInterface {
     void RemoveProjectileSupport(GameObject projectilePool);
     void ArtillerySupport();
 }
+
+
+public interface SupportUpdatedInterface{
+    void RemoveSupport();
+    void ApplySupport();
+}

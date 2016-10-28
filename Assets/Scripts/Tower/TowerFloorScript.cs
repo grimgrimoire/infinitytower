@@ -6,6 +6,7 @@ public class TowerFloorScript : MonoBehaviour
 
     ArtilleryScript leftArtillery;
     ArtilleryScript rightArtillery;
+    SupportScript supportScript;
 
     int towerHealth = 20;
 
@@ -14,6 +15,7 @@ public class TowerFloorScript : MonoBehaviour
     {
         leftArtillery = transform.GetChild(0).GetComponent<ArtilleryScript>();
         rightArtillery = transform.GetChild(1).GetComponent<ArtilleryScript>();
+        supportScript = GetComponent<SupportScript>();
     }
 
     // Update is called once per frame
@@ -32,14 +34,9 @@ public class TowerFloorScript : MonoBehaviour
         return rightArtillery;
     }
 
-    public SupportScript GetLeftSupport()
+    public SupportScript GetSupport()
     {
-        return leftArtillery.GetSupport();
-    }
-
-    public SupportScript GetRightSupport()
-    {
-        return rightArtillery.GetSupport();
+        return supportScript;
     }
 
     public void LoadTowerFloorToUI()

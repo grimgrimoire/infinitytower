@@ -60,7 +60,9 @@ public class TowerScript : MonoBehaviour, DialogInterface
     private void AddFloor()
     {
         GameObject newFloor = (GameObject)Instantiate(towerBodyPrefab, transform);
-        newFloor.transform.position = new Vector2(0, 1.68f * (transform.childCount - 2));
-        towerAddButton.transform.position = new Vector2(0, 1.68f * (transform.childCount - 2) + 1.23f);
+        //newFloor.transform.position = new Vector2(0, 1.68f * (transform.childCount - 2));
+        //towerAddButton.transform.position = new Vector2(0, 1.68f * (transform.childCount - 2) + 1.23f);
+        newFloor.transform.position = new Vector2(0, 1.02f * (transform.childCount - 2));
+        towerAddButton.transform.position = new Vector2(0, 1.02f * (transform.childCount - 2) + 1.02f);
     }
 }

@@ -5,6 +5,8 @@ public class SupportScript : MonoBehaviour {
 
     private string supportName;
     private SupportInterface implements;
+    public ArtilleryScript left;
+    public ArtilleryScript right;
 
 	// Use this for initialization
 	void Start () {
@@ -18,9 +20,13 @@ public class SupportScript : MonoBehaviour {
 
     public void SetImplements(SupportModel model)
     {
+        left.RemoveSupportedEffect();
+        right.RemoveSupportedEffect();
         supportName = model.name;
         implements = model.supportImpl;
         GetComponentInParent<TowerFloorScript>().LoadTowerFloorToUI();
+        left.ApplySupportedEffect();
+        right.ApplySupportedEffect();
     }
 
     public string getName()

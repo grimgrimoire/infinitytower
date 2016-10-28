@@ -34,11 +34,10 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler
         LoadAvailableArtilleryUpgrades();
     }
 
-    public void SetSupportToUpgrade(ArtilleryScript support)
+    public void SetSupportToUpgrade(SupportScript support)
     {
         isArtillery = false;
-        this.artillery = support;
-        this.support = support.GetSupport();
+        this.support = support;
         LoadAvailableSupportUpgrades();
     }
 
@@ -62,9 +61,7 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler
                 if (model.price < GameSystem.GetGameSystem().GetGold())
                 {
                     GameSystem.GetGameSystem().AddGold(-model.price);
-                    artillery.RemoveSupportedEffect();
                     support.SetImplements(model);
-                    artillery.ApplySupportedEffect();
                 }
             }
         }

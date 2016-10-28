@@ -17,7 +17,7 @@ public class ArtilleryScript : MonoBehaviour
     void Start()
     {
         artilleryName = "No weapon installed";
-        supportScript = GetComponent<SupportScript>();
+        supportScript = gameObject.GetComponentInParent<SupportScript>();
     }
 
     public string getName()
@@ -148,7 +148,7 @@ public class ArtilleryScript : MonoBehaviour
 
     private void ApplyProjectileSupport()
     {
-        if (supportScript.GetImplements() != null)
+        if (supportScript.GetImplements() != null && projectilePool != null)
             for (int i = 0; i < 5; i++)
             {
                 supportScript.GetImplements().ProjectileSupport(projectilePool[i]);
@@ -157,7 +157,7 @@ public class ArtilleryScript : MonoBehaviour
 
     private void RemoveProjectileSupport()
     {
-        if (supportScript.GetImplements() != null)
+        if (supportScript.GetImplements() != null && projectilePool[0] != null)
             for (int i = 0; i < 5; i++)
             {
                 supportScript.GetImplements().RemoveProjectileSupport(projectilePool[i]);

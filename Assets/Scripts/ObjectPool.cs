@@ -5,30 +5,38 @@ public class ObjectPool:MonoBehaviour {
 
     string peon1 = "Prefab/Assassin";
     string peon2 = "Prefab/Bat";
+    string peon3 = "Prefab/Spider";
+    string peon4 = "Prefab/Ninja";
+    string peon5 = "Prefab/Soldier";
 
-    GameObject[] peon1Pool;
-    GameObject[] peon2Pool;
-
-    int peon1Index = 0;
-    int peon2Index = 0;
-
-    int poolSize = 100;
+    PoolClass peon1Pool;
+    PoolClass peon2Pool;
+    PoolClass peon3Pool;
 
     public IEnumerator InitiatePooling()
     {
-        InstantiatePooling(ref peon1Pool, poolSize, peon1);
-        InstantiatePooling(ref peon2Pool, poolSize, peon2);
+        peon1Pool = new PoolClass(peon1, 30);
+        peon2Pool = new PoolClass(peon2, 40);
+        peon3Pool = new PoolClass(peon3, 10);
+        yield return peon1Pool.InitiatePooling();
+        yield return peon2Pool.InitiatePooling();
+        yield return peon3Pool.InitiatePooling();
         yield return new WaitForEndOfFrame();
     }
 
     public GameObject GetPeon1()
     {
-        return GetObjectFromPool(ref peon1Index, peon1Pool, poolSize);
+        return peon1Pool.GetFromPool();
     }
 
     public GameObject GetPeon2()
     {
-        return GetObjectFromPool(ref peon2Index, peon2Pool, poolSize);
+        return peon2Pool.GetFromPool() ;
+    }
+
+    public GameObject GetPeon3()
+    {
+        return peon3Pool.GetFromPool();
     }
 
     private GameObject GetObjectFromPool(ref int index, GameObject[] poolArray, int poolSize)
