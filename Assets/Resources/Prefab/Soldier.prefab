@@ -433,9 +433,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae584251527a5d747a6cea9a83202f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goldValue: 1
-  health: 20
-  armor: 0
+  goldValue: 2
+  health: 40
+  armor: 2
+  isGroundUnit: 1
+  isAlive: 0
 --- !u!114 &114000013727740308
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -447,8 +449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0bf0c0eef680c247a013ee5acd8a5eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigid: {fileID: 50000013787087314}
-  speed: 0.3
+  speed: 0.25
 --- !u!212 &212000010433869240
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0bf0c0eef680c247a013ee5acd8a5eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.3
+  speed: 0.4
 --- !u!114 &114000014212279408
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -178,6 +178,7 @@ MonoBehaviour:
   goldValue: 1
   health: 10
   armor: 0
+  isGroundUnit: 0
   isAlive: 0
 --- !u!212 &212000010834750032
 SpriteRenderer:

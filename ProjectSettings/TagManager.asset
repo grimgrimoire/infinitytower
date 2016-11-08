@@ -9,6 +9,7 @@ TagManager:
   - Hostile
   - Projectile
   - World
+  - Spawn
   layers:
   - Default
   - TransparentFX

@@ -8,7 +8,6 @@ public class Spawner : MonoBehaviour
 
     void Start()
     {
-        Spawn();
     }
 
     // Update is called once per frame
@@ -17,10 +16,18 @@ public class Spawner : MonoBehaviour
 
     }
 
-    public void SpawnEnemy(GameObject peon)
+    public void SpawnEnemy(GameObject peon, int goldM, float healthM)
     {
+        if (peon == null) return;
+
         peon.SetActive(true);
         peon.transform.position = transform.position;
+        peon.GetComponent<HostileMainScript>().SetHealthAndGoldMultiplier(goldM, healthM);
         peon.GetComponent<HostileMainScript>().Recycle();
+    }
+
+    public bool IsGroundSpawner()
+    {
+        return transform.position.y < -0.17f;
     }
 }

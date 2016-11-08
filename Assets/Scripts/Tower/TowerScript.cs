@@ -57,6 +57,19 @@ public class TowerScript : MonoBehaviour, DialogInterface
         }
     }
 
+    public void DestroyFloor(int index)
+    {
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            if (i != index)
+            {
+                transform.GetChild(i).transform.position = transform.GetChild(i).transform.position - new Vector3(0, 1.02f);
+            }
+        }
+        Destroy(transform.GetChild(index).gameObject);
+        ControlUI.GetUI().GetTowerInternalUI().ClearSelection();
+    }
+
     private void AddFloor()
     {
         GameObject newFloor = (GameObject)Instantiate(towerBodyPrefab, transform);
@@ -64,5 +77,6 @@ public class TowerScript : MonoBehaviour, DialogInterface
         //towerAddButton.transform.position = new Vector2(0, 1.68f * (transform.childCount - 2) + 1.23f);
         newFloor.transform.position = new Vector2(0, 1.02f * (transform.childCount - 2));
         towerAddButton.transform.position = new Vector2(0, 1.02f * (transform.childCount - 2) + 1.02f);
+        GameSystem.GetGameSystem().GetSpawnSystem().UpdateSpawnerList();
     }
 }

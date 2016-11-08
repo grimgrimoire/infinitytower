@@ -23,8 +23,4 @@ public class InfoUI : MonoBehaviour {
         this.goldText.text = "Gold: " + gold;
     }
 
-    public void UpdateTime(int time)
-    {
-        this.timerText.text = "Next Level:\n" + time;
-    }
 }

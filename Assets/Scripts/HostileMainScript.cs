@@ -12,11 +12,13 @@ public class HostileMainScript : MonoBehaviour
     public int goldValue;
     public int health;
     public ArmorType armor;
-
+    public bool isGroundUnit;
     public bool isAlive;
 
     private HostileInterface hostileInterface;
     private int initialHealth;
+    private int initialGold;
+    private int healthAfterMultiplier;
 
     // Use this for initialization
     void Start()
@@ -24,6 +26,7 @@ public class HostileMainScript : MonoBehaviour
         hostileInterface = GetComponent<HostileInterface>();
         gameObject.SetActive(false);
         initialHealth = health;
+        initialGold = goldValue;
     }
 
     void OnDestroy()
@@ -34,9 +37,15 @@ public class HostileMainScript : MonoBehaviour
     public void Recycle()
     {
         GameSystem.GetGameSystem().AddHostile(this.gameObject);
-        health = initialHealth;
+        health = healthAfterMultiplier;
         isAlive = true;
         hostileInterface.OnRecycled();
+    }
+
+    public void SetHealthAndGoldMultiplier(int goldM, float healthM)
+    {
+        healthAfterMultiplier = Mathf.RoundToInt(initialHealth * healthM);
+        goldValue = initialGold * goldM;
     }
 
     public void TakeDamage(int damage, DamageType damageType)

@@ -11,12 +11,41 @@
     public int price;
     public ArtilleryInterface shootImpl;
     public ArtilleryTargetingInterface targetingImpl;
+    public int upgradeCode = 0;
 }
 
 public class ArtilleryModelList
 {
+    const int UPGRADE_ZERO = 0;
+    const int UPGRADE_ARCHER = 1;
+    const int UPGRADE_ARCHER_HUNTER = 2;
+    const int TOTAL_ARTILLERY = 4;
 
-    public static int TOTAL_ARTILLERY = 4;
+    public static int GetTotalArtilleryUpgrade(int upgradeIndex)
+    {
+        switch (upgradeIndex)
+        {
+            case UPGRADE_ZERO:
+                return 4;
+            case UPGRADE_ARCHER:
+                return 1;
+            default:
+                return TOTAL_ARTILLERY;
+        }
+    }
+
+    public static ArtilleryModel GetArtilleryAtIndex(int index, int upgradeTree)
+    {
+        switch (upgradeTree)
+        {
+            case UPGRADE_ZERO:
+                return GetArtilleryAtIndex(index);
+            case UPGRADE_ARCHER:
+                return GetArtilleryUpgradeArcher(index);
+            default:
+                return null;
+        }
+    }
 
     public static ArtilleryModel GetArtilleryAtIndex(int index)
     {
@@ -263,13 +292,14 @@ public class ArtilleryModelList
         arrow.price = 10;
         arrow.projectilePrefabName = "prefab/arrow";
         arrow.shootImpl = new FollowedArrow(arrow);
+        arrow.upgradeCode = UPGRADE_ARCHER;
         return arrow;
     }
 
     static ArtilleryModel Hunter()
     {
         ArtilleryModel arrow = new ArtilleryModel();
-        arrow.name = "Archer";
+        arrow.name = "Hunter";
         arrow.lockRange = 3f;
         arrow.fireDelay = 0.5f;
         arrow.lockNumber = 1;

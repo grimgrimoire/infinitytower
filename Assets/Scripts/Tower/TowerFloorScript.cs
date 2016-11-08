@@ -63,6 +63,7 @@ public class TowerFloorScript : MonoBehaviour
 
     private void TowerDestroyed()
     {
-
+        GetComponentInParent<TowerScript>().DestroyFloor(transform.GetSiblingIndex());
+        GameSystem.GetGameSystem().GetSpawnSystem().RemoveSpawner(GetComponentsInChildren<Spawner>());
     }
 }

@@ -31,6 +31,7 @@ public class TowerInternalUI : MonoBehaviour {
         leftAUI.SetUnselected();
         supportUI.SetUnselected();
         rightAUI.SetUnselected();
+        towerUpgradeUI.ClearList();
     }
 
     public void SetTowerFloorScript(TowerFloorScript script)

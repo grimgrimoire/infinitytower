@@ -15,26 +15,26 @@ public class ObjectPool:MonoBehaviour {
 
     public IEnumerator InitiatePooling()
     {
-        peon1Pool = new PoolClass(peon1, 30);
-        peon2Pool = new PoolClass(peon2, 40);
-        peon3Pool = new PoolClass(peon3, 10);
+        peon1Pool = new PoolClass(peon1, 110);
+        peon2Pool = new PoolClass(peon2, 1);
+        peon3Pool = new PoolClass(peon3, 1);
         yield return peon1Pool.InitiatePooling();
         yield return peon2Pool.InitiatePooling();
         yield return peon3Pool.InitiatePooling();
         yield return new WaitForEndOfFrame();
     }
 
-    public GameObject GetPeon1()
+    public GameObject GetAssassin()
     {
         return peon1Pool.GetFromPool();
     }
 
-    public GameObject GetPeon2()
+    public GameObject GetBat()
     {
         return peon2Pool.GetFromPool() ;
     }
 
-    public GameObject GetPeon3()
+    public GameObject GetSpider()
     {
         return peon3Pool.GetFromPool();
     }

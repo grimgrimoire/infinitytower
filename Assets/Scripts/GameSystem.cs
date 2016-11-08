@@ -14,7 +14,7 @@ public class GameSystem : MonoBehaviour {
     bool isPaused;
     bool isGameStarted;
     int nextLevel;
-
+    MasterSpawner spawnSystem;
     ObjectPool objectPool;
 
 	// Use this for initialization
@@ -23,7 +23,8 @@ public class GameSystem : MonoBehaviour {
             Destroy(instance);
         instance = this;
         hostiles = new List<GameObject>();
-        objectPool = gameObject.AddComponent<ObjectPool>();
+        objectPool = GetComponent<ObjectPool>();
+        spawnSystem = GetComponent<MasterSpawner>();
         StartCoroutine(initGame());
     }
 	
@@ -42,13 +43,19 @@ public class GameSystem : MonoBehaviour {
         GameObject.FindGameObjectWithTag(TagsAndLayers.TAG_TOWER).GetComponent<TowerFloorScript>().LoadTowerFloorToUI();
         isGameStarted = true;
         isPaused = false;
+        spawnSystem.UpdateSpawnerList();
+        spawnSystem.StartSpawnEnemy();
         UpdateGoldValue();
-        StartCoroutine(CountdownNextLevelCoroutine());
     }
 
     public ObjectPool GetObjectPool()
     {
         return objectPool;
+    }
+
+    public MasterSpawner GetSpawnSystem()
+    {
+        return spawnSystem;
     }
 
     public void SetGamePaused(bool pause)
@@ -101,28 +108,9 @@ public class GameSystem : MonoBehaviour {
         infoUI.UpdateGold(gold);
     }
 
-    public void UpdateTime()
-    {
-        infoUI.UpdateTime(nextLevel);
-    }
-
     public ControlUI GetControlUI()
     {
         return controlUI;
     }
 
-    IEnumerator CountdownNextLevelCoroutine()
-    {
-        while (isGameStarted)
-        {
-            CountdownNextLevel();
-            yield return new WaitForSeconds(1);
-        }
-    }
-
-    private void CountdownNextLevel()
-    {
-        nextLevel--;
-        UpdateTime();
-    }
 }

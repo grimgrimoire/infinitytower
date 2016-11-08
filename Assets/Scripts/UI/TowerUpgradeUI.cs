@@ -48,7 +48,8 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler
         {
             if (isArtillery)
             {
-                ArtilleryModel model = ArtilleryModelList.GetArtilleryAtIndex(find.GetSiblingIndex());
+                int upgradeCode;
+                ArtilleryModel model = ArtilleryModelList.GetArtilleryAtIndex(find.GetSiblingIndex(), GetUpgradeCode());
                 if (model.price < GameSystem.GetGameSystem().GetGold())
                 {
                     GameSystem.GetGameSystem().AddGold(-model.price);
@@ -70,10 +71,18 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler
     public void LoadAvailableArtilleryUpgrades()
     {
         ClearList();
-        for (int i = 0; i < ArtilleryModelList.TOTAL_ARTILLERY; i++)
+        for (int i = 0; i < ArtilleryModelList.GetTotalArtilleryUpgrade(GetUpgradeCode()); i++)
         {
-            AddArtilleryUpgradeToList(ArtilleryModelList.GetArtilleryAtIndex(i));
+            AddArtilleryUpgradeToList(ArtilleryModelList.GetArtilleryAtIndex(i, GetUpgradeCode()));
         }
+    }
+
+    private int GetUpgradeCode()
+    {
+        if (artillery.GetModel() == null)
+            return 0;
+        else
+            return artillery.GetModel().upgradeCode;
     }
 
     public void ClearList()

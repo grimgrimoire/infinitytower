@@ -375,7 +375,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goldValue: 1
   health: 15
-  armor: 0
+  armor: 1
+  isGroundUnit: 0
   isAlive: 0
 --- !u!114 &114000014256066780
 MonoBehaviour:
@@ -388,7 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0bf0c0eef680c247a013ee5acd8a5eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.2
+  speed: 0.35
 --- !u!212 &212000010489884398
 SpriteRenderer:
   m_ObjectHideFlags: 1
