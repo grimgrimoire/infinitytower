@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: e444e90cef8cf3143ab6549ba7b197f9
-timeCreated: 1478761683
+guid: ebea6466f091d544283c53caebbe10f6
+timeCreated: 1478676346
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Sword
-    21300002: Bow
-    21300004: Spear
-    21300006: Katana
+    21300000: Icon_0
+    21300002: Icon_1
+    21300004: Icon_2
+    21300006: Icon_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -57,54 +57,54 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sword
+      name: Icon_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 94
+        width: 36
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Icon_1
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 85
+        width: 67
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Icon_2
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 90
+        width: 53
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Icon_3
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 30
-        height: 119
-      alignment: 9
-      pivot: {x: 0.5101154, y: 0.8723152}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Bow
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 11
-        width: 16
-        height: 100
+        width: 200
+        height: 81
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Spear
-      rect:
-        serializedVersion: 2
-        x: 92
-        y: 2
-        width: 8
-        height: 117
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Katana
-      rect:
-        serializedVersion: 2
-        x: 121
-        y: 3
-        width: 10
-        height: 112
-      alignment: 9
-      pivot: {x: 0.7124237, y: 0.12067197}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

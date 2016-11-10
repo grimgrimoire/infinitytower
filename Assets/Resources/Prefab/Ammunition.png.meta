@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: e444e90cef8cf3143ab6549ba7b197f9
-timeCreated: 1478761683
+guid: ba4e5b448a5b4d5459d04c43f56ee5e1
+timeCreated: 1478772281
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Sword
-    21300002: Bow
-    21300004: Spear
-    21300006: Katana
+    21300000: Ammunition_0
+    21300002: Ammunition_1
+    21300004: Ammunition_2
+    21300006: Ammunition_3
+    21300008: Ammunition_4
+    21300010: Ammunition_5
+    21300012: Ammunition_6
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -57,54 +60,93 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sword
+      name: Ammunition_0
       rect:
         serializedVersion: 2
         x: 0
+        y: 76
+        width: 121
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 52
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition_2
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 40
+        width: 25
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition_3
+      rect:
+        serializedVersion: 2
+        x: 13
         y: 0
-        width: 30
-        height: 119
-      alignment: 9
-      pivot: {x: 0.5101154, y: 0.8723152}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Bow
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 11
-        width: 16
-        height: 100
+        width: 65
+        height: 29
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Spear
+      name: Ammunition_4
       rect:
         serializedVersion: 2
-        x: 92
+        x: 81
+        y: 0
+        width: 65
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition_5
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 0
+        width: 66
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition_6
+      rect:
+        serializedVersion: 2
+        x: 218
         y: 2
-        width: 8
-        height: 117
+        width: 65
+        height: 29
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Katana
-      rect:
-        serializedVersion: 2
-        x: 121
-        y: 3
-        width: 10
-        height: 112
-      alignment: 9
-      pivot: {x: 0.7124237, y: 0.12067197}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
