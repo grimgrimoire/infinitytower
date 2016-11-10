@@ -12,6 +12,7 @@
     public ArtilleryInterface shootImpl;
     public ArtilleryTargetingInterface targetingImpl;
     public int upgradeCode = 0;
+    public int upgradeBranch;
 }
 
 public class ArtilleryModelList
@@ -19,20 +20,24 @@ public class ArtilleryModelList
     const int UPGRADE_ZERO = 0;
     const int UPGRADE_ARCHER = 1;
     const int UPGRADE_ARCHER_HUNTER = 2;
-    const int TOTAL_ARTILLERY = 4;
+    const int UPGRADE_LONGBOWMAN = 3;
+    const int UPGRADE_CROSSBOWMAN = 4;
+    const int UPGRADE_CANNON = 5;
+    const int UPGRADE_BOMBARD = 6;
+    const int UPGRADE_GUARDMAN = 7;
+    const int UPGRADE_ARTILLERYMAN = 8;
+    const int UPGRADE_GUNNER = 9;
+    const int UPGRADE_SHOOTER = 10;
+    const int UPGRADE_SNIPER = 11;
+    const int UPGRADE_GUNSLINGER = 12;
+    const int UPGRADE_MAGE = 13;
+    const int UPGRADE_SORCERER = 14;
+    const int UPGRADE_WIZARD = 15;
+    const int UPGRADE_ALCHEMIST = 16;
+    const int UPGRADE_SAGE = 17;
+    const int UPGRADE_NONE = 18;
 
-    public static int GetTotalArtilleryUpgrade(int upgradeIndex)
-    {
-        switch (upgradeIndex)
-        {
-            case UPGRADE_ZERO:
-                return 4;
-            case UPGRADE_ARCHER:
-                return 1;
-            default:
-                return TOTAL_ARTILLERY;
-        }
-    }
+    public const int TOTAL_ARTILLERY = 4;
 
     public static ArtilleryModel GetArtilleryAtIndex(int index, int upgradeTree)
     {
@@ -42,8 +47,38 @@ public class ArtilleryModelList
                 return GetArtilleryAtIndex(index);
             case UPGRADE_ARCHER:
                 return GetArtilleryUpgradeArcher(index);
+            case UPGRADE_ARCHER_HUNTER:
+                return GetArtilleryUpgradeHighArcher(index);
+            case UPGRADE_LONGBOWMAN:
+                return GetArtilleryUpgradeLongbowman(index);
+            case UPGRADE_CROSSBOWMAN:
+                return GetArtilleryUpgradeCrossbowman(index);
+            case UPGRADE_CANNON:
+                return GetArtilleryUpgradeCanon(index);
+            case UPGRADE_BOMBARD:
+                return GetArtilleryUpgradeBombardman(index);
+            case UPGRADE_ARTILLERYMAN:
+                return GetArtilleryUpgradeArtilleryman(index);
+            case UPGRADE_GUNNER:
+                return GetArtilleryUpgradeGunner(index);
+            case UPGRADE_SHOOTER:
+                return GetArtilleryUpgradeShooter(index);
+            case UPGRADE_SNIPER:
+                return GetArtilleryUpgradeSniper(index);
+            case UPGRADE_GUNSLINGER:
+                return GetArtilleryUpgradeGunslinger(index);
+            case UPGRADE_MAGE:
+                return GetArtilleryUpgradeMage(index);
+            case UPGRADE_SORCERER:
+                return GetArtilleryUpgradeSorcerer(index);
+            case UPGRADE_WIZARD:
+                return GetArtilleryUpgradeWizard(index);
+            case UPGRADE_ALCHEMIST:
+                return GetArtilleryUpgradeAlchemist(index);
+            case UPGRADE_SAGE:
+                return GetArtilleryUpgradeSage(index);
             default:
-                return null;
+                return Remove();
         }
     }
 
@@ -64,12 +99,24 @@ public class ArtilleryModelList
         }
     }
 
+    public static ArtilleryModel Remove()
+    {
+        ArtilleryModel remove = new ArtilleryModel();
+        remove.name = "No weapon installed";
+        remove.price = 0;
+        remove.upgradeCode = UPGRADE_ZERO;
+        remove.upgradeBranch = TOTAL_ARTILLERY;
+        return remove;
+    }
+
     //Archer Upgrade
     public static ArtilleryModel GetArtilleryUpgradeArcher(int index)
     {
         switch (index)
         {
             case 0:
+                return Remove();
+            case 1:
                 return Hunter();
             default:
                 return Archer();
@@ -81,8 +128,10 @@ public class ArtilleryModelList
         switch (index)
         {
             case 0:
-                return Longbowman();
+                return Remove();
             case 1:
+                return Longbowman();
+            case 2:
                 return Crossbowman();
             default:
                 return Archer();
@@ -94,6 +143,8 @@ public class ArtilleryModelList
         switch (index)
         {
             case 0:
+                return Remove();
+            case 1:
                 return HighLongbowman();
             default:
                 return Longbowman();
@@ -105,8 +156,10 @@ public class ArtilleryModelList
         switch (index)
         {
             case 0:
-                return HighCrossbowman();
+                return Remove();
             case 1:
+                return HighCrossbowman();
+            case 2:
                 return Ranger();
             default:
                 return Crossbowman();
@@ -120,6 +173,8 @@ public class ArtilleryModelList
         switch (index)
         {
             case 0:
+                return Remove();
+            case 1:
                 return Bombardman();
             default:
                 return Cannon();
@@ -131,8 +186,10 @@ public class ArtilleryModelList
         switch (index)
         {
             case 0:
-                return Guardman();
+                return Remove();
             case 1:
+                return Guardman();
+            case 2:
                 return Artilleryman();
             default:
                 return Bombardman();
@@ -144,6 +201,8 @@ public class ArtilleryModelList
         switch (index)
         {
             case 0:
+                return Remove();
+            case 1:
                 return HighGuardman();
             default:
                 return Guardman();
@@ -155,8 +214,10 @@ public class ArtilleryModelList
         switch (index)
         {
             case 0:
-                return Admiral();
+                return Remove();
             case 1:
+                return Admiral();
+            case 2:
                 return Pirate();
             default:
                 return Guardman();
@@ -171,6 +232,8 @@ public class ArtilleryModelList
         switch (index)
         {
             case 0:
+                return Remove();
+            case 1:
                 return Shooter();
             default:
                 return Gunner();
@@ -182,8 +245,10 @@ public class ArtilleryModelList
         switch (index)
         {
             case 0:
-                return Sniper();
+                return Remove();
             case 1:
+                return Sniper();
+            case 2:
                 return Gunslinger();
             default:
                 return Shooter();
@@ -195,6 +260,8 @@ public class ArtilleryModelList
         switch (index)
         {
             case 0:
+                return Remove();
+            case 1:
                 return MasterSniper();
             default:
                 return Sniper();
@@ -206,8 +273,10 @@ public class ArtilleryModelList
         switch (index)
         {
             case 0:
-                return Maniac();
+                return Remove();
             case 1:
+                return Maniac();
+            case 2:
                 return Rocketer();
             default:
                 return Gunslinger();
@@ -221,6 +290,8 @@ public class ArtilleryModelList
         switch (index)
         {
             case 0:
+                return Remove();
+            case 1:
                 return Sorcerer();
             default:
                 return Mage();
@@ -232,10 +303,12 @@ public class ArtilleryModelList
         switch (index)
         {
             case 0:
-                return Wizard();
+                return Remove();
             case 1:
-                return Alchemist();
+                return Wizard();
             case 2:
+                return Alchemist();
+            case 3:
                 return Sage();
             default:
                 return Sorcerer();
@@ -247,6 +320,8 @@ public class ArtilleryModelList
         switch (index)
         {
             case 0:
+                return Remove();
+            case 1:
                 return HighWizard();
             default:
                 return Wizard();
@@ -258,6 +333,8 @@ public class ArtilleryModelList
         switch (index)
         {
             case 0:
+                return Remove();
+            case 1:
                 return GrandAlchemist();
             default:
                 return Alchemist();
@@ -269,8 +346,10 @@ public class ArtilleryModelList
         switch (index)
         {
             case 0:
-                return Warlock();
+                return Remove();
             case 1:
+                return Warlock();
+            case 2:
                 return Shaman();
             default:
                 return Sage();
@@ -293,6 +372,7 @@ public class ArtilleryModelList
         arrow.projectilePrefabName = "prefab/arrow";
         arrow.shootImpl = new FollowedArrow(arrow);
         arrow.upgradeCode = UPGRADE_ARCHER;
+        arrow.upgradeBranch = 2;
         return arrow;
     }
 
@@ -309,6 +389,8 @@ public class ArtilleryModelList
         arrow.price = 10;
         arrow.projectilePrefabName = "prefab/arrow";
         arrow.shootImpl = new LinearProjectileArtillery(arrow);
+        arrow.upgradeCode = UPGRADE_ARCHER_HUNTER;
+        arrow.upgradeBranch = 3;
         return arrow;
     }
 
@@ -325,6 +407,8 @@ public class ArtilleryModelList
         arrow.price = 15;
         arrow.projectilePrefabName = "prefab/arrow";
         arrow.shootImpl = new LinearProjectileArtillery(arrow);
+        arrow.upgradeCode = UPGRADE_LONGBOWMAN;
+        arrow.upgradeBranch = 2;
         return arrow;
     }
 
@@ -341,6 +425,8 @@ public class ArtilleryModelList
         arrow.price = 15;
         arrow.projectilePrefabName = "prefab/arrow";
         arrow.shootImpl = new LinearProjectileArtillery(arrow);
+        arrow.upgradeCode = UPGRADE_CROSSBOWMAN;
+        arrow.upgradeBranch = 3;
         return arrow;
     }
 
@@ -357,6 +443,8 @@ public class ArtilleryModelList
         arrow.price = 15;
         arrow.projectilePrefabName = "prefab/arrow";
         arrow.shootImpl = new LinearProjectileArtillery(arrow);
+        arrow.upgradeCode = UPGRADE_NONE;
+        arrow.upgradeBranch = 1;
         return arrow;
     }
 
@@ -373,6 +461,8 @@ public class ArtilleryModelList
         arrow.price = 15;
         arrow.projectilePrefabName = "prefab/arrow";
         arrow.shootImpl = new LinearProjectileArtillery(arrow);
+        arrow.upgradeCode = UPGRADE_NONE;
+        arrow.upgradeBranch = 1;
         return arrow;
     }
 
@@ -407,6 +497,8 @@ public class ArtilleryModelList
         cannon.price = 20;
         cannon.projectilePrefabName = "prefab/CannonBall";
         cannon.shootImpl = new CannonArtillery(cannon);
+        cannon.upgradeCode = UPGRADE_CANNON;
+        cannon.upgradeBranch = 2;
         return cannon;
     }
 
@@ -423,6 +515,8 @@ public class ArtilleryModelList
         cannon.price = 20;
         cannon.projectilePrefabName = "prefab/CannonBall";
         cannon.shootImpl = new CannonArtillery(cannon);
+        cannon.upgradeCode = UPGRADE_BOMBARD;
+        cannon.upgradeBranch = 3;
         return cannon;
     }
 
@@ -439,6 +533,8 @@ public class ArtilleryModelList
         cannon.price = 20;
         cannon.projectilePrefabName = "prefab/CannonBall";
         cannon.shootImpl = new CannonArtillery(cannon);
+        cannon.upgradeCode = UPGRADE_GUARDMAN;
+        cannon.upgradeBranch = 2;
         return cannon;
     }
 
@@ -455,6 +551,8 @@ public class ArtilleryModelList
         cannon.price = 20;
         cannon.projectilePrefabName = "prefab/CannonBall";
         cannon.shootImpl = new CannonArtillery(cannon);
+        cannon.upgradeCode = UPGRADE_NONE;
+        cannon.upgradeBranch = 1;
         return cannon;
     }
 
@@ -471,6 +569,8 @@ public class ArtilleryModelList
         cannon.price = 20;
         cannon.projectilePrefabName = "prefab/CannonBall";
         cannon.shootImpl = new CannonArtillery(cannon);
+        cannon.upgradeCode = UPGRADE_ARTILLERYMAN;
+        cannon.upgradeBranch = 3;
         return cannon;
     }
 
@@ -487,6 +587,8 @@ public class ArtilleryModelList
         cannon.price = 20;
         cannon.projectilePrefabName = "prefab/CannonBall";
         cannon.shootImpl = new CannonArtillery(cannon);
+        cannon.upgradeCode = UPGRADE_NONE;
+        cannon.upgradeBranch = 1;
         return cannon;
     }
 
@@ -503,6 +605,8 @@ public class ArtilleryModelList
         cannon.price = 20;
         cannon.projectilePrefabName = "prefab/CannonBall";
         cannon.shootImpl = new CannonArtillery(cannon);
+        cannon.upgradeCode = UPGRADE_NONE;
+        cannon.upgradeBranch = 1;
         return cannon;
     }
     //end canon model
@@ -517,10 +621,12 @@ public class ArtilleryModelList
         gunner.lockNumber = 1;
         gunner.damage = 15;
         gunner.ingameModelPrefabName = "Prefab/TowerGunner";
-        gunner.damageType = DamageType.Explosive;
+        gunner.damageType = DamageType.Piercing;
         gunner.price = 20;
-        gunner.projectilePrefabName = "prefab/CannonBall 1";
-        gunner.shootImpl = new BouncingProjectile(gunner);
+        gunner.projectilePrefabName = "prefab/Bullet1";
+        gunner.shootImpl = new GunnerArtillery(gunner);
+        gunner.upgradeCode = UPGRADE_GUNNER;
+        gunner.upgradeBranch = 2;
         return gunner;
     }
 
@@ -537,6 +643,8 @@ public class ArtilleryModelList
         gunner.price = 20;
         gunner.projectilePrefabName = "prefab/CannonBall";
         gunner.shootImpl = new LinearProjectileArtillery(gunner);
+        gunner.upgradeCode = UPGRADE_SHOOTER;
+        gunner.upgradeBranch = 3;
         return gunner;
     }
 
@@ -553,6 +661,8 @@ public class ArtilleryModelList
         gunner.price = 20;
         gunner.projectilePrefabName = "prefab/CannonBall";
         gunner.shootImpl = new LinearProjectileArtillery(gunner);
+        gunner.upgradeCode = UPGRADE_SNIPER;
+        gunner.upgradeBranch = 2;
         return gunner;
     }
 
@@ -569,6 +679,8 @@ public class ArtilleryModelList
         gunner.price = 20;
         gunner.projectilePrefabName = "prefab/CannonBall";
         gunner.shootImpl = new LinearProjectileArtillery(gunner);
+        gunner.upgradeCode = UPGRADE_GUNSLINGER;
+        gunner.upgradeBranch = 3;
         return gunner;
     }
 
@@ -585,6 +697,8 @@ public class ArtilleryModelList
         gunner.price = 20;
         gunner.projectilePrefabName = "prefab/CannonBall";
         gunner.shootImpl = new LinearProjectileArtillery(gunner);
+        gunner.upgradeCode = UPGRADE_NONE;
+        gunner.upgradeBranch = 1;
         return gunner;
     }
 
@@ -601,6 +715,8 @@ public class ArtilleryModelList
         gunner.price = 20;
         gunner.projectilePrefabName = "prefab/CannonBall";
         gunner.shootImpl = new LinearProjectileArtillery(gunner);
+        gunner.upgradeCode = UPGRADE_NONE;
+        gunner.upgradeBranch = 1;
         return gunner;
     }
 
@@ -617,6 +733,8 @@ public class ArtilleryModelList
         gunner.price = 20;
         gunner.projectilePrefabName = "prefab/CannonBall";
         gunner.shootImpl = new LinearProjectileArtillery(gunner);
+        gunner.upgradeCode = UPGRADE_NONE;
+        gunner.upgradeBranch = 1;
         return gunner;
     }
     //End Gunner model
@@ -635,6 +753,8 @@ public class ArtilleryModelList
         mage.price = 15;
         mage.projectilePrefabName = "prefab/arrow";
         mage.shootImpl = new MageArtillery(mage);
+        mage.upgradeCode = UPGRADE_MAGE;
+        mage.upgradeBranch = 2;
         return mage;
     }
 
@@ -651,6 +771,8 @@ public class ArtilleryModelList
         mage.price = 15;
         mage.projectilePrefabName = "prefab/arrow";
         mage.shootImpl = new MageArtillery(mage);
+        mage.upgradeCode = UPGRADE_SORCERER;
+        mage.upgradeBranch = 3;
         return mage;
     }
 
@@ -667,6 +789,8 @@ public class ArtilleryModelList
         mage.price = 15;
         mage.projectilePrefabName = "prefab/arrow";
         mage.shootImpl = new MageArtillery(mage);
+        mage.upgradeCode = UPGRADE_WIZARD;
+        mage.upgradeBranch = 2;
         return mage;
     }
 
@@ -683,6 +807,8 @@ public class ArtilleryModelList
         mage.price = 15;
         mage.projectilePrefabName = "prefab/arrow";
         mage.shootImpl = new MageArtillery(mage);
+        mage.upgradeCode = UPGRADE_ALCHEMIST;
+        mage.upgradeBranch = 2;
         return mage;
     }
 
@@ -699,6 +825,8 @@ public class ArtilleryModelList
         mage.price = 15;
         mage.projectilePrefabName = "prefab/arrow";
         mage.shootImpl = new MageArtillery(mage);
+        mage.upgradeCode = UPGRADE_SAGE;
+        mage.upgradeBranch = 3;
         return mage;
     }
 
@@ -715,6 +843,8 @@ public class ArtilleryModelList
         mage.price = 15;
         mage.projectilePrefabName = "prefab/arrow";
         mage.shootImpl = new MageArtillery(mage);
+        mage.upgradeCode = UPGRADE_NONE;
+        mage.upgradeBranch = 1;
         return mage;
     }
 
@@ -731,6 +861,8 @@ public class ArtilleryModelList
         mage.price = 15;
         mage.projectilePrefabName = "prefab/arrow";
         mage.shootImpl = new MageArtillery(mage);
+        mage.upgradeCode = UPGRADE_NONE;
+        mage.upgradeBranch = 1;
         return mage;
     }
 
@@ -747,6 +879,8 @@ public class ArtilleryModelList
         mage.price = 15;
         mage.projectilePrefabName = "prefab/arrow";
         mage.shootImpl = new MageArtillery(mage);
+        mage.upgradeCode = UPGRADE_NONE;
+        mage.upgradeBranch = 1;
         return mage;
     }
 
@@ -763,6 +897,8 @@ public class ArtilleryModelList
         mage.price = 15;
         mage.projectilePrefabName = "prefab/arrow";
         mage.shootImpl = new MageArtillery(mage);
+        mage.upgradeCode = UPGRADE_NONE;
+        mage.upgradeBranch = 1;
         return mage;
     }
     //End Mage model

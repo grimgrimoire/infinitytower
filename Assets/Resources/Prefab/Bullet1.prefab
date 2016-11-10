@@ -22,9 +22,9 @@ GameObject:
   - 212: {fileID: 212000010891368340}
   - 50: {fileID: 50000012227133464}
   - 61: {fileID: 61000012545765470}
-  - 114: {fileID: 114000013226443670}
+  - 114: {fileID: 114000012923177774}
   m_Layer: 11
-  m_Name: CannonBall 1
+  m_Name: Bullet1
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013804264566}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.6481543, y: 0.58146024, z: 0}
+  m_LocalPosition: {x: -3.9631271, y: -0.5161123, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -73,8 +73,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 0.4}
---- !u!114 &114000013226443670
+  m_Size: {x: 0.6, y: 0.6}
+--- !u!114 &114000012923177774
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -82,10 +82,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000013804264566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2186503f05ce0540a9bcfda01aeb4c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 973794c802d27ad448feb6d235ae1e50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLeft: 0
 --- !u!212 &212000010891368340
 SpriteRenderer:
   m_ObjectHideFlags: 1

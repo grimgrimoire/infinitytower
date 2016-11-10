@@ -34,19 +34,30 @@ public class ArtilleryScript : MonoBehaviour
     {
         this.model = model;
         StopAllCoroutines();
-        artilleryName = model.name;
-        EmptyProjectilePrefab();
-        PreloadProjectile();
+        artilleryName = model.name + " " +model.upgradeCode + " " + model.upgradeBranch;
         GetComponentInParent<TowerFloorScript>().LoadTowerFloorToUI();
+        RemoveOldArtillery();
+        if(model.shootImpl != null)
+            ApplyNewArtillery();
+        System.GC.Collect();
+    }
+
+    private void RemoveOldArtillery()
+    {
+        EmptyProjectilePrefab();
         if (transform.childCount > 0)
         {
             Destroy(transform.GetChild(0).gameObject);
         }
+    }
+
+    private void ApplyNewArtillery()
+    {
+        PreloadProjectile();
         GameObject graphics = (GameObject)Instantiate(Resources.Load(model.ingameModelPrefabName, typeof(GameObject)) as GameObject, transform);
         graphics.transform.localPosition = Vector3.zero;
         if (isLeft)
             graphics.transform.localScale = new Vector3(-graphics.transform.localScale.x, graphics.transform.localScale.y, graphics.transform.localScale.z);
-        System.GC.Collect();
         StartCoroutine(shootTarget());
     }
 

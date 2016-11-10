@@ -54,6 +54,7 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler
                 {
                     GameSystem.GetGameSystem().AddGold(-model.price);
                     artillery.SetModel(model);
+                    LoadAvailableArtilleryUpgrades();
                 }
             }
             else
@@ -71,7 +72,7 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler
     public void LoadAvailableArtilleryUpgrades()
     {
         ClearList();
-        for (int i = 0; i < ArtilleryModelList.GetTotalArtilleryUpgrade(GetUpgradeCode()); i++)
+        for (int i = 0; i < GetUpgradeBranches(); i++)
         {
             AddArtilleryUpgradeToList(ArtilleryModelList.GetArtilleryAtIndex(i, GetUpgradeCode()));
         }
@@ -83,6 +84,14 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler
             return 0;
         else
             return artillery.GetModel().upgradeCode;
+    }
+
+    private int GetUpgradeBranches()
+    {
+        if (artillery.GetModel() == null)
+            return ArtilleryModelList.TOTAL_ARTILLERY;
+        else
+            return artillery.GetModel().upgradeBranch;
     }
 
     public void ClearList()
