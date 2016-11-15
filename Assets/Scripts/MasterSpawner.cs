@@ -12,7 +12,7 @@ public class MasterSpawner : MonoBehaviour
 
     int waveLevel = 1;
 
-    int waveNumber = 20;
+    int waveNumber = 40;
     float healthMultiplier = 1.0f;
     int goldMultiplier = 1;
 
@@ -61,7 +61,7 @@ public class MasterSpawner : MonoBehaviour
         while (number > 0)
         {
             number--;
-            spawnerList[Random.Range(0, spawnerList.Count)].SpawnEnemy(pool.GetAssassin(), goldMultiplier, healthMultiplier);
+            spawnerList[Random.Range(0, spawnerList.Count)].SpawnEnemy(pool.GetSpider(), goldMultiplier, healthMultiplier);
             yield return new WaitForSeconds(Random.Range(0f, 1f));
         }
     }

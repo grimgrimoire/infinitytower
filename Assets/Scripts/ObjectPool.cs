@@ -9,18 +9,26 @@ public class ObjectPool:MonoBehaviour {
     string peon4 = "Prefab/Ninja";
     string peon5 = "Prefab/Soldier";
 
+    string explosion = "Prefab/Explosion";
+
     PoolClass peon1Pool;
     PoolClass peon2Pool;
     PoolClass peon3Pool;
+    PoolClass peon4Pool;
+    PoolClass explosionPool;
 
     public IEnumerator InitiatePooling()
     {
-        peon1Pool = new PoolClass(peon1, 110);
-        peon2Pool = new PoolClass(peon2, 1);
-        peon3Pool = new PoolClass(peon3, 1);
+        peon1Pool = new PoolClass(peon1, 50);
+        peon2Pool = new PoolClass(peon2, 100);
+        peon3Pool = new PoolClass(peon3, 100);
+        peon4Pool = new PoolClass(peon4, 100);
+        explosionPool = new PoolClass(explosion, 15);
         yield return peon1Pool.InitiatePooling();
         yield return peon2Pool.InitiatePooling();
         yield return peon3Pool.InitiatePooling();
+        yield return peon4Pool.InitiatePooling();
+        yield return explosionPool.InitiatePooling();
         yield return new WaitForEndOfFrame();
     }
 
@@ -37,6 +45,11 @@ public class ObjectPool:MonoBehaviour {
     public GameObject GetSpider()
     {
         return peon3Pool.GetFromPool();
+    }
+
+    public GameObject GetExplosion()
+    {
+        return explosionPool.GetFromPool();
     }
 
     private GameObject GetObjectFromPool(ref int index, GameObject[] poolArray, int poolSize)

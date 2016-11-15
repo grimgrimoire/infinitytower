@@ -362,15 +362,15 @@ public class ArtilleryModelList
     {
         ArtilleryModel arrow = new ArtilleryModel();
         arrow.name = "Archer";
-        arrow.lockRange = 3f;
-        arrow.fireDelay = 0.5f;
+        arrow.lockRange = 6f;
+        arrow.fireDelay = 1.5f;
         arrow.lockNumber = 1;
-        arrow.damage = 10;
+        arrow.damage = 40;
         arrow.ingameModelPrefabName = "Prefab/TowerArcher";
         arrow.damageType = DamageType.Piercing;
         arrow.price = 10;
         arrow.projectilePrefabName = "prefab/arrow";
-        arrow.shootImpl = new FollowedArrow(arrow);
+        arrow.shootImpl = new LinearProjectileArtillery(arrow);
         arrow.upgradeCode = UPGRADE_ARCHER;
         arrow.upgradeBranch = 2;
         return arrow;
@@ -489,9 +489,9 @@ public class ArtilleryModelList
         ArtilleryModel cannon = new ArtilleryModel();
         cannon.name = "Cannoner";
         cannon.lockRange = 6f;
-        cannon.fireDelay = 5f;
+        cannon.fireDelay = 3f;
         cannon.lockNumber = 1;
-        cannon.damage = 15;
+        cannon.damage = 20;
         cannon.ingameModelPrefabName = "Prefab/TowerCannon";
         cannon.damageType = DamageType.Explosive;
         cannon.price = 20;

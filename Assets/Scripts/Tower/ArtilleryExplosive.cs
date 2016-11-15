@@ -38,19 +38,20 @@ public class ArtilleryExplosive : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.tag == TagsAndLayers.TAG_HOSTILE)
+        if (collider.tag == TagsAndLayers.TAG_HOSTILE || collider.tag == TagsAndLayers.TAG_WORLD)
         {
-            collider.GetComponent<HostileMainScript>().TakeDamage(damage, damageType);
-            GameObject explosion = Instantiate(explosionPrefab);
-            explosion.GetComponentInChildren<Explosion>().SetDamageType(damage, damageType);
+            //collider.GetComponent<HostileMainScript>().TakeDamage(damage, damageType);
+            GameObject explosion = GameSystem.GetGameSystem().GetObjectPool().GetExplosion();
+            explosion.SetActive(true);
+            explosion.GetComponent<Explosion>().SetDamageType(damage, damageType);
             explosion.transform.position = transform.position;
-            Destroy(explosion, 0.25f);
             gameObject.SetActive(false);
         }
-        else if (collider.tag == TagsAndLayers.TAG_WORLD)
-        {
-            gameObject.SetActive(false);
-        }
+    }
+
+    void DismisExplosion(GameObject explosion)
+    {
+        explosion.SetActive(false);
     }
 
     //IEnumerator Move()

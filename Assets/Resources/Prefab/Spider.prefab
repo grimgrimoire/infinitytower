@@ -88,9 +88,9 @@ GameObject:
   - 114: {fileID: 114000014256066780}
   - 61: {fileID: 61000011153368560}
   - 50: {fileID: 50000013447452654}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spider
-  m_TagString: Untagged
+  m_TagString: Hostile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -184,7 +184,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.46607375, y: 0.69875133, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2.3049574}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 7.0252647}
   m_Children: []
   m_Father: {fileID: 4000012538810116}
   m_RootOrder: 0
@@ -197,7 +197,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.27746964, y: -0.16965431, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1.0004537}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -4.4843493}
   m_Children:
   - {fileID: 4000011440035868}
   m_Father: {fileID: 4000012192818096}
@@ -211,7 +211,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.2921226, y: 0.6547775, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.4875824}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 10.501422}
   m_Children: []
   m_Father: {fileID: 4000012953479948}
   m_RootOrder: 0
@@ -224,7 +224,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.4510002, y: 0.694, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -8.292376}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -23.13118}
   m_Children: []
   m_Father: {fileID: 4000010879988682}
   m_RootOrder: 0
@@ -237,7 +237,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.22846985, y: -0.1336543, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.5263388}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 7.4787116}
   m_Children:
   - {fileID: 4000013244988712}
   m_Father: {fileID: 4000012192818096}
@@ -268,7 +268,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.021530151, y: -0.1686543, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1.1318126}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.85085106}
   m_Children:
   - {fileID: 4000010404309630}
   m_Father: {fileID: 4000012192818096}
@@ -282,7 +282,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.043469906, y: -0.1306543, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 5.323814}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 14.329827}
   m_Children:
   - {fileID: 4000011330336942}
   m_Father: {fileID: 4000012192818096}
@@ -296,7 +296,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.283, y: 0.676, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -3.4326005}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -9.236211}
   m_Children: []
   m_Father: {fileID: 4000011924608590}
   m_RootOrder: 0
@@ -307,7 +307,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012094257836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.8970327, y: -0.044293955, z: 0.09082031}
+  m_LocalPosition: {x: -1.5445379, y: -0.72274053, z: 0.09082031}
   m_LocalScale: {x: 0.2546611, y: 0.25466105, z: 0.25466105}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -357,7 +357,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: c4cee0cf34ee59a4bb20f1dd22afd311, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -374,9 +374,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goldValue: 1
-  health: 15
+  health: 50
   armor: 1
-  isGroundUnit: 0
+  isGroundUnit: 1
   isAlive: 0
 --- !u!114 &114000014256066780
 MonoBehaviour:
