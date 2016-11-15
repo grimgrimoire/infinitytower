@@ -70,6 +70,8 @@ public class HostileMainScript : MonoBehaviour
                 return CalculatePiercing();
             case DamageType.Explosive:
                 return CalculateExplosive();
+            case DamageType.Impact:
+                return CalculateImpact();
             case DamageType.Magic:
                 return CalculateMagic();
             default:
@@ -79,20 +81,25 @@ public class HostileMainScript : MonoBehaviour
 
     private float CalculatePiercing()
     {
-        return GetDamageMultiplicationTable(1, 1, 1);
+        return GetDamageMultiplicationTable(1.5f, 0.75f, 0.75f, 1.25f);
     }
 
     private float CalculateExplosive()
     {
-        return GetDamageMultiplicationTable(1, 1, 1);
+        return GetDamageMultiplicationTable(1.25f, 0, 0.5f, 50f);
+    }
+
+    private float CalculateImpact()
+    {
+        return GetDamageMultiplicationTable(1, 1, 1, 1);
     }
 
     private float CalculateMagic()
     {
-        return GetDamageMultiplicationTable(1, 1, 1);
+        return GetDamageMultiplicationTable(1, 1, 1, 1);
     }
 
-    private float GetDamageMultiplicationTable(float lightArmor, float MediumArmor, float heavyArmor)
+    private float GetDamageMultiplicationTable(float lightArmor, float MediumArmor, float heavyArmor, float noArmor)
     {
         switch (armor)
         {
@@ -102,6 +109,8 @@ public class HostileMainScript : MonoBehaviour
                 return MediumArmor;
             case ArmorType.Heavy:
                 return heavyArmor;
+            case ArmorType.NoArmor:
+                return noArmor;
             default:
                 return 0;
         }

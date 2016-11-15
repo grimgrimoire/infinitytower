@@ -1,9 +1,9 @@
 ﻿public enum ArmorType
 {
-    Light, Medium, Heavy
+    NoArmor, Light, Medium, Heavy
 }
 
 public enum DamageType
 {
-    Piercing, Explosive, Bullet, Magic
+    Piercing, Impact, Magic, Explosive
 }

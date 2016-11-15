@@ -52,9 +52,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000012838740400}
-  m_Layer: 0
+  - 50: {fileID: 50000013674361310}
+  - 114: {fileID: 114000013277753228}
+  - 114: {fileID: 114000012794404160}
+  - 61: {fileID: 61000012222464008}
+  m_Layer: 10
   m_Name: Zapelin
-  m_TagString: Untagged
+  m_TagString: Hostile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013942640768}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.612, y: 1.138, z: -1.4873047}
+  m_LocalPosition: {x: -1.755, y: -0.019383013, z: -1.4873047}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -100,6 +104,37 @@ Transform:
   - {fileID: 4000010749488274}
   m_Father: {fileID: 4000012838740400}
   m_RootOrder: 0
+--- !u!50 &50000013674361310
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013942640768}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &61000012222464008
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013942640768}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.020587087, y: 0.017419994}
+  serializedVersion: 2
+  m_Size: {x: 0.9524913, y: 0.31270754}
 --- !u!95 &95000013029839606
 Animator:
   serializedVersion: 3
@@ -117,6 +152,34 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000012794404160
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013942640768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae584251527a5d747a6cea9a83202f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldValue: 0
+  health: 0
+  armor: 0
+  isGroundUnit: 0
+  isAlive: 0
+--- !u!114 &114000013277753228
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013942640768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0bf0c0eef680c247a013ee5acd8a5eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
 --- !u!212 &212000011647548768
 SpriteRenderer:
   m_ObjectHideFlags: 1
