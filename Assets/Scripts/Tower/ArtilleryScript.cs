@@ -34,10 +34,10 @@ public class ArtilleryScript : MonoBehaviour
     {
         this.model = model;
         StopAllCoroutines();
-        artilleryName = model.name + " " +model.upgradeCode + " " + model.upgradeBranch;
+        artilleryName = model.name + " " + model.upgradeCode + " " + model.upgradeBranch;
         GetComponentInParent<TowerFloorScript>().LoadTowerFloorToUI();
         RemoveOldArtillery();
-        if(model.shootImpl != null)
+        if (model.shootImpl != null)
             ApplyNewArtillery();
         System.GC.Collect();
     }
@@ -159,7 +159,7 @@ public class ArtilleryScript : MonoBehaviour
 
     private void ApplyProjectileSupport()
     {
-        if (supportScript.GetImplements() != null && projectilePool != null)
+        if (projectilePool != null)
             for (int i = 0; i < 5; i++)
             {
                 supportScript.GetImplements().ProjectileSupport(projectilePool[i]);
@@ -168,7 +168,7 @@ public class ArtilleryScript : MonoBehaviour
 
     private void RemoveProjectileSupport()
     {
-        if (supportScript.GetImplements() != null && projectilePool[0] != null)
+        if (projectilePool[0] != null)
             for (int i = 0; i < 5; i++)
             {
                 supportScript.GetImplements().RemoveProjectileSupport(projectilePool[i]);
@@ -177,11 +177,19 @@ public class ArtilleryScript : MonoBehaviour
 
     public void RemoveSupportedEffect()
     {
-        RemoveProjectileSupport();
+        if (supportScript.GetImplements() != null)
+        {
+            RemoveProjectileSupport();
+            supportScript.GetImplements().RemoveArtillerySupport(model);
+        }
     }
 
     public void ApplySupportedEffect()
     {
-        ApplyProjectileSupport();
+        if (supportScript.GetImplements() != null)
+        {
+            ApplyProjectileSupport();
+            supportScript.GetImplements().ApplyArtillerySupport(model);
+        }
     }
 }

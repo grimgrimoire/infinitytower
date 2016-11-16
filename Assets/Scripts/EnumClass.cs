@@ -7,3 +7,8 @@ public enum DamageType
 {
     Piercing, Impact, Magic, Explosive
 }
+
+public enum CorpsePrefab
+{
+    Blood, Explosion
+}

@@ -4,7 +4,8 @@ using System.Collections;
 public interface SupportInterface {
     void ProjectileSupport(GameObject projectilePool);
     void RemoveProjectileSupport(GameObject projectilePool);
-    void ArtillerySupport();
+    void ApplyArtillerySupport(ArtilleryModel model);
+    void RemoveArtillerySupport(ArtilleryModel model);
 }
 
 

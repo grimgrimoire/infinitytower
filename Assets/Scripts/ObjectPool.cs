@@ -10,12 +10,14 @@ public class ObjectPool:MonoBehaviour {
     string peon5 = "Prefab/Soldier";
 
     string explosion = "Prefab/Explosion";
+    string blood = "Prefab/Blood";
 
     PoolClass peon1Pool;
     PoolClass peon2Pool;
     PoolClass peon3Pool;
     PoolClass peon4Pool;
     PoolClass explosionPool;
+    PoolClass bloodPool;
 
     public IEnumerator InitiatePooling()
     {
@@ -24,11 +26,13 @@ public class ObjectPool:MonoBehaviour {
         peon3Pool = new PoolClass(peon3, 100);
         peon4Pool = new PoolClass(peon4, 100);
         explosionPool = new PoolClass(explosion, 15);
+        bloodPool = new PoolClass(blood, 30);
         yield return peon1Pool.InitiatePooling();
         yield return peon2Pool.InitiatePooling();
         yield return peon3Pool.InitiatePooling();
         yield return peon4Pool.InitiatePooling();
         yield return explosionPool.InitiatePooling();
+        yield return bloodPool.InitiatePooling();
         yield return new WaitForEndOfFrame();
     }
 
@@ -50,6 +54,11 @@ public class ObjectPool:MonoBehaviour {
     public GameObject GetExplosion()
     {
         return explosionPool.GetFromPool();
+    }
+
+    public GameObject GetBlood()
+    {
+        return bloodPool.GetFromPool();
     }
 
     private GameObject GetObjectFromPool(ref int index, GameObject[] poolArray, int poolSize)

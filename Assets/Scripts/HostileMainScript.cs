@@ -14,6 +14,7 @@ public class HostileMainScript : MonoBehaviour
     public ArmorType armor;
     public bool isGroundUnit;
     public bool isAlive;
+    public CorpsePrefab corpse;
 
     private HostileInterface hostileInterface;
     private int initialHealth;
@@ -130,6 +131,17 @@ public class HostileMainScript : MonoBehaviour
         GameSystem.GetGameSystem().RemoveHostile(this.gameObject);
         isAlive = false;
         hostileInterface.OnKilled();
+        ShowCorpse();
         gameObject.SetActive(false);
+    }
+
+    private void ShowCorpse()
+    {
+        if(corpse == CorpsePrefab.Blood)
+        {
+            GameObject blood = GameSystem.GetGameSystem().GetObjectPool().GetBlood();
+            blood.transform.position = transform.position;
+            blood.SetActive(true);
+        }
     }
 }

@@ -12,7 +12,7 @@ public class SupportModel
 public class SupportModelList
 {
 
-    public static int TOTAL_SUPPORT = 2;
+    public static int TOTAL_SUPPORT = 3;
 
     public static SupportModel GetSupportAtIndex(int i)
     {
@@ -20,6 +20,10 @@ public class SupportModelList
         {
             case 0:
                 return Empty();
+            case 1:
+                return SlowDebuffSupport();
+            case 2:
+                return DamageBuff();
             default:
                 return SlowDebuffSupport();
         }
@@ -39,6 +43,15 @@ public class SupportModelList
         model.name = "Slow debuff";
         model.price = 15;
         model.supportImpl = new SlowDebuffSupport();
+        return model;
+    }
+
+    public static SupportModel DamageBuff()
+    {
+        SupportModel model = new SupportModel();
+        model.name = "Damage buff";
+        model.price = 15;
+        model.supportImpl = new DamageBuffSupport();
         return model;
     }
 }
