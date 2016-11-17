@@ -70,7 +70,7 @@ public class ArtilleryScript : MonoBehaviour
     {
         while (true)
         {
-            if (lockedTarget == null || !lockedTarget.activeSelf)
+            if (lockedTarget == null || !lockedTarget.GetComponent<HostileMainScript>().isAlive)
             {
                 FindNewTarget();
             }
@@ -146,8 +146,8 @@ public class ArtilleryScript : MonoBehaviour
     private void PreloadProjectile()
     {
         projectile = Resources.Load(model.projectilePrefabName, typeof(GameObject)) as GameObject;
-        projectilePool = new GameObject[5];
-        for (int i = 0; i < 5; i++)
+        projectilePool = new GameObject[model.poolSize];
+        for (int i = 0; i < model.poolSize; i++)
         {
             projectilePool[i] = Instantiate(projectile);
             projectilePool[i].transform.position = new Vector2(3, -10);
@@ -160,7 +160,7 @@ public class ArtilleryScript : MonoBehaviour
     private void ApplyProjectileSupport()
     {
         if (projectilePool != null)
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < model.poolSize; i++)
             {
                 supportScript.GetImplements().ProjectileSupport(projectilePool[i]);
             }
@@ -169,7 +169,7 @@ public class ArtilleryScript : MonoBehaviour
     private void RemoveProjectileSupport()
     {
         if (projectilePool[0] != null)
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < model.poolSize; i++)
             {
                 supportScript.GetImplements().RemoveProjectileSupport(projectilePool[i]);
             }

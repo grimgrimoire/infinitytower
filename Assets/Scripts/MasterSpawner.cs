@@ -5,21 +5,23 @@ using System.Collections.Generic;
 public class MasterSpawner : MonoBehaviour
 {
 
-    static int MAX_WAVENUMER = 100;
+    static int MAX_WAVENUMER = 150;
 
-    List<Spawner> spawnerList;
+    List<Spawner> leftSpawnerList;
+    List<Spawner> rightSpawnerList;
     ObjectPool pool;
 
     int waveLevel = 1;
 
-    int waveNumber = 40;
+    int waveNumber = 10;
     float healthMultiplier = 1.0f;
     int goldMultiplier = 1;
 
     // Use this for initialization
     void Start()
     {
-        spawnerList = new List<Spawner>();
+        leftSpawnerList = new List<Spawner>();
+        rightSpawnerList = new List<Spawner>();
         pool = GetComponent<ObjectPool>();
     }
 
@@ -61,34 +63,56 @@ public class MasterSpawner : MonoBehaviour
         while (number > 0)
         {
             number--;
-            spawnerList[Random.Range(0, spawnerList.Count)].SpawnEnemy(pool.GetSpider(), goldMultiplier, healthMultiplier);
+            leftSpawnerList[Random.Range(0, leftSpawnerList.Count)].SpawnEnemy(GetUnit(), goldMultiplier, healthMultiplier);
+            rightSpawnerList[Random.Range(0, rightSpawnerList.Count)].SpawnEnemy(GetUnit(), goldMultiplier, healthMultiplier);
             yield return new WaitForSeconds(Random.Range(0f, 1f));
+        }
+    }
+
+    private GameObject GetUnit()
+    {
+        switch(Random.Range(0, 2))
+        {
+            case 0:
+                return GameSystem.GetGameSystem().GetObjectPool().GetSpider();
+            case 1:
+                return GameSystem.GetGameSystem().GetObjectPool().GetAssassin();
+            default:
+                return GameSystem.GetGameSystem().GetObjectPool().GetSpider();
         }
     }
 
     private void CalculateWaveLevel()
     {
         waveLevel++;
-
+        if (waveNumber < MAX_WAVENUMER)
+            waveNumber++;
+        healthMultiplier *= 1.1f;
     }
 
     public void RemoveSpawner(Spawner[] spawnList)
     {
         foreach (Spawner spawn in spawnList)
         {
-            spawnerList.Remove(spawn);
+            if (spawn.isLeft)
+                leftSpawnerList.Remove(spawn);
+            else
+                rightSpawnerList.Remove(spawn);
         }
-        Debug.Log("Updating spawner list size " + spawnerList.Count);
+        Debug.Log("Updating spawner list size " + leftSpawnerList.Count);
     }
 
     public void UpdateSpawnerList()
     {
-        spawnerList.Clear();
+        leftSpawnerList.Clear();
+        rightSpawnerList.Clear();
         GameObject[] items = GameObject.FindGameObjectsWithTag(TagsAndLayers.TAG_SPAWNER);
         foreach (GameObject obj in items)
         {
-            spawnerList.Add(obj.GetComponent<Spawner>());
+            if (obj.GetComponent<Spawner>().isLeft)
+                leftSpawnerList.Add(obj.GetComponent<Spawner>());
+            else
+                rightSpawnerList.Add(obj.GetComponent<Spawner>());
         }
-        Debug.Log("Updating spawner list size " + spawnerList.Count);
     }
 }

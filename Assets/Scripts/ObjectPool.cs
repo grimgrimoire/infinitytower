@@ -3,14 +3,14 @@ using System.Collections;
 
 public class ObjectPool:MonoBehaviour {
 
-    string peon1 = "Prefab/Assassin";
-    string peon2 = "Prefab/Bat";
-    string peon3 = "Prefab/Spider";
-    string peon4 = "Prefab/Ninja";
-    string peon5 = "Prefab/Soldier";
+    string peon1 = "Prefab/EnemyUnit/Assassin";
+    string peon2 = "Prefab/EnemyUnit/Bat";
+    string peon3 = "Prefab/EnemyUnit/Spider";
+    string peon4 = "Prefab/EnemyUnit/Ninja";
+    string peon5 = "Prefab/EnemyUnit/Soldier";
 
-    string explosion = "Prefab/Explosion";
-    string blood = "Prefab/Blood";
+    string explosion = "Prefab/Projectile/Explosion";
+    string blood = "Prefab/DeadEffect/Blood";
 
     PoolClass peon1Pool;
     PoolClass peon2Pool;
@@ -21,7 +21,7 @@ public class ObjectPool:MonoBehaviour {
 
     public IEnumerator InitiatePooling()
     {
-        peon1Pool = new PoolClass(peon1, 50);
+        peon1Pool = new PoolClass(peon1, 100);
         peon2Pool = new PoolClass(peon2, 100);
         peon3Pool = new PoolClass(peon3, 100);
         peon4Pool = new PoolClass(peon4, 100);

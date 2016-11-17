@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public interface HostileInterface
 {
@@ -15,16 +16,21 @@ public class HostileMainScript : MonoBehaviour
     public bool isGroundUnit;
     public bool isAlive;
     public CorpsePrefab corpse;
+    public float inactiveDelay;
+    public Animator animator;
 
     private HostileInterface hostileInterface;
     private int initialHealth;
     private int initialGold;
     private int healthAfterMultiplier;
+    private Transform healthBar;
+    private float speed = 1;
 
     // Use this for initialization
     void Start()
     {
         hostileInterface = GetComponent<HostileInterface>();
+        healthBar = transform.FindChild("HealthBar");
         gameObject.SetActive(false);
         initialHealth = health;
         initialGold = goldValue;
@@ -35,10 +41,23 @@ public class HostileMainScript : MonoBehaviour
 
     }
 
+    public float GetSpeed()
+    {
+        return speed;
+    }
+
+    public void SetSpeed(float speed)
+    {
+        this.speed = speed;
+    }
+
     public void Recycle()
     {
+        if (corpse == CorpsePrefab.Animation)
+            animator.Play("Walk");
         GameSystem.GetGameSystem().AddHostile(this.gameObject);
         health = healthAfterMultiplier;
+        healthBar.localScale = new Vector3(1, 0.2f, 1);
         isAlive = true;
         hostileInterface.OnRecycled();
     }
@@ -52,15 +71,17 @@ public class HostileMainScript : MonoBehaviour
     public void TakeDamage(int damage, DamageType damageType)
     {
         health -= Mathf.RoundToInt(CalculateDamageMultiplication(damageType) * damage);
+        healthBar.localScale = new Vector3((health / (float)healthAfterMultiplier), 0.2f, 1);
         if (health <= 0)
         {
+            healthBar.localScale = Vector3.zero;
             Killed();
         }
     }
 
-    public void SetBuff()
+    public void SetBuff(BuffScript buff)
     {
-
+        StartCoroutine(buff.BuffEffectRoutine(this));
     }
 
     private float CalculateDamageMultiplication(DamageType damageType)
@@ -87,7 +108,7 @@ public class HostileMainScript : MonoBehaviour
 
     private float CalculateExplosive()
     {
-        return GetDamageMultiplicationTable(1.25f, 0, 0.5f, 50f);
+        return GetDamageMultiplicationTable(1.25f, 1, 0.5f, 50f);
     }
 
     private float CalculateImpact()
@@ -132,16 +153,31 @@ public class HostileMainScript : MonoBehaviour
         isAlive = false;
         hostileInterface.OnKilled();
         ShowCorpse();
-        gameObject.SetActive(false);
     }
 
     private void ShowCorpse()
     {
-        if(corpse == CorpsePrefab.Blood)
+        if (corpse == CorpsePrefab.Blood)
         {
             GameObject blood = GameSystem.GetGameSystem().GetObjectPool().GetBlood();
             blood.transform.position = transform.position;
             blood.SetActive(true);
+            gameObject.SetActive(false);
         }
+        else if (corpse == CorpsePrefab.Animation)
+        {
+            animator.Play("Dead");
+            StartCoroutine(InactiveDelay());
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    IEnumerator InactiveDelay()
+    {
+        yield return new WaitForSeconds(inactiveDelay);
+        gameObject.SetActive(false);
     }
 }

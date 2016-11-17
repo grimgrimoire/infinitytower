@@ -16,7 +16,7 @@ public class LinearProjectileArtillery : ArtilleryInterface
     IEnumerator ArtilleryInterface.ShootAtTarget(GameObject target, GameObject artillery, GameObject[] projectilePrefab)
     {
         counter = 0;
-        while (projectilePrefab[poolIndex].activeSelf && counter < 5)
+        while (projectilePrefab[poolIndex].activeSelf && counter < model.poolSize)
         {
             poolIndex = (poolIndex + 1) % 5;
             counter++;
@@ -26,7 +26,7 @@ public class LinearProjectileArtillery : ArtilleryInterface
         projectilePrefab[poolIndex].GetComponent<ArtilleryProjectile>()
             .SetDamageType(model.damage, model.damageType)
             .SetTarget(target.transform.position);
-        poolIndex = (poolIndex + 1) % 5;
+        poolIndex = (poolIndex + 1) % model.poolSize;
         yield return null;
     }
 }

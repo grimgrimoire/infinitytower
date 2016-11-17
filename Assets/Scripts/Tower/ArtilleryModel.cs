@@ -13,6 +13,7 @@
     public ArtilleryTargetingInterface targetingImpl;
     public int upgradeCode = 0;
     public int upgradeBranch;
+    public int poolSize = 5;
 }
 
 public class ArtilleryModelList
@@ -36,6 +37,13 @@ public class ArtilleryModelList
     const int UPGRADE_ALCHEMIST = 16;
     const int UPGRADE_SAGE = 17;
     const int UPGRADE_NONE = 18;
+
+    const string PATH_ARCHER = "Prefab/TowerUnit/Archer/";
+    const string PATH_CANNON = "Prefab/TowerUnit/Cannon/";
+    const string PATH_GUNNER = "Prefab/TowerUnit/Gunner/";
+    const string PATH_MAGE = "Prefab/TowerUnit/Mage/";
+
+    const string PATH_PROJECTILE = "Prefab/Projectile/";
 
     public const int TOTAL_ARTILLERY = 4;
 
@@ -366,10 +374,10 @@ public class ArtilleryModelList
         arrow.fireDelay = 1.5f;
         arrow.lockNumber = 1;
         arrow.damage = 40;
-        arrow.ingameModelPrefabName = "Prefab/TowerArcher";
+        arrow.ingameModelPrefabName = PATH_ARCHER + "TowerArcher";
         arrow.damageType = DamageType.Piercing;
         arrow.price = 10;
-        arrow.projectilePrefabName = "prefab/arrow";
+        arrow.projectilePrefabName = PATH_PROJECTILE + "arrow";
         arrow.shootImpl = new LinearProjectileArtillery(arrow);
         arrow.upgradeCode = UPGRADE_ARCHER;
         arrow.upgradeBranch = 2;
@@ -387,7 +395,7 @@ public class ArtilleryModelList
         arrow.ingameModelPrefabName = "Prefab/TowerArcher";
         arrow.damageType = DamageType.Piercing;
         arrow.price = 10;
-        arrow.projectilePrefabName = "prefab/arrow";
+        arrow.projectilePrefabName = PATH_PROJECTILE + "arrow";
         arrow.shootImpl = new LinearProjectileArtillery(arrow);
         arrow.upgradeCode = UPGRADE_ARCHER_HUNTER;
         arrow.upgradeBranch = 3;
@@ -405,7 +413,7 @@ public class ArtilleryModelList
         arrow.ingameModelPrefabName = "Prefab/TowerArcher";
         arrow.damageType = DamageType.Piercing;
         arrow.price = 15;
-        arrow.projectilePrefabName = "prefab/arrow";
+        arrow.projectilePrefabName = PATH_PROJECTILE + "arrow";
         arrow.shootImpl = new LinearProjectileArtillery(arrow);
         arrow.upgradeCode = UPGRADE_LONGBOWMAN;
         arrow.upgradeBranch = 2;
@@ -423,7 +431,7 @@ public class ArtilleryModelList
         arrow.ingameModelPrefabName = "Prefab/TowerArcher";
         arrow.damageType = DamageType.Piercing;
         arrow.price = 15;
-        arrow.projectilePrefabName = "prefab/arrow";
+        arrow.projectilePrefabName = PATH_PROJECTILE + "arrow";
         arrow.shootImpl = new LinearProjectileArtillery(arrow);
         arrow.upgradeCode = UPGRADE_CROSSBOWMAN;
         arrow.upgradeBranch = 3;
@@ -441,7 +449,7 @@ public class ArtilleryModelList
         arrow.ingameModelPrefabName = "Prefab/TowerArcher";
         arrow.damageType = DamageType.Piercing;
         arrow.price = 15;
-        arrow.projectilePrefabName = "prefab/arrow";
+        arrow.projectilePrefabName = PATH_PROJECTILE + "arrow";
         arrow.shootImpl = new LinearProjectileArtillery(arrow);
         arrow.upgradeCode = UPGRADE_NONE;
         arrow.upgradeBranch = 1;
@@ -459,7 +467,7 @@ public class ArtilleryModelList
         arrow.ingameModelPrefabName = "Prefab/TowerArcher";
         arrow.damageType = DamageType.Piercing;
         arrow.price = 15;
-        arrow.projectilePrefabName = "prefab/arrow";
+        arrow.projectilePrefabName = PATH_PROJECTILE + "arrow";
         arrow.shootImpl = new LinearProjectileArtillery(arrow);
         arrow.upgradeCode = UPGRADE_NONE;
         arrow.upgradeBranch = 1;
@@ -477,7 +485,7 @@ public class ArtilleryModelList
         arrow.ingameModelPrefabName = "Prefab/TowerArcher";
         arrow.damageType = DamageType.Piercing;
         arrow.price = 15;
-        arrow.projectilePrefabName = "prefab/arrow";
+        arrow.projectilePrefabName = PATH_PROJECTILE + "arrow";
         arrow.shootImpl = new LinearProjectileArtillery(arrow);
         return arrow;
     }
@@ -491,11 +499,11 @@ public class ArtilleryModelList
         cannon.lockRange = 6f;
         cannon.fireDelay = 3f;
         cannon.lockNumber = 1;
-        cannon.damage = 20;
-        cannon.ingameModelPrefabName = "Prefab/TowerCannon";
+        cannon.damage = 30;
+        cannon.ingameModelPrefabName = PATH_CANNON + "TowerCannon";
         cannon.damageType = DamageType.Explosive;
         cannon.price = 20;
-        cannon.projectilePrefabName = "prefab/CannonBall";
+        cannon.projectilePrefabName = PATH_PROJECTILE + "cannonball";
         cannon.shootImpl = new CannonArtillery(cannon);
         cannon.upgradeCode = UPGRADE_CANNON;
         cannon.upgradeBranch = 2;
@@ -513,7 +521,7 @@ public class ArtilleryModelList
         cannon.ingameModelPrefabName = "Prefab/TowerCannon";
         cannon.damageType = DamageType.Explosive;
         cannon.price = 20;
-        cannon.projectilePrefabName = "prefab/CannonBall";
+        cannon.projectilePrefabName = PATH_PROJECTILE + "cannonball";
         cannon.shootImpl = new CannonArtillery(cannon);
         cannon.upgradeCode = UPGRADE_BOMBARD;
         cannon.upgradeBranch = 3;
@@ -531,7 +539,7 @@ public class ArtilleryModelList
         cannon.ingameModelPrefabName = "Prefab/TowerCannon";
         cannon.damageType = DamageType.Explosive;
         cannon.price = 20;
-        cannon.projectilePrefabName = "prefab/CannonBall";
+        cannon.projectilePrefabName = PATH_PROJECTILE + "cannonball";
         cannon.shootImpl = new CannonArtillery(cannon);
         cannon.upgradeCode = UPGRADE_GUARDMAN;
         cannon.upgradeBranch = 2;
@@ -549,7 +557,7 @@ public class ArtilleryModelList
         cannon.ingameModelPrefabName = "Prefab/TowerCannon";
         cannon.damageType = DamageType.Explosive;
         cannon.price = 20;
-        cannon.projectilePrefabName = "prefab/CannonBall";
+        cannon.projectilePrefabName = PATH_PROJECTILE + "cannonball";
         cannon.shootImpl = new CannonArtillery(cannon);
         cannon.upgradeCode = UPGRADE_NONE;
         cannon.upgradeBranch = 1;
@@ -567,7 +575,7 @@ public class ArtilleryModelList
         cannon.ingameModelPrefabName = "Prefab/TowerCannon";
         cannon.damageType = DamageType.Explosive;
         cannon.price = 20;
-        cannon.projectilePrefabName = "prefab/CannonBall";
+        cannon.projectilePrefabName = PATH_PROJECTILE + "cannonball";
         cannon.shootImpl = new CannonArtillery(cannon);
         cannon.upgradeCode = UPGRADE_ARTILLERYMAN;
         cannon.upgradeBranch = 3;
@@ -585,7 +593,7 @@ public class ArtilleryModelList
         cannon.ingameModelPrefabName = "Prefab/TowerCannon";
         cannon.damageType = DamageType.Explosive;
         cannon.price = 20;
-        cannon.projectilePrefabName = "prefab/CannonBall";
+        cannon.projectilePrefabName = PATH_PROJECTILE + "cannonball";
         cannon.shootImpl = new CannonArtillery(cannon);
         cannon.upgradeCode = UPGRADE_NONE;
         cannon.upgradeBranch = 1;
@@ -603,7 +611,7 @@ public class ArtilleryModelList
         cannon.ingameModelPrefabName = "Prefab/TowerCannon";
         cannon.damageType = DamageType.Explosive;
         cannon.price = 20;
-        cannon.projectilePrefabName = "prefab/CannonBall";
+        cannon.projectilePrefabName = PATH_PROJECTILE + "cannonball";
         cannon.shootImpl = new CannonArtillery(cannon);
         cannon.upgradeCode = UPGRADE_NONE;
         cannon.upgradeBranch = 1;
@@ -616,14 +624,14 @@ public class ArtilleryModelList
     {
         ArtilleryModel gunner = new ArtilleryModel();
         gunner.name = "Gunner";
-        gunner.lockRange = 6f;
-        gunner.fireDelay = 4f;
+        gunner.lockRange = 7f;
+        gunner.fireDelay = 3f;
         gunner.lockNumber = 1;
-        gunner.damage = 15;
-        gunner.ingameModelPrefabName = "Prefab/TowerGunner";
+        gunner.damage = 50;
+        gunner.ingameModelPrefabName = PATH_GUNNER + "TowerGunner";
         gunner.damageType = DamageType.Piercing;
         gunner.price = 20;
-        gunner.projectilePrefabName = "prefab/Bullet1";
+        gunner.projectilePrefabName = PATH_PROJECTILE + "Bullet1";
         gunner.shootImpl = new GunnerArtillery(gunner);
         gunner.upgradeCode = UPGRADE_GUNNER;
         gunner.upgradeBranch = 2;
@@ -635,16 +643,17 @@ public class ArtilleryModelList
         ArtilleryModel gunner = new ArtilleryModel();
         gunner.name = "Shooter";
         gunner.lockRange = 6f;
-        gunner.fireDelay = 5f;
+        gunner.fireDelay = 0.016f;
         gunner.lockNumber = 1;
-        gunner.damage = 15;
-        gunner.ingameModelPrefabName = "Prefab/TowerGunner";
-        gunner.damageType = DamageType.Explosive;
+        gunner.damage = 5;
+        gunner.ingameModelPrefabName = PATH_GUNNER + "Maniac";
+        gunner.damageType = DamageType.Piercing;
         gunner.price = 20;
-        gunner.projectilePrefabName = "prefab/CannonBall";
+        gunner.projectilePrefabName = PATH_PROJECTILE + "Bullet1";
         gunner.shootImpl = new LinearProjectileArtillery(gunner);
         gunner.upgradeCode = UPGRADE_SHOOTER;
         gunner.upgradeBranch = 3;
+        gunner.poolSize = 50;
         return gunner;
     }
 
@@ -659,7 +668,7 @@ public class ArtilleryModelList
         gunner.ingameModelPrefabName = "Prefab/TowerGunner";
         gunner.damageType = DamageType.Explosive;
         gunner.price = 20;
-        gunner.projectilePrefabName = "prefab/CannonBall";
+        gunner.projectilePrefabName = PATH_PROJECTILE + "cannonball";
         gunner.shootImpl = new LinearProjectileArtillery(gunner);
         gunner.upgradeCode = UPGRADE_SNIPER;
         gunner.upgradeBranch = 2;
@@ -677,7 +686,7 @@ public class ArtilleryModelList
         gunner.ingameModelPrefabName = "Prefab/TowerGunner";
         gunner.damageType = DamageType.Explosive;
         gunner.price = 20;
-        gunner.projectilePrefabName = "prefab/CannonBall";
+        gunner.projectilePrefabName = PATH_PROJECTILE + "cannonball";
         gunner.shootImpl = new LinearProjectileArtillery(gunner);
         gunner.upgradeCode = UPGRADE_GUNSLINGER;
         gunner.upgradeBranch = 3;
@@ -695,7 +704,7 @@ public class ArtilleryModelList
         gunner.ingameModelPrefabName = "Prefab/TowerGunner";
         gunner.damageType = DamageType.Explosive;
         gunner.price = 20;
-        gunner.projectilePrefabName = "prefab/CannonBall";
+        gunner.projectilePrefabName = PATH_PROJECTILE + "cannonball";
         gunner.shootImpl = new LinearProjectileArtillery(gunner);
         gunner.upgradeCode = UPGRADE_NONE;
         gunner.upgradeBranch = 1;
@@ -713,7 +722,7 @@ public class ArtilleryModelList
         gunner.ingameModelPrefabName = "Prefab/TowerGunner";
         gunner.damageType = DamageType.Explosive;
         gunner.price = 20;
-        gunner.projectilePrefabName = "prefab/CannonBall";
+        gunner.projectilePrefabName = PATH_PROJECTILE + "cannonball";
         gunner.shootImpl = new LinearProjectileArtillery(gunner);
         gunner.upgradeCode = UPGRADE_NONE;
         gunner.upgradeBranch = 1;
@@ -731,7 +740,7 @@ public class ArtilleryModelList
         gunner.ingameModelPrefabName = "Prefab/TowerGunner";
         gunner.damageType = DamageType.Explosive;
         gunner.price = 20;
-        gunner.projectilePrefabName = "prefab/CannonBall";
+        gunner.projectilePrefabName = PATH_PROJECTILE + "cannonball";
         gunner.shootImpl = new LinearProjectileArtillery(gunner);
         gunner.upgradeCode = UPGRADE_NONE;
         gunner.upgradeBranch = 1;
@@ -748,10 +757,10 @@ public class ArtilleryModelList
         mage.fireDelay = 2f;
         mage.lockNumber = 1;
         mage.damage = 20;
-        mage.ingameModelPrefabName = "Prefab/TowerMage";
+        mage.ingameModelPrefabName = PATH_MAGE + "TowerMage";
         mage.damageType = DamageType.Magic;
         mage.price = 15;
-        mage.projectilePrefabName = "prefab/arrow";
+        mage.projectilePrefabName = PATH_PROJECTILE + "ArcaneBall";
         mage.shootImpl = new MageArtillery(mage);
         mage.upgradeCode = UPGRADE_MAGE;
         mage.upgradeBranch = 2;
@@ -769,7 +778,7 @@ public class ArtilleryModelList
         mage.ingameModelPrefabName = "Prefab/TowerMage";
         mage.damageType = DamageType.Magic;
         mage.price = 15;
-        mage.projectilePrefabName = "prefab/arrow";
+        mage.projectilePrefabName = PATH_PROJECTILE + "arrow";
         mage.shootImpl = new MageArtillery(mage);
         mage.upgradeCode = UPGRADE_SORCERER;
         mage.upgradeBranch = 3;
@@ -787,7 +796,7 @@ public class ArtilleryModelList
         mage.ingameModelPrefabName = "Prefab/TowerMage";
         mage.damageType = DamageType.Magic;
         mage.price = 15;
-        mage.projectilePrefabName = "prefab/arrow";
+        mage.projectilePrefabName = PATH_PROJECTILE + "arrow";
         mage.shootImpl = new MageArtillery(mage);
         mage.upgradeCode = UPGRADE_WIZARD;
         mage.upgradeBranch = 2;
@@ -805,7 +814,7 @@ public class ArtilleryModelList
         mage.ingameModelPrefabName = "Prefab/TowerMage";
         mage.damageType = DamageType.Magic;
         mage.price = 15;
-        mage.projectilePrefabName = "prefab/arrow";
+        mage.projectilePrefabName = PATH_PROJECTILE + "arrow";
         mage.shootImpl = new MageArtillery(mage);
         mage.upgradeCode = UPGRADE_ALCHEMIST;
         mage.upgradeBranch = 2;
@@ -823,7 +832,7 @@ public class ArtilleryModelList
         mage.ingameModelPrefabName = "Prefab/TowerMage";
         mage.damageType = DamageType.Magic;
         mage.price = 15;
-        mage.projectilePrefabName = "prefab/arrow";
+        mage.projectilePrefabName = PATH_PROJECTILE + "arrow";
         mage.shootImpl = new MageArtillery(mage);
         mage.upgradeCode = UPGRADE_SAGE;
         mage.upgradeBranch = 3;
@@ -841,7 +850,7 @@ public class ArtilleryModelList
         mage.ingameModelPrefabName = "Prefab/TowerMage";
         mage.damageType = DamageType.Magic;
         mage.price = 15;
-        mage.projectilePrefabName = "prefab/arrow";
+        mage.projectilePrefabName = PATH_PROJECTILE + "arrow";
         mage.shootImpl = new MageArtillery(mage);
         mage.upgradeCode = UPGRADE_NONE;
         mage.upgradeBranch = 1;
@@ -859,7 +868,7 @@ public class ArtilleryModelList
         mage.ingameModelPrefabName = "Prefab/TowerMage";
         mage.damageType = DamageType.Magic;
         mage.price = 15;
-        mage.projectilePrefabName = "prefab/arrow";
+        mage.projectilePrefabName = PATH_PROJECTILE + "arrow";
         mage.shootImpl = new MageArtillery(mage);
         mage.upgradeCode = UPGRADE_NONE;
         mage.upgradeBranch = 1;
@@ -877,7 +886,7 @@ public class ArtilleryModelList
         mage.ingameModelPrefabName = "Prefab/TowerMage";
         mage.damageType = DamageType.Magic;
         mage.price = 15;
-        mage.projectilePrefabName = "prefab/arrow";
+        mage.projectilePrefabName = PATH_PROJECTILE + "arrow";
         mage.shootImpl = new MageArtillery(mage);
         mage.upgradeCode = UPGRADE_NONE;
         mage.upgradeBranch = 1;
@@ -895,7 +904,7 @@ public class ArtilleryModelList
         mage.ingameModelPrefabName = "Prefab/TowerMage";
         mage.damageType = DamageType.Magic;
         mage.price = 15;
-        mage.projectilePrefabName = "prefab/arrow";
+        mage.projectilePrefabName = PATH_PROJECTILE + "arrow";
         mage.shootImpl = new MageArtillery(mage);
         mage.upgradeCode = UPGRADE_NONE;
         mage.upgradeBranch = 1;
