@@ -17,14 +17,11 @@ public class MageArtillery : ArtilleryInterface {
     {
         Shoot(target, artillery, projectilePrefab);
         //yield return new WaitForSeconds(0.2f);
-        Shoot(target, artillery, projectilePrefab);
-        Shoot(target, artillery, projectilePrefab);
         yield return null;
     }
 
     private void Shoot(GameObject target, GameObject artillery, GameObject[] projectilePrefab)
     {
-        Vector2 newTarget = (Vector2)target.transform.position + (UnityEngine.Random.insideUnitCircle * 0.1f);
         counter = 0;
         while (projectilePrefab[poolIndex].activeSelf && counter < 5)
         {
@@ -35,7 +32,7 @@ public class MageArtillery : ArtilleryInterface {
         projectilePrefab[poolIndex].transform.position = artillery.transform.position;
         projectilePrefab[poolIndex].GetComponent<ArtilleryProjectile>()
             .SetDamageType(model.damage, model.damageType)
-            .SetTarget(newTarget);
+            .SetTarget(target.transform.position);
         poolIndex = (poolIndex + 1) % 5;
     }
 }

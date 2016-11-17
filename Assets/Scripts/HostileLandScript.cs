@@ -42,7 +42,8 @@ public class HostileLandScript : MonoBehaviour, HostileInterface
 
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, new Vector2(0, transform.position.y), Time.deltaTime * speed);
+        if(mainScript.isAlive)
+           transform.position = Vector2.MoveTowards(transform.position, new Vector2(0, transform.position.y), Time.deltaTime * speed * mainScript.GetSpeed());
     }
 
 }

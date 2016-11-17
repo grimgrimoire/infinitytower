@@ -6,6 +6,8 @@ using System;
 public class Spawner : MonoBehaviour
 {
 
+    public bool isLeft;
+
     void Start()
     {
     }

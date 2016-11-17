@@ -21,6 +21,22 @@ GameObject:
   - 4: {fileID: 4000011427970698}
   - 114: {fileID: 114000013914986542}
   m_Layer: 0
+  m_Name: Spawner (1)
+  m_TagString: Spawn
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1000011702696592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000011900130458}
+  - 114: {fileID: 114000011453449886}
+  m_Layer: 0
   m_Name: Spawner
   m_TagString: Spawn
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -98,6 +114,19 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010530240062}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.72, y: -0.431, z: 0.091796875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000013649565590}
+  m_RootOrder: 3
+--- !u!4 &4000011900130458
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011702696592}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -10.78, y: -0.431, z: 0.091796875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -117,6 +146,7 @@ Transform:
   m_Children:
   - {fileID: 4000013935541448}
   - {fileID: 4000010251643672}
+  - {fileID: 4000011900130458}
   - {fileID: 4000011427970698}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -172,6 +202,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   left: {fileID: 114000013273746890}
   right: {fileID: 114000010307847396}
+--- !u!114 &114000011453449886
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011702696592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e4f09d778425334a85aba6c4cb6d4b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLeft: 1
 --- !u!114 &114000012047460370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -206,6 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4f09d778425334a85aba6c4cb6d4b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLeft: 1
 --- !u!212 &212000013366643634
 SpriteRenderer:
   m_ObjectHideFlags: 1

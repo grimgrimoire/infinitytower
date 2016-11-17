@@ -213,7 +213,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 5562a272256b9d44e8026720fbd699c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -242,9 +242,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -0.14786816}
+  m_Offset: {x: 0, y: -0.3380952}
   serializedVersion: 2
-  m_Size: {x: 2.0300002, y: 1.3642637}
+  m_Size: {x: 2.0300002, y: 0.9838095}
 --- !u!50 &48382542
 Rigidbody2D:
   serializedVersion: 2
@@ -416,10 +416,6 @@ Prefab:
     - target: {fileID: 4000010661598850, guid: 051088197c87b7346941a14084b63922, type: 2}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000014106442596, guid: 051088197c87b7346941a14084b63922, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 051088197c87b7346941a14084b63922, type: 2}
@@ -1119,6 +1115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4f09d778425334a85aba6c4cb6d4b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLeft: 1
 --- !u!4 &500026653
 Transform:
   m_ObjectHideFlags: 0
@@ -1281,6 +1278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4f09d778425334a85aba6c4cb6d4b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLeft: 1
 --- !u!4 &575842960
 Transform:
   m_ObjectHideFlags: 0
@@ -1321,6 +1319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4f09d778425334a85aba6c4cb6d4b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLeft: 0
 --- !u!4 &607528670
 Transform:
   m_ObjectHideFlags: 0
@@ -1361,6 +1360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4f09d778425334a85aba6c4cb6d4b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLeft: 0
 --- !u!4 &706355626
 Transform:
   m_ObjectHideFlags: 0
@@ -1713,6 +1713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4f09d778425334a85aba6c4cb6d4b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLeft: 1
 --- !u!4 &1027213138
 Transform:
   m_ObjectHideFlags: 0
@@ -1838,11 +1839,6 @@ Prefab:
     - target: {fileID: 4000013347042346, guid: 13f0154d7b2523148a358c850b664dd8, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 61000013417755598, guid: 13f0154d7b2523148a358c850b664dd8,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 13f0154d7b2523148a358c850b664dd8, type: 2}
@@ -2519,6 +2515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4f09d778425334a85aba6c4cb6d4b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLeft: 0
 --- !u!4 &1416573602
 Transform:
   m_ObjectHideFlags: 0
@@ -2990,6 +2987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4f09d778425334a85aba6c4cb6d4b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLeft: 1
 --- !u!4 &1758827880
 Transform:
   m_ObjectHideFlags: 0
@@ -3313,6 +3311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4f09d778425334a85aba6c4cb6d4b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLeft: 0
 --- !u!4 &1799871651
 Transform:
   m_ObjectHideFlags: 0
@@ -3500,16 +3499,6 @@ Prefab:
     - target: {fileID: 4000011024282658, guid: b2ef69ce37f54004db9c58e851f3a95a, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 50000013787087314, guid: b2ef69ce37f54004db9c58e851f3a95a,
-        type: 2}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 61000011870639034, guid: b2ef69ce37f54004db9c58e851f3a95a,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2ef69ce37f54004db9c58e851f3a95a, type: 2}
