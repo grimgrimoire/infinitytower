@@ -49,7 +49,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Body/UpperFrontLeg
+    path: UpperFrontLeg
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -96,7 +96,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Body/UpperMiddleFrontLeg
+    path: UpperMiddleFrontLeg
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -133,7 +133,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Body/UpperMiddleBackLeg
+    path: UpperMiddleBackLeg
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -180,7 +180,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Body/UpperBackLeg
+    path: UpperBackLeg
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -212,7 +212,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Body/UpperFrontLeg/LowerFrontLeg
+    path: UpperFrontLeg/LowerFrontLeg
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -249,7 +249,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Body/UpperMiddleBackLeg/LowerMiddleBackLeg
+    path: UpperMiddleBackLeg/LowerMiddleBackLeg
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -281,7 +281,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Body/UpperMiddleFrontLeg/LowerMiddleFrontLeg
+    path: UpperMiddleFrontLeg/LowerMiddleFrontLeg
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -313,7 +313,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: Body/UpperBackLeg/LowerBackLeg
+    path: UpperBackLeg/LowerBackLeg
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves: []
@@ -325,49 +325,49 @@ AnimationClip:
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
     genericBindings:
-    - path: 1375294759
+    - path: 889611069
       attribute: 4
       script: {fileID: 0}
       classID: 4
       customType: 14
       isPPtrCurve: 0
-    - path: 2471913679
+    - path: 2392940825
       attribute: 4
       script: {fileID: 0}
       classID: 4
       customType: 14
       isPPtrCurve: 0
-    - path: 1408114998
+    - path: 334992166
       attribute: 4
       script: {fileID: 0}
       classID: 4
       customType: 14
       isPPtrCurve: 0
-    - path: 724332170
+    - path: 3216159891
       attribute: 4
       script: {fileID: 0}
       classID: 4
       customType: 14
       isPPtrCurve: 0
-    - path: 3355761521
+    - path: 218733483
       attribute: 4
       script: {fileID: 0}
       classID: 4
       customType: 14
       isPPtrCurve: 0
-    - path: 1118254028
+    - path: 3508964022
       attribute: 4
       script: {fileID: 0}
       classID: 4
       customType: 14
       isPPtrCurve: 0
-    - path: 754892659
+    - path: 1267971750
       attribute: 4
       script: {fileID: 0}
       classID: 4
       customType: 14
       isPPtrCurve: 0
-    - path: 1897090999
+    - path: 3073101001
       attribute: 4
       script: {fileID: 0}
       classID: 4
@@ -432,7 +432,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Body/UpperFrontLeg
+    path: UpperFrontLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -472,7 +472,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Body/UpperFrontLeg
+    path: UpperFrontLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -512,7 +512,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Body/UpperFrontLeg
+    path: UpperFrontLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -562,7 +562,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Body/UpperMiddleFrontLeg
+    path: UpperMiddleFrontLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -612,7 +612,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Body/UpperMiddleFrontLeg
+    path: UpperMiddleFrontLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -662,7 +662,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Body/UpperMiddleFrontLeg
+    path: UpperMiddleFrontLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -702,7 +702,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Body/UpperMiddleBackLeg
+    path: UpperMiddleBackLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -742,7 +742,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Body/UpperMiddleBackLeg
+    path: UpperMiddleBackLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -782,7 +782,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Body/UpperMiddleBackLeg
+    path: UpperMiddleBackLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -832,7 +832,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Body/UpperBackLeg
+    path: UpperBackLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -882,7 +882,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Body/UpperBackLeg
+    path: UpperBackLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -932,7 +932,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Body/UpperBackLeg
+    path: UpperBackLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -967,7 +967,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Body/UpperFrontLeg/LowerFrontLeg
+    path: UpperFrontLeg/LowerFrontLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1002,7 +1002,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Body/UpperFrontLeg/LowerFrontLeg
+    path: UpperFrontLeg/LowerFrontLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1037,7 +1037,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Body/UpperFrontLeg/LowerFrontLeg
+    path: UpperFrontLeg/LowerFrontLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1077,7 +1077,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Body/UpperMiddleBackLeg/LowerMiddleBackLeg
+    path: UpperMiddleBackLeg/LowerMiddleBackLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1117,7 +1117,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Body/UpperMiddleBackLeg/LowerMiddleBackLeg
+    path: UpperMiddleBackLeg/LowerMiddleBackLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1157,7 +1157,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Body/UpperMiddleBackLeg/LowerMiddleBackLeg
+    path: UpperMiddleBackLeg/LowerMiddleBackLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1192,7 +1192,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Body/UpperMiddleFrontLeg/LowerMiddleFrontLeg
+    path: UpperMiddleFrontLeg/LowerMiddleFrontLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1227,7 +1227,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Body/UpperMiddleFrontLeg/LowerMiddleFrontLeg
+    path: UpperMiddleFrontLeg/LowerMiddleFrontLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1262,7 +1262,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Body/UpperMiddleFrontLeg/LowerMiddleFrontLeg
+    path: UpperMiddleFrontLeg/LowerMiddleFrontLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1297,7 +1297,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: Body/UpperBackLeg/LowerBackLeg
+    path: UpperBackLeg/LowerBackLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1332,7 +1332,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: Body/UpperBackLeg/LowerBackLeg
+    path: UpperBackLeg/LowerBackLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1367,7 +1367,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: Body/UpperBackLeg/LowerBackLeg
+    path: UpperBackLeg/LowerBackLeg
     classID: 4
     script: {fileID: 0}
   m_EulerEditorCurves:
@@ -1378,7 +1378,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Body/UpperFrontLeg/LowerFrontLeg
+    path: UpperBackLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1388,7 +1388,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Body/UpperFrontLeg/LowerFrontLeg
+    path: UpperBackLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1398,7 +1398,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Body/UpperFrontLeg/LowerFrontLeg
+    path: UpperBackLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1408,7 +1408,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Body/UpperBackLeg/LowerBackLeg
+    path: UpperMiddleFrontLeg/LowerMiddleFrontLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1418,7 +1418,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Body/UpperBackLeg/LowerBackLeg
+    path: UpperMiddleFrontLeg/LowerMiddleFrontLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1428,7 +1428,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Body/UpperBackLeg/LowerBackLeg
+    path: UpperMiddleFrontLeg/LowerMiddleFrontLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1438,7 +1438,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Body/UpperBackLeg
+    path: UpperMiddleBackLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1448,7 +1448,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Body/UpperBackLeg
+    path: UpperMiddleBackLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1458,7 +1458,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Body/UpperBackLeg
+    path: UpperMiddleBackLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1468,7 +1468,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Body/UpperMiddleFrontLeg
+    path: UpperFrontLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1478,7 +1478,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Body/UpperMiddleFrontLeg
+    path: UpperFrontLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1488,7 +1488,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Body/UpperMiddleFrontLeg
+    path: UpperFrontLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1498,7 +1498,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Body/UpperMiddleBackLeg/LowerMiddleBackLeg
+    path: UpperFrontLeg/LowerFrontLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1508,7 +1508,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Body/UpperMiddleBackLeg/LowerMiddleBackLeg
+    path: UpperFrontLeg/LowerFrontLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1518,7 +1518,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Body/UpperMiddleBackLeg/LowerMiddleBackLeg
+    path: UpperFrontLeg/LowerFrontLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1528,7 +1528,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Body/UpperMiddleBackLeg
+    path: UpperMiddleFrontLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1538,7 +1538,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Body/UpperMiddleBackLeg
+    path: UpperMiddleFrontLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1548,7 +1548,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Body/UpperMiddleBackLeg
+    path: UpperMiddleFrontLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1558,7 +1558,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Body/UpperFrontLeg
+    path: UpperMiddleBackLeg/LowerMiddleBackLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1568,7 +1568,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Body/UpperFrontLeg
+    path: UpperMiddleBackLeg/LowerMiddleBackLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1578,7 +1578,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Body/UpperFrontLeg
+    path: UpperMiddleBackLeg/LowerMiddleBackLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1588,7 +1588,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Body/UpperMiddleFrontLeg/LowerMiddleFrontLeg
+    path: UpperBackLeg/LowerBackLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1598,7 +1598,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Body/UpperMiddleFrontLeg/LowerMiddleFrontLeg
+    path: UpperBackLeg/LowerBackLeg
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1608,7 +1608,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Body/UpperMiddleFrontLeg/LowerMiddleFrontLeg
+    path: UpperBackLeg/LowerBackLeg
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
