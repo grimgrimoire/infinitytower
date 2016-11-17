@@ -168,7 +168,7 @@ public class ArtilleryScript : MonoBehaviour
 
     private void RemoveProjectileSupport()
     {
-        if (projectilePool[0] != null)
+        if (projectilePool != null)
             for (int i = 0; i < model.poolSize; i++)
             {
                 supportScript.GetImplements().RemoveProjectileSupport(projectilePool[i]);

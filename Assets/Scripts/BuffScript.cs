@@ -1,13 +1,44 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class BuffScript{
+public abstract class BuffScript
+{
+    float duration;
 
-    public IEnumerator BuffEffectRoutine(HostileMainScript script)
+    public void GetBuff(HostileMainScript script)
+    {
+        Debug.Log(script.IsAlreadyHasBuff(GetBuffTag()));
+        if (!script.IsAlreadyHasBuff(GetBuffTag()))
+        {
+            if (!IsStackable())
+            {
+                script.AddBuffTag(this);
+            }
+            duration = Duration();
+            script.StartCoroutine(BuffEffectRoutine(script));
+        }
+        else if (!IsStackable() && script.IsAlreadyHasBuff(GetBuffTag()))
+        {
+            script.ResetBuffDuration(GetBuffTag());
+        }
+    }
+
+    private IEnumerator BuffEffectRoutine(HostileMainScript script)
     {
         BuffEffect(script);
-        yield return new WaitForSeconds(Duration());
+        while (duration > 0)
+        {
+            duration -= Time.deltaTime;
+            yield return null;
+        }
         RemoveBuffEffect(script);
+        if (!IsStackable())
+            script.RemoveBuffTag(GetBuffTag());
+    }
+
+    public void ResetDuration()
+    {
+        duration = Duration();
     }
 
     public abstract void BuffEffect(HostileMainScript hostile);
@@ -15,4 +46,8 @@ public abstract class BuffScript{
     public abstract void RemoveBuffEffect(HostileMainScript hostile);
 
     public abstract float Duration();
+
+    public abstract string GetBuffTag();
+
+    public abstract bool IsStackable();
 }

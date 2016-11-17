@@ -108,6 +108,11 @@ public class GameSystem : MonoBehaviour {
         infoUI.UpdateGold(gold);
     }
 
+    public void UpdateWave(int wave)
+    {
+        infoUI.UpdateWave(wave);
+    }
+
     public ControlUI GetControlUI()
     {
         return controlUI;

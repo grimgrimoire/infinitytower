@@ -4,8 +4,11 @@ using UnityEngine.UI;
 
 public class InfoUI : MonoBehaviour {
 
+    const string WAVE = "Wave: ";
+    const string GOLD = "Gold: ";
+
     public Text goldText;
-    public Text levelText;
+    public Text waveText;
     public Text timerText;
 
 	// Use this for initialization
@@ -20,7 +23,12 @@ public class InfoUI : MonoBehaviour {
 
     public void UpdateGold(int gold)
     {
-        this.goldText.text = "Gold: " + gold;
+        this.goldText.text = GOLD + gold;
+    }
+
+    public void UpdateWave(int wave)
+    {
+        this.waveText.text = WAVE + wave;
     }
 
 }

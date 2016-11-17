@@ -13,8 +13,8 @@ public class MasterSpawner : MonoBehaviour
 
     int waveLevel = 1;
 
-    int waveNumber = 10;
-    float healthMultiplier = 1.0f;
+    int waveNumber = 15;
+    float healthMultiplier = 10f;
     int goldMultiplier = 1;
 
     // Use this for initialization
@@ -74,11 +74,11 @@ public class MasterSpawner : MonoBehaviour
         switch(Random.Range(0, 2))
         {
             case 0:
-                return GameSystem.GetGameSystem().GetObjectPool().GetSpider();
-            case 1:
-                return GameSystem.GetGameSystem().GetObjectPool().GetAssassin();
+            //    return GameSystem.GetGameSystem().GetObjectPool().GetSpider();
+            //case 1:
+            //    return GameSystem.GetGameSystem().GetObjectPool().GetAssassin();
             default:
-                return GameSystem.GetGameSystem().GetObjectPool().GetSpider();
+                return GameSystem.GetGameSystem().GetObjectPool().GetAssassin();
         }
     }
 
@@ -88,6 +88,7 @@ public class MasterSpawner : MonoBehaviour
         if (waveNumber < MAX_WAVENUMER)
             waveNumber++;
         healthMultiplier *= 1.1f;
+        GameSystem.GetGameSystem().UpdateWave(waveLevel);
     }
 
     public void RemoveSpawner(Spawner[] spawnList)

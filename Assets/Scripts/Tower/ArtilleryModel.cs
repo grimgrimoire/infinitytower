@@ -388,11 +388,11 @@ public class ArtilleryModelList
     {
         ArtilleryModel arrow = new ArtilleryModel();
         arrow.name = "Hunter";
-        arrow.lockRange = 3f;
-        arrow.fireDelay = 0.5f;
+        arrow.lockRange = 6f;
+        arrow.fireDelay = 1f;
         arrow.lockNumber = 1;
         arrow.damage = 10;
-        arrow.ingameModelPrefabName = "Prefab/TowerArcher";
+        arrow.ingameModelPrefabName = PATH_ARCHER + "TowerArcher";
         arrow.damageType = DamageType.Piercing;
         arrow.price = 10;
         arrow.projectilePrefabName = PATH_PROJECTILE + "arrow";

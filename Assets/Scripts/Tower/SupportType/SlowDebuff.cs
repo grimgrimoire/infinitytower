@@ -7,14 +7,26 @@ public class SlowDebuff : MonoBehaviour
 
     class SlowBuffScript : BuffScript
     {
+        const string DEBUFF_TAG = "Slow debuff";
+
         public override void BuffEffect(HostileMainScript hostile)
         {
-            hostile.SetSpeed(0f);
+            hostile.SetSpeed(0.75f);
         }
 
         public override float Duration()
         {
-            return 5;
+            return 2.5f;
+        }
+
+        public override string GetBuffTag()
+        {
+            return DEBUFF_TAG;
+        }
+
+        public override bool IsStackable()
+        {
+            return false;
         }
 
         public override void RemoveBuffEffect(HostileMainScript hostile)
@@ -37,11 +49,10 @@ public class SlowDebuff : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (UnityEngine.Random.Range(0, 100) > 70)
-            if (collider.tag == TagsAndLayers.TAG_HOSTILE)
-            {
-                collider.gameObject.GetComponent<HostileMainScript>().SetBuff(new SlowBuffScript());
-            }
+        if (collider.tag == TagsAndLayers.TAG_HOSTILE)
+        {
+            collider.gameObject.GetComponent<HostileMainScript>().SetBuff(new SlowBuffScript());
+        }
     }
 
 }

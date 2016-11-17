@@ -25,6 +25,7 @@ public class HostileMainScript : MonoBehaviour
     private int healthAfterMultiplier;
     private Transform healthBar;
     private float speed = 1;
+    private Dictionary<string, BuffScript> buffList;
 
     // Use this for initialization
     void Start()
@@ -34,6 +35,7 @@ public class HostileMainScript : MonoBehaviour
         gameObject.SetActive(false);
         initialHealth = health;
         initialGold = goldValue;
+        buffList = new Dictionary<string, BuffScript>();
     }
 
     void OnDestroy()
@@ -81,7 +83,27 @@ public class HostileMainScript : MonoBehaviour
 
     public void SetBuff(BuffScript buff)
     {
-        StartCoroutine(buff.BuffEffectRoutine(this));
+        buff.GetBuff(this);
+    }
+
+    public void AddBuffTag(BuffScript buff)
+    {
+        buffList.Add(buff.GetBuffTag(), buff);
+    }
+
+    public void RemoveBuffTag(string tag)
+    {
+        buffList.Remove(tag);
+    }
+
+    public bool IsAlreadyHasBuff(string tag)
+    {
+        return buffList.ContainsKey(tag);
+    }
+
+    public void ResetBuffDuration(string tag)
+    {
+        buffList[tag].ResetDuration();
     }
 
     private float CalculateDamageMultiplication(DamageType damageType)
@@ -153,6 +175,7 @@ public class HostileMainScript : MonoBehaviour
         isAlive = false;
         hostileInterface.OnKilled();
         ShowCorpse();
+        buffList.Clear();
     }
 
     private void ShowCorpse()
