@@ -17,6 +17,7 @@ public class PoolClass {
     public GameObject GetFromPool()
     {
         int initialIndex = poolIndex;
+        poolIndex = (poolIndex + 1) % poolSize;
         while (poolArray[poolIndex].activeSelf)
         {
             poolIndex = (poolIndex + 1) % poolSize;

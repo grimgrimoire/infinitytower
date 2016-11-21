@@ -5,14 +5,18 @@ using System.Collections.Generic;
 public class MasterSpawner : MonoBehaviour
 {
 
-    static int MAX_WAVENUMER = 150;
+    const int MAX_WAVENUMER = 150;
+    const int HIGHEST_COST = 6;
 
     List<Spawner> leftSpawnerList;
     List<Spawner> rightSpawnerList;
+
+    List<GameObject> unitToSpawnList1;
+    List<GameObject> unitToSpawnList2;
+
     ObjectPool pool;
 
     int waveLevel = 1;
-
     int waveNumber = 15;
     float healthMultiplier = 10f;
     int goldMultiplier = 1;
@@ -22,6 +26,8 @@ public class MasterSpawner : MonoBehaviour
     {
         leftSpawnerList = new List<Spawner>();
         rightSpawnerList = new List<Spawner>();
+        unitToSpawnList1 = new List<GameObject>();
+        unitToSpawnList2 = new List<GameObject>();
         pool = GetComponent<ObjectPool>();
     }
 
@@ -58,27 +64,77 @@ public class MasterSpawner : MonoBehaviour
         }
     }
 
-    private IEnumerator SpawnBatch(int number)
+    private IEnumerator SpawnBatch(int batch)
     {
-        while (number > 0)
+        StartCoroutine(SpawnRightBatch(batch));
+        GetUnitsToSpawn(unitToSpawnList1, batch);
+        while (unitToSpawnList1.Count > 0)
         {
-            number--;
-            leftSpawnerList[Random.Range(0, leftSpawnerList.Count)].SpawnEnemy(GetUnit(), goldMultiplier, healthMultiplier);
-            rightSpawnerList[Random.Range(0, rightSpawnerList.Count)].SpawnEnemy(GetUnit(), goldMultiplier, healthMultiplier);
-            yield return new WaitForSeconds(Random.Range(0f, 1f));
+            Spawner spawn = GetSpawner(leftSpawnerList, unitToSpawnList1[0]);
+            if (spawn != null)
+                spawn.SpawnEnemy(unitToSpawnList1[0], goldMultiplier, healthMultiplier);
+            unitToSpawnList1.RemoveAt(0);
+            yield return new WaitForSeconds(Random.Range(0.25f, 1f));
         }
     }
 
-    private GameObject GetUnit()
+    private IEnumerator SpawnRightBatch(int batch)
     {
-        switch(Random.Range(0, 2))
+        GetUnitsToSpawn(unitToSpawnList2, batch);
+        while (unitToSpawnList2.Count > 0)
         {
-            case 0:
-            //    return GameSystem.GetGameSystem().GetObjectPool().GetSpider();
-            //case 1:
-            //    return GameSystem.GetGameSystem().GetObjectPool().GetAssassin();
+            Spawner spawn = GetSpawner(rightSpawnerList, unitToSpawnList2[0]);
+            if (spawn != null)
+                spawn.SpawnEnemy(unitToSpawnList2[0], goldMultiplier, healthMultiplier);
+            unitToSpawnList2.RemoveAt(0);
+            yield return new WaitForSeconds(Random.Range(0.25f, 1f));
+        }
+    }
+
+    private Spawner GetSpawner(List<Spawner> lists, GameObject isGroundUnit)
+    {
+        int random = Random.Range(0, lists.Count);
+        while (lists[random].IsGroundSpawner() != isGroundUnit.GetComponent<HostileMainScript>().isGroundUnit && random < lists.Count - 1)
+        {
+            random = (random + 1) % lists.Count;
+        }
+        if (lists[random].IsGroundSpawner() == isGroundUnit)
+            return lists[random];
+        else return null;
+    }
+
+    private void GetUnitsToSpawn(List<GameObject> list, int costLeft)
+    {
+        while(costLeft > 0)
+        {
+            list.Add(GetRandomUnitByCost(ref costLeft));
+        }
+    }
+
+    private GameObject GetRandomUnitByCost(ref int costleft)
+    {
+        switch (Random.Range(0, costleft < HIGHEST_COST ? costleft : HIGHEST_COST))
+        {
+            case 1:
+                return null;
             default:
-                return GameSystem.GetGameSystem().GetObjectPool().GetAssassin();
+                return null;
+        }
+    }
+
+
+    private ObjectPool GetObjectPool()
+    {
+        return GameSystem.GetGameSystem().GetObjectPool();
+    }
+
+    private GameObject GetUnitByCode(int code)
+    {
+        switch (code)
+        {
+
+            default:
+                return GetObjectPool().GetSpider();
         }
     }
 
@@ -87,8 +143,15 @@ public class MasterSpawner : MonoBehaviour
         waveLevel++;
         if (waveNumber < MAX_WAVENUMER)
             waveNumber++;
-        healthMultiplier *= 1.1f;
+        //healthMultiplier *= 1.1f;
         GameSystem.GetGameSystem().UpdateWave(waveLevel);
+    }
+
+    private void CalculateAvailableEnemy()
+    {
+        bool airUnit = leftSpawnerList.Count > 5;
+        bool elite = waveLevel % 5 == 0;
+        bool heavy = waveLevel > 5;
     }
 
     public void RemoveSpawner(Spawner[] spawnList)

@@ -18,6 +18,7 @@ public class HostileMainScript : MonoBehaviour
     public CorpsePrefab corpse;
     public float inactiveDelay;
     public Animator animator;
+    public int cost;
 
     private HostileInterface hostileInterface;
     private int initialHealth;
@@ -50,6 +51,8 @@ public class HostileMainScript : MonoBehaviour
 
     public void SetSpeed(float speed)
     {
+        if (animator != null)
+            animator.speed = speed;
         this.speed = speed;
     }
 

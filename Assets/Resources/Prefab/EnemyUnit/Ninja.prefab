@@ -483,6 +483,7 @@ MonoBehaviour:
   corpse: 2
   inactiveDelay: 0
   animator: {fileID: 0}
+  cost: 2
 --- !u!212 &212000010291780424
 SpriteRenderer:
   m_ObjectHideFlags: 1

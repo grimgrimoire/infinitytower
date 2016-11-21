@@ -3,14 +3,16 @@ using System.Collections;
 
 public class SupportModel
 {
-
     public string name;
     public int price;
     public SupportInterface supportImpl;
+    public string supportModelPrefabName;
 }
 
 public class SupportModelList
 {
+
+    const string RESOURCE = "Prefab/BuffUnit/";
 
     public static int TOTAL_SUPPORT = 3;
 
@@ -52,6 +54,7 @@ public class SupportModelList
         model.name = "Damage buff";
         model.price = 15;
         model.supportImpl = new DamageBuffSupport();
+        model.supportModelPrefabName = RESOURCE + "FireBuff";
         return model;
     }
 }

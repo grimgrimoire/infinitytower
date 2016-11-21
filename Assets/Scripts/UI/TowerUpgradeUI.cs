@@ -48,7 +48,6 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler
         {
             if (isArtillery)
             {
-                int upgradeCode;
                 ArtilleryModel model = ArtilleryModelList.GetArtilleryAtIndex(find.GetSiblingIndex(), GetUpgradeCode());
                 if (model.price < GameSystem.GetGameSystem().GetGold())
                 {

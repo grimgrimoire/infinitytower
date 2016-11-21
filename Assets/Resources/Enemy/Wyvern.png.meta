@@ -1,13 +1,12 @@
 fileFormatVersion: 2
-guid: 8b4ac031bf035b144b29f860f263be7f
-timeCreated: 1476182832
+guid: 150ce560e016bdc479bbdd1bc2a9680e
+timeCreated: 1479461315
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Bow
-    21300002: Canon
-    21300004: Gun
-    21300006: Rod
+    21300000: Body
+    21300002: Wing
+    21300004: Leg
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -57,54 +56,41 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bow
+      name: Body
       rect:
         serializedVersion: 2
-        x: 35
-        y: 390
-        width: 26
-        height: 110
+        x: 1
+        y: 148
+        width: 199
+        height: 76
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Canon
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 297
-        width: 115
-        height: 59
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Gun
+      name: Wing
       rect:
         serializedVersion: 2
         x: 0
-        y: 210
-        width: 165
-        height: 29
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        y: 0
+        width: 163
+        height: 137
+      alignment: 9
+      pivot: {x: 0.82751924, y: 0.1801704}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Rod
+      name: Leg
       rect:
         serializedVersion: 2
-        x: 30
-        y: 0
-        width: 46
-        height: 147
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 166
+        y: 114
+        width: 21
+        height: 30
+      alignment: 9
+      pivot: {x: 0.21848406, y: 0.8744171}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

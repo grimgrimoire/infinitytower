@@ -8,6 +8,8 @@ public class ObjectPool:MonoBehaviour {
     string peon3 = "Prefab/EnemyUnit/Spider";
     string peon4 = "Prefab/EnemyUnit/Ninja";
     string peon5 = "Prefab/EnemyUnit/Soldier";
+    string peon6 = "Prefab/EnemyUnit/Air_Balloon";
+    string peon7 = "Prefab/EnemyUnit/Zapelin";
 
     string explosion = "Prefab/Projectile/Explosion";
     string blood = "Prefab/DeadEffect/Blood";
@@ -16,6 +18,9 @@ public class ObjectPool:MonoBehaviour {
     PoolClass peon2Pool;
     PoolClass peon3Pool;
     PoolClass peon4Pool;
+    PoolClass peon5Pool;
+    PoolClass peon6Pool;
+    PoolClass peon7Pool;
     PoolClass explosionPool;
     PoolClass bloodPool;
 
@@ -24,13 +29,19 @@ public class ObjectPool:MonoBehaviour {
         peon1Pool = new PoolClass(peon1, 100);
         peon2Pool = new PoolClass(peon2, 100);
         peon3Pool = new PoolClass(peon3, 100);
-        peon4Pool = new PoolClass(peon4, 100);
+        peon4Pool = new PoolClass(peon4, 50);
+        peon5Pool = new PoolClass(peon5, 30);
+        peon6Pool = new PoolClass(peon6, 50);
+        peon7Pool = new PoolClass(peon7, 30);
         explosionPool = new PoolClass(explosion, 15);
         bloodPool = new PoolClass(blood, 30);
         yield return peon1Pool.InitiatePooling();
         yield return peon2Pool.InitiatePooling();
         yield return peon3Pool.InitiatePooling();
         yield return peon4Pool.InitiatePooling();
+        yield return peon5Pool.InitiatePooling();
+        yield return peon6Pool.InitiatePooling();
+        yield return peon7Pool.InitiatePooling();
         yield return explosionPool.InitiatePooling();
         yield return bloodPool.InitiatePooling();
         yield return new WaitForEndOfFrame();
