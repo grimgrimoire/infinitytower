@@ -103,7 +103,7 @@ public class ArtilleryScript : MonoBehaviour
                     }
                     else
                     {
-                        if (model.targetingImpl.CheckPriorityCondition(lockedTarget, hostile))
+                        if (model.targetingImpl.CheckPriorityCondition(lockedTarget, hostile, gameObject))
                         {
                             lockedTarget = hostile;
                         }

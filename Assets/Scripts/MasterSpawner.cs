@@ -18,7 +18,7 @@ public class MasterSpawner : MonoBehaviour
 
     int waveLevel = 1;
     int waveNumber = 15;
-    float healthMultiplier = 10f;
+    float healthMultiplier = 1f;
     int goldMultiplier = 1;
 
     // Use this for initialization
@@ -98,14 +98,14 @@ public class MasterSpawner : MonoBehaviour
         {
             random = (random + 1) % lists.Count;
         }
-        if (lists[random].IsGroundSpawner() == isGroundUnit)
+        if (lists[random].IsGroundSpawner() == isGroundUnit.GetComponent<HostileMainScript>().isGroundUnit)
             return lists[random];
-        else return null;
+        else return lists[0];
     }
 
     private void GetUnitsToSpawn(List<GameObject> list, int costLeft)
     {
-        while(costLeft > 0)
+        while (costLeft > 0)
         {
             list.Add(GetRandomUnitByCost(ref costLeft));
         }
@@ -113,15 +113,43 @@ public class MasterSpawner : MonoBehaviour
 
     private GameObject GetRandomUnitByCost(ref int costleft)
     {
-        switch (Random.Range(0, costleft < HIGHEST_COST ? costleft : HIGHEST_COST))
+        int val = Random.Range(0, costleft < HIGHEST_COST ? costleft : HIGHEST_COST);
+        costleft -= 1;
+        return GetCost1Unit();
+    }
+
+    private GameObject GetCost1Unit()
+    {
+        switch (Random.Range(0, CanHaveAirUnit() ? 2 : 1))
         {
+            case 0:
+                return GetObjectPool().GetSpider();
             case 1:
-                return null;
+                return GetObjectPool().GetBat();
             default:
-                return null;
+                return GetObjectPool().GetSpider();
         }
     }
 
+    //private GameObject GetCost2Unit()
+    //{
+
+    //}
+
+    //private GameObject GetCost5Unit()
+    //{
+
+    //}
+
+    //private GameObject GetCost10Unit()
+    //{
+
+    //}
+
+    private bool CanHaveAirUnit()
+    {
+        return leftSpawnerList.Count > 5;
+    }
 
     private ObjectPool GetObjectPool()
     {

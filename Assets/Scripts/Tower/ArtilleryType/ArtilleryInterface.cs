@@ -9,5 +9,5 @@ public interface ArtilleryInterface
 
 public interface ArtilleryTargetingInterface
 {
-    bool CheckPriorityCondition(GameObject currentTarget, GameObject hostiles);
+    bool CheckPriorityCondition(GameObject currentTarget, GameObject hostiles, GameObject self);
 }

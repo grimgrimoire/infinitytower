@@ -59,7 +59,10 @@ public class HostileMainScript : MonoBehaviour
     public void Recycle()
     {
         if (corpse == CorpsePrefab.Animation)
+        {
             animator.Play("Walk");
+            animator.speed = speed;
+        }
         GameSystem.GetGameSystem().AddHostile(this.gameObject);
         health = healthAfterMultiplier;
         healthBar.localScale = new Vector3(1, 0.2f, 1);

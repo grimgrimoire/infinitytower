@@ -505,6 +505,7 @@ public class ArtilleryModelList
         cannon.price = 20;
         cannon.projectilePrefabName = PATH_PROJECTILE + "cannonball";
         cannon.shootImpl = new CannonArtillery(cannon);
+        cannon.targetingImpl = new CannonTargeting();
         cannon.upgradeCode = UPGRADE_CANNON;
         cannon.upgradeBranch = 2;
         return cannon;
