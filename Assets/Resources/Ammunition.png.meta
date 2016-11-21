@@ -1,25 +1,27 @@
 fileFormatVersion: 2
-guid: 7aba0d61ebc979a4f8c6fdb8f2a3ece6
-timeCreated: 1478856458
+guid: bd60898ff4ddd024cb33f71129d4af02
+timeCreated: 1479715083
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Arrow
+    21300000: Rocket
     21300002: Blood1
     21300004: Blood2
     21300006: Blood3
     21300008: Blood4
     21300010: Blood5
-    21300012: CannonBall
-    21300014: AirExplode1
-    21300016: AirExplode2
-    21300018: AirExplode3
-    21300020: AirExplode4
-    21300022: Bullet
-    21300024: Explosion1
-    21300026: Explosion2
-    21300028: Explosion3
-    21300030: Explosion4
+    21300012: StunEffect
+    21300014: Arrow
+    21300016: Ball
+    21300018: AirExplode1
+    21300020: AirExplode2
+    21300022: AirExplode3
+    21300024: AirExplode4
+    21300026: Bullet
+    21300028: Explosion1
+    21300030: Explosion2
+    21300032: Explosion3
+    21300034: Explosion4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -69,12 +71,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Arrow
+      name: Rocket
       rect:
         serializedVersion: 2
-        x: 0
-        y: 83
-        width: 68
+        x: 13
+        y: 92
+        width: 39
         height: 12
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -113,7 +115,7 @@ TextureImporter:
         serializedVersion: 2
         x: 154
         y: 78
-        width: 37
+        width: 36
         height: 37
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -137,7 +139,7 @@ TextureImporter:
       name: Blood5
       rect:
         serializedVersion: 2
-        x: 232
+        x: 230
         y: 79
         width: 36
         height: 36
@@ -147,12 +149,38 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: CannonBall
+      name: StunEffect
       rect:
         serializedVersion: 2
-        x: 26
-        y: 52
-        width: 24
+        x: 272
+        y: 68
+        width: 50
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Arrow
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 76
+        width: 68
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ball
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 50
+        width: 23
         height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -165,7 +193,7 @@ TextureImporter:
         serializedVersion: 2
         x: 70
         y: 39
-        width: 48
+        width: 47
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -176,7 +204,7 @@ TextureImporter:
       name: AirExplode2
       rect:
         serializedVersion: 2
-        x: 121
+        x: 120
         y: 39
         width: 47
         height: 32
@@ -216,9 +244,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 24
-        y: 40
-        width: 26
-        height: 9
+        y: 36
+        width: 25
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,7 +284,7 @@ TextureImporter:
         serializedVersion: 2
         x: 138
         y: 0
-        width: 66
+        width: 65
         height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
