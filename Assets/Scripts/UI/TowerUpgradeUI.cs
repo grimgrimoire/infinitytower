@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
 
-public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler
+public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler, DialogInterface
 {
 
     public RectTransform upgradeList;
@@ -14,6 +14,8 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler
     private ArtilleryScript artillery;
     private SupportScript support;
     private bool isArtillery;
+
+    private int upgradeIndex;
 
     // Use this for initialization
     void Start()
@@ -44,27 +46,10 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         Transform find = upgradeList.FindChild(eventData.pointerEnter.name);
+        upgradeIndex = find.GetSiblingIndex();
         if (find != null)
         {
-            if (isArtillery)
-            {
-                ArtilleryModel model = ArtilleryModelList.GetArtilleryAtIndex(find.GetSiblingIndex(), GetUpgradeCode());
-                if (model.price < GameSystem.GetGameSystem().GetGold())
-                {
-                    GameSystem.GetGameSystem().AddGold(-model.price);
-                    artillery.SetModel(model);
-                    LoadAvailableArtilleryUpgrades();
-                }
-            }
-            else
-            {
-                SupportModel model = SupportModelList.GetSupportAtIndex(find.GetSiblingIndex());
-                if (model.price < GameSystem.GetGameSystem().GetGold())
-                {
-                    GameSystem.GetGameSystem().AddGold(-model.price);
-                    support.SetImplements(model);
-                }
-            }
+            AddArtilleryUpgradeDialog();
         }
     }
 
@@ -122,5 +107,65 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler
         GameObject instance = (GameObject)Instantiate(prefabUI, upgradeList, false);
         instance.name = model.name;
         instance.GetComponentInChildren<Text>().text = model.name + "\n" + "Price : " + model.price;
+    }
+
+    private void AddArtilleryUpgradeDialog()
+    {
+        DialogUI dialog = GameSystem.GetGameSystem().GetControlUI().dialogUI;
+        dialog.gameObject.SetActive(true);
+        if (isArtillery)
+        {
+            if (upgradeIndex == 0 && GetUpgradeCode() != 0)
+            {
+                dialog.SetMessage("Remove artillery?");
+            }
+            else
+            {
+                dialog.SetMessage("Buy new artillery?");
+            }
+        }else
+        {
+            if (upgradeIndex == 0 && GetUpgradeCode() != 0)
+            {
+                dialog.SetMessage("Remove support?");
+            }
+            else
+            {
+                dialog.SetMessage("Buy new support");
+            }
+        }
+        dialog.SetDialogType(true);
+        dialog.SetInterface(this);
+    }
+
+    public void OnOkButtonClicked()
+    {
+    }
+
+    public void OnNoButtonClicked()
+    {
+    }
+
+    public void OnYesButtonClicked()
+    {
+        if (isArtillery)
+        {
+            ArtilleryModel model = ArtilleryModelList.GetArtilleryAtIndex(upgradeIndex, GetUpgradeCode());
+            if (model.price < GameSystem.GetGameSystem().GetGold())
+            {
+                GameSystem.GetGameSystem().AddGold(-model.price);
+                artillery.SetModel(model);
+                LoadAvailableArtilleryUpgrades();
+            }
+        }
+        else
+        {
+            SupportModel model = SupportModelList.GetSupportAtIndex(upgradeIndex);
+            if (model.price < GameSystem.GetGameSystem().GetGold())
+            {
+                GameSystem.GetGameSystem().AddGold(-model.price);
+                support.SetImplements(model);
+            }
+        }
     }
 }
