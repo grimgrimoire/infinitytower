@@ -93,7 +93,11 @@ public class MasterSpawner : MonoBehaviour
 
     private Spawner GetSpawner(List<Spawner> lists, GameObject isGroundUnit)
     {
-        int random = Random.Range(0, lists.Count);
+        int random;
+        if(isGroundUnit.GetComponent<HostileMainScript>().isGroundUnit)
+            random = Random.Range(0, lists.Count);
+        else
+            random = random = Random.Range(5, lists.Count);
         while (lists[random].IsGroundSpawner() != isGroundUnit.GetComponent<HostileMainScript>().isGroundUnit && random < lists.Count - 1)
         {
             random = (random + 1) % lists.Count;

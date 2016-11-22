@@ -519,7 +519,8 @@ public class ArtilleryModelList
         cannon.fireDelay = 5f;
         cannon.lockNumber = 1;
         cannon.damage = 15;
-        cannon.ingameModelPrefabName = "Prefab/TowerCannon";
+        cannon.ingameModelPrefabName = PATH_CANNON + "TowerCannon";
+        cannon.targetingImpl = new CannonTargeting();
         cannon.damageType = DamageType.Explosive;
         cannon.price = 20;
         cannon.projectilePrefabName = PATH_PROJECTILE + "cannonball";
@@ -647,7 +648,7 @@ public class ArtilleryModelList
         gunner.fireDelay = 0.016f;
         gunner.lockNumber = 1;
         gunner.damage = 5;
-        gunner.ingameModelPrefabName = PATH_GUNNER + "Maniac";
+        gunner.ingameModelPrefabName = PATH_GUNNER + "TowerGunner";
         gunner.damageType = DamageType.Piercing;
         gunner.price = 20;
         gunner.projectilePrefabName = PATH_PROJECTILE + "Bullet1";
@@ -776,10 +777,10 @@ public class ArtilleryModelList
         mage.fireDelay = 2f;
         mage.lockNumber = 1;
         mage.damage = 20;
-        mage.ingameModelPrefabName = "Prefab/TowerMage";
+        mage.ingameModelPrefabName = PATH_MAGE + "TowerMage";
         mage.damageType = DamageType.Magic;
         mage.price = 15;
-        mage.projectilePrefabName = PATH_PROJECTILE + "arrow";
+        mage.projectilePrefabName = PATH_PROJECTILE + "ArcaneBall";
         mage.shootImpl = new MageArtillery(mage);
         mage.upgradeCode = UPGRADE_SORCERER;
         mage.upgradeBranch = 3;

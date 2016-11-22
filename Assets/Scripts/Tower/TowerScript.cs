@@ -59,7 +59,7 @@ public class TowerScript : MonoBehaviour, DialogInterface
 
     public void DestroyFloor(int index)
     {
-        for(int i = 0; i < transform.childCount; i++)
+        for(int i = index; i < transform.childCount; i++)
         {
             if (i != index)
             {
