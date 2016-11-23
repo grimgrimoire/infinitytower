@@ -7,7 +7,6 @@ public abstract class BuffScript
 
     public void GetBuff(HostileMainScript script)
     {
-        Debug.Log(script.IsAlreadyHasBuff(GetBuffTag()));
         if (!script.IsAlreadyHasBuff(GetBuffTag()))
         {
             if (!IsStackable())
