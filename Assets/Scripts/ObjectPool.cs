@@ -96,4 +96,9 @@ public class ObjectPool:MonoBehaviour {
         }
     }
 
+    public static ObjectPool GetInstance()
+    {
+        return GameSystem.GetGameSystem().GetObjectPool();
+    }
+
 }

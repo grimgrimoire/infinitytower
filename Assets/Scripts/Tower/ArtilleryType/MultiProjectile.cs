@@ -1,33 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
 
-public class FollowedArrow : ArtilleryInterface
-{
+public class MultiProjectile : ArtilleryInterface {
 
     ArtilleryModel model;
     int poolIndex;
     int counter;
-    int repeatCount;
 
-    public FollowedArrow(ArtilleryModel model, int repeat)
+    public MultiProjectile(ArtilleryModel model)
     {
         this.model = model;
-        repeatCount = repeat;
     }
 
     IEnumerator ArtilleryInterface.ShootAtTarget(GameObject target, GameObject artillery, GameObject[] projectilePrefab)
     {
-        for (int i = 1; i <= repeatCount; i++)
-        {
-            Shoot(target, artillery, projectilePrefab);
-            if (i < repeatCount)
-                yield return new WaitForSeconds(0.2f);
-        }
+        Shoot(target.transform.position, artillery, projectilePrefab);
+        Shoot(target.transform.position, artillery, projectilePrefab);
+        Shoot(target.transform.position, artillery, projectilePrefab);
         yield return null;
     }
 
-    private void Shoot(GameObject target, GameObject artillery, GameObject[] projectilePrefab)
+    private void Shoot(Vector2 target, GameObject artillery, GameObject[] projectilePrefab)
     {
         counter = 0;
         while (projectilePrefab[poolIndex].activeSelf && counter < model.poolSize)
@@ -39,7 +32,7 @@ public class FollowedArrow : ArtilleryInterface
         projectilePrefab[poolIndex].transform.position = artillery.transform.position;
         projectilePrefab[poolIndex].GetComponent<ArtilleryProjectile>()
             .SetDamageType(model.damage, model.damageType)
-            .SetTarget(target.transform.position);
-        poolIndex = (poolIndex + 1) % 5;
+            .SetTarget(target + Random.insideUnitCircle);
+        poolIndex = (poolIndex + 1) % model.poolSize;
     }
 }

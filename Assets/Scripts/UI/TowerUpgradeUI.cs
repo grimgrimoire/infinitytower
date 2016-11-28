@@ -49,7 +49,8 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler, DialogInterfa
         upgradeIndex = find.GetSiblingIndex();
         if (find != null)
         {
-            AddArtilleryUpgradeDialog();
+            //AddArtilleryUpgradeDialog();
+            OnYesButtonClicked();
         }
     }
 

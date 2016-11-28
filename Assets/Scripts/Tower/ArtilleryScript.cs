@@ -12,6 +12,7 @@ public class ArtilleryScript : MonoBehaviour
     private ArtilleryModel model;
 
     private GameObject[] projectilePool;
+    private TowerAimingInterface aimingInterface;
 
     // Use this for initialization
     void Start()
@@ -30,6 +31,11 @@ public class ArtilleryScript : MonoBehaviour
         return supportScript;
     }
 
+    public void SetAimingInterface(TowerAimingInterface aImpl)
+    {
+        aimingInterface = aImpl;
+    }
+
     public void SetModel(ArtilleryModel model)
     {
         this.model = model;
@@ -45,6 +51,7 @@ public class ArtilleryScript : MonoBehaviour
     private void RemoveOldArtillery()
     {
         EmptyProjectilePrefab();
+        aimingInterface = null;
         if (transform.childCount > 0)
         {
             Destroy(transform.GetChild(0).gameObject);
@@ -78,6 +85,8 @@ public class ArtilleryScript : MonoBehaviour
             {
                 if (IsTargetInRange(lockedTarget))
                 {
+                    if (aimingInterface != null)
+                        aimingInterface.SetAiming(lockedTarget.transform.position);
                     yield return model.shootImpl.ShootAtTarget(lockedTarget, gameObject, projectilePool);
                     yield return new WaitForSeconds(model.fireDelay);
                 }

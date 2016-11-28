@@ -18,7 +18,7 @@ public class LinearProjectileArtillery : ArtilleryInterface
         counter = 0;
         while (projectilePrefab[poolIndex].activeSelf && counter < model.poolSize)
         {
-            poolIndex = (poolIndex + 1) % 5;
+            poolIndex = (poolIndex + 1) % model.poolSize;
             counter++;
         }
         projectilePrefab[poolIndex].SetActive(true);
