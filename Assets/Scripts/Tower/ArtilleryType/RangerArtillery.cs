@@ -2,14 +2,13 @@
 using System.Collections;
 using System;
 
-public class CannonArtillery : ArtilleryInterface
-{
+public class RangerArtillery : ArtilleryInterface {
 
     ArtilleryModel model;
     int poolIndex;
     int counter;
 
-    public CannonArtillery(ArtilleryModel model)
+    public RangerArtillery(ArtilleryModel model)
     {
         this.model = model;
     }
@@ -17,14 +16,14 @@ public class CannonArtillery : ArtilleryInterface
     IEnumerator ArtilleryInterface.ShootAtTarget(GameObject target, GameObject artillery, GameObject[] projectilePrefab)
     {
         counter = 0;
-        while (projectilePrefab[poolIndex].activeSelf && counter < 5)
+        while (projectilePrefab[poolIndex].activeSelf && counter < model.poolSize)
         {
             poolIndex = (poolIndex + 1) % model.poolSize;
             counter++;
         }
         projectilePrefab[poolIndex].SetActive(true);
         projectilePrefab[poolIndex].transform.position = artillery.transform.position;
-        projectilePrefab[poolIndex].GetComponent<ArtilleryExplosive>()
+        projectilePrefab[poolIndex].GetComponent<RangerArrowProjectile>()
             .SetDamageType(model.damage, model.damageType)
             .SetTarget(target.transform.position);
         poolIndex = (poolIndex + 1) % model.poolSize;

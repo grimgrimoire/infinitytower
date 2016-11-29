@@ -1,0 +1,451 @@
+fileFormatVersion: 2
+guid: f86834a2ae242a94c99b690f58d24921
+timeCreated: 1480067680
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Ammunition 1_0
+    21300002: Ammunition 1_1
+    21300004: Ammunition 1_2
+    21300006: Ammunition 1_3
+    21300008: Ammunition 1_4
+    21300010: Ammunition 1_5
+    21300012: Ammunition 1_6
+    21300014: Ammunition 1_7
+    21300016: Ammunition 1_8
+    21300018: Ammunition 1_9
+    21300020: Ammunition 1_10
+    21300022: Ammunition 1_11
+    21300024: Ammunition 1_12
+    21300026: Ammunition 1_13
+    21300028: Ammunition 1_14
+    21300030: Ammunition 1_15
+    21300032: Ammunition 1_16
+    21300034: Ammunition 1_17
+    21300036: Ammunition 1_18
+    21300038: Ammunition 1_19
+    21300040: Ammunition 1_20
+    21300042: Ammunition 1_21
+    21300044: Ammunition 1_22
+    21300046: Ammunition 1_23
+    21300048: Ammunition 1_24
+    21300050: Ammunition 1_25
+    21300052: Ammunition 1_26
+    21300054: Ammunition 1_27
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ammunition 1_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 280
+        width: 41
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_1
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 271
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 259
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_3
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 260
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_4
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 262
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_5
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 261
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_6
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 262
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 263
+        width: 72
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_8
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 235
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_9
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 223
+        width: 50
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_10
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 223
+        width: 50
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_11
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 224
+        width: 50
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_12
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 223
+        width: 50
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_13
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 224
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_14
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 220
+        width: 27
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_15
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 182
+        width: 69
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_16
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 182
+        width: 69
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_17
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 182
+        width: 69
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_18
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 184
+        width: 70
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_19
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 49
+        width: 69
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_20
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 48
+        width: 69
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_21
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 48
+        width: 68
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_22
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 49
+        width: 69
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_23
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 103
+        width: 68
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_24
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 0
+        width: 68
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_25
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 0
+        width: 68
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_26
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 0
+        width: 69
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ammunition 1_27
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 2
+        width: 68
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

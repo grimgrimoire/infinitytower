@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MultiProjectile : ArtilleryInterface {
+public class MultiProjectileGuardman : ArtilleryInterface {
 
     ArtilleryModel model;
     int poolIndex;
     int counter;
     int totalProjectile = 0;
 
-    public MultiProjectile(ArtilleryModel model, int totalProjectile)
+    public MultiProjectileGuardman(ArtilleryModel model, int totalProjectile)
     {
         this.model = model;
         this.totalProjectile = totalProjectile;
@@ -16,7 +16,7 @@ public class MultiProjectile : ArtilleryInterface {
 
     IEnumerator ArtilleryInterface.ShootAtTarget(GameObject target, GameObject artillery, GameObject[] projectilePrefab)
     {
-        for(int i=0; i<totalProjectile; i++)
+        for (int i = 0; i < totalProjectile; i++)
         {
             Shoot(target.transform.position, artillery, projectilePrefab);
         }
@@ -33,9 +33,9 @@ public class MultiProjectile : ArtilleryInterface {
         }
         projectilePrefab[poolIndex].SetActive(true);
         projectilePrefab[poolIndex].transform.position = artillery.transform.position;
-        projectilePrefab[poolIndex].GetComponent<ArtilleryProjectile>()
+        projectilePrefab[poolIndex].GetComponent<GuardmanExplosive>()
             .SetDamageType(model.damage, model.damageType)
-            .SetTarget(target + Random.insideUnitCircle * 0.6f);
+            .SetTarget(target + (Random.insideUnitCircle * 0.3f));
         poolIndex = (poolIndex + 1) % model.poolSize;
     }
 }

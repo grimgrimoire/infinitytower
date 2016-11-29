@@ -142,7 +142,7 @@ public class HostileMainScript : MonoBehaviour
 
     private float CalculateExplosive()
     {
-        return GetDamageMultiplicationTable(1.25f, 1, 0.5f, 50f);
+        return GetDamageMultiplicationTable(1.25f, 1, 0.5f, 1.5f);
     }
 
     private float CalculateImpact()

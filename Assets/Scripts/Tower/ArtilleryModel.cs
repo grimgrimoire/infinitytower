@@ -470,7 +470,7 @@ public class ArtilleryModelList
         arrow.damageType = DamageType.Piercing;
         arrow.price = 15;
         arrow.projectilePrefabName = PATH_PROJECTILE + "arrow";
-        arrow.shootImpl = new FollowedArrow(arrow, 3);
+        arrow.shootImpl = new MultiProjectile(arrow, 6);
         arrow.upgradeCode = UPGRADE_NONE;
         arrow.upgradeBranch = 1;
         return arrow;
@@ -488,8 +488,8 @@ public class ArtilleryModelList
         arrow.damageType = DamageType.Piercing;
         arrow.price = 15;
         arrow.poolSize = 10;
-        arrow.projectilePrefabName = PATH_PROJECTILE + "arrow";
-        arrow.shootImpl = new MultiProjectile(arrow);
+        arrow.projectilePrefabName = PATH_PROJECTILE + "RangerArrow";
+        arrow.shootImpl = new RangerArtillery(arrow);
         return arrow;
     }
     //end archer model
@@ -538,14 +538,15 @@ public class ArtilleryModelList
         ArtilleryModel cannon = new ArtilleryModel();
         cannon.name = "Guardman";
         cannon.lockRange = 6f;
-        cannon.fireDelay = 5f;
+        cannon.fireDelay = 3f;
+        cannon.poolSize = 50;
         cannon.lockNumber = 1;
-        cannon.damage = 15;
+        cannon.damage = 5;
         cannon.ingameModelPrefabName = PATH_CANNON + "Guardman";
         cannon.damageType = DamageType.Explosive;
         cannon.price = 20;
-        cannon.projectilePrefabName = PATH_PROJECTILE + "cannonball";
-        cannon.shootImpl = new CannonArtillery(cannon);
+        cannon.projectilePrefabName = PATH_PROJECTILE + "GuardmanCannon";
+        cannon.shootImpl = new MultiProjectileGuardman(cannon, 3);
         cannon.targetingImpl = new AirTargetOnly();
         cannon.upgradeCode = UPGRADE_GUARDMAN;
         cannon.upgradeBranch = 2;

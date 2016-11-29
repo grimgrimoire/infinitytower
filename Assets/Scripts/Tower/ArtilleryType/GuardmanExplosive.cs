@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ArtilleryExplosive : MonoBehaviour
+public class GuardmanExplosive : MonoBehaviour
 {
 
     private Vector2 target;
@@ -18,9 +18,13 @@ public class ArtilleryExplosive : MonoBehaviour
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, 5 * Time.deltaTime);
+        if (Vector2.Distance(transform.position, target) < 0.1)
+        {
+            Explode();
+        }
     }
 
-    public ArtilleryExplosive SetDamageType(int damage, DamageType damageType)
+    public GuardmanExplosive SetDamageType(int damage, DamageType damageType)
     {
         this.damage = damage;
         this.damageType = damageType;
@@ -37,17 +41,21 @@ public class ArtilleryExplosive : MonoBehaviour
     {
         if (collider.tag == TagsAndLayers.TAG_HOSTILE || collider.tag == TagsAndLayers.TAG_WORLD)
         {
-            GameObject explosion = GameSystem.GetGameSystem().GetObjectPool().GetExplosion();
-            explosion.SetActive(true);
-            explosion.GetComponent<Explosion>().SetDamageType(damage, damageType);
-            explosion.transform.position = transform.position;
-            gameObject.SetActive(false);
+            Explode();
         }
+    }
+
+    private void Explode()
+    {
+        GameObject explosion = GameSystem.GetGameSystem().GetObjectPool().GetGuardmanEx();
+        explosion.SetActive(true);
+        explosion.GetComponent<Explosion>().SetDamageType(damage, damageType);
+        explosion.transform.position = transform.position;
+        gameObject.SetActive(false);
     }
 
     void DismisExplosion(GameObject explosion)
     {
         explosion.SetActive(false);
     }
-
 }

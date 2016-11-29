@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ArtilleryProjectile : MonoBehaviour
-{
+public class ArtilleryProjectileForward : MonoBehaviour {
+
     private Vector2 target;
     private int damage;
     private DamageType damageType;
@@ -16,12 +16,10 @@ public class ArtilleryProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(transform.position, target) < 0.05f)
-            gameObject.SetActive(false);
-        transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, 5 * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, 8 * Time.deltaTime);
     }
 
-    public ArtilleryProjectile SetDamageType(int damage, DamageType damageType)
+    public ArtilleryProjectileForward SetDamageType(int damage, DamageType damageType)
     {
         this.damage = damage;
         this.damageType = damageType;
