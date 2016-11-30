@@ -1563,6 +1563,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b45d748fde0ae044aed5b43ba235c52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  multiplierNumber: 1
+  healthMultiplier: 1
+  goldMultiplier: 1
 --- !u!114 &717488318
 MonoBehaviour:
   m_ObjectHideFlags: 0

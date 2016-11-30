@@ -26,6 +26,7 @@ public class HostileMainScript : MonoBehaviour
     private int healthAfterMultiplier;
     private Transform healthBar;
     private float speed = 1;
+    private float damageBonusMultiplier = 1;
     private Dictionary<string, BuffScript> buffList;
 
     // Use this for initialization
@@ -42,6 +43,11 @@ public class HostileMainScript : MonoBehaviour
     void OnDestroy()
     {
 
+    }
+
+    public void SetDamageBonus(float bonus)
+    {
+        damageBonusMultiplier = bonus;
     }
 
     public float GetSpeed()
@@ -78,7 +84,7 @@ public class HostileMainScript : MonoBehaviour
 
     public void TakeDamage(int damage, DamageType damageType)
     {
-        health -= Mathf.RoundToInt(CalculateDamageMultiplication(damageType) * damage);
+        health -= Mathf.RoundToInt(CalculateDamageMultiplication(damageType) * damage * damageBonusMultiplier);
         healthBar.localScale = new Vector3((health / (float)healthAfterMultiplier), 0.2f, 1);
         if (health <= 0)
         {
@@ -136,7 +142,7 @@ public class HostileMainScript : MonoBehaviour
 
     private float CalculateExplosive()
     {
-        return GetDamageMultiplicationTable(1.25f, 1, 0.5f, 50f);
+        return GetDamageMultiplicationTable(1.25f, 1, 0.5f, 1.5f);
     }
 
     private float CalculateImpact()

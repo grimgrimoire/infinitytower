@@ -46,10 +46,11 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler, DialogInterfa
     public void OnPointerClick(PointerEventData eventData)
     {
         Transform find = upgradeList.FindChild(eventData.pointerEnter.name);
-        upgradeIndex = find.GetSiblingIndex();
         if (find != null)
         {
-            AddArtilleryUpgradeDialog();
+            upgradeIndex = find.GetSiblingIndex();
+            //AddArtilleryUpgradeDialog();
+            OnYesButtonClicked();
         }
     }
 

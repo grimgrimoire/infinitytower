@@ -8,28 +8,31 @@ public class FollowedArrow : ArtilleryInterface
     ArtilleryModel model;
     int poolIndex;
     int counter;
+    int repeatCount;
 
-    public FollowedArrow(ArtilleryModel model)
+    public FollowedArrow(ArtilleryModel model, int repeat)
     {
         this.model = model;
+        repeatCount = repeat;
     }
 
     IEnumerator ArtilleryInterface.ShootAtTarget(GameObject target, GameObject artillery, GameObject[] projectilePrefab)
     {
-        Shoot(target, artillery, projectilePrefab);
-        yield return new WaitForSeconds(0.2f);
-        Shoot(target, artillery, projectilePrefab);
-        yield return new WaitForSeconds(0.2f);
-        Shoot(target, artillery, projectilePrefab);
+        for (int i = 1; i <= repeatCount; i++)
+        {
+            Shoot(target, artillery, projectilePrefab);
+            if (i < repeatCount)
+                yield return new WaitForSeconds(0.2f);
+        }
         yield return null;
     }
 
     private void Shoot(GameObject target, GameObject artillery, GameObject[] projectilePrefab)
     {
         counter = 0;
-        while (projectilePrefab[poolIndex].activeSelf && counter < 5)
+        while (projectilePrefab[poolIndex].activeSelf && counter < model.poolSize)
         {
-            poolIndex = (poolIndex + 1) % 5;
+            poolIndex = (poolIndex + 1) % model.poolSize;
             counter++;
         }
         projectilePrefab[poolIndex].SetActive(true);

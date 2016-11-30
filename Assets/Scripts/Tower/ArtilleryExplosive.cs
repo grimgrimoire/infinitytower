@@ -4,8 +4,6 @@ using System.Collections;
 public class ArtilleryExplosive : MonoBehaviour
 {
 
-    public GameObject explosionPrefab;
-
     private Vector2 target;
     private int damage;
     private DamageType damageType;
@@ -33,14 +31,12 @@ public class ArtilleryExplosive : MonoBehaviour
     {
         this.target = target;
         transform.right = target - (Vector2)transform.position;
-        //StartCoroutine(Move());
     }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.tag == TagsAndLayers.TAG_HOSTILE || collider.tag == TagsAndLayers.TAG_WORLD)
         {
-            //collider.GetComponent<HostileMainScript>().TakeDamage(damage, damageType);
             GameObject explosion = GameSystem.GetGameSystem().GetObjectPool().GetExplosion();
             explosion.SetActive(true);
             explosion.GetComponent<Explosion>().SetDamageType(damage, damageType);
@@ -49,17 +45,4 @@ public class ArtilleryExplosive : MonoBehaviour
         }
     }
 
-    void DismisExplosion(GameObject explosion)
-    {
-        explosion.SetActive(false);
-    }
-
-    //IEnumerator Move()
-    //{
-    //    while (true)
-    //    {
-            
-    //        yield return new WaitForEndOfFrame();
-    //    }
-    //}
 }

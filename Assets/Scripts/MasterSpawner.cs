@@ -16,10 +16,12 @@ public class MasterSpawner : MonoBehaviour
 
     ObjectPool pool;
 
+    public int multiplierNumber = 1;
+
     int waveLevel = 1;
     int waveNumber = 15;
-    float healthMultiplier = 1f;
-    int goldMultiplier = 1;
+    public float healthMultiplier = 1f;
+    public int goldMultiplier = 1;
 
     // Use this for initialization
     void Start()
@@ -47,9 +49,9 @@ public class MasterSpawner : MonoBehaviour
     {
         while (GameSystem.GetGameSystem().IsGameStarted())
         {
-            int batch1 = waveNumber / 5;
-            int batch2 = waveNumber / 3;
-            int batch3 = waveNumber / 2;
+            int batch1 = waveNumber * multiplierNumber / 5;
+            int batch2 = waveNumber * multiplierNumber / 3;
+            int batch3 = waveNumber * multiplierNumber / 2;
 
             Debug.Log("Spawn at " + batch1 + " " + batch2 + " " + batch3);
             Debug.Log("Spawn with " + goldMultiplier + " X Gold" + " , " + healthMultiplier + " X Health");
@@ -94,7 +96,7 @@ public class MasterSpawner : MonoBehaviour
     private Spawner GetSpawner(List<Spawner> lists, GameObject isGroundUnit)
     {
         int random;
-        if(isGroundUnit.GetComponent<HostileMainScript>().isGroundUnit)
+        if (isGroundUnit.GetComponent<HostileMainScript>().isGroundUnit)
             random = Random.Range(0, lists.Count);
         else
             random = random = Random.Range(5, lists.Count);

@@ -3,10 +3,11 @@ using System.Collections;
 
 public class ArtilleryProjectile : MonoBehaviour
 {
-
     private Vector2 target;
     private int damage;
     private DamageType damageType;
+
+    private int speed = 5;
 
     // Use this for initialization
     void Start()
@@ -19,7 +20,12 @@ public class ArtilleryProjectile : MonoBehaviour
     {
         if (Vector2.Distance(transform.position, target) < 0.05f)
             gameObject.SetActive(false);
-        transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, 5 * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, speed * Time.deltaTime);
+    }
+
+    public void SetSpeed(int speed)
+    {
+        this.speed = speed;
     }
 
     public ArtilleryProjectile SetDamageType(int damage, DamageType damageType)
@@ -33,7 +39,6 @@ public class ArtilleryProjectile : MonoBehaviour
     {
         this.target = target;
         transform.right = target - (Vector2)transform.position;
-        //StartCoroutine(Move());
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -41,24 +46,12 @@ public class ArtilleryProjectile : MonoBehaviour
         if (collider.tag == TagsAndLayers.TAG_HOSTILE)
         {
             collider.GetComponent<HostileMainScript>().TakeDamage(damage, damageType);
-            //StopAllCoroutines();
             gameObject.SetActive(false);
         }
         else if (collider.tag == TagsAndLayers.TAG_WORLD)
         {
-            //StopAllCoroutines();
             gameObject.SetActive(false);
         }
     }
 
-    IEnumerator Move()
-    {
-        while (Vector2.Distance(transform.position, target) > 0.05f)
-        {
-            yield return new WaitForEndOfFrame();
-            transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, 5 * Time.deltaTime);
-        }
-        gameObject.SetActive(false);
-        yield return new WaitForEndOfFrame();
-    }
 }

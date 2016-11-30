@@ -25,6 +25,7 @@ public class GameSystem : MonoBehaviour {
         hostiles = new List<GameObject>();
         objectPool = GetComponent<ObjectPool>();
         spawnSystem = GetComponent<MasterSpawner>();
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
         StartCoroutine(initGame());
     }
 	
