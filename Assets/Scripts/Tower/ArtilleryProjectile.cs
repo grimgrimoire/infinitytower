@@ -7,6 +7,8 @@ public class ArtilleryProjectile : MonoBehaviour
     private int damage;
     private DamageType damageType;
 
+    private int speed = 5;
+
     // Use this for initialization
     void Start()
     {
@@ -18,7 +20,12 @@ public class ArtilleryProjectile : MonoBehaviour
     {
         if (Vector2.Distance(transform.position, target) < 0.05f)
             gameObject.SetActive(false);
-        transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, 5 * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, speed * Time.deltaTime);
+    }
+
+    public void SetSpeed(int speed)
+    {
+        this.speed = speed;
     }
 
     public ArtilleryProjectile SetDamageType(int damage, DamageType damageType)

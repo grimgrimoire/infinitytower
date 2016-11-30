@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ArtilleryExplosive : MonoBehaviour
-{
+public class PirateProjectile : MonoBehaviour {
 
     private Vector2 target;
     private int damage;
@@ -20,7 +19,7 @@ public class ArtilleryExplosive : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, 5 * Time.deltaTime);
     }
 
-    public ArtilleryExplosive SetDamageType(int damage, DamageType damageType)
+    public PirateProjectile SetDamageType(int damage, DamageType damageType)
     {
         this.damage = damage;
         this.damageType = damageType;
@@ -41,7 +40,27 @@ public class ArtilleryExplosive : MonoBehaviour
             explosion.SetActive(true);
             explosion.GetComponent<Explosion>().SetDamageType(damage, damageType);
             explosion.transform.position = transform.position;
+            Scatter();
             gameObject.SetActive(false);
+        }
+    }
+
+    private void Scatter()
+    {
+        for(int i=0; i<10; i++)
+        {
+            GenerateMiniBomb();
+        }
+    }
+
+    private void GenerateMiniBomb()
+    {
+        GameObject bomb = ObjectPool.GetInstance().GetScatter();
+        if (bomb != null)
+        {
+            bomb.SetActive(true);
+            bomb.transform.position = transform.position;
+            bomb.GetComponent<ScatterExplosives>().SetDamageType(damage, damageType).SetTarget((Vector2)transform.position + Random.insideUnitCircle );
         }
     }
 

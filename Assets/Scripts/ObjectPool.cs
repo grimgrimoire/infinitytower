@@ -15,6 +15,7 @@ public class ObjectPool:MonoBehaviour {
     string blood = "Prefab/DeadEffect/Blood";
     string guardmanex = "Prefab/Projectile/GuardmanExplosion";
     string secondaryArrow = "Prefab/Projectile/RangerArrowRain";
+    string pirateScatter = "Prefab/Projectile/PirateScatter";
 
     PoolClass peon1Pool;
     PoolClass peon2Pool;
@@ -27,6 +28,7 @@ public class ObjectPool:MonoBehaviour {
     PoolClass bloodPool;
     PoolClass guardmanPool;
     PoolClass arrowPool;
+    PoolClass scatterPool;
 
     public IEnumerator InitiatePooling()
     {
@@ -39,7 +41,8 @@ public class ObjectPool:MonoBehaviour {
         peon7Pool = new PoolClass(peon7, 30);
         explosionPool = new PoolClass(explosion, 15);
         bloodPool = new PoolClass(blood, 20);
-        guardmanPool = new PoolClass(guardmanex, 15);
+        scatterPool = new PoolClass(pirateScatter, 20);
+        guardmanPool = new PoolClass(guardmanex, 25);
         arrowPool = new PoolClass(secondaryArrow, 100);
         yield return peon1Pool.InitiatePooling();
         yield return peon2Pool.InitiatePooling();
@@ -52,7 +55,13 @@ public class ObjectPool:MonoBehaviour {
         yield return bloodPool.InitiatePooling();
         yield return guardmanPool.InitiatePooling();
         yield return arrowPool.InitiatePooling();
+        yield return scatterPool.InitiatePooling();
         yield return new WaitForEndOfFrame();
+    }
+
+    public GameObject GetScatter()
+    {
+        return scatterPool.GetFromPool();
     }
 
     public GameObject GetAssassin()

@@ -1,29 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MultiProjectileGuardman : ArtilleryInterface {
+public class RocketArtillery : ArtilleryInterface {
 
     ArtilleryModel model;
     int poolIndex;
     int counter;
-    int totalProjectile = 0;
 
-    public MultiProjectileGuardman(ArtilleryModel model, int totalProjectile)
+    public RocketArtillery(ArtilleryModel model)
     {
         this.model = model;
-        this.totalProjectile = totalProjectile;
     }
 
     IEnumerator ArtilleryInterface.ShootAtTarget(GameObject target, GameObject artillery, GameObject[] projectilePrefab)
     {
-        for (int i = 0; i < totalProjectile; i++)
-        {
-            Shoot(target.transform.position, artillery, projectilePrefab);
-        }
-        yield return null;
+        ShootRocket(target, artillery, projectilePrefab);
+        yield return new WaitForSeconds(0.5f);
+        ShootRocket(target, artillery, projectilePrefab);
+        yield return new WaitForSeconds(0.5f);
+        ShootRocket(target, artillery, projectilePrefab);
     }
 
-    private void Shoot(Vector2 target, GameObject artillery, GameObject[] projectilePrefab)
+    private void ShootRocket(GameObject target, GameObject artillery, GameObject[] projectilePrefab)
     {
         counter = 0;
         while (projectilePrefab[poolIndex].activeSelf && counter < model.poolSize)
@@ -33,9 +31,9 @@ public class MultiProjectileGuardman : ArtilleryInterface {
         }
         projectilePrefab[poolIndex].SetActive(true);
         projectilePrefab[poolIndex].transform.position = artillery.transform.position;
-        projectilePrefab[poolIndex].GetComponent<GuardmanExplosive>()
+        projectilePrefab[poolIndex].GetComponent<RocketProjectile>()
             .SetDamageType(model.damage, model.damageType)
-            .SetTarget(target + (Random.insideUnitCircle * 0.7f));
+            .SetTarget(target);
         poolIndex = (poolIndex + 1) % model.poolSize;
     }
 }

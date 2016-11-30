@@ -17,7 +17,7 @@ public class GuardmanExplosive : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, 5 * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, 7 * Time.deltaTime);
         if (Vector2.Distance(transform.position, target) < 0.1)
         {
             Explode();
@@ -52,10 +52,5 @@ public class GuardmanExplosive : MonoBehaviour
         explosion.GetComponent<Explosion>().SetDamageType(damage, damageType);
         explosion.transform.position = transform.position;
         gameObject.SetActive(false);
-    }
-
-    void DismisExplosion(GameObject explosion)
-    {
-        explosion.SetActive(false);
     }
 }

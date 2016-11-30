@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ArtilleryExplosive : MonoBehaviour
-{
+public class ScatterExplosives : MonoBehaviour {
 
     private Vector2 target;
     private int damage;
     private DamageType damageType;
+    bool isExploded;
 
     // Use this for initialization
     void Start()
@@ -17,12 +17,17 @@ public class ArtilleryExplosive : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, 5 * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, 2 * Time.deltaTime);
+        if (Vector2.Distance(transform.position, target) < 0.1 && !isExploded)
+        {
+            isExploded = true;
+            Explode();
+        }
     }
 
-    public ArtilleryExplosive SetDamageType(int damage, DamageType damageType)
+    public ScatterExplosives SetDamageType(int damage, DamageType damageType)
     {
-        this.damage = damage;
+        this.damage = damage/2;
         this.damageType = damageType;
         return this;
     }
@@ -31,18 +36,18 @@ public class ArtilleryExplosive : MonoBehaviour
     {
         this.target = target;
         transform.right = target - (Vector2)transform.position;
+        isExploded = false;
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
+    private void Explode()
     {
-        if (collider.tag == TagsAndLayers.TAG_HOSTILE || collider.tag == TagsAndLayers.TAG_WORLD)
+        GameObject explosion = GameSystem.GetGameSystem().GetObjectPool().GetGuardmanEx();
+        if (explosion != null)
         {
-            GameObject explosion = GameSystem.GetGameSystem().GetObjectPool().GetExplosion();
             explosion.SetActive(true);
             explosion.GetComponent<Explosion>().SetDamageType(damage, damageType);
             explosion.transform.position = transform.position;
             gameObject.SetActive(false);
         }
     }
-
 }
