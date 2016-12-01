@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeList: {fileID: 932087291}
-  prefabUI: {fileID: 1000011934751104, guid: 310297ff33466cd42bc3b17d887c5172, type: 2}
+  prefabUI: {fileID: 0, guid: 310297ff33466cd42bc3b17d887c5172, type: 2}
 --- !u!114 &66114187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2875,8 +2875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4bf7c5cb68b9ba4fa2bb5a82a35c016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerBodyPrefab: {fileID: 1000013525605712, guid: d6ba3011ebc04ed4d9b92c238986213b,
-    type: 2}
+  towerBodyPrefab: {fileID: 0, guid: d6ba3011ebc04ed4d9b92c238986213b, type: 2}
   towerAddButton: {fileID: 1347083506}
 --- !u!4 &1128383835
 Transform:
