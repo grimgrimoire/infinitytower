@@ -18,7 +18,7 @@ public class MasterSpawner : MonoBehaviour
 
     public int multiplierNumber = 1;
 
-    int waveLevel = 1;
+    int waveLevel = 20;
     int waveNumber = 15;
     public float healthMultiplier = 1f;
     public int goldMultiplier = 1;
@@ -113,15 +113,58 @@ public class MasterSpawner : MonoBehaviour
     {
         while (costLeft > 0)
         {
-            list.Add(GetRandomUnitByCost(ref costLeft));
+            GameObject unit = GetRandomUnitByCost(ref costLeft);
+            if (unit != null)
+                list.Add(unit);
         }
     }
 
     private GameObject GetRandomUnitByCost(ref int costleft)
     {
-        int val = Random.Range(0, costleft < HIGHEST_COST ? costleft : HIGHEST_COST);
-        costleft -= 1;
-        return GetCost1Unit();
+        int highestCost = GetHighestCost();
+        highestCost = highestCost < costleft ? highestCost : costleft == 4 ? 3 : costleft;
+        int val = Random.Range(0, (highestCost + 1) * 120);
+        return Ratio(30, 30, 20, 20, val, ref costleft);
+    }
+
+    private GameObject Ratio(int cost1, int cost2, int cost3, int cost4, int val, ref int costleft)
+    {
+        if (val <= CalculateCost(cost1))
+        {
+            costleft -= 1;
+            return GetCost1Unit();
+        }
+        else if (val > CalculateCost(cost1) && val <= CalculateCost(cost1 + cost2))
+        {
+            costleft -= 2;
+            return GetCost2Unit();
+        }
+        else if (val > CalculateCost(cost1 + cost2) && val <= CalculateCost(cost1 + cost2 + cost3))
+        {
+            costleft -= 3;
+            return GetCost3Unit();
+        }
+        else
+        {
+            costleft -= 5;
+            return GetCost5Unit();
+        }
+    }
+
+    private int CalculateCost(int cost)
+    {
+        return (600 * cost / 100);
+    }
+
+    private int GetHighestCost()
+    {
+        if (waveNumber < 5)
+            return 1;
+        else if (waveNumber < 10)
+            return 2;
+        else if (waveNumber < 15)
+            return 3;
+        else return 4;
     }
 
     private GameObject GetCost1Unit()
@@ -137,20 +180,20 @@ public class MasterSpawner : MonoBehaviour
         }
     }
 
-    //private GameObject GetCost2Unit()
-    //{
+    private GameObject GetCost2Unit()
+    {
+        return GetObjectPool().GetNinja();
+    }
 
-    //}
+    private GameObject GetCost3Unit()
+    {
+        return GetObjectPool().GetAssassin();
+    }
 
-    //private GameObject GetCost5Unit()
-    //{
-
-    //}
-
-    //private GameObject GetCost10Unit()
-    //{
-
-    //}
+    private GameObject GetCost5Unit()
+    {
+        return GetObjectPool().GetSoldier();
+    }
 
     private bool CanHaveAirUnit()
     {

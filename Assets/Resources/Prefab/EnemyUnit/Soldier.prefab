@@ -469,8 +469,8 @@ MonoBehaviour:
   isGroundUnit: 1
   isAlive: 0
   corpse: 2
-  inactiveDelay: 0
-  animator: {fileID: 0}
+  inactiveDelay: 0.82
+  animator: {fileID: 95000010269508724}
   cost: 5
 --- !u!114 &114000013727740308
 MonoBehaviour:

@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ObjectPool:MonoBehaviour {
+public class ObjectPool : MonoBehaviour
+{
 
     string peon1 = "Prefab/EnemyUnit/Assassin";
     string peon2 = "Prefab/EnemyUnit/Bat";
@@ -10,12 +11,16 @@ public class ObjectPool:MonoBehaviour {
     string peon5 = "Prefab/EnemyUnit/Soldier";
     string peon6 = "Prefab/EnemyUnit/Air_Balloon";
     string peon7 = "Prefab/EnemyUnit/Zapelin";
+    string elite1 = "Prefab/EnemyUnit/Wyvern";
+    string elite2 = "Prefab/EnemyUnit/EliteKnight";
 
     string explosion = "Prefab/Projectile/Explosion";
     string blood = "Prefab/DeadEffect/Blood";
     string guardmanex = "Prefab/Projectile/GuardmanExplosion";
     string secondaryArrow = "Prefab/Projectile/RangerArrowRain";
     string pirateScatter = "Prefab/Projectile/PirateScatter";
+    string meteorEx = "Prefab/Projectile/MeteorExplosion";
+    string poisonGas = "Prefab/Projectile/PoisonGas";
 
     PoolClass peon1Pool;
     PoolClass peon2Pool;
@@ -29,6 +34,10 @@ public class ObjectPool:MonoBehaviour {
     PoolClass guardmanPool;
     PoolClass arrowPool;
     PoolClass scatterPool;
+    PoolClass meteorPool;
+    PoolClass poisonPool;
+    PoolClass elite1Pool;
+    PoolClass elite2Pool;
 
     public IEnumerator InitiatePooling()
     {
@@ -39,11 +48,15 @@ public class ObjectPool:MonoBehaviour {
         peon5Pool = new PoolClass(peon5, 30);
         peon6Pool = new PoolClass(peon6, 50);
         peon7Pool = new PoolClass(peon7, 30);
+        elite1Pool = new PoolClass(elite1, 5);
+        elite2Pool = new PoolClass(elite2, 5);
         explosionPool = new PoolClass(explosion, 15);
         bloodPool = new PoolClass(blood, 20);
         scatterPool = new PoolClass(pirateScatter, 20);
         guardmanPool = new PoolClass(guardmanex, 25);
         arrowPool = new PoolClass(secondaryArrow, 100);
+        meteorPool = new PoolClass(meteorEx, 10);
+        poisonPool = new PoolClass(poisonGas, 15);
         yield return peon1Pool.InitiatePooling();
         yield return peon2Pool.InitiatePooling();
         yield return peon3Pool.InitiatePooling();
@@ -56,7 +69,36 @@ public class ObjectPool:MonoBehaviour {
         yield return guardmanPool.InitiatePooling();
         yield return arrowPool.InitiatePooling();
         yield return scatterPool.InitiatePooling();
+        yield return meteorPool.InitiatePooling();
+        yield return poisonPool.InitiatePooling();
+        yield return elite1Pool.InitiatePooling();
+        yield return elite2Pool.InitiatePooling();
         yield return new WaitForEndOfFrame();
+    }
+
+    public GameObject GetNinja()
+    {
+        return peon4Pool.GetFromPool();
+    }
+
+    public GameObject GetDragon()
+    {
+        return elite1Pool.GetFromPool();
+    }
+
+    public GameObject GetKnight()
+    {
+        return elite2Pool.GetFromPool();
+    }
+
+    public GameObject GetPoisonGas()
+    {
+        return poisonPool.GetFromPool();
+    }
+
+    public GameObject GetMeteorExplosion()
+    {
+        return meteorPool.GetFromPool();
     }
 
     public GameObject GetScatter()
@@ -69,9 +111,14 @@ public class ObjectPool:MonoBehaviour {
         return peon1Pool.GetFromPool();
     }
 
+    public GameObject GetSoldier()
+    {
+        return peon5Pool.GetFromPool();
+    }
+
     public GameObject GetBat()
     {
-        return peon2Pool.GetFromPool() ;
+        return peon2Pool.GetFromPool();
     }
 
     public GameObject GetArrow()
@@ -105,7 +152,7 @@ public class ObjectPool:MonoBehaviour {
         while (poolArray[index].activeSelf)
         {
             index = (index + 1) % poolSize;
-            if(index == initialIndex)
+            if (index == initialIndex)
             {
                 return null;
             }

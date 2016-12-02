@@ -405,7 +405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goldValue: 1
   health: 50
-  armor: 1
+  armor: 0
   isGroundUnit: 1
   isAlive: 0
   corpse: 2
