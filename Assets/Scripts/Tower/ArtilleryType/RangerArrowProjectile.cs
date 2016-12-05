@@ -66,18 +66,11 @@ public class RangerArrowProjectile : MonoBehaviour
     {
         for (int i = 0; i < 10; i++)
         {
-            RainArrow();
+            for (int j = 0; j < 3; j++)
+                RainArrow();
             yield return new WaitForSeconds(0.1f);
         }
         gameObject.SetActive(false);
-    }
-
-    private void RainArrows()
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            RainArrow();
-        }
     }
 
     private void RainArrow()

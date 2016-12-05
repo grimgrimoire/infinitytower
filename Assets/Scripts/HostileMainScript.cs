@@ -57,8 +57,6 @@ public class HostileMainScript : MonoBehaviour
 
     public void SetSpeed(float speed)
     {
-        if (animator != null)
-            animator.speed = speed;
         this.speed = speed;
     }
 
@@ -95,7 +93,8 @@ public class HostileMainScript : MonoBehaviour
 
     public void SetBuff(BuffScript buff)
     {
-        buff.GetBuff(this);
+        if(health > 0)
+            buff.GetBuff(this);
     }
 
     public void AddBuffTag(BuffScript buff)
@@ -185,9 +184,10 @@ public class HostileMainScript : MonoBehaviour
         GameSystem.GetGameSystem().AddGold(goldValue);
         GameSystem.GetGameSystem().RemoveHostile(this.gameObject);
         isAlive = false;
+        buffList.Clear();
+        speed = 1;
         hostileInterface.OnKilled();
         ShowCorpse();
-        buffList.Clear();
     }
 
     private void ShowCorpse()

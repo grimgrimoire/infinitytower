@@ -23,9 +23,10 @@ public class ArtilleryProjectile : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, speed * Time.deltaTime);
     }
 
-    public void SetSpeed(int speed)
+    public ArtilleryProjectile SetSpeed(int speed)
     {
         this.speed = speed;
+        return this;
     }
 
     public ArtilleryProjectile SetDamageType(int damage, DamageType damageType)

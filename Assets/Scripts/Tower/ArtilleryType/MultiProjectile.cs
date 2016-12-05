@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MultiProjectile : ArtilleryInterface {
+public class MultiProjectile : ArtilleryInterface
+{
 
     ArtilleryModel model;
     int poolIndex;
@@ -16,9 +17,11 @@ public class MultiProjectile : ArtilleryInterface {
 
     IEnumerator ArtilleryInterface.ShootAtTarget(GameObject target, GameObject artillery, GameObject[] projectilePrefab)
     {
-        for(int i=0; i<totalProjectile; i++)
+        for (int i = 0; i < totalProjectile / 5; i++)
         {
-            Shoot(target.transform.position, artillery, projectilePrefab);
+            for (int j = 0; j < 5; j++)
+                Shoot(target.transform.position, artillery, projectilePrefab);
+            yield return new WaitForSeconds(0.018f);
         }
         yield return null;
     }
@@ -33,7 +36,7 @@ public class MultiProjectile : ArtilleryInterface {
         }
         projectilePrefab[poolIndex].SetActive(true);
         projectilePrefab[poolIndex].transform.position = artillery.transform.position;
-        projectilePrefab[poolIndex].GetComponent<ArtilleryProjectile>()
+        projectilePrefab[poolIndex].GetComponent<ImpreciseProjectile>()
             .SetDamageType(model.damage, model.damageType)
             .SetTarget(target + Random.insideUnitCircle * 0.6f);
         poolIndex = (poolIndex + 1) % model.poolSize;

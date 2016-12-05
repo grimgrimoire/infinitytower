@@ -135,9 +135,9 @@ GameObject:
   - 61: {fileID: 61000013417755598}
   - 114: {fileID: 114000013675335392}
   - 114: {fileID: 114000010420476394}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ninja
-  m_TagString: Untagged
+  m_TagString: Hostile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -477,12 +477,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goldValue: 1
   health: 20
-  armor: 0
+  armor: 1
   isGroundUnit: 1
   isAlive: 0
   corpse: 2
-  inactiveDelay: 0
-  animator: {fileID: 0}
+  inactiveDelay: 0.82
+  animator: {fileID: 95000012831393440}
   cost: 2
 --- !u!212 &212000010291780424
 SpriteRenderer:
