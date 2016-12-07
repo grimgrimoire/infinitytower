@@ -14,6 +14,8 @@
     public int upgradeCode = 0;
     public int upgradeBranch;
     public int poolSize = 5;
+    public int imageUIindex = 3;
+    public string description = "";
 }
 
 public class ArtilleryModelList

@@ -8,7 +8,7 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler, DialogInterfa
 {
 
     public RectTransform upgradeList;
-
+    public UpgradeDetailUI upgradeDetailUI;
     public GameObject prefabUI;
 
     private ArtilleryScript artillery;
@@ -124,7 +124,8 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler, DialogInterfa
             {
                 dialog.SetMessage("Buy new artillery?");
             }
-        }else
+        }
+        else
         {
             if (upgradeIndex == 0 && GetUpgradeCode() != 0)
             {
@@ -147,17 +148,31 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler, DialogInterfa
     {
     }
 
-    public void OnYesButtonClicked()
+    public void OnBuyButtonClicked(ArtilleryModel model)
     {
         if (isArtillery)
         {
-            ArtilleryModel model = ArtilleryModelList.GetArtilleryAtIndex(upgradeIndex, GetUpgradeCode());
             if (model.price < GameSystem.GetGameSystem().GetGold())
             {
                 GameSystem.GetGameSystem().AddGold(-model.price);
                 artillery.SetModel(model);
                 LoadAvailableArtilleryUpgrades();
             }
+        }
+    }
+
+    public void OnYesButtonClicked()
+    {
+        if (isArtillery)
+        {
+            ArtilleryModel model = ArtilleryModelList.GetArtilleryAtIndex(upgradeIndex, GetUpgradeCode());
+            //if (model.price < GameSystem.GetGameSystem().GetGold())
+            //{
+            //    GameSystem.GetGameSystem().AddGold(-model.price);
+            //    artillery.SetModel(model);
+            //    LoadAvailableArtilleryUpgrades();
+            //}
+            upgradeDetailUI.LoadArtilleryInfo(model);
         }
         else
         {
