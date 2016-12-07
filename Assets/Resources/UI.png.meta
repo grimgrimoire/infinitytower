@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 74ad49bddf371384ab8bb5d6ccf77edf
-timeCreated: 1481101039
+guid: a52344a2883bd944cb7fafc8f9600716
+timeCreated: 1481100759
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Icon_0
-    21300002: Icon_1
-    21300004: Icon_2
-    21300006: Icon_3
-    21300008: Icon_5
-    21300010: Icon_6
-    21300012: Icon_7
+    21300000: UI2
+    21300002: DmgIcon
+    21300004: FireRateIcon
+    21300006: RangeIcon
+    21300008: Button
+    21300010: SellButton
+    21300012: UI1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -60,93 +60,93 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Icon_0
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 111
-        width: 36
-        height: 52
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Icon_1
-      rect:
-        serializedVersion: 2
-        x: 59
-        y: 102
-        width: 67
-        height: 66
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Icon_2
-      rect:
-        serializedVersion: 2
-        x: 130
-        y: 107
-        width: 52
-        height: 61
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Icon_3
-      rect:
-        serializedVersion: 2
-        x: 193
-        y: 117
-        width: 18
-        height: 35
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: Icon_5
+      name: UI2
       rect:
         serializedVersion: 2
         x: 0
-        y: 17
-        width: 201
-        height: 81
+        y: 836
+        width: 1780
+        height: 782
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Icon_6
+      name: DmgIcon
       rect:
         serializedVersion: 2
-        x: 66
-        y: 0
-        width: 41
-        height: 7
+        x: 1880
+        y: 1479
+        width: 58
+        height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Icon_7
+      name: FireRateIcon
       rect:
         serializedVersion: 2
-        x: 110
-        y: 0
-        width: 40
-        height: 6
+        x: 1889
+        y: 1394
+        width: 85
+        height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: RangeIcon
+      rect:
+        serializedVersion: 2
+        x: 1889
+        y: 1328
+        width: 59
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Button
+      rect:
+        serializedVersion: 2
+        x: 1879
+        y: 1243
+        width: 120
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SellButton
+      rect:
+        serializedVersion: 2
+        x: 1881
+        y: 1113
+        width: 123
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: UI1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1780
+        height: 782
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
