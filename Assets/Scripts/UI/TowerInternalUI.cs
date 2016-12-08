@@ -21,9 +21,9 @@ public class TowerInternalUI : MonoBehaviour {
 
     public void LoadTowerFloor(ArtilleryScript leftArtillery, ArtilleryScript rightArtillery)
     {
-        leftAUI.SetName(leftArtillery.getName());
+        leftAUI.SetModel(leftArtillery.GetModel());
         supportUI.SetName(leftArtillery.GetSupport().getName());
-        rightAUI.SetName(rightArtillery.getName());
+        rightAUI.SetModel(rightArtillery.GetModel());
     }
 
     public void ClearSelection()

@@ -36,7 +36,6 @@ public class GameSystem : MonoBehaviour {
 
     IEnumerator initGame()
     {
-        yield return new WaitForSeconds(0.1f);
         float temp = Time.realtimeSinceStartup;
         yield return objectPool.InitiatePooling();
         Debug.Log("Time for initiatepooling " + (Time.realtimeSinceStartup - temp));
@@ -47,6 +46,7 @@ public class GameSystem : MonoBehaviour {
         spawnSystem.UpdateSpawnerList();
         spawnSystem.StartSpawnEnemy();
         UpdateGoldValue();
+        controlUI.DissableLoading();
     }
 
     public ObjectPool GetObjectPool()

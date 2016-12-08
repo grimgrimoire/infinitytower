@@ -6,6 +6,7 @@ public class ArtilleryUI : MonoBehaviour
 {
 
     public Text moduleName;
+    public Image image;
 
     // Use this for initialization
     void Start()
@@ -19,18 +20,22 @@ public class ArtilleryUI : MonoBehaviour
 
     }
 
-    public void SetName(string name)
+    public void SetModel(ArtilleryModel model)
     {
-        moduleName.text = name;
+        if (model != null)
+        {
+            moduleName.text = model.name;
+            image.sprite = Resources.LoadAll<Sprite>("WeaponTower 1")[model.imageUIindex];
+        }
     }
 
     public void SetSelected()
     {
-        GetComponent<Image>().color = new Color(0.141f, 0.105f, 0.054f);
+        //GetComponent<Image>().color = new Color(0.141f, 0.105f, 0.054f);
     }
 
     public void SetUnselected()
     {
-        GetComponent<Image>().color = new Color(0.176f, 0.133f, 0.070f);
+        //GetComponent<Image>().color = new Color(0.176f, 0.133f, 0.070f);
     }
 }

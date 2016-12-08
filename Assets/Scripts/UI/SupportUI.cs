@@ -23,11 +23,11 @@ public class SupportUI : MonoBehaviour {
 
     public void SetSelected()
     {
-        GetComponent<Image>().color = new Color(0.141f, 0.105f, 0.054f);
+        //GetComponent<Image>().color = new Color(0.141f, 0.105f, 0.054f);
     }
 
     public void SetUnselected()
     {
-        GetComponent<Image>().color = new Color(0.176f, 0.133f, 0.070f);
+        //GetComponent<Image>().color = new Color(0.176f, 0.133f, 0.070f);
     }
 }

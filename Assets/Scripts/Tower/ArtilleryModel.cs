@@ -385,6 +385,7 @@ public class ArtilleryModelList
         arrow.shootImpl = new LinearProjectileArtillery(arrow);
         arrow.upgradeCode = UPGRADE_ARCHER;
         arrow.upgradeBranch = 2;
+        arrow.imageUIindex = 3;
         return arrow;
     }
 
@@ -403,6 +404,7 @@ public class ArtilleryModelList
         arrow.shootImpl = new LinearProjectileArtillery(arrow);
         arrow.upgradeCode = UPGRADE_ARCHER_HUNTER;
         arrow.upgradeBranch = 3;
+        arrow.imageUIindex = 3;
         return arrow;
     }
 
@@ -421,6 +423,7 @@ public class ArtilleryModelList
         arrow.shootImpl = new LinearProjectileArtillery(arrow);
         arrow.upgradeCode = UPGRADE_LONGBOWMAN;
         arrow.upgradeBranch = 2;
+        arrow.imageUIindex = 13;
         return arrow;
     }
 
@@ -439,6 +442,7 @@ public class ArtilleryModelList
         arrow.shootImpl = new MultiProjectile(arrow, 10);
         arrow.upgradeCode = UPGRADE_CROSSBOWMAN;
         arrow.upgradeBranch = 3;
+        arrow.imageUIindex = 7;
         return arrow;
     }
 
@@ -457,6 +461,7 @@ public class ArtilleryModelList
         arrow.shootImpl = new LinearProjectileArtillery(arrow);
         arrow.upgradeCode = UPGRADE_NONE;
         arrow.upgradeBranch = 1;
+        arrow.imageUIindex = 13;
         return arrow;
     }
 
@@ -476,6 +481,7 @@ public class ArtilleryModelList
         arrow.upgradeCode = UPGRADE_NONE;
         arrow.poolSize = 20;
         arrow.upgradeBranch = 1;
+        arrow.imageUIindex = 7;
         return arrow;
     }
 
@@ -493,6 +499,7 @@ public class ArtilleryModelList
         arrow.poolSize = 5;
         arrow.projectilePrefabName = PATH_PROJECTILE + "RangerArrow";
         arrow.shootImpl = new RangerArtillery(arrow);
+        arrow.imageUIindex = 20;
         return arrow;
     }
     //end archer model
@@ -514,6 +521,7 @@ public class ArtilleryModelList
         cannon.targetingImpl = new GroundTargetOnly();
         cannon.upgradeCode = UPGRADE_CANNON;
         cannon.upgradeBranch = 2;
+        cannon.imageUIindex = 5;
         return cannon;
     }
 
@@ -533,6 +541,7 @@ public class ArtilleryModelList
         cannon.shootImpl = new CannonArtillery(cannon);
         cannon.upgradeCode = UPGRADE_BOMBARD;
         cannon.upgradeBranch = 3;
+        cannon.imageUIindex = 5;
         return cannon;
     }
 
@@ -553,6 +562,7 @@ public class ArtilleryModelList
         cannon.targetingImpl = new AirTargetOnly();
         cannon.upgradeCode = UPGRADE_GUARDMAN;
         cannon.upgradeBranch = 2;
+        cannon.imageUIindex = 9;
         return cannon;
     }
 
@@ -572,6 +582,7 @@ public class ArtilleryModelList
         cannon.targetingImpl = new AirTargetOnly();
         cannon.upgradeCode = UPGRADE_NONE;
         cannon.upgradeBranch = 1;
+        cannon.imageUIindex = 9;
         return cannon;
     }
 
@@ -590,6 +601,7 @@ public class ArtilleryModelList
         cannon.shootImpl = new CannonArtillery(cannon);
         cannon.upgradeCode = UPGRADE_ARTILLERYMAN;
         cannon.upgradeBranch = 3;
+        cannon.imageUIindex = 4;
         return cannon;
     }
 
@@ -608,6 +620,7 @@ public class ArtilleryModelList
         cannon.shootImpl = new CannonArtillery(cannon);
         cannon.upgradeCode = UPGRADE_NONE;
         cannon.upgradeBranch = 1;
+        cannon.imageUIindex = 4;
         return cannon;
     }
 
@@ -627,6 +640,7 @@ public class ArtilleryModelList
         cannon.targetingImpl = new GroundTargetOnly();
         cannon.upgradeCode = UPGRADE_NONE;
         cannon.upgradeBranch = 1;
+        cannon.imageUIindex = 18;
         return cannon;
     }
     //end canon model
@@ -647,6 +661,7 @@ public class ArtilleryModelList
         gunner.shootImpl = new GunnerArtillery(gunner);
         gunner.upgradeCode = UPGRADE_GUNNER;
         gunner.upgradeBranch = 2;
+        gunner.imageUIindex = 10;
         return gunner;
     }
 
@@ -666,6 +681,7 @@ public class ArtilleryModelList
         gunner.upgradeCode = UPGRADE_SHOOTER;
         gunner.upgradeBranch = 3;
         gunner.poolSize = 50;
+        gunner.imageUIindex = 11;
         return gunner;
     }
 
@@ -685,6 +701,7 @@ public class ArtilleryModelList
         gunner.poolSize = 12;
         gunner.upgradeCode = UPGRADE_SNIPER;
         gunner.upgradeBranch = 2;
+        gunner.imageUIindex = 27;
         return gunner;
     }
 
@@ -704,6 +721,7 @@ public class ArtilleryModelList
         gunner.shootImpl = new GunslingerArtillery(gunner);
         gunner.upgradeCode = UPGRADE_GUNSLINGER;
         gunner.upgradeBranch = 3;
+        gunner.imageUIindex = 11;
         return gunner;
     }
 
@@ -722,6 +740,7 @@ public class ArtilleryModelList
         gunner.shootImpl = new LinearProjectileArtillery(gunner);
         gunner.upgradeCode = UPGRADE_NONE;
         gunner.upgradeBranch = 1;
+        gunner.imageUIindex = 27;
         return gunner;
     }
 
@@ -740,6 +759,7 @@ public class ArtilleryModelList
         gunner.shootImpl = new LinearProjectileArtillery(gunner);
         gunner.upgradeCode = UPGRADE_NONE;
         gunner.upgradeBranch = 1;
+        gunner.imageUIindex = 16;
         return gunner;
     }
 
@@ -758,6 +778,7 @@ public class ArtilleryModelList
         gunner.shootImpl = new RocketArtillery(gunner);
         gunner.upgradeCode = UPGRADE_NONE;
         gunner.upgradeBranch = 1;
+        gunner.imageUIindex = 28;
         return gunner;
     }
     //End Gunner model
@@ -778,6 +799,7 @@ public class ArtilleryModelList
         mage.shootImpl = new MageArtillery(mage);
         mage.upgradeCode = UPGRADE_MAGE;
         mage.upgradeBranch = 2;
+        mage.imageUIindex = 14;
         return mage;
     }
 
@@ -796,6 +818,7 @@ public class ArtilleryModelList
         mage.shootImpl = new MageArtillery(mage);
         mage.upgradeCode = UPGRADE_SORCERER;
         mage.upgradeBranch = 4;
+        mage.imageUIindex = 14;
         return mage;
     }
 
@@ -814,6 +837,7 @@ public class ArtilleryModelList
         mage.shootImpl = new ChainArtillery(mage);
         mage.upgradeCode = UPGRADE_WIZARD;
         mage.upgradeBranch = 2;
+        mage.imageUIindex = 30;
         return mage;
     }
 
@@ -832,6 +856,7 @@ public class ArtilleryModelList
         mage.shootImpl = new PoisonGasArtillery(mage);
         mage.upgradeCode = UPGRADE_ALCHEMIST;
         mage.upgradeBranch = 2;
+        mage.imageUIindex = 2;
         return mage;
     }
 
@@ -850,6 +875,7 @@ public class ArtilleryModelList
         mage.shootImpl = new MageArtillery(mage);
         mage.upgradeCode = UPGRADE_SAGE;
         mage.upgradeBranch = 3;
+        mage.imageUIindex = 23;
         return mage;
     }
 
@@ -868,6 +894,7 @@ public class ArtilleryModelList
         mage.shootImpl = new ChainArtillery(mage);
         mage.upgradeCode = UPGRADE_NONE;
         mage.upgradeBranch = 1;
+        mage.imageUIindex = 30;
         return mage;
     }
 
@@ -886,6 +913,7 @@ public class ArtilleryModelList
         mage.shootImpl = new MageArtillery(mage);
         mage.upgradeCode = UPGRADE_NONE;
         mage.upgradeBranch = 1;
+        mage.imageUIindex = 2;
         return mage;
     }
 
@@ -905,6 +933,7 @@ public class ArtilleryModelList
         mage.targetingImpl = new GroundTargetOnly();
         mage.upgradeCode = UPGRADE_NONE;
         mage.upgradeBranch = 1;
+        mage.imageUIindex = 23;
         return mage;
     }
 
@@ -923,6 +952,7 @@ public class ArtilleryModelList
         mage.shootImpl = new TornadoArtillery(mage);
         mage.upgradeCode = UPGRADE_NONE;
         mage.upgradeBranch = 1;
+        mage.imageUIindex = 25;
         return mage;
     }
     //End Mage model

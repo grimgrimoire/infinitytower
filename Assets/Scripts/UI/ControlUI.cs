@@ -11,6 +11,7 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
     public GameObject pauseOverlay;
     public Camera mainCamera;
     public DialogUI dialogUI;
+    public GameObject loadingOverlay;
 
     TowerInternalUI towerInternalUI;
     TowerUpgradeUI towerUpgradeUI;
@@ -121,5 +122,10 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
         tower.GetComponent<TowerFloorScript>().LoadTowerFloorToUI();
         towerInternalUI.ClearSelection();
         towerUpgradeUI.ClearList();
+    }
+
+    public void DissableLoading()
+    {
+        loadingOverlay.SetActive(false);
     }
 }
