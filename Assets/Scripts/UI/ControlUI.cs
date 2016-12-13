@@ -52,9 +52,9 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
         }
         else
         {
-            Time.timeScale = 0;
+            Time.timeScale = 2;
             GameSystem.GetGameSystem().SetGamePaused(true);
-            pauseOverlay.SetActive(true);
+            //pauseOverlay.SetActive(true);
         }
     }
 

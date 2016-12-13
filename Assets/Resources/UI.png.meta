@@ -1,21 +1,22 @@
 fileFormatVersion: 2
-guid: 986f9956f5113cb4ba9201742372c2e2
-timeCreated: 1481185174
+guid: dde2a4439cd349841ae3c1344d948ce2
+timeCreated: 1481610777
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: TopUI
-    21300002: DamageIcon
-    21300004: FireRateUI
-    21300006: LeftArtilleryUI
-    21300008: SupportUI
-    21300010: RightArtilleryUI
-    21300012: RangeUI
-    21300014: Button
-    21300016: UpgradeUI
-    21300018: SellButton
-    21300020: BottomUI
-    21300022: UIInside
+    21300000: UI_Top
+    21300002: UI_Damage
+    21300004: UI_FireRate
+    21300006: UI_Left
+    21300008: UI_Support
+    21300010: UI_Right
+    21300012: UI_Range
+    21300014: UI_Button
+    21300016: UI_Upgrade
+    21300018: UI_Sell
+    21300020: UI_Bottom
+    21300022: UI_Alert
+    21300024: UI_Hover
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -65,25 +66,38 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TopUI
+      name: UI_Top
       rect:
         serializedVersion: 2
         x: 0
-        y: 1404
-        width: 1780
-        height: 267
+        y: 1893
+        width: 1781
+        height: 268
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: DamageIcon
+      name: UI_Damage
       rect:
         serializedVersion: 2
-        x: 1885
-        y: 1517
-        width: 58
+        x: 1884
+        y: 2010
+        width: 60
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: UI_FireRate
+      rect:
+        serializedVersion: 2
+        x: 1893
+        y: 1926
+        width: 85
         height: 60
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -91,25 +105,38 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: FireRateUI
+      name: UI_Left
       rect:
         serializedVersion: 2
-        x: 1894
-        y: 1430
-        width: 85
-        height: 61
+        x: 13
+        y: 1659
+        width: 422
+        height: 225
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: LeftArtilleryUI
+      name: UI_Support
       rect:
         serializedVersion: 2
-        x: 14
-        y: 1165
-        width: 420
+        x: 445
+        y: 1657
+        width: 934
+        height: 225
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: UI_Right
+      rect:
+        serializedVersion: 2
+        x: 1393
+        y: 1656
+        width: 424
         height: 224
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -117,104 +144,91 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SupportUI
-      rect:
-        serializedVersion: 2
-        x: 446
-        y: 1164
-        width: 932
-        height: 223
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: RightArtilleryUI
-      rect:
-        serializedVersion: 2
-        x: 1394
-        y: 1163
-        width: 422
-        height: 222
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: RangeUI
+      name: UI_Range
       rect:
         serializedVersion: 2
         x: 1894
-        y: 1367
-        width: 58
-        height: 40
+        y: 1859
+        width: 59
+        height: 43
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Button
+      name: UI_Button
       rect:
         serializedVersion: 2
-        x: 1884
-        y: 1280
-        width: 120
-        height: 48
+        x: 1883
+        y: 1773
+        width: 122
+        height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: UpgradeUI
+      name: UI_Upgrade
       rect:
         serializedVersion: 2
-        x: 17
-        y: 930
-        width: 1774
-        height: 221
+        x: 15
+        y: 1422
+        width: 1777
+        height: 224
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: SellButton
+      name: UI_Sell
       rect:
         serializedVersion: 2
-        x: 1886
-        y: 1150
-        width: 123
-        height: 103
+        x: 1885
+        y: 1643
+        width: 124
+        height: 105
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: BottomUI
+      name: UI_Bottom
       rect:
         serializedVersion: 2
         x: 12
-        y: 839
-        width: 1776
-        height: 80
+        y: 1332
+        width: 1777
+        height: 82
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: UIInside
+      name: UI_Alert
       rect:
         serializedVersion: 2
-        x: 10
+        x: 9
+        y: 493
+        width: 1782
+        height: 784
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: UI_Hover
+      rect:
+        serializedVersion: 2
+        x: 17
         y: 0
-        width: 1780
-        height: 782
+        width: 1777
+        height: 441
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

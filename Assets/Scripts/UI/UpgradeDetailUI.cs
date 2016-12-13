@@ -15,7 +15,9 @@ public class UpgradeDetailUI : MonoBehaviour {
 
     Canvas canvas;
 
+    bool isArtillery;
     ArtilleryModel selected;
+    SupportModel selectedSupport;
 
     // Use this for initialization
     void Start () {
@@ -30,6 +32,7 @@ public class UpgradeDetailUI : MonoBehaviour {
     public void LoadArtilleryInfo(ArtilleryModel model)
     {
         selected = model;
+        isArtillery = true;
         canvas.enabled = true;
         upgradeName.text = model.name;
         price.text = model.price + " Gold";
@@ -40,10 +43,19 @@ public class UpgradeDetailUI : MonoBehaviour {
         image.sprite = Resources.LoadAll<Sprite>("WeaponTower 1")[model.imageUIindex];
     }
 
+    public void LoadSupportInfo(SupportModel model)
+    {
+        selectedSupport = model;
+        isArtillery = false;
+    }
+
     public void BuyButtonClick()
     {
         canvas.enabled = false;
-        towerUpgrade.OnBuyButtonClicked(selected);
+        if(isArtillery)
+            towerUpgrade.OnBuyArtillery(selected);
+        else
+            towerUpgrade.OnBuySupport(selectedSupport);
     }
 
     public void CancelButtonClick()

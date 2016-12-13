@@ -91,6 +91,11 @@ public class ObjectPool : MonoBehaviour
         return elite2Pool.GetFromPool();
     }
 
+    public GameObject GetBalloon()
+    {
+        return peon6Pool.GetFromPool();
+    }
+
     public GameObject GetPoisonGas()
     {
         return poisonPool.GetFromPool();
@@ -119,6 +124,11 @@ public class ObjectPool : MonoBehaviour
     public GameObject GetBat()
     {
         return peon2Pool.GetFromPool();
+    }
+
+    public GameObject GetZeppelin()
+    {
+        return peon7Pool.GetFromPool();
     }
 
     public GameObject GetArrow()

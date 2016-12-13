@@ -19,9 +19,9 @@ public class MasterSpawner : MonoBehaviour
     public int multiplierNumber = 1;
 
     int waveLevel = 20;
-    int waveNumber = 15;
+    int waveNumber = 10;
     public float healthMultiplier = 1f;
-    public int goldMultiplier = 1;
+    public float goldMultiplier = 1;
 
     // Use this for initialization
     void Start()
@@ -123,12 +123,12 @@ public class MasterSpawner : MonoBehaviour
     {
         int highestCost = GetHighestCost();
         highestCost = highestCost < costleft ? highestCost : costleft == 4 ? 3 : costleft;
-        int val = Random.Range(0, (highestCost + 1) * 120);
-        return Ratio(30, 30, 20, 20, val, ref costleft);
+        return Ratio(30, 30, 20, 20, highestCost, ref costleft);
     }
 
-    private GameObject Ratio(int cost1, int cost2, int cost3, int cost4, int val, ref int costleft)
+    private GameObject Ratio(int cost1, int cost2, int cost3, int cost4, int highestCost, ref int costleft)
     {
+        int val = RandomizeUnitCost(cost1, cost2, cost3, cost4, highestCost);
         if (val <= CalculateCost(cost1))
         {
             costleft -= 1;
@@ -151,6 +151,18 @@ public class MasterSpawner : MonoBehaviour
         }
     }
 
+    private int RandomizeUnitCost(int cost1, int cost2, int cost3, int cost4, int highestCost)
+    {
+        int val = 0;
+        if (highestCost > 1)
+            val = Random.Range(0, CalculateCost(cost1 + cost2));
+        else if (highestCost > 2)
+            val = Random.Range(0, CalculateCost(cost1 + cost2 + cost3));
+        else if (highestCost > 3)
+            val = Random.Range(0, 600);
+        return val;
+    }
+
     private int CalculateCost(int cost)
     {
         return (600 * cost / 100);
@@ -158,11 +170,11 @@ public class MasterSpawner : MonoBehaviour
 
     private int GetHighestCost()
     {
-        if (waveNumber < 5)
+        if (waveLevel < 5)
             return 1;
-        else if (waveNumber < 10)
+        else if (waveLevel < 10)
             return 2;
-        else if (waveNumber < 15)
+        else if (waveLevel < 15)
             return 3;
         else return 4;
     }
@@ -182,17 +194,43 @@ public class MasterSpawner : MonoBehaviour
 
     private GameObject GetCost2Unit()
     {
-        return GetObjectPool().GetNinja();
+        switch (Random.Range(0, CanHaveAirUnit() ? 3 : 2))
+        {
+            case 0:
+                return GetObjectPool().GetNinja();
+            case 1:
+                return GetObjectPool().GetAssassin();
+            case 2:
+                return GetObjectPool().GetBalloon();
+            default:
+                return GetObjectPool().GetNinja();
+        }
     }
 
     private GameObject GetCost3Unit()
     {
-        return GetObjectPool().GetAssassin();
+        switch (Random.Range(0, CanHaveAirUnit() ? 2 : 1))
+        {
+            case 0:
+                return GetObjectPool().GetSoldier();
+            case 1:
+                return GetObjectPool().GetZeppelin();
+            default:
+                return GetObjectPool().GetSoldier();
+        }
     }
 
     private GameObject GetCost5Unit()
     {
-        return GetObjectPool().GetSoldier();
+        switch (Random.Range(0, CanHaveAirUnit() ? 2 : 1))
+        {
+            case 0:
+                return GetObjectPool().GetSoldier();
+            case 1:
+                return GetObjectPool().GetZeppelin();
+            default:
+                return GetObjectPool().GetSoldier();
+        }
     }
 
     private bool CanHaveAirUnit()
@@ -218,9 +256,17 @@ public class MasterSpawner : MonoBehaviour
     private void CalculateWaveLevel()
     {
         waveLevel++;
-        if (waveNumber < MAX_WAVENUMER)
-            waveNumber++;
-        //healthMultiplier *= 1.1f;
+        if (waveNumber < MAX_WAVENUMER && waveLevel % 5 == 0)
+            waveNumber += 5;
+        if (waveLevel % 5 == 0)
+        {
+            healthMultiplier += 0.3f;
+            goldMultiplier += 0.3f;
+        }else
+        {
+            healthMultiplier += 0.05f;
+            goldMultiplier += 0.05f;
+        }
         GameSystem.GetGameSystem().UpdateWave(waveLevel);
     }
 

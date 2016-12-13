@@ -8,7 +8,7 @@ public class TowerFloorScript : MonoBehaviour
     ArtilleryScript rightArtillery;
     SupportScript supportScript;
 
-    int towerHealth = 20;
+    public int towerHealth = 20;
 
     // Use this for initialization
     void Start()

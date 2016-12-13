@@ -69,21 +69,21 @@ public class HostileMainScript : MonoBehaviour
         }
         GameSystem.GetGameSystem().AddHostile(this.gameObject);
         health = healthAfterMultiplier;
-        healthBar.localScale = new Vector3(1, 0.2f, 1);
+        healthBar.localScale = new Vector3(1, 1, 1);
         isAlive = true;
         hostileInterface.OnRecycled();
     }
 
-    public void SetHealthAndGoldMultiplier(int goldM, float healthM)
+    public void SetHealthAndGoldMultiplier(float goldM, float healthM)
     {
         healthAfterMultiplier = Mathf.RoundToInt(initialHealth * healthM);
-        goldValue = initialGold * goldM;
+        goldValue = Mathf.RoundToInt(initialGold * goldM);
     }
 
     public void TakeDamage(int damage, DamageType damageType)
     {
         health -= Mathf.RoundToInt(CalculateDamageMultiplication(damageType) * damage * damageBonusMultiplier);
-        healthBar.localScale = new Vector3((health / (float)healthAfterMultiplier), 0.2f, 1);
+        healthBar.localScale = new Vector3((health / (float)healthAfterMultiplier), 1, 1);
         if (health <= 0)
         {
             healthBar.localScale = Vector3.zero;

@@ -7,6 +7,7 @@ public class SupportModel
     public int price;
     public SupportInterface supportImpl;
     public string supportModelPrefabName;
+    public int imageIndex = 0;
 }
 
 public class SupportModelList

@@ -148,17 +148,24 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler, DialogInterfa
     {
     }
 
-    public void OnBuyButtonClicked(ArtilleryModel model)
+    public void OnBuyArtillery(ArtilleryModel model)
     {
-        if (isArtillery)
+        if (model.price <= GameSystem.GetGameSystem().GetGold())
         {
-            if (model.price < GameSystem.GetGameSystem().GetGold())
-            {
-                GameSystem.GetGameSystem().AddGold(-model.price);
-                artillery.SetModel(model);
-                LoadAvailableArtilleryUpgrades();
-            }
+            GameSystem.GetGameSystem().AddGold(-model.price);
+            artillery.SetModel(model);
+            LoadAvailableArtilleryUpgrades();
         }
+    }
+
+    public void OnBuySupport(SupportModel model)
+    {
+        if (model.price <= GameSystem.GetGameSystem().GetGold())
+        {
+            GameSystem.GetGameSystem().AddGold(-model.price);
+            support.SetImplements(model);
+        }
+    
     }
 
     public void OnYesButtonClicked()
@@ -177,7 +184,7 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler, DialogInterfa
         else
         {
             SupportModel model = SupportModelList.GetSupportAtIndex(upgradeIndex);
-            if (model.price < GameSystem.GetGameSystem().GetGold())
+            if (model.price <= GameSystem.GetGameSystem().GetGold())
             {
                 GameSystem.GetGameSystem().AddGold(-model.price);
                 support.SetImplements(model);

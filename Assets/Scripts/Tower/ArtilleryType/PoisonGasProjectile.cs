@@ -5,7 +5,6 @@ public class PoisonGasProjectile : MonoBehaviour {
 
     private Vector2 target;
     private int damage;
-    private DamageType damageType;
 
     // Use this for initialization
     void Start()
@@ -19,10 +18,9 @@ public class PoisonGasProjectile : MonoBehaviour {
         transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, 5 * Time.deltaTime);
     }
 
-    public PoisonGasProjectile SetDamageType(int damage, DamageType damageType)
+    public PoisonGasProjectile SetDamageType(int damage)
     {
         this.damage = damage;
-        this.damageType = damageType;
         return this;
     }
 

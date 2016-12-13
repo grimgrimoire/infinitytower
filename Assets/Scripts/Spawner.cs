@@ -18,7 +18,7 @@ public class Spawner : MonoBehaviour
 
     }
 
-    public void SpawnEnemy(GameObject peon, int goldM, float healthM)
+    public void SpawnEnemy(GameObject peon, float goldM, float healthM)
     {
         if (peon == null) return;
 

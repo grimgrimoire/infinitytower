@@ -24,7 +24,7 @@ public class PoisonGasArtillery : ArtilleryInterface {
         projectilePrefab[poolIndex].SetActive(true);
         projectilePrefab[poolIndex].transform.position = artillery.transform.position;
         projectilePrefab[poolIndex].GetComponent<PoisonGasProjectile>()
-            .SetDamageType(model.damage, model.damageType)
+            .SetDamageType(model.damage)
             .SetTarget(target.transform.position);
         poolIndex = (poolIndex + 1) % model.poolSize;
         yield return null;
