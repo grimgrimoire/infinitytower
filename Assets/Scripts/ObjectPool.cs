@@ -13,6 +13,11 @@ public class ObjectPool : MonoBehaviour
     string peon7 = "Prefab/EnemyUnit/Zapelin";
     string elite1 = "Prefab/EnemyUnit/Wyvern";
     string elite2 = "Prefab/EnemyUnit/EliteKnight";
+    string peon8 = "Prefab/EnemyUnit/SoldierShield";
+    string peon9 = "Prefab/EnemyUnit/SpiderLarge";
+    string peon10 = "Prefab/EnemyUnit/SpiderMini";
+    string peon11 = "Prefab/EnemyUnit/ZapelinLarge";
+    string peon12 = "Prefab/EnemyUnit/MiniBalloon";
 
     string explosion = "Prefab/Projectile/Explosion";
     string blood = "Prefab/DeadEffect/Blood";
@@ -29,6 +34,11 @@ public class ObjectPool : MonoBehaviour
     PoolClass peon5Pool;
     PoolClass peon6Pool;
     PoolClass peon7Pool;
+    PoolClass peon8Pool;
+    PoolClass peon9Pool;
+    PoolClass peon10Pool;
+    PoolClass peon11Pool;
+    PoolClass peon12Pool;
     PoolClass explosionPool;
     PoolClass bloodPool;
     PoolClass guardmanPool;
@@ -48,6 +58,11 @@ public class ObjectPool : MonoBehaviour
         peon5Pool = new PoolClass(peon5, 30);
         peon6Pool = new PoolClass(peon6, 50);
         peon7Pool = new PoolClass(peon7, 30);
+        peon8Pool = new PoolClass(peon8, 10);
+        peon9Pool = new PoolClass(peon9, 6);
+        peon10Pool = new PoolClass(peon10, 30);
+        peon11Pool = new PoolClass(peon11, 6);
+        peon12Pool = new PoolClass(peon12, 30);
         elite1Pool = new PoolClass(elite1, 5);
         elite2Pool = new PoolClass(elite2, 5);
         explosionPool = new PoolClass(explosion, 15);
@@ -64,6 +79,7 @@ public class ObjectPool : MonoBehaviour
         yield return peon5Pool.InitiatePooling();
         yield return peon6Pool.InitiatePooling();
         yield return peon7Pool.InitiatePooling();
+        yield return peon8Pool.InitiatePooling();
         yield return explosionPool.InitiatePooling();
         yield return bloodPool.InitiatePooling();
         yield return guardmanPool.InitiatePooling();
@@ -73,7 +89,36 @@ public class ObjectPool : MonoBehaviour
         yield return poisonPool.InitiatePooling();
         yield return elite1Pool.InitiatePooling();
         yield return elite2Pool.InitiatePooling();
+        yield return peon9Pool.InitiatePooling();
+        yield return peon10Pool.InitiatePooling();
+        yield return peon11Pool.InitiatePooling();
+        yield return peon12Pool.InitiatePooling();
         yield return new WaitForEndOfFrame();
+    }
+
+    public GameObject GetZeppelinLarge()
+    {
+        return peon11Pool.GetFromPool();
+    }
+
+    public GameObject GetMiniBalloon()
+    {
+        return peon12Pool.GetFromPool();
+    }
+
+    public GameObject GetLargeSpider()
+    {
+        return peon9Pool.GetFromPool();
+    }
+
+    public GameObject GetMiniSpider()
+    {
+        return peon10Pool.GetFromPool();
+    }
+
+    public GameObject GetShield()
+    {
+        return peon8Pool.GetFromPool();
     }
 
     public GameObject GetNinja()

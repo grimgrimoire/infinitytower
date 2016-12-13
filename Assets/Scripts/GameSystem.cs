@@ -119,4 +119,9 @@ public class GameSystem : MonoBehaviour {
         return controlUI;
     }
 
+    public InfoUI GetInfoUI()
+    {
+        return infoUI;
+    }
+
 }

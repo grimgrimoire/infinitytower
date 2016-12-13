@@ -10,9 +10,11 @@ public class InfoUI : MonoBehaviour {
     public Text goldText;
     public Text waveText;
     public Text timerText;
+    public GameObject skipBtn1;
+    public GameObject skipBtn2;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 	
 	}
 	
@@ -20,6 +22,22 @@ public class InfoUI : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public void UpdateTimer(int duration)
+    {
+        timerText.text = "Next wave : " + duration + "s";
+    }
+
+    public void SetSkipButton(bool set)
+    {
+        skipBtn1.SetActive(set);
+        skipBtn2.SetActive(set);
+    }
+
+    public void RemoveTimer()
+    {
+        timerText.text = "";
+    }
 
     public void UpdateGold(int gold)
     {

@@ -18,10 +18,11 @@ public class MasterSpawner : MonoBehaviour
 
     public int multiplierNumber = 1;
 
-    int waveLevel = 20;
+    int waveLevel = 1;
     int waveNumber = 10;
     public float healthMultiplier = 1f;
     public float goldMultiplier = 1;
+    int nextWaveTimer = -1;
 
     // Use this for initialization
     void Start()
@@ -61,8 +62,8 @@ public class MasterSpawner : MonoBehaviour
             yield return SpawnBatch(batch2);
             yield return new WaitForSeconds(5);
             yield return SpawnBatch(batch3);
-            yield return new WaitForSeconds(10);
             CalculateWaveLevel();
+            yield return WaveEndTimer();
         }
     }
 
@@ -121,6 +122,12 @@ public class MasterSpawner : MonoBehaviour
 
     private GameObject GetRandomUnitByCost(ref int costleft)
     {
+        /////////////////////////////////////
+
+        costleft--;
+        return GetObjectPool().GetZeppelinLarge();
+
+        ////////////////////////////////////
         int highestCost = GetHighestCost();
         highestCost = highestCost < costleft ? highestCost : costleft == 4 ? 3 : costleft;
         return Ratio(30, 30, 20, 20, highestCost, ref costleft);
@@ -270,6 +277,21 @@ public class MasterSpawner : MonoBehaviour
         GameSystem.GetGameSystem().UpdateWave(waveLevel);
     }
 
+    IEnumerator WaveEndTimer()
+    {
+        nextWaveTimer = 20;
+        GameSystem.GetGameSystem().GetInfoUI().SetSkipButton(true);
+        GameSystem.GetGameSystem().GetInfoUI().UpdateTimer(nextWaveTimer);
+        while (nextWaveTimer > -1)
+        {
+            yield return new WaitForSeconds(1);
+            nextWaveTimer -= 1;
+            GameSystem.GetGameSystem().GetInfoUI().UpdateTimer(nextWaveTimer);
+        }
+        GameSystem.GetGameSystem().GetInfoUI().RemoveTimer();
+        GameSystem.GetGameSystem().GetInfoUI().SetSkipButton(false);
+    }
+
     private void CalculateAvailableEnemy()
     {
         bool airUnit = leftSpawnerList.Count > 5;
@@ -301,5 +323,11 @@ public class MasterSpawner : MonoBehaviour
             else
                 rightSpawnerList.Add(obj.GetComponent<Spawner>());
         }
+    }
+
+    public void SkipWave()
+    {
+        nextWaveTimer = 0;
+        GameSystem.GetGameSystem().GetInfoUI().SetSkipButton(false);
     }
 }

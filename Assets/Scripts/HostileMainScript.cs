@@ -15,12 +15,14 @@ public class HostileMainScript : MonoBehaviour
     public ArmorType armor;
     public bool isGroundUnit;
     public bool isAlive;
+    public bool isShield = false;
     public CorpsePrefab corpse;
     public float inactiveDelay;
     public Animator animator;
     public int cost;
+    public float animationSpeed = 1;
 
-    private HostileInterface hostileInterface;
+    private HostileInterface[] hostileInterfaces;
     private int initialHealth;
     private int initialGold;
     private int healthAfterMultiplier;
@@ -32,9 +34,9 @@ public class HostileMainScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        hostileInterface = GetComponent<HostileInterface>();
         healthBar = transform.FindChild("HealthBar");
-        gameObject.SetActive(false);
+        if (!isShield)
+            gameObject.SetActive(false);
         initialHealth = health;
         initialGold = goldValue;
         buffList = new Dictionary<string, BuffScript>();
@@ -62,20 +64,42 @@ public class HostileMainScript : MonoBehaviour
 
     public void Recycle()
     {
+        if (hostileInterfaces == null)
+            hostileInterfaces = GetComponents<HostileInterface>();
         if (corpse == CorpsePrefab.Animation)
         {
             animator.Play("Walk");
-            animator.speed = speed;
+            animator.speed = animationSpeed;
         }
-        GameSystem.GetGameSystem().AddHostile(this.gameObject);
+        if (!isShield)
+            GameSystem.GetGameSystem().AddHostile(this.gameObject);
         health = healthAfterMultiplier;
-        healthBar.localScale = new Vector3(1, 1, 1);
+        if (healthBar != null)
+            healthBar.localScale = new Vector3(1, 1, 1);
         isAlive = true;
-        hostileInterface.OnRecycled();
+        HostileInterfaceRecycle();
+    }
+
+    private void HostileInterfaceRecycle()
+    {
+        foreach (HostileInterface impl in hostileInterfaces)
+        {
+            impl.OnRecycled();
+        }
+    }
+
+    private void HostileInterfaceKilled()
+    {
+        foreach (HostileInterface impl in hostileInterfaces)
+        {
+            impl.OnKilled();
+        }
     }
 
     public void SetHealthAndGoldMultiplier(float goldM, float healthM)
     {
+        if (initialHealth == 0)
+            initialHealth = health;
         healthAfterMultiplier = Mathf.RoundToInt(initialHealth * healthM);
         goldValue = Mathf.RoundToInt(initialGold * goldM);
     }
@@ -83,17 +107,19 @@ public class HostileMainScript : MonoBehaviour
     public void TakeDamage(int damage, DamageType damageType)
     {
         health -= Mathf.RoundToInt(CalculateDamageMultiplication(damageType) * damage * damageBonusMultiplier);
-        healthBar.localScale = new Vector3((health / (float)healthAfterMultiplier), 1, 1);
+        if (healthBar != null)
+            healthBar.localScale = new Vector3((health / (float)healthAfterMultiplier), 1, 1);
         if (health <= 0)
         {
-            healthBar.localScale = Vector3.zero;
+            if (healthBar != null)
+                healthBar.localScale = Vector3.zero;
             Killed();
         }
     }
 
     public void SetBuff(BuffScript buff)
     {
-        if(health > 0)
+        if (health > 0)
             buff.GetBuff(this);
     }
 
@@ -173,7 +199,7 @@ public class HostileMainScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.tag == TagsAndLayers.TAG_TOWER)
+        if (collider.tag == TagsAndLayers.TAG_TOWER || collider.tag == TagsAndLayers.TAG_KILLZONE)
         {
             Killed();
         }
@@ -182,11 +208,12 @@ public class HostileMainScript : MonoBehaviour
     private void Killed()
     {
         GameSystem.GetGameSystem().AddGold(goldValue);
-        GameSystem.GetGameSystem().RemoveHostile(this.gameObject);
+        if (!isShield)
+            GameSystem.GetGameSystem().RemoveHostile(this.gameObject);
         isAlive = false;
         buffList.Clear();
         speed = 1;
-        hostileInterface.OnKilled();
+        HostileInterfaceKilled();
         ShowCorpse();
     }
 
@@ -201,6 +228,7 @@ public class HostileMainScript : MonoBehaviour
         }
         else if (corpse == CorpsePrefab.Animation)
         {
+            animator.speed = 1;
             animator.Play("Dead");
             StartCoroutine(InactiveDelay());
         }

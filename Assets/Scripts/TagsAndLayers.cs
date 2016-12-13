@@ -7,4 +7,5 @@
     public static string TAG_PROJECTILE = "Projectile";
     public static string TAG_WORLD = "World";
     public static string TAG_SPAWNER = "Spawn";
+    public static string TAG_KILLZONE = "KillZone";
 }
