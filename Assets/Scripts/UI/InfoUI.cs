@@ -2,7 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class InfoUI : MonoBehaviour {
+public class InfoUI : MonoBehaviour
+{
 
     const string WAVE = "Wave: ";
     const string GOLD = "Gold: ";
@@ -16,15 +17,17 @@ public class InfoUI : MonoBehaviour {
     PoolClass addGoldText;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         addGoldText = new PoolClass("Prefab/AddGold", 40);
         StartCoroutine(addGoldText.InitiatePooling(gameObject));
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     public void UpdateTimer(int duration)
     {
@@ -49,9 +52,11 @@ public class InfoUI : MonoBehaviour {
 
     public void ShowAddGold(int gold)
     {
+        if (gold == 0)
+            return;
         GameObject text = addGoldText.GetFromPool();
         text.SetActive(true);
-        if(gold > 0)
+        if (gold > 0)
             text.GetComponent<Text>().text = "+ " + gold;
         else
             text.GetComponent<Text>().text = "- " + Mathf.Abs(gold);

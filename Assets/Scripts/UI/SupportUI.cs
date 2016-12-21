@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class SupportUI : MonoBehaviour {
 
     public Text moduleName;
+    public Image image;
 
     // Use this for initialization
     void Start () {
@@ -16,9 +17,20 @@ public class SupportUI : MonoBehaviour {
 	
 	}
 
-    public void SetName(string name)
+    public void SetName(SupportModel model)
     {
-        moduleName.text = name;
+        if(model != null)
+        {
+            moduleName.text = model.name;
+            image.sprite = Resources.LoadAll<Sprite>("Buff")[model.imageUIIndex];
+            image.color = Color.white;
+        }
+        else
+        {
+            moduleName.text = "Empty";
+            image.sprite = null;
+            image.color = Color.black;
+        }
     }
 
     public void SetSelected()

@@ -22,7 +22,7 @@ public class TowerInternalUI : MonoBehaviour {
     public void LoadTowerFloor(ArtilleryScript leftArtillery, ArtilleryScript rightArtillery)
     {
         leftAUI.SetModel(leftArtillery.GetModel());
-        supportUI.SetName(leftArtillery.GetSupport().getName());
+        supportUI.SetName(leftArtillery.GetSupport().model);
         rightAUI.SetModel(rightArtillery.GetModel());
     }
 

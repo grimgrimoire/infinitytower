@@ -5319,6 +5319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moduleName: {fileID: 1256042151}
+  image: {fileID: 1217047331}
 --- !u!222 &1777780744
 CanvasRenderer:
   m_ObjectHideFlags: 0

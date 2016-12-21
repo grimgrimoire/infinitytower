@@ -49,7 +49,6 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler, DialogInterfa
         if (find != null)
         {
             upgradeIndex = find.GetSiblingIndex();
-            //AddArtilleryUpgradeDialog();
             ShowUpgradeDetail();
         }
     }
@@ -118,31 +117,17 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler, DialogInterfa
         instance.GetComponentInChildren<Text>().text = model.name + "\n" + "Price : " + model.price;
     }
 
-    private void AddArtilleryUpgradeDialog()
+    private void RemoveDialog()
     {
         DialogUI dialog = GameSystem.GetGameSystem().GetControlUI().dialogUI;
         dialog.gameObject.SetActive(true);
         if (isArtillery)
         {
-            if (upgradeIndex == 0 && GetUpgradeCode() != 0)
-            {
-                dialog.SetMessage("Remove artillery?");
-            }
-            else
-            {
-                dialog.SetMessage("Buy new artillery?");
-            }
+            dialog.SetMessage("Remove artillery?");
         }
         else
         {
-            if (upgradeIndex == 0 && GetUpgradeCode() != 0)
-            {
-                dialog.SetMessage("Remove support?");
-            }
-            else
-            {
-                dialog.SetMessage("Buy new support");
-            }
+            dialog.SetMessage("Remove support?");
         }
         dialog.SetDialogType(true);
         dialog.SetInterface(this);
@@ -181,26 +166,50 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler, DialogInterfa
             support.SetImplements(model);
             LoadAvailableSupportUpgrades();
         }
-    
+
+    }
+
+    public void OnYesButtonClicked()
+    {
+        if (isArtillery)
+        {
+            ArtilleryModel model = ArtilleryModelList.GetArtilleryAtIndex(upgradeIndex, GetUpgradeCode());
+            GameSystem.GetGameSystem().AddGold(artillery.GetModel().price / 2);
+            artillery.SetModel(model);
+            LoadAvailableArtilleryUpgrades();
+        }
+        else
+        {
+            SupportModel model = SupportModelList.GetSupportAtIndex(upgradeIndex, GetSupportUpgradeCode());
+            support.SetImplements(model);
+            LoadAvailableSupportUpgrades();
+        }
     }
 
     public void ShowUpgradeDetail()
     {
         if (isArtillery)
         {
-            ArtilleryModel model = ArtilleryModelList.GetArtilleryAtIndex(upgradeIndex, GetUpgradeCode());
-            upgradeDetailUI.LoadArtilleryInfo(model);
+            if (upgradeIndex == 0 && GetUpgradeCode() != 0)
+                RemoveDialog();
+            else
+            {
+                ArtilleryModel model = ArtilleryModelList.GetArtilleryAtIndex(upgradeIndex, GetUpgradeCode());
+                upgradeDetailUI.LoadArtilleryInfo(model);
+            }
         }
         else
         {
-            SupportModel model = SupportModelList.GetSupportAtIndex(upgradeIndex, GetSupportUpgradeCode());
-            //if (model.price <= GameSystem.GetGameSystem().GetGold())
-            //{
-            //    GameSystem.GetGameSystem().AddGold(-model.price);
-            //    support.SetImplements(model);
-            //    LoadAvailableSupportUpgrades();
-            //}
-            upgradeDetailUI.LoadSupportInfo(model);
+            if (upgradeIndex == 0 && GetSupportUpgradeCode() != 0)
+            {
+                RemoveDialog();
+            }
+            else
+            {
+                SupportModel model = SupportModelList.GetSupportAtIndex(upgradeIndex, GetSupportUpgradeCode());
+                upgradeDetailUI.LoadSupportInfo(model);
+            }
+
         }
     }
 }
