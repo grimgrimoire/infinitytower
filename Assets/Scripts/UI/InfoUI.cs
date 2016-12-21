@@ -13,9 +13,12 @@ public class InfoUI : MonoBehaviour {
     public GameObject skipBtn1;
     public GameObject skipBtn2;
 
+    PoolClass addGoldText;
+
     // Use this for initialization
     void Start () {
-	
+        addGoldText = new PoolClass("Prefab/AddGold", 40);
+        StartCoroutine(addGoldText.InitiatePooling(gameObject));
 	}
 	
 	// Update is called once per frame
@@ -42,6 +45,16 @@ public class InfoUI : MonoBehaviour {
     public void UpdateGold(int gold)
     {
         this.goldText.text = GOLD + gold;
+    }
+
+    public void ShowAddGold(int gold)
+    {
+        GameObject text = addGoldText.GetFromPool();
+        text.SetActive(true);
+        if(gold > 0)
+            text.GetComponent<Text>().text = "+ " + gold;
+        else
+            text.GetComponent<Text>().text = "- " + Mathf.Abs(gold);
     }
 
     public void UpdateWave(int wave)

@@ -31,6 +31,11 @@ public class HostileMainScript : MonoBehaviour
     private float damageBonusMultiplier = 1;
     private Dictionary<string, BuffScript> buffList;
 
+    public int MaxHealth()
+    {
+        return healthAfterMultiplier;
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -60,6 +65,8 @@ public class HostileMainScript : MonoBehaviour
     public void SetSpeed(float speed)
     {
         this.speed = speed;
+        if (animator != null)
+            animator.speed = speed * animationSpeed;
     }
 
     public void Recycle()
@@ -106,14 +113,17 @@ public class HostileMainScript : MonoBehaviour
 
     public void TakeDamage(int damage, DamageType damageType)
     {
-        health -= Mathf.RoundToInt(CalculateDamageMultiplication(damageType) * damage * damageBonusMultiplier);
-        if (healthBar != null)
-            healthBar.localScale = new Vector3((health / (float)healthAfterMultiplier), 1, 1);
-        if (health <= 0)
+        if (health > 0)
         {
+            health -= Mathf.RoundToInt(CalculateDamageMultiplication(damageType) * damage * damageBonusMultiplier);
             if (healthBar != null)
-                healthBar.localScale = Vector3.zero;
-            Killed();
+                healthBar.localScale = new Vector3((health / (float)healthAfterMultiplier), 1, 1);
+            if (health <= 0)
+            {
+                if (healthBar != null)
+                    healthBar.localScale = Vector3.zero;
+                Killed();
+            }
         }
     }
 
@@ -172,12 +182,12 @@ public class HostileMainScript : MonoBehaviour
 
     private float CalculateImpact()
     {
-        return GetDamageMultiplicationTable(1, 1, 1, 1);
+        return GetDamageMultiplicationTable(0.5f, 1, 1.5f, 1.25f);
     }
 
     private float CalculateMagic()
     {
-        return GetDamageMultiplicationTable(1, 1, 1, 1);
+        return GetDamageMultiplicationTable(1, 0.75f, 1.25f, 1);
     }
 
     private float GetDamageMultiplicationTable(float lightArmor, float MediumArmor, float heavyArmor, float noArmor)
@@ -213,6 +223,8 @@ public class HostileMainScript : MonoBehaviour
         isAlive = false;
         buffList.Clear();
         speed = 1;
+        if (animator != null)
+            animator.speed = animationSpeed;
         HostileInterfaceKilled();
         ShowCorpse();
     }
@@ -231,6 +243,13 @@ public class HostileMainScript : MonoBehaviour
             animator.speed = 1;
             animator.Play("Dead");
             StartCoroutine(InactiveDelay());
+        }
+        else if (corpse == CorpsePrefab.Explosion)
+        {
+            GameObject expl = GameSystem.GetGameSystem().GetObjectPool().GetAirDeath();
+            expl.transform.position = transform.position;
+            expl.SetActive(true);
+            gameObject.SetActive(false);
         }
         else
         {

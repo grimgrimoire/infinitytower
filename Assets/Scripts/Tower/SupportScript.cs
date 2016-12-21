@@ -8,6 +8,7 @@ public class SupportScript : MonoBehaviour
     private SupportInterface implements;
     public ArtilleryScript left;
     public ArtilleryScript right;
+    public SupportModel model;
 
     // Use this for initialization
     void Start()
@@ -27,13 +28,18 @@ public class SupportScript : MonoBehaviour
         {
             Destroy(transform.GetChild(4).GetChild(0).gameObject);
         }
-        left.RemoveSupportedEffect();
-        right.RemoveSupportedEffect();
+        this.model = model;
+        if (left.GetModel() != null)
+            left.RemoveSupportedEffect();
+        if (right.GetModel() != null)
+            right.RemoveSupportedEffect();
         supportName = model.name;
         implements = model.supportImpl;
         GetComponentInParent<TowerFloorScript>().LoadTowerFloorToUI();
-        left.ApplySupportedEffect();
-        right.ApplySupportedEffect();
+        if (left.GetModel() != null)
+            left.ApplySupportedEffect();
+        if (right.GetModel() != null)
+            right.ApplySupportedEffect();
         if (model.supportModelPrefabName != null)
         {
             GameObject graphics = (GameObject)Instantiate(Resources.Load(model.supportModelPrefabName, typeof(GameObject)) as GameObject, transform.GetChild(4).transform);

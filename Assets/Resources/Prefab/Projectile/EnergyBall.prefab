@@ -24,6 +24,7 @@ GameObject:
   - 114: {fileID: 114000010763791560}
   - 50: {fileID: 50000010763256946}
   - 61: {fileID: 61000010575079044}
+  - 114: {fileID: 114000010759194404}
   m_Layer: 11
   m_Name: EnergyBall
   m_TagString: Projectile
@@ -92,6 +93,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114000010759194404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013698776126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 999cf4b584d3cde42a81c89fe444e1fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000010763791560
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,15 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TornadoArtillery : ArtilleryInterface {
+public class PrecisionProjectileArtillery : ArtilleryInterface {
 
     ArtilleryModel model;
     int poolIndex;
     int counter;
+    int projectileSpeed = 5;
 
-    public TornadoArtillery(ArtilleryModel model)
+    public PrecisionProjectileArtillery(ArtilleryModel model)
     {
         this.model = model;
+    }
+
+    public PrecisionProjectileArtillery(ArtilleryModel model, int projectileSpeed)
+    {
+        this.model = model;
+        this.projectileSpeed = projectileSpeed;
     }
 
     IEnumerator ArtilleryInterface.ShootAtTarget(GameObject target, GameObject artillery, GameObject[] projectilePrefab)
@@ -21,10 +28,10 @@ public class TornadoArtillery : ArtilleryInterface {
             counter++;
         }
         projectilePrefab[poolIndex].SetActive(true);
-        projectilePrefab[poolIndex].transform.position = new Vector2(artillery.transform.position.x, 0.118f);
-        projectilePrefab[poolIndex].GetComponent<TornadoProjectile>()
+        projectilePrefab[poolIndex].transform.position = artillery.transform.position;
+        projectilePrefab[poolIndex].GetComponent<PrecisionProjectile>()
             .SetDamageType(model.damage, model.damageType)
-            .SetTarget(target.transform.position);
+            .SetTarget(target);
         poolIndex = (poolIndex + 1) % model.poolSize;
         yield return null;
     }

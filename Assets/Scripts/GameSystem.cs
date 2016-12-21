@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public class GameSystem : MonoBehaviour {
+public class GameSystem : MonoBehaviour
+{
 
     public int gold;
     public InfoUI infoUI;
@@ -17,8 +18,9 @@ public class GameSystem : MonoBehaviour {
     MasterSpawner spawnSystem;
     ObjectPool objectPool;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         if (instance != null)
             Destroy(instance);
         instance = this;
@@ -28,11 +30,12 @@ public class GameSystem : MonoBehaviour {
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         StartCoroutine(initGame());
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     IEnumerator initGame()
     {
@@ -94,8 +97,10 @@ public class GameSystem : MonoBehaviour {
         return hostiles;
     }
 
-    public void AddGold(int value) {
+    public void AddGold(int value)
+    {
         gold += value;
+        infoUI.ShowAddGold(value);
         UpdateGoldValue();
     }
 
@@ -122,6 +127,11 @@ public class GameSystem : MonoBehaviour {
     public InfoUI GetInfoUI()
     {
         return infoUI;
+    }
+
+    public void SkipWave(int timer)
+    {
+        AddGold(timer > 9 ? 100 : timer * 10);
     }
 
 }

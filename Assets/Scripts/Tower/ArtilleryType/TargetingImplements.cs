@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class GroundTargetOnly : ArtilleryTargetingInterface
 {
@@ -34,5 +35,22 @@ public class AirTargetOnly : ArtilleryTargetingInterface
         }
         else
             return false;
+    }
+}
+
+public class HighestHealthOnly : ArtilleryTargetingInterface
+{
+    public bool CheckPriorityCondition(GameObject currentTarget, GameObject hostiles, GameObject self)
+    {
+        if (currentTarget == null || !currentTarget.activeSelf) {
+            return true;
+        }
+        else if(currentTarget.GetComponent<HostileMainScript>().health < hostiles.GetComponent<HostileMainScript>().MaxHealth())
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }

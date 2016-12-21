@@ -1,22 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
 
-public class SlowDebuff : MonoBehaviour
+public class StunDebuff : MonoBehaviour
 {
+    public int chance = 30;
+    public float duration = 2;
 
-    class SlowBuffScript : BuffScript
+    class StunBuffScript : BuffScript
     {
-        const string DEBUFF_TAG = "Slow debuff";
+        const string DEBUFF_TAG = "Stun debuff";
+        private int chance;
+        private float duration;
+
+        public StunBuffScript(int chance, float duration)
+        {
+            this.chance = chance;
+            this.duration = duration;
+        }
 
         public override void BuffEffect(HostileMainScript hostile)
         {
-            hostile.SetSpeed(0.5f);
+            if(Random.Range(0, 101) < chance)
+                hostile.SetSpeed(0f);
         }
 
         public override float Duration()
         {
-            return 2.5f;
+            return duration;
         }
 
         public override string GetBuffTag()
@@ -47,12 +57,21 @@ public class SlowDebuff : MonoBehaviour
 
     }
 
+    public void SetChance(int chance)
+    {
+        this.chance = chance;
+    }
+
+    public void SetDuration(float duration)
+    {
+        this.duration = duration;
+    }
+
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.tag == TagsAndLayers.TAG_HOSTILE)
         {
-            collider.gameObject.GetComponent<HostileMainScript>().SetBuff(new SlowBuffScript());
+            collider.gameObject.GetComponent<HostileMainScript>().SetBuff(new StunBuffScript(chance, duration));
         }
     }
-
 }

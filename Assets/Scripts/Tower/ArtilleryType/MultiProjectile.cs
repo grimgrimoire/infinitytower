@@ -38,7 +38,7 @@ public class MultiProjectile : ArtilleryInterface
         projectilePrefab[poolIndex].transform.position = artillery.transform.position;
         projectilePrefab[poolIndex].GetComponent<ImpreciseProjectile>()
             .SetDamageType(model.damage, model.damageType)
-            .SetTarget(target + Random.insideUnitCircle * 0.6f);
+            .SetTarget(target + Random.insideUnitCircle * 0.2f);
         poolIndex = (poolIndex + 1) % model.poolSize;
     }
 }

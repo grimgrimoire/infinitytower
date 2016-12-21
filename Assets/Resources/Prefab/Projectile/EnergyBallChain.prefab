@@ -24,6 +24,7 @@ GameObject:
   - 50: {fileID: 50000011331544190}
   - 61: {fileID: 61000013793284754}
   - 114: {fileID: 114000010097077198}
+  - 114: {fileID: 114000010857582662}
   m_Layer: 11
   m_Name: EnergyBallChain
   m_TagString: Projectile
@@ -101,6 +102,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ff5a714e43fcab4f867958006ba855d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114000010857582662
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010868865012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 999cf4b584d3cde42a81c89fe444e1fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212000010771874048

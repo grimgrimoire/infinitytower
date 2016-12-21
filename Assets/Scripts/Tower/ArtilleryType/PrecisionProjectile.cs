@@ -33,6 +33,12 @@ public class PrecisionProjectile : MonoBehaviour
         return this;
     }
 
+    public PrecisionProjectile SetSpeed(int speed)
+    {
+        this.speed = speed;
+        return this;
+    }
+
     public void SetTarget(GameObject target)
     {
         this.target = target;

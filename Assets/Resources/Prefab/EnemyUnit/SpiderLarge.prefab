@@ -428,7 +428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goldValue: 10
-  health: 50
+  health: 100
   armor: 0
   isGroundUnit: 1
   isAlive: 0
@@ -534,7 +534,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: f4d719b2326d90d43bdd2d92575da1a5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.37931037, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &212000011528831352

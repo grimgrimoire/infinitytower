@@ -21,6 +21,13 @@ public class ArtilleryScript : MonoBehaviour
         supportScript = gameObject.GetComponentInParent<SupportScript>();
     }
 
+    void Update()
+    {
+        if (aimingInterface != null)
+            if(lockedTarget != null)
+                aimingInterface.SetAiming(lockedTarget.transform.position);
+    }
+
     public string getName()
     {
         return artilleryName;
@@ -60,6 +67,7 @@ public class ArtilleryScript : MonoBehaviour
 
     private void ApplyNewArtillery()
     {
+        ApplySupportedEffect();
         PreloadProjectile();
         GameObject graphics = (GameObject)Instantiate(Resources.Load(model.ingameModelPrefabName, typeof(GameObject)) as GameObject, transform);
         graphics.transform.localPosition = Vector3.zero;
@@ -75,27 +83,27 @@ public class ArtilleryScript : MonoBehaviour
 
     IEnumerator shootTarget()
     {
+        yield return new WaitForSeconds(2);
         while (true)
         {
             if (lockedTarget == null || !lockedTarget.GetComponent<HostileMainScript>().isAlive)
             {
                 FindNewTarget();
+                yield return new WaitForFixedUpdate();
             }
             else
             {
                 if (IsTargetInRange(lockedTarget))
                 {
-                    if (aimingInterface != null)
-                        aimingInterface.SetAiming(lockedTarget.transform.position);
                     yield return model.shootImpl.ShootAtTarget(lockedTarget, gameObject, projectilePool);
                     yield return new WaitForSeconds(model.fireDelay);
                 }
                 else
                 {
                     lockedTarget = null;
+                    yield return new WaitForFixedUpdate();
                 }
             }
-            yield return new WaitForFixedUpdate();
         }
     }
 

@@ -18,7 +18,7 @@ public class HostileSummonScript : MonoBehaviour, HostileInterface {
     {
         while (true)
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(10);
             SpawnBalloon(ObjectPool.GetInstance().GetMiniBalloon());
         }
     }

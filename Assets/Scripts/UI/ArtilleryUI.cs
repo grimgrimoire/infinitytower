@@ -26,6 +26,13 @@ public class ArtilleryUI : MonoBehaviour
         {
             moduleName.text = model.name;
             image.sprite = Resources.LoadAll<Sprite>("WeaponTower 1")[model.imageUIindex];
+            image.color = Color.white;
+        }
+        else
+        {
+            moduleName.text = "Empty";
+            image.sprite = null;
+            image.color = Color.black;
         }
     }
 

@@ -39,4 +39,15 @@ public class PoolClass {
         }
         yield return null;
     }
+
+    public IEnumerator InitiatePooling(GameObject parent)
+    {
+        GameObject UIObject = Resources.Load(prefabName, typeof(GameObject)) as GameObject;
+        poolArray = new GameObject[poolSize];
+        for (int i = 0; i < poolSize; i++)
+        {
+            poolArray[i] = (GameObject)GameObject.Instantiate(UIObject, parent.transform, false);
+        }
+        yield return null;
+    }
 }

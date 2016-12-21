@@ -21,11 +21,13 @@ public class ObjectPool : MonoBehaviour
 
     string explosion = "Prefab/Projectile/Explosion";
     string blood = "Prefab/DeadEffect/Blood";
+    string airExplode = "Prefab/DeadEffect/AirExplode";
     string guardmanex = "Prefab/Projectile/GuardmanExplosion";
     string secondaryArrow = "Prefab/Projectile/RangerArrowRain";
     string pirateScatter = "Prefab/Projectile/PirateScatter";
     string meteorEx = "Prefab/Projectile/MeteorExplosion";
     string poisonGas = "Prefab/Projectile/PoisonGas";
+    string stunExplosion = "Prefab/Projectile/StunExplosion";
 
     PoolClass peon1Pool;
     PoolClass peon2Pool;
@@ -41,11 +43,13 @@ public class ObjectPool : MonoBehaviour
     PoolClass peon12Pool;
     PoolClass explosionPool;
     PoolClass bloodPool;
+    PoolClass airExPool;
     PoolClass guardmanPool;
     PoolClass arrowPool;
     PoolClass scatterPool;
     PoolClass meteorPool;
     PoolClass poisonPool;
+    PoolClass stunExPool;
     PoolClass elite1Pool;
     PoolClass elite2Pool;
 
@@ -68,10 +72,12 @@ public class ObjectPool : MonoBehaviour
         explosionPool = new PoolClass(explosion, 15);
         bloodPool = new PoolClass(blood, 20);
         scatterPool = new PoolClass(pirateScatter, 20);
-        guardmanPool = new PoolClass(guardmanex, 25);
+        guardmanPool = new PoolClass(guardmanex, 100);
         arrowPool = new PoolClass(secondaryArrow, 100);
         meteorPool = new PoolClass(meteorEx, 10);
         poisonPool = new PoolClass(poisonGas, 15);
+        airExPool = new PoolClass(airExplode, 20);
+        stunExPool = new PoolClass(stunExplosion, 15);
         yield return peon1Pool.InitiatePooling();
         yield return peon2Pool.InitiatePooling();
         yield return peon3Pool.InitiatePooling();
@@ -82,8 +88,10 @@ public class ObjectPool : MonoBehaviour
         yield return peon8Pool.InitiatePooling();
         yield return explosionPool.InitiatePooling();
         yield return bloodPool.InitiatePooling();
+        yield return airExPool.InitiatePooling();
         yield return guardmanPool.InitiatePooling();
         yield return arrowPool.InitiatePooling();
+        yield return stunExPool.InitiatePooling();
         yield return scatterPool.InitiatePooling();
         yield return meteorPool.InitiatePooling();
         yield return poisonPool.InitiatePooling();
@@ -94,6 +102,11 @@ public class ObjectPool : MonoBehaviour
         yield return peon11Pool.InitiatePooling();
         yield return peon12Pool.InitiatePooling();
         yield return new WaitForEndOfFrame();
+    }
+
+    public GameObject GetStunExp()
+    {
+        return stunExPool.GetFromPool();
     }
 
     public GameObject GetZeppelinLarge()
@@ -164,6 +177,11 @@ public class ObjectPool : MonoBehaviour
     public GameObject GetSoldier()
     {
         return peon5Pool.GetFromPool();
+    }
+
+    public GameObject GetAirDeath()
+    {
+        return airExPool.GetFromPool();
     }
 
     public GameObject GetBat()

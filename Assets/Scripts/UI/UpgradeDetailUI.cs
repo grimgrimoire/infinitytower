@@ -47,6 +47,11 @@ public class UpgradeDetailUI : MonoBehaviour {
     {
         selectedSupport = model;
         isArtillery = false;
+        canvas.enabled = true;
+        upgradeName.text = model.name;
+        price.text = model.price + " Gold";
+        description.text = "";
+        image.sprite = Resources.LoadAll<Sprite>("Buff")[model.imageUIIndex];
     }
 
     public void BuyButtonClick()

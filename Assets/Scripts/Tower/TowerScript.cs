@@ -22,15 +22,15 @@ public class TowerScript : MonoBehaviour, DialogInterface
 
     }
 
-    public void Sink()
-    {
-        transform.position = new Vector3(0, transform.position.y - 1.68f);
-        if (transform.childCount > 2) // <2 game over, >2 sink
-        {
-            Destroy(transform.GetChild(1).gameObject);
-        }
-        CancelInvoke();
-    }
+    //public void Sink()
+    //{
+    //    transform.position = new Vector3(0, transform.position.y - 1.68f);
+    //    if (transform.childCount > 2) // <2 game over, >2 sink
+    //    {
+    //        Destroy(transform.GetChild(1).gameObject);
+    //    }
+    //    CancelInvoke();
+    //}
 
     public void AddFloorDialog()
     {
@@ -49,7 +49,7 @@ public class TowerScript : MonoBehaviour, DialogInterface
     {
     }
 
-    public void OnYesButtonClicked()
+    public void ShowUpgradeDetail()
     {
         if (GameSystem.GetGameSystem().GetGold() >= GetCurrentCost())
         {
@@ -66,11 +66,11 @@ public class TowerScript : MonoBehaviour, DialogInterface
             case 1:
                 return 100;
             case 2:
-                return 2000;
+                return 800;
             case 3:
-                return 5000;
+                return 1200;
             default:
-                return 100;
+                return 1500;
         }
     }
 

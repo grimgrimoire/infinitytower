@@ -9,6 +9,12 @@ public class PoisonDebuff : MonoBehaviour {
         const String TAG = "POISON_DEBUFF";
         Coroutine damageTick;
         HostileMainScript hostile;
+        int damage;
+
+        public PoisonDebuffScript(int damage)
+        {
+            this.damage = damage;
+        }
 
         public override void BuffEffect(HostileMainScript hostile)
         {
@@ -41,7 +47,7 @@ public class PoisonDebuff : MonoBehaviour {
         {
             while (hostile.health > 0)
             {
-                hostile.TakeDamage(5, DamageType.Magic);
+                hostile.TakeDamage(damage, DamageType.Magic);
                 if (hostile.health < 0)
                 {
                     hostile.RemoveBuffTag(GetBuffTag());
@@ -52,6 +58,8 @@ public class PoisonDebuff : MonoBehaviour {
         }
     }
 
+    int damage = 50;
+
     void OnTriggerEnter2D(Collider2D collider)
     {
         //if (collider.tag == TagsAndLayers.TAG_HOSTILE)
@@ -59,12 +67,17 @@ public class PoisonDebuff : MonoBehaviour {
         //    collider.gameObject.GetComponent<HostileMainScript>().SetBuff(new PoisonDebuffScript());
         //}
     }
+    
+    public void SetDamage(int damage)
+    {
+        this.damage = damage;
+    }
 
     void OnTriggerStay2D(Collider2D collider)
     {
         if (collider.tag == TagsAndLayers.TAG_HOSTILE)
         {
-            collider.gameObject.GetComponent<HostileMainScript>().SetBuff(new PoisonDebuffScript());
+            collider.gameObject.GetComponent<HostileMainScript>().SetBuff(new PoisonDebuffScript(damage));
         }
     }
 }

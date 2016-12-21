@@ -36,4 +36,10 @@ public class PoisonGasArea : MonoBehaviour
     {
         animator.Play(GAS_GONE);
     }
+
+    public PoisonGasArea SetPoisonDamage(int damage)
+    {
+        GetComponent<PoisonDebuff>().SetDamage(damage);
+        return this;
+    }
 }

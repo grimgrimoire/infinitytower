@@ -2,7 +2,8 @@
 using System.Collections;
 using System;
 
-public class KnockbackDebuff : MonoBehaviour {
+public class KnockbackDebuff : MonoBehaviour
+{
 
     class KnockbackDebuffScript : BuffScript
     {
@@ -10,7 +11,8 @@ public class KnockbackDebuff : MonoBehaviour {
 
         public override void BuffEffect(HostileMainScript hostile)
         {
-            hostile.SetSpeed(-10);
+            if (hostile.armor != ArmorType.Heavy)
+                hostile.SetSpeed(-10);
         }
 
         public override float Duration()

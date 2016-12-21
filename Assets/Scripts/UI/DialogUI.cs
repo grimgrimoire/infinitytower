@@ -6,7 +6,7 @@ public interface DialogInterface
 {
     void OnOkButtonClicked();
     void OnNoButtonClicked();
-    void OnYesButtonClicked();
+    void ShowUpgradeDetail();
 }
 
 public class DialogUI : MonoBehaviour {
@@ -67,7 +67,7 @@ public class DialogUI : MonoBehaviour {
 
     public void OnYesButtonClicked()
     {
-        dialog.OnYesButtonClicked();
+        dialog.ShowUpgradeDetail();
         gameObject.SetActive(false);
     }
 }

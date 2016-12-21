@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PoisonGasProjectile : MonoBehaviour {
+public class StunExplosiveProjectile : MonoBehaviour {
 
     private Vector2 target;
     private int damage;
+    private DamageType damageType;
+    private StunDebuff stun;
+    private int chance = 30;
 
     // Use this for initialization
     void Start()
@@ -18,9 +21,10 @@ public class PoisonGasProjectile : MonoBehaviour {
         transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, 5 * Time.deltaTime);
     }
 
-    public PoisonGasProjectile SetDamageType(int damage)
+    public StunExplosiveProjectile SetDamageType(int damage, DamageType damageType)
     {
         this.damage = damage;
+        this.damageType = damageType;
         return this;
     }
 
@@ -34,12 +38,20 @@ public class PoisonGasProjectile : MonoBehaviour {
     {
         if (collider.tag == TagsAndLayers.TAG_HOSTILE || collider.tag == TagsAndLayers.TAG_WORLD)
         {
-            GameObject explosion = GameSystem.GetGameSystem().GetObjectPool().GetPoisonGas();
+            GameObject explosion = GameSystem.GetGameSystem().GetObjectPool().GetStunExp();
             explosion.SetActive(true);
-            ///*explosion.GetComponent<PoisonGasArea>().*/SetDamageType(damage, damageType);
-            explosion.GetComponent<PoisonGasArea>().SetPoisonDamage(damage).Spawn();
+            explosion.GetComponent<Explosion>().SetDamageType(damage, damageType);
+            explosion.GetComponent<StunDebuff>().SetChance(chance);
             explosion.transform.position = transform.position;
             gameObject.SetActive(false);
         }
+    }
+
+    public StunExplosiveProjectile SetStunChance(int chance)
+    {
+        if (stun == null)
+            stun = GetComponent<StunDebuff>();
+        chance = 30;
+        return this;
     }
 }

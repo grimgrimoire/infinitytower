@@ -18,7 +18,7 @@ public class MeteorProjectile : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y < target.y)
+        if (transform.position.y < target.y + 0.3f)
             ExplodeOnImpact();
         transform.position = Vector2.MoveTowards(transform.position, transform.position + Vector3.down, speed * Time.deltaTime);
     }
