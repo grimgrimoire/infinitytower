@@ -51,7 +51,7 @@ public class MasterSpawner : MonoBehaviour
         GameSystem.GetGameSystem().UpdateWave(waveLevel);
         waveLevel -= 1;
         CalculateGold();
-        //yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(30);
         while (GameSystem.GetGameSystem().IsGameStarted())
         {
             CalculateWaveLevel();
@@ -144,7 +144,8 @@ public class MasterSpawner : MonoBehaviour
             if (lists[random].IsGroundSpawner() == isGroundUnit.GetComponent<HostileMainScript>().isGroundUnit)
                 return lists[random];
             else return lists[0];
-        }catch
+        }
+        catch
         {
             return null;
         }
@@ -152,6 +153,11 @@ public class MasterSpawner : MonoBehaviour
 
     private void GetUnitsToSpawn(List<GameObject> list, int costLeft)
     {
+        if (waveLevel == 40 && costLeft == 25)
+            list.Add(GetObjectPool().GetKnight());
+        else if (waveLevel == 45 && costLeft == 60)
+            list.Add(GetObjectPool().GetDragon());
+
         while (costLeft > 0)
         {
             GameObject unit = GetRandomUnitByCost(ref costLeft);
@@ -181,8 +187,10 @@ public class MasterSpawner : MonoBehaviour
             return GetRandomAir2(ref costLeft);
         else if (waveLevel < 25) // Heavy
             return GetRandomAir3(ref costLeft);
-        else
+        else if (waveLevel <= 45)
             return GetRandomAir4(ref costLeft);// Special
+        else
+            return GetRandomAir5(ref costLeft);
     }
 
     private GameObject GetRandomAir1(ref int costLeft)
@@ -251,6 +259,36 @@ public class MasterSpawner : MonoBehaviour
         }
     }
 
+    private GameObject GetRandomAir5(ref int costLeft)
+    {
+        int seed = Random.Range(0, 101);
+        if (seed < 50 || costLeft == 1)
+        {
+            costLeft -= 1;
+            return GetObjectPool().GetBat();
+        }
+        else if (seed < 80 || costLeft == 2)
+        {
+            costLeft -= 2;
+            return GetObjectPool().GetBalloon();
+        }
+        else if (seed < 94 || costLeft == 3)
+        {
+            costLeft -= 3;
+            return GetObjectPool().GetZeppelin();
+        }
+        else if (seed < 99 || costLeft == 8)
+        {
+            costLeft -= 8;
+            return GetObjectPool().GetZeppelinLarge();
+        }
+        else
+        {
+            costLeft -= 10;
+            return GetObjectPool().GetDragon();
+        }
+    }
+
     private GameObject GetRandomGroundUnit(ref int costLeft)
     {
         if (waveLevel < 10)
@@ -259,8 +297,10 @@ public class MasterSpawner : MonoBehaviour
             return GetRandomGround2(ref costLeft); // Medium
         else if (waveLevel < 20)
             return GetRandomGround3(ref costLeft); // Heavy
-        else
+        else if (waveLevel <= 40)
             return GetRandomGround4(ref costLeft); // Specials
+        else
+            return GetRandomGround5(ref costLeft);
     }
 
     private GameObject GetRandomGround1(ref int costLeft)
@@ -346,6 +386,42 @@ public class MasterSpawner : MonoBehaviour
         }
     }
 
+    private GameObject GetRandomGround5(ref int costLeft)
+    {
+        int seed = Random.Range(0, 101);
+        if (seed < 30 || costLeft == 1)
+        {
+            costLeft -= 1;
+            return GetObjectPool().GetSpider();
+        }
+        else if (seed < 80 || costLeft == 2)
+        {
+            costLeft -= 2;
+            if (seed < 55)
+                return GetObjectPool().GetAssassin();
+            else
+                return GetObjectPool().GetNinja();
+        }
+        else if (seed < 94 || costLeft == 3)
+        {
+            costLeft -= 3;
+            if (seed < 87)
+                return GetObjectPool().GetSoldier();
+            else
+                return GetObjectPool().GetShield();
+        }
+        else if(seed < 99 || costLeft == 5)
+        {
+            costLeft -= 5;
+            return GetObjectPool().GetLargeSpider();
+        }
+        else
+        {
+            costLeft -= 10;
+            return GetObjectPool().GetKnight();
+        }
+    }
+
     private ObjectPool GetObjectPool()
     {
         return GameSystem.GetGameSystem().GetObjectPool();
@@ -364,7 +440,7 @@ public class MasterSpawner : MonoBehaviour
             +
             (Mathf.FloorToInt(waveLevel / 40f) * 0.2f * (waveLevel - 40))
             +
-            (Mathf.FloorToInt(waveLevel / 40f) * 2)
+            (Mathf.FloorToInt(waveLevel / 40f) * 4)
             ;
         GameSystem.GetGameSystem().UpdateWave(waveLevel);
     }

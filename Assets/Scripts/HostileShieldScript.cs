@@ -15,6 +15,18 @@ public class HostileShieldScript : MonoBehaviour, HostileInterface {
         shield.gameObject.SetActive(true);
         shield.GetComponent<HostileMainScript>().SetHealthAndGoldMultiplier(0, GameSystem.GetGameSystem().GetSpawnSystem().healthMultiplier);
         shield.GetComponent<HostileMainScript>().Recycle();
+        StartCoroutine(CheckShield());
+    }
+
+    IEnumerator CheckShield()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+            if (!shield.activeSelf)
+                break;
+        }
+        GetComponent<HostileMainScript>().SetSpeed(3);
     }
 
 }

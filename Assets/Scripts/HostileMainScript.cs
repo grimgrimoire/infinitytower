@@ -73,6 +73,7 @@ public class HostileMainScript : MonoBehaviour
     {
         if (hostileInterfaces == null)
             hostileInterfaces = GetComponents<HostileInterface>();
+        SetSpeed(1);
         if (corpse == CorpsePrefab.Animation)
         {
             animator.Play("Walk");
@@ -187,7 +188,7 @@ public class HostileMainScript : MonoBehaviour
 
     private float CalculateMagic()
     {
-        return GetDamageMultiplicationTable(1, 0.75f, 1.25f, 1);
+        return GetDamageMultiplicationTable(0.75f, 1.25f, 1.25f, 1);
     }
 
     private float GetDamageMultiplicationTable(float lightArmor, float MediumArmor, float heavyArmor, float noArmor)

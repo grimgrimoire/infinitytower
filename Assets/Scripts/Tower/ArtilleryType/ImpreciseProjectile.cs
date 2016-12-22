@@ -44,9 +44,9 @@ public class ImpreciseProjectile : MonoBehaviour {
     {
         if (collider.tag == TagsAndLayers.TAG_HOSTILE)
         {
-            if (Random.Range(0, 101) > 30)
+            collider.GetComponent<HostileMainScript>().TakeDamage(damage, damageType);
+            if (Random.Range(0, 101) > 20)
             {
-                collider.GetComponent<HostileMainScript>().TakeDamage(damage, damageType);
                 gameObject.SetActive(false);
             }
         }

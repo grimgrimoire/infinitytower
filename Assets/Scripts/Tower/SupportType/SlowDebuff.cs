@@ -11,7 +11,7 @@ public class SlowDebuff : MonoBehaviour
 
         public override void BuffEffect(HostileMainScript hostile)
         {
-            hostile.SetSpeed(0.5f);
+            hostile.SetSpeed(hostile.GetSpeed() - 0.5f);
         }
 
         public override float Duration()
@@ -31,7 +31,7 @@ public class SlowDebuff : MonoBehaviour
 
         public override void RemoveBuffEffect(HostileMainScript hostile)
         {
-            hostile.SetSpeed(1f);
+            hostile.SetSpeed(hostile.GetSpeed() + 0.5f);
         }
     }
 
