@@ -67,8 +67,8 @@ public class ArtilleryScript : MonoBehaviour
 
     private void ApplyNewArtillery()
     {
-        ApplySupportedEffect();
         PreloadProjectile();
+        ApplySupportedEffect();
         GameObject graphics = (GameObject)Instantiate(Resources.Load(model.ingameModelPrefabName, typeof(GameObject)) as GameObject, transform);
         graphics.transform.localPosition = Vector3.zero;
         if (isLeft)

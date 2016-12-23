@@ -20,7 +20,7 @@ public class SupportModelList
     const int PRICE_TIER_2 = 1500;
     const int PRICE_TIER_3 = 2000;
 
-    public static int TOTAL_SUPPORT = 5;
+    public static int TOTAL_SUPPORT = 4;
 
     public static int GetTotalSupport(int code)
     {
@@ -64,14 +64,12 @@ public class SupportModelList
         switch (i)
         {
             case 0:
-                return Empty();
-            case 1:
                 return FireSupport();
-            case 2:
+            case 1:
                 return IceSupport();
-            case 3:
+            case 2:
                 return ThunderSupport();
-            case 4:
+            case 3:
                 return EarthSupport();
             default:
                 return Empty();

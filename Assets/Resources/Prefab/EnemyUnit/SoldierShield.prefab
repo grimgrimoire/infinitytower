@@ -520,6 +520,7 @@ MonoBehaviour:
   inactiveDelay: 0.82
   animator: {fileID: 95000012148631148}
   cost: 5
+  animationSpeed: 1
 --- !u!114 &114000011984611332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -549,10 +550,11 @@ MonoBehaviour:
   isGroundUnit: 1
   isAlive: 0
   isShield: 1
-  corpse: 1
+  corpse: 3
   inactiveDelay: 0
   animator: {fileID: 0}
   cost: 0
+  animationSpeed: 1
 --- !u!212 &212000010616451738
 SpriteRenderer:
   m_ObjectHideFlags: 1

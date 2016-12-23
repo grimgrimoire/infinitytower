@@ -49,7 +49,7 @@ public class TowerScript : MonoBehaviour, DialogInterface
     {
     }
 
-    public void ShowUpgradeDetail()
+    public void OnYesButtonClicked()
     {
         if (GameSystem.GetGameSystem().GetGold() >= GetCurrentCost())
         {

@@ -468,10 +468,12 @@ MonoBehaviour:
   armor: 3
   isGroundUnit: 1
   isAlive: 0
+  isShield: 0
   corpse: 2
   inactiveDelay: 0.82
   animator: {fileID: 95000010269508724}
   cost: 5
+  animationSpeed: 1
 --- !u!114 &114000013727740308
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -483,7 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0bf0c0eef680c247a013ee5acd8a5eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.2
+  speed: 0.25
 --- !u!212 &212000010433869240
 SpriteRenderer:
   m_ObjectHideFlags: 1
