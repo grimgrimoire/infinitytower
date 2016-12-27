@@ -1096,7 +1096,7 @@ RectTransform:
   m_Children:
   - {fileID: 205637939}
   m_Father: {fileID: 1437288303}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 112, y: -1058}
@@ -3227,6 +3227,7 @@ MonoBehaviour:
   gold: 2000
   infoUI: {fileID: 1437288304}
   controlUI: {fileID: 1101418973}
+  lives: 5
 --- !u!114 &717488317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3796,6 +3797,7 @@ MonoBehaviour:
   towerBodyPrefab: {fileID: 1000013525605712, guid: d6ba3011ebc04ed4d9b92c238986213b,
     type: 2}
   towerAddButton: {fileID: 1089678}
+  towerHealth: 5
 --- !u!1 &941659683
 GameObject:
   m_ObjectHideFlags: 0
@@ -4452,6 +4454,7 @@ MonoBehaviour:
   mainCamera: {fileID: 717488314}
   dialogUI: {fileID: 356396708}
   loadingOverlay: {fileID: 1873711477}
+  pauseButton: {fileID: 332695830}
 --- !u!114 &1101418974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5372,6 +5375,7 @@ RectTransform:
   - {fileID: 1826344248}
   - {fileID: 613134704}
   - {fileID: 355160264}
+  - {fileID: 1895440969}
   - {fileID: 272712832}
   - {fileID: 1733384962}
   m_Father: {fileID: 1101418971}
@@ -5395,6 +5399,7 @@ MonoBehaviour:
   goldText: {fileID: 1826344249}
   waveText: {fileID: 613134705}
   timerText: {fileID: 355160265}
+  livesText: {fileID: 1895440970}
   skipBtn1: {fileID: 272712831}
   skipBtn2: {fileID: 1733384961}
 --- !u!1 &1465733453
@@ -6226,7 +6231,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.7, y: 1}
 --- !u!212 &1729791845
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6304,7 +6309,7 @@ RectTransform:
   m_Children:
   - {fileID: 383252109}
   m_Father: {fileID: 1437288303}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -109, y: -1058}
@@ -7505,6 +7510,80 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 27
+--- !u!1 &1895440968
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1895440969}
+  - 222: {fileID: 1895440971}
+  - 114: {fileID: 1895440970}
+  m_Layer: 5
+  m_Name: Lives
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1895440969
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1895440968}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1437288303}
+  m_RootOrder: 3
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 320, y: -65}
+  m_SizeDelta: {x: 200, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1895440970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1895440968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 'Lives : 5'
+--- !u!222 &1895440971
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1895440968}
 --- !u!1001 &1941604777
 Prefab:
   m_ObjectHideFlags: 0

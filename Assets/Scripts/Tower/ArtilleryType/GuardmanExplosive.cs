@@ -17,7 +17,8 @@ public class GuardmanExplosive : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, 7 * Time.deltaTime);
+        //transform.position = Vector2.MoveTowards(transform.position, transform.position + transform.right, 7 * Time.deltaTime);
+        transform.position = Vector2.Lerp(transform.position, target, 7 * Time.deltaTime);
         if (Vector2.Distance(transform.position, target) < 0.1)
         {
             Explode();
@@ -37,13 +38,13 @@ public class GuardmanExplosive : MonoBehaviour
         transform.right = target - (Vector2)transform.position;
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.tag == TagsAndLayers.TAG_HOSTILE || collider.tag == TagsAndLayers.TAG_WORLD)
-        {
-            Explode();
-        }
-    }
+    //void OnTriggerEnter2D(Collider2D collider)
+    //{
+    //    if (collider.tag == TagsAndLayers.TAG_HOSTILE || collider.tag == TagsAndLayers.TAG_WORLD)
+    //    {
+    //        Explode();
+    //    }
+    //}
 
     private void Explode()
     {

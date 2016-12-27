@@ -10,10 +10,12 @@ public class TowerScript : MonoBehaviour, DialogInterface
     public GameObject towerAddButton;
     int cost = 1;
 
+    public int towerHealth = 5;
+
     // Use this for initialization
     void Start()
     {
-        //InvokeRepeating("Sink", 3, 3);
+
     }
 
     // Update is called once per frame
@@ -21,16 +23,6 @@ public class TowerScript : MonoBehaviour, DialogInterface
     {
 
     }
-
-    //public void Sink()
-    //{
-    //    transform.position = new Vector3(0, transform.position.y - 1.68f);
-    //    if (transform.childCount > 2) // <2 game over, >2 sink
-    //    {
-    //        Destroy(transform.GetChild(1).gameObject);
-    //    }
-    //    CancelInvoke();
-    //}
 
     public void AddFloorDialog()
     {
@@ -54,6 +46,7 @@ public class TowerScript : MonoBehaviour, DialogInterface
         if (GameSystem.GetGameSystem().GetGold() >= GetCurrentCost())
         {
             GameSystem.GetGameSystem().AddGold(-GetCurrentCost());
+            GameSystem.GetGameSystem().TakeDamage(-5);
             cost++;
             AddFloor();
         }
@@ -74,19 +67,19 @@ public class TowerScript : MonoBehaviour, DialogInterface
         }
     }
 
-    public void DestroyFloor(int index)
-    {
-        for (int i = index; i < transform.childCount; i++)
-        {
-            if (i != index)
-            {
-                transform.GetChild(i).transform.position = transform.GetChild(i).transform.position - new Vector3(0, 1.06f);
-            }
-        }
-        towerAddButton.transform.position = new Vector2(0, 1.06f * (transform.childCount - 3) + 0.865f);
-        Destroy(transform.GetChild(index).gameObject);
-        ControlUI.GetUI().GetTowerInternalUI().ClearSelection();
-    }
+    //public void DestroyFloor(int index)
+    //{
+    //    for (int i = index; i < transform.childCount; i++)
+    //    {
+    //        if (i != index)
+    //        {
+    //            transform.GetChild(i).transform.position = transform.GetChild(i).transform.position - new Vector3(0, 1.06f);
+    //        }
+    //    }
+    //    towerAddButton.transform.position = new Vector2(0, 1.06f * (transform.childCount - 3) + 0.865f);
+    //    Destroy(transform.GetChild(index).gameObject);
+    //    ControlUI.GetUI().GetTowerInternalUI().ClearSelection();
+    //}
 
     private void AddFloor()
     {

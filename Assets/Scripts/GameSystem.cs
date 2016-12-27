@@ -9,6 +9,7 @@ public class GameSystem : MonoBehaviour
     public int gold;
     public InfoUI infoUI;
     public ControlUI controlUI;
+    public int lives = 5;
 
     static GameSystem instance;
     List<GameObject> hostiles;
@@ -50,6 +51,30 @@ public class GameSystem : MonoBehaviour
         spawnSystem.StartSpawnEnemy();
         UpdateGoldValue();
         controlUI.DissableLoading();
+    }
+
+    public void TakeDamage(int damage)
+    {
+        lives -= damage;
+        if(lives > 0)
+        {
+            UpdateLives();
+        }else
+        {
+            UpdateLives();
+            GameOver();
+        }
+    }
+
+    public void GameOver()
+    {
+        spawnSystem.StopSpawner();
+        foreach(GameObject hostile in hostiles)
+        {
+            hostile.GetComponent<HostileMainScript>().SetSpeed(0);
+        }
+        infoUI.SetSkipButton(false);
+        //controlUI.GameOverLay();
     }
 
     public ObjectPool GetObjectPool()
@@ -117,6 +142,11 @@ public class GameSystem : MonoBehaviour
     public void UpdateWave(int wave)
     {
         infoUI.UpdateWave(wave);
+    }
+
+    public void UpdateLives()
+    {
+        infoUI.UpdateLives(lives);
     }
 
     public ControlUI GetControlUI()

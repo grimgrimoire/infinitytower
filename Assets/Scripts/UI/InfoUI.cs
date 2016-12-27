@@ -7,10 +7,12 @@ public class InfoUI : MonoBehaviour
 
     const string WAVE = "Wave: ";
     const string GOLD = "Gold: ";
+    const string LIVE = "Lives: ";
 
     public Text goldText;
     public Text waveText;
     public Text timerText;
+    public Text livesText;
     public GameObject skipBtn1;
     public GameObject skipBtn2;
 
@@ -48,6 +50,11 @@ public class InfoUI : MonoBehaviour
     public void UpdateGold(int gold)
     {
         this.goldText.text = GOLD + gold;
+    }
+
+    public void UpdateLives(int live)
+    {
+        this.livesText.text = LIVE + live;
     }
 
     public void ShowAddGold(int gold)

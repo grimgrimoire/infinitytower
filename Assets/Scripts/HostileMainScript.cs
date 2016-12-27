@@ -19,7 +19,7 @@ public class HostileMainScript : MonoBehaviour
     public CorpsePrefab corpse;
     public float inactiveDelay;
     public Animator animator;
-    public int cost;
+    public int damage = 1;
     public float animationSpeed = 1;
 
     private HostileInterface[] hostileInterfaces;
@@ -213,6 +213,7 @@ public class HostileMainScript : MonoBehaviour
         if (collider.tag == TagsAndLayers.TAG_TOWER || collider.tag == TagsAndLayers.TAG_KILLZONE)
         {
             Killed();
+            GameSystem.GetGameSystem().TakeDamage(damage);
         }
     }
 

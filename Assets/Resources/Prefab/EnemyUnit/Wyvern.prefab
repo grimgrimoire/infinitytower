@@ -340,7 +340,7 @@ MonoBehaviour:
   corpse: 0
   inactiveDelay: 0
   animator: {fileID: 95000013326452892}
-  cost: 0
+  damage: 3
   animationSpeed: 1
 --- !u!114 &114000013042815006
 MonoBehaviour:
@@ -807,7 +807,7 @@ ParticleSystem:
     serializedVersion: 2
     m_Type: 0
     rate:
-      scalar: 2
+      scalar: 2.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1270,7 +1270,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     y:
-      scalar: 0.1
+      scalar: 0.05
       maxCurve:
         serializedVersion: 2
         m_Curve:

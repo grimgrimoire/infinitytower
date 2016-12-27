@@ -35,7 +35,7 @@ public class MultiProjectileGuardman : ArtilleryInterface {
         projectilePrefab[poolIndex].transform.position = artillery.transform.position;
         projectilePrefab[poolIndex].GetComponent<GuardmanExplosive>()
             .SetDamageType(model.damage, model.damageType)
-            .SetTarget(target + (Random.insideUnitCircle * 0.7f));
+            .SetTarget(target + (Random.insideUnitCircle * 0.2f * Vector2.Distance(artillery.transform.position, target)));
         poolIndex = (poolIndex + 1) % model.poolSize;
     }
 }

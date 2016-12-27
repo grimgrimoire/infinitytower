@@ -45,13 +45,12 @@ public class MasterSpawner : MonoBehaviour
         StartCoroutine(SpawnSet());
     }
 
-
     private IEnumerator SpawnSet()
     {
         GameSystem.GetGameSystem().UpdateWave(waveLevel);
         waveLevel -= 1;
         CalculateGold();
-        yield return new WaitForSeconds(30);
+        //yield return new WaitForSeconds(30);
         while (GameSystem.GetGameSystem().IsGameStarted())
         {
             CalculateWaveLevel();
@@ -459,6 +458,11 @@ public class MasterSpawner : MonoBehaviour
             return 0.6f;
         else
             return 0.6f;
+    }
+
+    public void StopSpawner()
+    {
+        StopAllCoroutines();
     }
 
     IEnumerator WaveEndTimer()
