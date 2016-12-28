@@ -3,7 +3,8 @@ using System.Collections;
 using UnityEngine.EventSystems;
 using System;
 
-public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeginDragHandler, IEndDragHandler{
+public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
+{
 
     public static ControlUI control;
 
@@ -23,6 +24,7 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
     float minX = -10;
     float maxX = 10;
     float minY = 1.45f;
+    bool canMove = true;
 
     public static ControlUI GetUI()
     {
@@ -30,7 +32,8 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
     }
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         control = this;
         towerInternalUI = GetComponentInChildren<TowerInternalUI>();
         towerUpgradeUI = GetComponentInChildren<TowerUpgradeUI>();
@@ -39,24 +42,26 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
     }
 
     // Update is called once per frame
-    void Update () {
-	
-	}
+    void Update()
+    {
+
+    }
 
     public void PauseButtonClicked()
     {
-        if (GameSystem.GetGameSystem().IsGamePaused())
-        {
-            Time.timeScale = 1;
-            GameSystem.GetGameSystem().SetGamePaused(false);
-            pauseOverlay.SetActive(false);
-        }
-        else
-        {
-            Time.timeScale = 2;
-            GameSystem.GetGameSystem().SetGamePaused(true);
-            //pauseOverlay.SetActive(true);
-        }
+        if (GameSystem.GetGameSystem().IsGameStarted())
+            if (GameSystem.GetGameSystem().IsGamePaused())
+            {
+                Time.timeScale = 1;
+                GameSystem.GetGameSystem().SetGamePaused(false);
+                pauseOverlay.SetActive(false);
+            }
+            else
+            {
+                Time.timeScale = 0;
+                GameSystem.GetGameSystem().SetGamePaused(true);
+                pauseOverlay.SetActive(true);
+            }
     }
 
     public void GameOverLay()
@@ -72,7 +77,7 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(eventData.pointerPressRaycast.gameObject.tag == "GameController" && !isDragging)
+        if (eventData.pointerPressRaycast.gameObject.tag == "GameController" && !isDragging)
         {
             RaycastHit2D hitRay = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(eventData.position), Vector2.zero);
             if (hitRay)
@@ -81,31 +86,43 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
                 {
                     AddNewFloor();
                 }
-                else if(hitRay.collider.gameObject.tag == "Tower")
+                else if (hitRay.collider.gameObject.tag == "Tower")
                 {
                     LoadTowerFloorToUI(hitRay.collider.gameObject);
                 }
             }
         }
-        else {
+        else
+        {
 
         }
     }
 
+    public void GameOver()
+    {
+        canMove = false;
+        mainCamera.transform.position = new Vector3(0, minY, -10);
+        towerInternalUI.ClearSelection();
+        towerInternalUI.ClearTowerFloor();
+    }
+
     public void OnDrag(PointerEventData eventData)
     {
-        moveDirection = -eventData.delta;
-        if (((moveDirection.x * 0.01f) + mainCamera.transform.position.x < minX)  || ((moveDirection.x * 0.01f) + mainCamera.transform.position.x > maxX))
+        if (canMove)
         {
-            moveDirection = new Vector2(0, moveDirection.y);
-        }
-        if ((moveDirection.y * 0.01f) + mainCamera.transform.position.y < minY)
-        {
-            moveDirection = new Vector2(moveDirection.x, 0);
-        }
-        if (eventData.pointerPressRaycast.gameObject.tag == "GameController")
-        {
-            mainCamera.transform.Translate(moveDirection * 0.01f);
+            moveDirection = -eventData.delta;
+            if (((moveDirection.x * 0.01f) + mainCamera.transform.position.x < minX) || ((moveDirection.x * 0.01f) + mainCamera.transform.position.x > maxX))
+            {
+                moveDirection = new Vector2(0, moveDirection.y);
+            }
+            if ((moveDirection.y * 0.01f) + mainCamera.transform.position.y < minY)
+            {
+                moveDirection = new Vector2(moveDirection.x, 0);
+            }
+            if (eventData.pointerPressRaycast.gameObject.tag == "GameController")
+            {
+                mainCamera.transform.Translate(moveDirection * 0.01f);
+            }
         }
     }
 
@@ -121,7 +138,8 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
 
     private void AddNewFloor()
     {
-        tower.AddFloorDialog();
+        if (canMove)
+            tower.AddFloorDialog();
     }
 
     private void LoadTowerFloorToUI(GameObject tower)

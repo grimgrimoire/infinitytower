@@ -210,10 +210,12 @@ MonoBehaviour:
   armor: 0
   isGroundUnit: 0
   isAlive: 0
+  isShield: 0
   corpse: 0
   inactiveDelay: 0
-  animator: {fileID: 0}
-  cost: 1
+  animator: {fileID: 95000013434512658}
+  damage: 1
+  animationSpeed: 1
 --- !u!212 &212000010834750032
 SpriteRenderer:
   m_ObjectHideFlags: 1

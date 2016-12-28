@@ -16,10 +16,10 @@ public class HostileSummonScript : MonoBehaviour, HostileInterface {
 
     IEnumerator SpawnZeppelin()
     {
-        while (true)
+        while (GameSystem.GetGameSystem().IsGameStarted())
         {
-            yield return new WaitForSeconds(10);
             SpawnBalloon(ObjectPool.GetInstance().GetMiniBalloon());
+            yield return new WaitForSeconds(10);
         }
     }
 

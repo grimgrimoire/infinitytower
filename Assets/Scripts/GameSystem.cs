@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using GoogleMobileAds.Api;
 
 public class GameSystem : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GameSystem : MonoBehaviour
     public InfoUI infoUI;
     public ControlUI controlUI;
     public int lives = 5;
+    public TowerScript towerScript;
 
     static GameSystem instance;
     List<GameObject> hostiles;
@@ -18,6 +20,10 @@ public class GameSystem : MonoBehaviour
     int nextLevel;
     MasterSpawner spawnSystem;
     ObjectPool objectPool;
+
+    string adUnitId = "ca-app-pub-5838986938071394/2684071660";
+    string fullAdUnitId = "ca-app-pub-5838986938071394/9648935264";
+    InterstitialAd interstitialAds;
 
     // Use this for initialization
     void Start()
@@ -51,6 +57,8 @@ public class GameSystem : MonoBehaviour
         spawnSystem.StartSpawnEnemy();
         UpdateGoldValue();
         controlUI.DissableLoading();
+        RequestBannerAds();
+        RequestInterstitialAds();
     }
 
     public void TakeDamage(int damage)
@@ -74,6 +82,9 @@ public class GameSystem : MonoBehaviour
             hostile.GetComponent<HostileMainScript>().SetSpeed(0);
         }
         infoUI.SetSkipButton(false);
+        towerScript.GameOverAnimation();
+        controlUI.GameOver();
+        isGameStarted = false;
         //controlUI.GameOverLay();
     }
 
@@ -162,6 +173,26 @@ public class GameSystem : MonoBehaviour
     public void SkipWave(int timer)
     {
         AddGold(timer > 9 ? 100 : timer * 10);
+    }
+
+    public void UpdateScore(int score)
+    {
+        infoUI.UpdateScore(score);
+    }
+
+    private void RequestBannerAds()
+    {
+        BannerView bannerView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.Bottom);
+        AdRequest request = new AdRequest.Builder().AddTestDevice(AdRequest.TestDeviceSimulator).AddTestDevice("637993DD2A7CB6EA72E1DB3D321D9FA2").Build();
+        bannerView.LoadAd(request);
+        bannerView.Show();
+    }
+
+    private void RequestInterstitialAds()
+    {
+        interstitialAds = new InterstitialAd(fullAdUnitId);
+        AdRequest request = new AdRequest.Builder().AddTestDevice(AdRequest.TestDeviceSimulator).AddTestDevice("637993DD2A7CB6EA72E1DB3D321D9FA2").Build();
+        interstitialAds.LoadAd(request);
     }
 
 }

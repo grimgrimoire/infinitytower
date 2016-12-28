@@ -8,13 +8,16 @@ public class InfoUI : MonoBehaviour
     const string WAVE = "Wave: ";
     const string GOLD = "Gold: ";
     const string LIVE = "Lives: ";
+    const string SCORE = "Score: ";
 
     public Text goldText;
     public Text waveText;
     public Text timerText;
     public Text livesText;
+    public Text scoreText;
     public GameObject skipBtn1;
     public GameObject skipBtn2;
+    public int score = 0;
 
     PoolClass addGoldText;
 
@@ -72,6 +75,12 @@ public class InfoUI : MonoBehaviour
     public void UpdateWave(int wave)
     {
         this.waveText.text = WAVE + wave;
+    }
+
+    public void UpdateScore(int score)
+    {
+        this.score += score;
+        scoreText.text = SCORE + this.score;
     }
 
 }

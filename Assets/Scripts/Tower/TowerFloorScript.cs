@@ -37,6 +37,13 @@ public class TowerFloorScript : MonoBehaviour
         return supportScript;
     }
 
+    public void RemoveAllArtillery()
+    {
+        leftArtillery.RemoveArtillery();
+        rightArtillery.RemoveArtillery();
+        supportScript.RemoveSupport();
+    }
+
     public void LoadTowerFloorToUI()
     {
         ControlUI.GetUI().GetTowerInternalUI().LoadTowerFloor(leftArtillery, rightArtillery);

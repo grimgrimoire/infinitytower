@@ -472,8 +472,9 @@ MonoBehaviour:
   corpse: 2
   inactiveDelay: 0.82
   animator: {fileID: 95000010269508724}
-  cost: 1
+  damage: 1
   animationSpeed: 1
+  score: 30
 --- !u!114 &114000013727740308
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -690,6 +690,7 @@ MonoBehaviour:
   animator: {fileID: 95000011483717296}
   damage: 3
   animationSpeed: 1
+  score: 100
 --- !u!114 &114000013185053208
 MonoBehaviour:
   m_ObjectHideFlags: 1

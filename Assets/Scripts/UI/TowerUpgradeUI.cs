@@ -31,16 +31,22 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler, DialogInterfa
 
     public void SetArtilleryToUpgrade(ArtilleryScript artillery)
     {
-        isArtillery = true;
-        this.artillery = artillery;
-        LoadAvailableArtilleryUpgrades();
+        if (GameSystem.GetGameSystem().IsGameStarted())
+        {
+            isArtillery = true;
+            this.artillery = artillery;
+            LoadAvailableArtilleryUpgrades();
+        }
     }
 
     public void SetSupportToUpgrade(SupportScript support)
     {
-        isArtillery = false;
-        this.support = support;
-        LoadAvailableSupportUpgrades();
+        if (GameSystem.GetGameSystem().IsGameStarted())
+        {
+            isArtillery = false;
+            this.support = support;
+            LoadAvailableSupportUpgrades();
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)

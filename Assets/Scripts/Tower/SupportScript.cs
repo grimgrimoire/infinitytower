@@ -22,6 +22,14 @@ public class SupportScript : MonoBehaviour
 
     }
 
+    public void RemoveSupport()
+    {
+        if (transform.GetChild(4).childCount > 0)
+        {
+            Destroy(transform.GetChild(4).GetChild(0).gameObject);
+        }
+    }
+
     public void SetImplements(SupportModel model)
     {
         if (transform.GetChild(4).childCount > 0)

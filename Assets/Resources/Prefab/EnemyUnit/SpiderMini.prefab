@@ -412,7 +412,9 @@ MonoBehaviour:
   corpse: 2
   inactiveDelay: 1
   animator: {fileID: 95000012142972108}
-  cost: 1
+  damage: 1
+  animationSpeed: 1
+  score: 0
 --- !u!114 &114000010479162666
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -521,7 +523,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: f4d719b2326d90d43bdd2d92575da1a5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.08965492, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &212000011439403694

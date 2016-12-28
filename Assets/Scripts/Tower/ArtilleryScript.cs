@@ -55,6 +55,13 @@ public class ArtilleryScript : MonoBehaviour
         System.GC.Collect();
     }
 
+    public void RemoveArtillery()
+    {
+        this.model = null;
+        StopAllCoroutines();
+        RemoveOldArtillery();
+    }
+
     private void RemoveOldArtillery()
     {
         EmptyProjectilePrefab();

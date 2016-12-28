@@ -201,9 +201,10 @@ MonoBehaviour:
   isShield: 0
   corpse: 1
   inactiveDelay: 0
-  animator: {fileID: 0}
-  cost: 3
+  animator: {fileID: 95000013029839606}
+  damage: 1
   animationSpeed: 1
+  score: 30
 --- !u!114 &114000013277753228
 MonoBehaviour:
   m_ObjectHideFlags: 1

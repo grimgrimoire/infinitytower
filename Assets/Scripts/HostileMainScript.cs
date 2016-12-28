@@ -21,6 +21,7 @@ public class HostileMainScript : MonoBehaviour
     public Animator animator;
     public int damage = 1;
     public float animationSpeed = 1;
+    public int score = 0;
 
     private HostileInterface[] hostileInterfaces;
     private int initialHealth;
@@ -124,6 +125,7 @@ public class HostileMainScript : MonoBehaviour
                 if (healthBar != null)
                     healthBar.localScale = Vector3.zero;
                 Killed();
+                GetScore();
             }
         }
     }
@@ -229,6 +231,11 @@ public class HostileMainScript : MonoBehaviour
             animator.speed = animationSpeed;
         HostileInterfaceKilled();
         ShowCorpse();
+    }
+
+    private void GetScore()
+    {
+        GameSystem.GetGameSystem().UpdateScore(score);
     }
 
     private void ShowCorpse()

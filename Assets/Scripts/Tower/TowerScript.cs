@@ -52,6 +52,31 @@ public class TowerScript : MonoBehaviour, DialogInterface
         }
     }
 
+    public void GameOverAnimation()
+    {
+        StartCoroutine(GameOverAnimationIE());
+        foreach (TowerFloorScript tfs in GetComponentsInChildren<TowerFloorScript>())
+        {
+            tfs.RemoveAllArtillery();
+        }
+    }
+
+    IEnumerator GameOverAnimationIE()
+    {
+        GameObject cloudAnimation = Resources.Load("Prefab/Ruin", typeof(GameObject)) as GameObject;
+        GameObject cAInstance = GameObject.Instantiate(cloudAnimation);
+        float heightModifier = (transform.childCount - 1) * 1.06f;
+        while (heightModifier > 0)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, (Vector2)transform.position + Vector2.down, Time.deltaTime);
+            heightModifier -= Time.deltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+        GameObject.Destroy(cAInstance);
+        GameObject rubble = Resources.Load("Prefab/Rubble", typeof(GameObject)) as GameObject;
+        Instantiate(rubble);
+    }
+
     private int GetCurrentCost()
     {
         switch (cost)
@@ -66,20 +91,6 @@ public class TowerScript : MonoBehaviour, DialogInterface
                 return 1500;
         }
     }
-
-    //public void DestroyFloor(int index)
-    //{
-    //    for (int i = index; i < transform.childCount; i++)
-    //    {
-    //        if (i != index)
-    //        {
-    //            transform.GetChild(i).transform.position = transform.GetChild(i).transform.position - new Vector3(0, 1.06f);
-    //        }
-    //    }
-    //    towerAddButton.transform.position = new Vector2(0, 1.06f * (transform.childCount - 3) + 0.865f);
-    //    Destroy(transform.GetChild(index).gameObject);
-    //    ControlUI.GetUI().GetTowerInternalUI().ClearSelection();
-    //}
 
     private void AddFloor()
     {
