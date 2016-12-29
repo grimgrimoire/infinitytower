@@ -15,6 +15,7 @@ public class InfoUI : MonoBehaviour
     public Text timerText;
     public Text livesText;
     public Text scoreText;
+    public Text finalScore;
     public GameObject skipBtn1;
     public GameObject skipBtn2;
     public int score = 0;
@@ -81,6 +82,12 @@ public class InfoUI : MonoBehaviour
     {
         this.score += score;
         scoreText.text = SCORE + this.score;
+    }
+
+    public void SetFinalScore()
+    {
+        finalScore.text = "Your score :\n " + score;
+        finalScore.gameObject.SetActive(true);
     }
 
 }

@@ -136,7 +136,7 @@ public class ArtilleryModelList
     public static ArtilleryModel Remove()
     {
         ArtilleryModel remove = new ArtilleryModel();
-        remove.name = "No weapon installed";
+        remove.name = "Empty";
         remove.price = 0;
         remove.upgradeCode = UPGRADE_ZERO;
         remove.upgradeBranch = TOTAL_ARTILLERY;

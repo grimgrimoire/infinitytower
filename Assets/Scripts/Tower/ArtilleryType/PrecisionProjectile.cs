@@ -62,7 +62,7 @@ public class PrecisionProjectile : MonoBehaviour
     {
         moving = false;
         GetComponent<SpriteRenderer>().enabled = false;
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(1.33f);
         gameObject.SetActive(false);
     }
 }

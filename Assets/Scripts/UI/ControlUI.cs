@@ -100,10 +100,16 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
 
     public void GameOver()
     {
+        GameOverLay();
         canMove = false;
         mainCamera.transform.position = new Vector3(0, minY, -10);
         towerInternalUI.ClearSelection();
         towerInternalUI.ClearTowerFloor();
+    }
+
+    public void OnReturnClick()
+    {
+
     }
 
     public void OnDrag(PointerEventData eventData)

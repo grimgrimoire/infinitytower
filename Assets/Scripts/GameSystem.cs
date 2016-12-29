@@ -82,6 +82,7 @@ public class GameSystem : MonoBehaviour
             hostile.GetComponent<HostileMainScript>().SetSpeed(0);
         }
         infoUI.SetSkipButton(false);
+        infoUI.SetFinalScore();
         towerScript.GameOverAnimation();
         controlUI.GameOver();
         isGameStarted = false;

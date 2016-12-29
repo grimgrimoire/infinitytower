@@ -19,7 +19,7 @@ public class Explosion : MonoBehaviour
 
     IEnumerator InactiveSelf()
     {
-        yield return new WaitForSeconds(0.35f);
+        yield return new WaitForSeconds(0.5f);
         gameObject.SetActive(false);
     }
 
