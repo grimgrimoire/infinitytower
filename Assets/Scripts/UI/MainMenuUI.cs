@@ -8,13 +8,11 @@ public class MainMenuUI : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
     }
 
     public void StartButtonPressed()
@@ -22,3 +20,4 @@ public class MainMenuUI : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 }
+

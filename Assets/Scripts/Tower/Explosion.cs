@@ -6,6 +6,7 @@ public class Explosion : MonoBehaviour
     private int damage;
     private DamageType damageType;
     public bool fallOff = false;
+    public float duration = 0.5f;
 
     void Start()
     {
@@ -19,7 +20,7 @@ public class Explosion : MonoBehaviour
 
     IEnumerator InactiveSelf()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(duration);
         gameObject.SetActive(false);
     }
 

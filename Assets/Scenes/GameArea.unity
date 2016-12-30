@@ -4001,7 +4001,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1101418973}
-        m_MethodName: OnReturnClick
+        m_MethodName: OnReturnButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4705,6 +4705,7 @@ MonoBehaviour:
   dialogUI: {fileID: 356396708}
   loadingOverlay: {fileID: 1873711477}
   pauseButton: {fileID: 332695830}
+  returnButton: {fileID: 993124492}
 --- !u!114 &1101418974
 MonoBehaviour:
   m_ObjectHideFlags: 0

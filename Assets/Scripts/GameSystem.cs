@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using GoogleMobileAds.Api;
+using UnityEngine.SceneManagement;
 
 public class GameSystem : MonoBehaviour
 {
@@ -86,7 +87,6 @@ public class GameSystem : MonoBehaviour
         towerScript.GameOverAnimation();
         controlUI.GameOver();
         isGameStarted = false;
-        //controlUI.GameOverLay();
     }
 
     public ObjectPool GetObjectPool()
@@ -196,4 +196,13 @@ public class GameSystem : MonoBehaviour
         interstitialAds.LoadAd(request);
     }
 
+    public void ShowIntersitialAds()
+    {
+        interstitialAds.Show();
+    }
+    
+    public void MoveToMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

@@ -14,6 +14,7 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
     public DialogUI dialogUI;
     public GameObject loadingOverlay;
     public GameObject pauseButton;
+    public GameObject returnButton;
 
     TowerInternalUI towerInternalUI;
     TowerUpgradeUI towerUpgradeUI;
@@ -68,6 +69,13 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
     {
         pauseOverlay.SetActive(true);
         pauseButton.SetActive(false);
+        returnButton.SetActive(true);
+        GameSystem.GetGameSystem().ShowIntersitialAds();
+    }
+
+    public void OnReturnButtonClick()
+    {
+        GameSystem.GetGameSystem().MoveToMainMenu();
     }
 
     public TowerInternalUI GetTowerInternalUI()
@@ -100,16 +108,10 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
 
     public void GameOver()
     {
-        GameOverLay();
         canMove = false;
         mainCamera.transform.position = new Vector3(0, minY, -10);
         towerInternalUI.ClearSelection();
         towerInternalUI.ClearTowerFloor();
-    }
-
-    public void OnReturnClick()
-    {
-
     }
 
     public void OnDrag(PointerEventData eventData)

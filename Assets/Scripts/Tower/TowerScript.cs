@@ -75,6 +75,7 @@ public class TowerScript : MonoBehaviour, DialogInterface
         GameObject.Destroy(cAInstance);
         GameObject rubble = Resources.Load("Prefab/Rubble", typeof(GameObject)) as GameObject;
         Instantiate(rubble);
+        GameSystem.GetGameSystem().GetControlUI().GameOverLay();
     }
 
     private int GetCurrentCost()
