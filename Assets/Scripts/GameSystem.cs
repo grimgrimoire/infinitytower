@@ -25,6 +25,7 @@ public class GameSystem : MonoBehaviour
     string adUnitId = "ca-app-pub-5838986938071394/2684071660";
     string fullAdUnitId = "ca-app-pub-5838986938071394/9648935264";
     InterstitialAd interstitialAds;
+    BannerView bannerView;
 
     // Use this for initialization
     void Start()
@@ -87,6 +88,7 @@ public class GameSystem : MonoBehaviour
         towerScript.GameOverAnimation();
         controlUI.GameOver();
         isGameStarted = false;
+        RemoveBannerAds();
     }
 
     public ObjectPool GetObjectPool()
@@ -183,7 +185,7 @@ public class GameSystem : MonoBehaviour
 
     private void RequestBannerAds()
     {
-        BannerView bannerView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.Bottom);
+        bannerView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.Bottom);
         AdRequest request = new AdRequest.Builder().AddTestDevice(AdRequest.TestDeviceSimulator).AddTestDevice("637993DD2A7CB6EA72E1DB3D321D9FA2").Build();
         bannerView.LoadAd(request);
         bannerView.Show();
@@ -194,6 +196,11 @@ public class GameSystem : MonoBehaviour
         interstitialAds = new InterstitialAd(fullAdUnitId);
         AdRequest request = new AdRequest.Builder().AddTestDevice(AdRequest.TestDeviceSimulator).AddTestDevice("637993DD2A7CB6EA72E1DB3D321D9FA2").Build();
         interstitialAds.LoadAd(request);
+    }
+
+    public void RemoveBannerAds()
+    {
+        bannerView.Hide();
     }
 
     public void ShowIntersitialAds()
