@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chance: 30
+  duration: 2
 --- !u!114 &114000012516948846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,6 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb405c845de0804488bd5b0679297083, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fallOff: 0
+  duration: 0.5
 --- !u!212 &212000010965175434
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -156,7 +159,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300028, guid: bd60898ff4ddd024cb33f71129d4af02, type: 3}
+  m_Sprite: {fileID: 21300030, guid: e8f7bfec7ba2cb94e86f31c453136c99, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
