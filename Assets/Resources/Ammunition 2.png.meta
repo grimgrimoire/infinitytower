@@ -1,48 +1,48 @@
 fileFormatVersion: 2
 guid: e8f7bfec7ba2cb94e86f31c453136c99
-timeCreated: 1480579523
+timeCreated: 1483340178
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Ammunition 2_0
-    21300002: Ammunition 2_1
-    21300004: Ammunition 2_2
-    21300006: Ammunition 2_3
-    21300008: Ammunition 2_4
-    21300010: Ammunition 2_5
-    21300012: Ammunition 2_6
-    21300014: Ammunition 2_7
-    21300016: Ammunition 2_8
-    21300018: Ammunition 2_9
-    21300020: Ammunition 2_10
-    21300022: Ammunition 2_11
-    21300024: Ammunition 2_12
-    21300026: Ammunition 2_13
-    21300028: Ammunition 2_14
-    21300030: Ammunition 2_15
-    21300032: Ammunition 2_16
-    21300034: Ammunition 2_17
-    21300036: Ammunition 2_18
-    21300038: Ammunition 2_19
-    21300040: Ammunition 2_20
-    21300042: Ammunition 2_21
-    21300044: Ammunition 2_22
-    21300046: Ammunition 2_23
-    21300048: Ammunition 2_24
-    21300050: Ammunition 2_25
-    21300052: Ammunition 2_26
-    21300054: Ammunition 2_27
-    21300056: Ammunition 2_28
-    21300058: Ammunition 2_29
-    21300060: Ammunition 2_30
-    21300062: Ammunition 2_31
-    21300064: Ammunition 2_32
-    21300066: Ammunition 2_33
-    21300068: Ammunition 2_34
-    21300070: Ammunition 2_35
-    21300072: Ammunition 2_36
-    21300074: Ammunition 2_37
-    21300076: Ammunition 2_38
+    21300000: Rocket
+    21300002: AlcheBottle
+    21300004: Blood1
+    21300006: Blood2
+    21300008: Blood3
+    21300010: Blood4
+    21300012: Blood5
+    21300014: Arrow
+    21300016: Cannonball
+    21300018: AirExplode1
+    21300020: AirExplode2
+    21300022: AirExplode3
+    21300024: AirExplode4
+    21300026: StunEffect
+    21300028: Bullet
+    21300030: Explosion1
+    21300032: Explosion2
+    21300034: Explosion3
+    21300036: Explosion4
+    21300038: PoisonEffect
+    21300040: Tornado1
+    21300042: Tornado2
+    21300044: Tornado3
+    21300046: Poison1
+    21300048: Poison2
+    21300050: Poison3
+    21300052: PoisonVanish1
+    21300054: PoisonVanish2
+    21300056: PoisonVanish3
+    21300058: Meteor1
+    21300060: Meteor2
+    21300062: MagicBall1
+    21300064: Meteor3
+    21300066: MagicBall2
+    21300068: MagicBall3
+    21300070: MeteorExplode1
+    21300072: MeteorExplode2
+    21300074: MeteorExplode3
+    21300076: MeteorExplode4
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -92,7 +92,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ammunition 2_0
+      name: Rocket
       rect:
         serializedVersion: 2
         x: 42
@@ -105,7 +105,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_1
+      name: AlcheBottle
       rect:
         serializedVersion: 2
         x: 110
@@ -118,7 +118,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_2
+      name: Blood1
       rect:
         serializedVersion: 2
         x: 156
@@ -131,7 +131,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_3
+      name: Blood2
       rect:
         serializedVersion: 2
         x: 196
@@ -144,7 +144,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_4
+      name: Blood3
       rect:
         serializedVersion: 2
         x: 236
@@ -157,7 +157,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_5
+      name: Blood4
       rect:
         serializedVersion: 2
         x: 277
@@ -170,7 +170,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_6
+      name: Blood5
       rect:
         serializedVersion: 2
         x: 317
@@ -183,7 +183,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_7
+      name: Arrow
       rect:
         serializedVersion: 2
         x: 27
@@ -196,7 +196,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_8
+      name: Cannonball
       rect:
         serializedVersion: 2
         x: 53
@@ -209,7 +209,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_9
+      name: AirExplode1
       rect:
         serializedVersion: 2
         x: 103
@@ -222,7 +222,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_10
+      name: AirExplode2
       rect:
         serializedVersion: 2
         x: 155
@@ -235,7 +235,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_11
+      name: AirExplode3
       rect:
         serializedVersion: 2
         x: 209
@@ -248,7 +248,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_12
+      name: AirExplode4
       rect:
         serializedVersion: 2
         x: 263
@@ -261,7 +261,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_13
+      name: StunEffect
       rect:
         serializedVersion: 2
         x: 327
@@ -274,7 +274,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_14
+      name: Bullet
       rect:
         serializedVersion: 2
         x: 53
@@ -287,7 +287,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_15
+      name: Explosion1
       rect:
         serializedVersion: 2
         x: 29
@@ -300,20 +300,20 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_16
+      name: Explosion2
       rect:
         serializedVersion: 2
         x: 102
         y: 460
         width: 69
         height: 31
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_17
+      name: Explosion3
       rect:
         serializedVersion: 2
         x: 175
@@ -326,7 +326,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_18
+      name: Explosion4
       rect:
         serializedVersion: 2
         x: 248
@@ -339,7 +339,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_19
+      name: PoisonEffect
       rect:
         serializedVersion: 2
         x: 333
@@ -352,7 +352,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_20
+      name: Tornado1
       rect:
         serializedVersion: 2
         x: 24
@@ -365,7 +365,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_21
+      name: Tornado2
       rect:
         serializedVersion: 2
         x: 104
@@ -378,7 +378,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_22
+      name: Tornado3
       rect:
         serializedVersion: 2
         x: 188
@@ -391,7 +391,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_23
+      name: Poison1
       rect:
         serializedVersion: 2
         x: 19
@@ -404,7 +404,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_24
+      name: Poison2
       rect:
         serializedVersion: 2
         x: 115
@@ -417,7 +417,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_25
+      name: Poison3
       rect:
         serializedVersion: 2
         x: 215
@@ -430,7 +430,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_26
+      name: PoisonVanish1
       rect:
         serializedVersion: 2
         x: 15
@@ -443,7 +443,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_27
+      name: PoisonVanish2
       rect:
         serializedVersion: 2
         x: 110
@@ -456,7 +456,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_28
+      name: PoisonVanish3
       rect:
         serializedVersion: 2
         x: 216
@@ -469,7 +469,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_29
+      name: Meteor1
       rect:
         serializedVersion: 2
         x: 22
@@ -482,7 +482,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_30
+      name: Meteor2
       rect:
         serializedVersion: 2
         x: 109
@@ -495,7 +495,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_31
+      name: MagicBall1
       rect:
         serializedVersion: 2
         x: 277
@@ -508,7 +508,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_32
+      name: Meteor3
       rect:
         serializedVersion: 2
         x: 195
@@ -521,7 +521,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_33
+      name: MagicBall2
       rect:
         serializedVersion: 2
         x: 277
@@ -534,7 +534,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_34
+      name: MagicBall3
       rect:
         serializedVersion: 2
         x: 280
@@ -547,7 +547,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_35
+      name: MeteorExplode1
       rect:
         serializedVersion: 2
         x: 0
@@ -560,7 +560,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_36
+      name: MeteorExplode2
       rect:
         serializedVersion: 2
         x: 101
@@ -573,7 +573,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_37
+      name: MeteorExplode3
       rect:
         serializedVersion: 2
         x: 209
@@ -586,7 +586,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Ammunition 2_38
+      name: MeteorExplode4
       rect:
         serializedVersion: 2
         x: 315
