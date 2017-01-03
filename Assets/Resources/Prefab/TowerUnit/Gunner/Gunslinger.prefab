@@ -459,7 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b35d7802b973f0947a9bc8b926b5c85b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerAnimationIndex: 8
+  towerAnimationIndex: 9
 --- !u!212 &212000010215407050
 SpriteRenderer:
   m_ObjectHideFlags: 1

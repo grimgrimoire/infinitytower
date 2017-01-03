@@ -88,6 +88,7 @@ public class InfoUI : MonoBehaviour
     {
         finalScore.text = "Your score :\n " + score;
         finalScore.gameObject.SetActive(true);
+        ScoreSystem.SaveData(score);
     }
 
 }

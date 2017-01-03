@@ -923,7 +923,7 @@ public class ArtilleryModelList
         mage.fireDelay = 3f;
         mage.lockNumber = 1;
         mage.damage = 300;
-        mage.ingameModelPrefabName = PATH_MAGE + "Wizard";
+        mage.ingameModelPrefabName = PATH_MAGE + "HighWizard";
         mage.damageType = DamageType.Magic;
         mage.price = UPGRADE_4_PRICE;
         mage.projectilePrefabName = PATH_PROJECTILE + "EnergyBallChain";
