@@ -791,7 +791,7 @@ public class ArtilleryModelList
         gunner.ingameModelPrefabName = PATH_GUNNER + "Maniac";
         gunner.damageType = DamageType.Impact;
         gunner.price = UPGRADE_4_PRICE;
-        gunner.projectilePrefabName = PATH_PROJECTILE + "Bullet1";
+        gunner.projectilePrefabName = PATH_PROJECTILE + "ManiacBullet";
         gunner.shootImpl = new LinearProjectileArtillery(gunner);
         gunner.upgradeCode = UPGRADE_NONE;
         gunner.upgradeBranch = 1;
