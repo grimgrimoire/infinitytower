@@ -6,12 +6,14 @@ public class ArtilleryUI : MonoBehaviour
 {
 
     public Text moduleName;
-    public Image image;
+    public Image moduleImage;
+
+    private Image uiImage;
 
     // Use this for initialization
     void Start()
     {
-
+        uiImage = GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -27,30 +29,30 @@ public class ArtilleryUI : MonoBehaviour
             moduleName.text = model.name;
             if (model.price != 0)
             {
-                image.sprite = Resources.LoadAll<Sprite>("WeaponTower 1")[model.imageUIindex];
-                image.color = Color.white;
+                moduleImage.sprite = Resources.LoadAll<Sprite>("WeaponTower 1")[model.imageUIindex];
+                moduleImage.color = Color.white;
             }
             else
             {
-                image.sprite = null;
-                image.color = Color.black;
+                moduleImage.sprite = null;
+                moduleImage.color = Color.black;
             }
         }
         else
         {
             moduleName.text = "Empty";
-            image.sprite = null;
-            image.color = Color.black;
+            moduleImage.sprite = null;
+            moduleImage.color = Color.black;
         }
     }
 
     public void SetSelected()
     {
-        //GetComponent<Image>().color = new Color(0.141f, 0.105f, 0.054f);
+        uiImage.sprite = Resources.LoadAll<Sprite>("UIOutline")[0];
     }
 
     public void SetUnselected()
     {
-        //GetComponent<Image>().color = new Color(0.176f, 0.133f, 0.070f);
+        uiImage.sprite = Resources.LoadAll<Sprite>("UI")[5];
     }
 }
