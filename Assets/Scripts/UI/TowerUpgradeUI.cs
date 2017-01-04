@@ -10,6 +10,7 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler, DialogInterfa
     public RectTransform upgradeList;
     public UpgradeDetailUI upgradeDetailUI;
     public GameObject prefabUI;
+    public GameObject prefabSell;
 
     private ArtilleryScript artillery;
     private SupportScript support;
@@ -111,20 +112,34 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler, DialogInterfa
 
     private void AddArtilleryUpgradeToList(ArtilleryModel model)
     {
-        GameObject instance = (GameObject)Instantiate(prefabUI, upgradeList, false);
-        instance.name = model.name;
-        instance.transform.GetChild(0).GetComponent<Text>().text = model.name;
-        instance.transform.GetChild(1).GetComponent<Text>().text = "Price : " + model.price;
-        instance.transform.GetChild(2).GetComponent<Image>().sprite = Resources.LoadAll<Sprite>("WeaponTower 1")[model.imageUIindex];
+        if (model.price > 0)
+        {
+            GameObject instance = (GameObject)Instantiate(prefabUI, upgradeList, false);
+            instance.name = model.name;
+            instance.transform.GetChild(0).GetComponent<Text>().text = model.name;
+            instance.transform.GetChild(1).GetComponent<Text>().text = "Price : " + model.price;
+            instance.transform.GetChild(2).GetComponent<Image>().sprite = Resources.LoadAll<Sprite>("WeaponTower 1")[model.imageUIindex];
+        }
+        else
+        {
+            GameObject instance = (GameObject)Instantiate(prefabSell, upgradeList, false);
+        }
     }
 
     private void AddSupportUpgradeToList(SupportModel model)
     {
-        GameObject instance = (GameObject)Instantiate(prefabUI, upgradeList, false);
-        instance.name = model.name;
-        instance.transform.GetChild(0).GetComponent<Text>().text = model.name;
-        instance.transform.GetChild(1).GetComponent<Text>().text = "Price : " + model.price;
-        instance.transform.GetChild(2).GetComponent<Image>().sprite = Resources.LoadAll<Sprite>("Buff")[model.imageUIIndex];
+        if (model.price > 0)
+        {
+            GameObject instance = (GameObject)Instantiate(prefabUI, upgradeList, false);
+            instance.name = model.name;
+            instance.transform.GetChild(0).GetComponent<Text>().text = model.name;
+            instance.transform.GetChild(1).GetComponent<Text>().text = "Price : " + model.price;
+            instance.transform.GetChild(2).GetComponent<Image>().sprite = Resources.LoadAll<Sprite>("Buff")[model.imageUIIndex];
+        }
+        else
+        {
+            GameObject instance = (GameObject)Instantiate(prefabSell, upgradeList, false);
+        }
     }
 
     private void RemoveDialog()

@@ -33,6 +33,15 @@ public class TowerScript : MonoBehaviour, DialogInterface
         dialog.SetInterface(this);
     }
 
+    public void ClearTowerSelection()
+    {
+        TowerFloorScript[] scripts = GetComponentsInChildren<TowerFloorScript>();
+        foreach(TowerFloorScript script in scripts)
+        {
+            script.ClearSelection();
+        }
+    }
+
     public void OnOkButtonClicked()
     {
     }

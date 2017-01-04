@@ -7,9 +7,10 @@ public class SupportUI : MonoBehaviour {
     public Text moduleName;
     public Image image;
 
+    private Image uiImage;
     // Use this for initialization
     void Start () {
-	
+        uiImage = GetComponent<Image>();
 	}
 	
 	// Update is called once per frame
@@ -43,11 +44,11 @@ public class SupportUI : MonoBehaviour {
 
     public void SetSelected()
     {
-        //GetComponent<Image>().color = new Color(0.141f, 0.105f, 0.054f);
+        uiImage.sprite = Resources.LoadAll<Sprite>("UIOutline")[1];
     }
 
     public void SetUnselected()
     {
-        //GetComponent<Image>().color = new Color(0.176f, 0.133f, 0.070f);
+        uiImage.sprite = Resources.LoadAll<Sprite>("UI")[9];
     }
 }

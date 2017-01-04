@@ -85,6 +85,7 @@ public class GameSystem : MonoBehaviour
         }
         infoUI.SetSkipButton(false);
         infoUI.SetFinalScore();
+        towerScript.ClearTowerSelection();
         towerScript.GameOverAnimation();
         controlUI.GameOver();
         isGameStarted = false;
