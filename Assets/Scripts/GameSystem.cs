@@ -55,12 +55,17 @@ public class GameSystem : MonoBehaviour
         GameObject.FindGameObjectWithTag(TagsAndLayers.TAG_TOWER).GetComponent<TowerFloorScript>().LoadTowerFloorToUI();
         isGameStarted = true;
         isPaused = false;
+        spawnSystem.CalculateGold();
         spawnSystem.UpdateSpawnerList();
-        spawnSystem.StartSpawnEnemy();
         UpdateGoldValue();
         controlUI.DissableLoading();
         RequestBannerAds();
         RequestInterstitialAds();
+    }
+
+    public void SpawnEnemyStart()
+    {
+        spawnSystem.StartSpawnEnemy();
     }
 
     public void TakeDamage(int damage)

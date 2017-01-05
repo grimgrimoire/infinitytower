@@ -9,7 +9,8 @@ public interface DialogInterface
     void OnYesButtonClicked();
 }
 
-public class DialogUI : MonoBehaviour {
+public class DialogUI : MonoBehaviour
+{
 
     public GameObject yesButton;
     public GameObject okButton;
@@ -18,15 +19,17 @@ public class DialogUI : MonoBehaviour {
 
     DialogInterface dialog;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    // Use this for initialization
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     public void SetMessage(string message)
     {
@@ -40,7 +43,8 @@ public class DialogUI : MonoBehaviour {
             okButton.SetActive(false);
             yesButton.SetActive(true);
             noButton.SetActive(true);
-        }else
+        }
+        else
         {
             okButton.SetActive(true);
             yesButton.SetActive(false);
@@ -55,7 +59,8 @@ public class DialogUI : MonoBehaviour {
 
     public void OnOkButtonClicked()
     {
-        dialog.OnOkButtonClicked();
+        if (dialog != null)
+            dialog.OnOkButtonClicked();
         gameObject.SetActive(false);
     }
 

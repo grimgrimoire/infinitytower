@@ -528,6 +528,8 @@ public class ArtilleryModelList
         arrow.poolSize = 5;
         arrow.projectilePrefabName = PATH_PROJECTILE + "RangerArrow";
         arrow.shootImpl = new RangerArtillery(arrow);
+        arrow.upgradeBranch = 1;
+        arrow.upgradeCode = UPGRADE_NONE;
         arrow.imageUIindex = 20;
         arrow.Initialize();
         return arrow;

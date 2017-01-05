@@ -2,8 +2,9 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 using System;
+using UnityEngine.SceneManagement;
 
-public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeginDragHandler, IEndDragHandler, DialogInterface
 {
 
     public static ControlUI control;
@@ -15,6 +16,10 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
     public GameObject loadingOverlay;
     public GameObject pauseButton;
     public GameObject returnButton;
+    public GameObject pauseMenu;
+    public GameObject tipsDialog;
+    public GameObject startButton1;
+    public GameObject startButton2;
 
     TowerInternalUI towerInternalUI;
     TowerUpgradeUI towerUpgradeUI;
@@ -25,6 +30,7 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
     float minX = -10;
     float maxX = 10;
     float minY = 1.45f;
+    float maxY = 9;
     bool canMove = true;
 
     public static ControlUI GetUI()
@@ -48,6 +54,36 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
 
     }
 
+    public void ResumeButtonClicked()
+    {
+        Time.timeScale = 1;
+        GameSystem.GetGameSystem().SetGamePaused(false);
+        pauseMenu.SetActive(false);
+        pauseOverlay.SetActive(false);
+    }
+
+    public void TipsButtonClicked()
+    {
+        tipsDialog.SetActive(true);
+    }
+
+    public void TipsOkButtonClicked()
+    {
+
+    }
+
+    public void QuitButtonClicked()
+    {
+        DialogUI dialog = GameSystem.GetGameSystem().GetControlUI().dialogUI;
+        dialog.gameObject.SetActive(true);
+        dialog.SetMessage("Quit game?");
+        dialog.SetDialogType(true);
+        dialog.SetInterface(this);
+
+        pauseMenu.SetActive(false);
+        pauseOverlay.SetActive(false);
+    }
+
     public void PauseButtonClicked()
     {
         if (GameSystem.GetGameSystem().IsGameStarted())
@@ -55,12 +91,14 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
             {
                 Time.timeScale = 1;
                 GameSystem.GetGameSystem().SetGamePaused(false);
+                pauseMenu.SetActive(false);
                 pauseOverlay.SetActive(false);
             }
             else
             {
                 Time.timeScale = 0;
                 GameSystem.GetGameSystem().SetGamePaused(true);
+                pauseMenu.SetActive(true);
                 pauseOverlay.SetActive(true);
             }
     }
@@ -129,7 +167,7 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
             {
                 moveDirection = new Vector2(0, moveDirection.y);
             }
-            if ((moveDirection.y * 0.01f) + mainCamera.transform.position.y < minY)
+            if ((moveDirection.y * 0.01f) + mainCamera.transform.position.y < minY || (moveDirection.y * 0.01f) + mainCamera.transform.position.y > maxY)
             {
                 moveDirection = new Vector2(moveDirection.x, 0);
             }
@@ -167,5 +205,27 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
     {
         loadingOverlay.SetActive(false);
         pauseButton.SetActive(true);
+    }
+
+    public void OnOkButtonClicked()
+    {
+    }
+
+    public void OnNoButtonClicked()
+    {
+        pauseMenu.SetActive(true);
+        pauseOverlay.SetActive(true);
+    }
+
+    public void OnYesButtonClicked()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void OnStartButtonClicked()
+    {
+        GameSystem.GetGameSystem().SpawnEnemyStart();
+        startButton1.SetActive(false);
+        startButton2.SetActive(false);
     }
 }

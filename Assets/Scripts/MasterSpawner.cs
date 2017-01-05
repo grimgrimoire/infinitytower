@@ -49,8 +49,6 @@ public class MasterSpawner : MonoBehaviour
     {
         GameSystem.GetGameSystem().UpdateWave(waveLevel);
         waveLevel -= 1;
-        CalculateGold();
-        yield return new WaitForSeconds(30);
         while (GameSystem.GetGameSystem().IsGameStarted())
         {
             CalculateWaveLevel();
@@ -70,11 +68,11 @@ public class MasterSpawner : MonoBehaviour
         }
     }
 
-    private void CalculateGold()
+    public void CalculateGold()
     {
         int startingGold;
         int tocal = waveLevel;
-        startingGold = CalculateGoldAtWave(tocal);
+        startingGold = CalculateGoldAtWave(tocal - 1);
         GameSystem.GetGameSystem().AddGold(startingGold);
     }
 
