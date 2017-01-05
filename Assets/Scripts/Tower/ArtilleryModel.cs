@@ -714,7 +714,7 @@ public class ArtilleryModelList
         gunner.upgradeCode = UPGRADE_SHOOTER;
         gunner.upgradeBranch = 3;
         gunner.poolSize = 15;
-        gunner.imageUIindex = 11;
+        gunner.imageUIindex = 10;
         gunner.Initialize(); return gunner;
     }
 
@@ -942,7 +942,7 @@ public class ArtilleryModelList
         mage.fireDelay = 3f;
         mage.lockNumber = 1;
         mage.damage = 150;
-        mage.ingameModelPrefabName = PATH_MAGE + "Alchemist";
+        mage.ingameModelPrefabName = PATH_MAGE + "GrandAlchemist";
         mage.damageType = DamageType.Magic;
         mage.price = UPGRADE_4_PRICE;
         mage.projectilePrefabName = PATH_PROJECTILE + "PoisonBottle";

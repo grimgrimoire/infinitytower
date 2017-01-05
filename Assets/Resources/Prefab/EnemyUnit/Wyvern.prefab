@@ -332,13 +332,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goldValue: 100
-  health: 250
+  health: 350
   armor: 3
   isGroundUnit: 0
   isAlive: 0
   isShield: 0
   corpse: 0
-  inactiveDelay: 0
+  inactiveDelay: 1
   animator: {fileID: 95000013326452892}
   damage: 3
   animationSpeed: 1

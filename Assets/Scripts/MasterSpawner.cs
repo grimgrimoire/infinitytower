@@ -50,7 +50,7 @@ public class MasterSpawner : MonoBehaviour
         GameSystem.GetGameSystem().UpdateWave(waveLevel);
         waveLevel -= 1;
         CalculateGold();
-        //yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(30);
         while (GameSystem.GetGameSystem().IsGameStarted())
         {
             CalculateWaveLevel();

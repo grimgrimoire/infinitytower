@@ -517,7 +517,7 @@ MonoBehaviour:
   isAlive: 0
   isShield: 0
   corpse: 2
-  inactiveDelay: 0.82
+  inactiveDelay: 1
   animator: {fileID: 95000012148631148}
   damage: 1
   animationSpeed: 1
