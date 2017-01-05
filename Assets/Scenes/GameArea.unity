@@ -3217,10 +3217,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd5890f83f0ae64cb8d27a30b120ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 10000
+  gold: 1000
   infoUI: {fileID: 1437288304}
   controlUI: {fileID: 1101418973}
-  lives: 5
+  lives: 999
   towerScript: {fileID: 828794724}
 --- !u!114 &717488317
 MonoBehaviour:

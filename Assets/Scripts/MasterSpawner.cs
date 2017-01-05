@@ -154,7 +154,7 @@ public class MasterSpawner : MonoBehaviour
     {
         if (waveLevel == 40 && costLeft == 25)
             list.Add(GetObjectPool().GetKnight());
-        else if (waveLevel == 45 && costLeft == 60)
+        else if (waveLevel == 45 && costLeft == 30)
             list.Add(GetObjectPool().GetDragon());
 
         while (costLeft > 0)

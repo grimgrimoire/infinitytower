@@ -174,7 +174,7 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler, DialogInterfa
             artillery.SetModel(model);
             LoadAvailableArtilleryUpgrades();
         }
-        else
+        else if(model.price == 0)
         {
             GameSystem.GetGameSystem().AddGold(Mathf.RoundToInt(artillery.GetModel().price * (0.7f)));
             artillery.SetModel(model);

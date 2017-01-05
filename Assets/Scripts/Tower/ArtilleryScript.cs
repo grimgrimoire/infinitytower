@@ -53,6 +53,7 @@ public class ArtilleryScript : MonoBehaviour
         if (model.shootImpl != null)
             ApplyNewArtillery();
         System.GC.Collect();
+        lockedTarget = null;
     }
 
     public void RemoveArtillery()

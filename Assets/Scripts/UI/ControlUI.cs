@@ -83,6 +83,11 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
         return towerInternalUI;
     }
 
+    public void RemoveDialogUI()
+    {
+        dialogUI.gameObject.SetActive(false);
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.pointerPressRaycast.gameObject.tag == "GameController" && !isDragging)
@@ -112,6 +117,7 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
         mainCamera.transform.position = new Vector3(0, minY, -10);
         towerInternalUI.ClearSelection();
         towerInternalUI.ClearTowerFloor();
+        RemoveDialogUI();
     }
 
     public void OnDrag(PointerEventData eventData)

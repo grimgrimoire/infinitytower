@@ -84,7 +84,6 @@ public class GameSystem : MonoBehaviour
             hostile.GetComponent<HostileMainScript>().SetSpeed(0);
         }
         infoUI.SetSkipButton(false);
-        infoUI.SetFinalScore();
         towerScript.ClearTowerSelection();
         towerScript.GameOverAnimation();
         controlUI.GameOver();
