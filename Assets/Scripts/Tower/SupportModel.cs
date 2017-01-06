@@ -10,6 +10,10 @@ public class SupportModel
     public int imageIndex = 0;
     public int upgradeCode;
     public int imageUIIndex;
+    public string description = "";
+    public string bonusDamage = "--";
+    public string bonusSpeed = "--";
+    public string bonusRange = "--";
 }
 
 public class SupportModelList
@@ -198,6 +202,8 @@ public class SupportModelList
         model.upgradeCode = 1;
         model.supportModelPrefabName = RESOURCE + "FireBuff";
         model.imageUIIndex = 4;
+        model.description = "";
+        model.bonusDamage = "+5%";
         return model;
     }
 
