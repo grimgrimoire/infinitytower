@@ -523,7 +523,7 @@ public class ArtilleryModelList
         arrow.lockNumber = 1;
         arrow.damage = 50;
         arrow.ingameModelPrefabName = PATH_ARCHER + "Ranger";
-        arrow.damageType = DamageType.Impact;
+        arrow.damageType = DamageType.Piercing;
         arrow.price = UPGRADE_4_PRICE;
         arrow.poolSize = 5;
         arrow.projectilePrefabName = PATH_PROJECTILE + "RangerArrow";
@@ -690,7 +690,7 @@ public class ArtilleryModelList
         gunner.lockNumber = 1;
         gunner.damage = 50;
         gunner.ingameModelPrefabName = PATH_GUNNER + "TowerGunner";
-        gunner.damageType = DamageType.Piercing;
+        gunner.damageType = DamageType.Impact;
         gunner.price = UPGRADE_1_PRICE;
         gunner.projectilePrefabName = PATH_PROJECTILE + "Bullet1";
         gunner.shootImpl = new GunnerArtillery(gunner);
@@ -709,7 +709,7 @@ public class ArtilleryModelList
         gunner.lockNumber = 1;
         gunner.damage = 150;
         gunner.ingameModelPrefabName = PATH_GUNNER + "Shooter";
-        gunner.damageType = DamageType.Piercing;
+        gunner.damageType = DamageType.Impact;
         gunner.price = UPGRADE_2_PRICE;
         gunner.projectilePrefabName = PATH_PROJECTILE + "Bullet1";
         gunner.shootImpl = new LinearProjectileArtillery(gunner);
@@ -729,7 +729,7 @@ public class ArtilleryModelList
         gunner.lockNumber = 1;
         gunner.damage = 600;
         gunner.ingameModelPrefabName = PATH_GUNNER + "Sniper";
-        gunner.damageType = DamageType.Explosive;
+        gunner.damageType = DamageType.Impact;
         gunner.price = UPGRADE_3_PRICE;
         gunner.projectilePrefabName = PATH_PROJECTILE + "PrecisionBullet";
         gunner.shootImpl = new PrecisionProjectileArtillery(gunner);
@@ -751,7 +751,7 @@ public class ArtilleryModelList
         gunner.damage = 180;
         gunner.poolSize = 6;
         gunner.ingameModelPrefabName = PATH_GUNNER + "Gunslinger";
-        gunner.damageType = DamageType.Explosive;
+        gunner.damageType = DamageType.Impact;
         gunner.price = UPGRADE_3_PRICE;
         gunner.projectilePrefabName = PATH_PROJECTILE + "PrecisionBullet";
         gunner.shootImpl = new GunslingerArtillery(gunner);
@@ -770,7 +770,7 @@ public class ArtilleryModelList
         gunner.lockNumber = 1;
         gunner.damage = 1600;
         gunner.ingameModelPrefabName = PATH_GUNNER + "MasterSniper";
-        gunner.damageType = DamageType.Explosive;
+        gunner.damageType = DamageType.Impact;
         gunner.price = UPGRADE_4_PRICE;
         gunner.targetingImpl = new HighestHealthOnly();
         gunner.projectilePrefabName = PATH_PROJECTILE + "PrecisionBullet";
