@@ -408,6 +408,7 @@ public class ArtilleryModelList
         arrow.upgradeCode = UPGRADE_ARCHER;
         arrow.upgradeBranch = 2;
         arrow.imageUIindex = 3;
+        arrow.description = "Shoot Arrow to Enemy.";
         arrow.Initialize();
         return arrow;
     }
@@ -428,6 +429,7 @@ public class ArtilleryModelList
         arrow.upgradeCode = UPGRADE_ARCHER_HUNTER;
         arrow.upgradeBranch = 3;
         arrow.imageUIindex = 3;
+        arrow.description = "Shoot Arrow to Enemy.";
         arrow.Initialize();
         return arrow;
     }
@@ -448,6 +450,7 @@ public class ArtilleryModelList
         arrow.upgradeCode = UPGRADE_LONGBOWMAN;
         arrow.upgradeBranch = 2;
         arrow.imageUIindex = 13;
+        arrow.description = "Shoot arrow with very high damage.";
         arrow.Initialize();
         return arrow;
     }
@@ -469,6 +472,7 @@ public class ArtilleryModelList
         arrow.upgradeCode = UPGRADE_CROSSBOWMAN;
         arrow.upgradeBranch = 3;
         arrow.imageUIindex = 7;
+        arrow.description = "Scatter 10 arrow to enemy.";
         arrow.Initialize();
         return arrow;
     }
@@ -489,6 +493,7 @@ public class ArtilleryModelList
         arrow.upgradeCode = UPGRADE_NONE;
         arrow.upgradeBranch = 1;
         arrow.imageUIindex = 13;
+        arrow.description = "Shoot arrow with very high damage.";
         arrow.Initialize();
         return arrow;
     }
@@ -510,6 +515,7 @@ public class ArtilleryModelList
         arrow.poolSize = 20;
         arrow.upgradeBranch = 1;
         arrow.imageUIindex = 7;
+        arrow.description = "Scatter 10 arrow to enemy.";
         arrow.Initialize();
         return arrow;
     }
@@ -531,6 +537,7 @@ public class ArtilleryModelList
         arrow.upgradeBranch = 1;
         arrow.upgradeCode = UPGRADE_NONE;
         arrow.imageUIindex = 20;
+        arrow.description = "Rain 30 arrow to marked target.";
         arrow.Initialize();
         return arrow;
     }
@@ -554,6 +561,7 @@ public class ArtilleryModelList
         cannon.upgradeCode = UPGRADE_CANNON;
         cannon.upgradeBranch = 2;
         cannon.imageUIindex = 5;
+        cannon.description = "Shoot explosive projectile with area damage (Target Ground Only).";
         cannon.Initialize(); return cannon;
     }
 
@@ -574,6 +582,7 @@ public class ArtilleryModelList
         cannon.upgradeCode = UPGRADE_BOMBARD;
         cannon.upgradeBranch = 3;
         cannon.imageUIindex = 5;
+        cannon.description = "Shoot explosive projectile with area damage (Target Ground Only).";
         cannon.Initialize(); return cannon;
     }
 
@@ -595,6 +604,7 @@ public class ArtilleryModelList
         cannon.upgradeCode = UPGRADE_GUARDMAN;
         cannon.upgradeBranch = 2;
         cannon.imageUIindex = 9;
+        cannon.description = "Shoot 10 small explosive projectile (Target Air Only).";
         cannon.Initialize(); return cannon;
     }
 
@@ -616,6 +626,7 @@ public class ArtilleryModelList
         cannon.upgradeCode = UPGRADE_NONE;
         cannon.upgradeBranch = 1;
         cannon.imageUIindex = 9;
+        cannon.description = "shoot 15 small explosive projectile (Target Air Only).";
         cannon.Initialize(); return cannon;
     }
 
@@ -636,6 +647,7 @@ public class ArtilleryModelList
         cannon.upgradeCode = UPGRADE_ARTILLERYMAN;
         cannon.upgradeBranch = 3;
         cannon.imageUIindex = 4;
+        cannon.description = "Shoot explosive projectile with area damage and stun effect (30% Chance) (Target Ground Only).";
         cannon.Initialize(); return cannon;
     }
 
@@ -656,6 +668,7 @@ public class ArtilleryModelList
         cannon.upgradeCode = UPGRADE_NONE;
         cannon.upgradeBranch = 1;
         cannon.imageUIindex = 4;
+        cannon.description = "Shoot explosive projectile with area damage and stun effect (30% Chance) (Target Ground Only).";
         cannon.Initialize(); return cannon;
     }
 
@@ -676,6 +689,7 @@ public class ArtilleryModelList
         cannon.upgradeCode = UPGRADE_NONE;
         cannon.upgradeBranch = 1;
         cannon.imageUIindex = 18;
+        cannon.description = "Shoot explosive projectile with area damage and scatter 10 small explosive projectile around (Target Ground Only).";
         cannon.Initialize(); return cannon;
     }
     //end canon model
@@ -697,6 +711,7 @@ public class ArtilleryModelList
         gunner.upgradeCode = UPGRADE_GUNNER;
         gunner.upgradeBranch = 2;
         gunner.imageUIindex = 10;
+        gunner.description = "Shoot Bullet to Enemy.";
         gunner.Initialize(); return gunner;
     }
 
@@ -717,6 +732,7 @@ public class ArtilleryModelList
         gunner.upgradeBranch = 3;
         gunner.poolSize = 15;
         gunner.imageUIindex = 10;
+        gunner.description = "Shoot Bullet to Enemy.";
         gunner.Initialize(); return gunner;
     }
 
@@ -738,6 +754,7 @@ public class ArtilleryModelList
         gunner.upgradeCode = UPGRADE_SNIPER;
         gunner.upgradeBranch = 2;
         gunner.imageUIindex = 27;
+        gunner.description = "Shoot Bullet to Enemy with very high damage (target enemy with highest Max HP).";
         gunner.Initialize(); return gunner;
     }
 
@@ -758,6 +775,7 @@ public class ArtilleryModelList
         gunner.upgradeCode = UPGRADE_GUNSLINGER;
         gunner.upgradeBranch = 3;
         gunner.imageUIindex = 11;
+        gunner.description = "Shoot 6 bullet to nearest enemy.";
         gunner.Initialize(); return gunner;
     }
 
@@ -778,6 +796,7 @@ public class ArtilleryModelList
         gunner.upgradeCode = UPGRADE_NONE;
         gunner.upgradeBranch = 1;
         gunner.imageUIindex = 27;
+        gunner.description = "Shoot Bullet to Enemy with very high damage (target enemy with highest Max HP).";
         gunner.Initialize(); return gunner;
     }
 
@@ -798,6 +817,7 @@ public class ArtilleryModelList
         gunner.upgradeCode = UPGRADE_NONE;
         gunner.upgradeBranch = 1;
         gunner.imageUIindex = 16;
+        gunner.description = "Shoot bullet with very fast fire rate.";
         gunner.Initialize(); return gunner;
     }
 
@@ -817,6 +837,7 @@ public class ArtilleryModelList
         gunner.upgradeCode = UPGRADE_NONE;
         gunner.upgradeBranch = 1;
         gunner.imageUIindex = 28;
+        gunner.description = "Shoot 3 homing rocket to enemy.";
         gunner.Initialize(); return gunner;
     }
     //End Gunner model
@@ -838,6 +859,7 @@ public class ArtilleryModelList
         mage.upgradeCode = UPGRADE_MAGE;
         mage.upgradeBranch = 2;
         mage.imageUIindex = 14;
+        mage.description = "shoot magical projectile and slow target.";
         mage.Initialize(); return mage;
     }
 
@@ -857,6 +879,7 @@ public class ArtilleryModelList
         mage.upgradeCode = UPGRADE_SORCERER;
         mage.upgradeBranch = 4;
         mage.imageUIindex = 14;
+        mage.description = "shoot magical projectile and slow target.";
         mage.Initialize(); return mage;
     }
 
@@ -876,6 +899,7 @@ public class ArtilleryModelList
         mage.upgradeCode = UPGRADE_WIZARD;
         mage.upgradeBranch = 2;
         mage.imageUIindex = 30;
+        mage.description = "Bounce magical projectile up to 5 enemies and slow target.";
         mage.Initialize(); return mage;
     }
 
@@ -895,6 +919,7 @@ public class ArtilleryModelList
         mage.upgradeCode = UPGRADE_ALCHEMIST;
         mage.upgradeBranch = 2;
         mage.imageUIindex = 2;
+        mage.description = "Throw bottle of poison and deal damage over time.";
         mage.Initialize(); return mage;
     }
 
@@ -914,6 +939,7 @@ public class ArtilleryModelList
         mage.upgradeCode = UPGRADE_SAGE;
         mage.upgradeBranch = 3;
         mage.imageUIindex = 23;
+        mage.description = "Shoot 5 magical projectile to nearest enemy and slow target.";
         mage.Initialize(); return mage;
     }
 
@@ -933,6 +959,7 @@ public class ArtilleryModelList
         mage.upgradeCode = UPGRADE_NONE;
         mage.upgradeBranch = 1;
         mage.imageUIindex = 30;
+        mage.description = "Bounce magical projectile up to 8 enemies and slow target.";
         mage.Initialize(); return mage;
     }
 
@@ -952,6 +979,7 @@ public class ArtilleryModelList
         mage.upgradeCode = UPGRADE_NONE;
         mage.upgradeBranch = 1;
         mage.imageUIindex = 2;
+        mage.description = "Throw bottle of poison and deal over time damage.";
         mage.Initialize(); return mage;
     }
 
@@ -972,6 +1000,7 @@ public class ArtilleryModelList
         mage.upgradeCode = UPGRADE_NONE;
         mage.upgradeBranch = 1;
         mage.imageUIindex = 23;
+        mage.description = "Summon Meteor with very high damage and stun target (30% chance)";
         mage.Initialize(); return mage;
     }
 
@@ -991,6 +1020,7 @@ public class ArtilleryModelList
         mage.upgradeCode = UPGRADE_NONE;
         mage.upgradeBranch = 1;
         mage.imageUIindex = 25;
+        mage.description = "Summon Tornado with knockback effect.";
         mage.Initialize(); return mage;
     }
     //End Mage model
