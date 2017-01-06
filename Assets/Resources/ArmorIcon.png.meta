@@ -1,13 +1,13 @@
 fileFormatVersion: 2
 guid: 4b5acc52685de644894678445e9b8508
-timeCreated: 1482304842
+timeCreated: 1483689193
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ArmorIcon_0
-    21300002: ArmorIcon_1
-    21300004: ArmorIcon_2
-    21300006: ArmorIcon_3
+    21300000: LightIcon
+    21300002: MediumIcon
+    21300004: HeavyIcon
+    21300006: NoIcon
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -57,7 +57,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ArmorIcon_0
+      name: LightIcon
       rect:
         serializedVersion: 2
         x: 0
@@ -65,12 +65,12 @@ TextureImporter:
         width: 41
         height: 61
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ArmorIcon_1
+      name: MediumIcon
       rect:
         serializedVersion: 2
         x: 53
@@ -78,12 +78,12 @@ TextureImporter:
         width: 42
         height: 63
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ArmorIcon_2
+      name: HeavyIcon
       rect:
         serializedVersion: 2
         x: 106
@@ -91,12 +91,12 @@ TextureImporter:
         width: 42
         height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: ArmorIcon_3
+      name: NoIcon
       rect:
         serializedVersion: 2
         x: 155
@@ -104,7 +104,7 @@ TextureImporter:
         width: 45
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
