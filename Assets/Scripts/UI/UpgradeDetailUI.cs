@@ -12,6 +12,7 @@ public class UpgradeDetailUI : MonoBehaviour {
     public Text fireRate;
     public Text description;
     public Text price;
+    public Text damageType;
 
     Canvas canvas;
 
@@ -41,6 +42,24 @@ public class UpgradeDetailUI : MonoBehaviour {
         fireRate.text = System.Math.Round(1f / model.fireDelay, 2) + " / S";
         description.text = model.description;
         image.sprite = Resources.LoadAll<Sprite>("WeaponTower 1")[model.imageUIindex];
+        switch (model.damageType)
+        {
+            case DamageType.Piercing:
+                damageType.text = "Piercing";
+                break;
+            case DamageType.Explosive:
+                damageType.text = "Explosive";
+                break;
+            case DamageType.Impact:
+                damageType.text = "Impact";
+                break;
+            case DamageType.Magic:
+                damageType.text = "Magic";
+                break;
+            default:
+                damageType.text = "";
+                break;
+        }
     }
 
     public void LoadSupportInfo(SupportModel model)
