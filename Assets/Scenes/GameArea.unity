@@ -3542,7 +3542,7 @@ MonoBehaviour:
   gold: 0
   infoUI: {fileID: 1437288304}
   controlUI: {fileID: 1101418973}
-  lives: 5
+  lives: 10
   towerScript: {fileID: 828794724}
 --- !u!114 &717488317
 MonoBehaviour:
@@ -4172,7 +4172,6 @@ MonoBehaviour:
   towerBodyPrefab: {fileID: 1000013525605712, guid: d6ba3011ebc04ed4d9b92c238986213b,
     type: 2}
   towerAddButton: {fileID: 1089678}
-  towerHealth: 5
 --- !u!1 &920412277
 GameObject:
   m_ObjectHideFlags: 0
@@ -5050,8 +5049,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1437288303}
   - {fileID: 1783351583}
+  - {fileID: 1437288303}
   - {fileID: 1582696079}
   - {fileID: 356396707}
   - {fileID: 144048607}
@@ -6301,7 +6300,7 @@ RectTransform:
   - {fileID: 1638505970}
   - {fileID: 1515737259}
   m_Father: {fileID: 1101418971}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -8362,7 +8361,7 @@ RectTransform:
   - {fileID: 221062938}
   - {fileID: 419748737}
   m_Father: {fileID: 1101418971}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 165}
@@ -8811,7 +8810,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1873711478
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9129,7 +9128,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Lives : 5'
+  m_Text: 'Lives : 0'
 --- !u!222 &1895440971
 CanvasRenderer:
   m_ObjectHideFlags: 0

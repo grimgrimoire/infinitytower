@@ -35,6 +35,7 @@ public class UpgradeDetailUI : MonoBehaviour {
         selected = model;
         isArtillery = true;
         canvas.enabled = true;
+        upgradeName.text = model.name;
         price.text = model.price + " Gold";
         damage.text = model.damage + "";
         range.text = model.lockRange + " M";
@@ -72,6 +73,7 @@ public class UpgradeDetailUI : MonoBehaviour {
         damage.text = model.bonusDamage;
         range.text = model.bonusRange;
         fireRate.text = model.bonusSpeed;
+        damageType.text = "";
         image.sprite = Resources.LoadAll<Sprite>("Buff")[model.imageUIIndex];
     }
 

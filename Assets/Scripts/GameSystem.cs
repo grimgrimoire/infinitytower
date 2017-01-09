@@ -11,7 +11,7 @@ public class GameSystem : MonoBehaviour
     public int gold;
     public InfoUI infoUI;
     public ControlUI controlUI;
-    public int lives = 5;
+    public int lives = 10;
     public TowerScript towerScript;
 
     static GameSystem instance;
@@ -30,6 +30,7 @@ public class GameSystem : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Application.targetFrameRate = 30;
         if (instance != null)
             Destroy(instance);
         instance = this;
@@ -55,6 +56,7 @@ public class GameSystem : MonoBehaviour
         GameObject.FindGameObjectWithTag(TagsAndLayers.TAG_TOWER).GetComponent<TowerFloorScript>().LoadTowerFloorToUI();
         isGameStarted = true;
         isPaused = false;
+        UpdateLives();
         spawnSystem.CalculateGold();
         spawnSystem.UpdateSpawnerList();
         UpdateGoldValue();
@@ -191,7 +193,7 @@ public class GameSystem : MonoBehaviour
     private void RequestBannerAds()
     {
         bannerView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.Bottom);
-        AdRequest request = new AdRequest.Builder().AddTestDevice(AdRequest.TestDeviceSimulator).AddTestDevice("637993DD2A7CB6EA72E1DB3D321D9FA2").Build();
+        AdRequest request = new AdRequest.Builder().AddTestDevice(AdRequest.TestDeviceSimulator).AddTestDevice("637993DD2A7CB6EA72E1DB3D321D9FA2").AddTestDevice("87B9EB774E931A17FDC569BF47E25E07").Build();
         bannerView.LoadAd(request);
         bannerView.Show();
     }
@@ -199,7 +201,7 @@ public class GameSystem : MonoBehaviour
     private void RequestInterstitialAds()
     {
         interstitialAds = new InterstitialAd(fullAdUnitId);
-        AdRequest request = new AdRequest.Builder().AddTestDevice(AdRequest.TestDeviceSimulator).AddTestDevice("637993DD2A7CB6EA72E1DB3D321D9FA2").Build();
+        AdRequest request = new AdRequest.Builder().AddTestDevice(AdRequest.TestDeviceSimulator).AddTestDevice("637993DD2A7CB6EA72E1DB3D321D9FA2").AddTestDevice("87B9EB774E931A17FDC569BF47E25E07").Build();
         interstitialAds.LoadAd(request);
     }
 

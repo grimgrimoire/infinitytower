@@ -219,6 +219,8 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
 
     public void OnYesButtonClicked()
     {
+        Time.timeScale = 1;
+        GameSystem.GetGameSystem().RemoveBannerAds();
         SceneManager.LoadScene(0);
     }
 

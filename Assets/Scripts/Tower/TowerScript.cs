@@ -10,8 +10,6 @@ public class TowerScript : MonoBehaviour, DialogInterface
     public GameObject towerAddButton;
     int cost = 1;
 
-    public int towerHealth = 5;
-
     // Use this for initialization
     void Start()
     {
@@ -55,7 +53,7 @@ public class TowerScript : MonoBehaviour, DialogInterface
         if (GameSystem.GetGameSystem().GetGold() >= GetCurrentCost())
         {
             GameSystem.GetGameSystem().AddGold(-GetCurrentCost());
-            GameSystem.GetGameSystem().TakeDamage(-5);
+            GameSystem.GetGameSystem().TakeDamage(-10);
             cost++;
             AddFloor();
         }

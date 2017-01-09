@@ -77,7 +77,7 @@ public class IceSupport : SupportInterface
     public void ApplyArtillerySupport(ArtilleryModel model)
     {
         model.damageType = DamageType.Piercing;
-        model.fireDelay = model.originalFireDelay * (1 - (0.1f * tier));
+        model.fireDelay = model.originalFireDelay * (1 / (1 + (0.1f * tier)));
     }
 
     public void ProjectileSupport(GameObject projectilePool)
@@ -106,7 +106,7 @@ public class ThunderSupport : SupportInterface
     public void ApplyArtillerySupport(ArtilleryModel model)
     {
         model.damageType = DamageType.Magic;
-        model.fireDelay = model.originalFireDelay * (1 - (0.1f * tier));
+        model.fireDelay = model.originalFireDelay * (1 / (1 + (0.1f * tier)));
     }
 
     public void ProjectileSupport(GameObject projectilePool)

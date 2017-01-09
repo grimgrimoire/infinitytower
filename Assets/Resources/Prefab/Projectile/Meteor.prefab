@@ -24,7 +24,6 @@ GameObject:
   - 114: {fileID: 114000012894676396}
   - 50: {fileID: 50000012410576416}
   - 61: {fileID: 61000013996689944}
-  - 114: {fileID: 114000013293223776}
   - 82: {fileID: 82000010231886090}
   m_Layer: 11
   m_Name: Meteor
@@ -179,19 +178,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b547f2eaafbad46bf909129ad8b13c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114000013293223776
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011151884030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5069b65b0eeaca2489221cd112a19923, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chance: 50
-  duration: 2
 --- !u!212 &212000010015012608
 SpriteRenderer:
   m_ObjectHideFlags: 1

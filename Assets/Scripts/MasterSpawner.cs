@@ -219,7 +219,7 @@ public class MasterSpawner : MonoBehaviour
             costLeft -= 1;
             return GetObjectPool().GetBat();
         }
-        else if (seed < 80 || costLeft == 2)
+        else if (seed < 90 || costLeft == 2)
         {
             costLeft -= 2;
             return GetObjectPool().GetBalloon();
@@ -468,7 +468,7 @@ public class MasterSpawner : MonoBehaviour
         nextWaveTimer = 21;
         GameSystem.GetGameSystem().GetInfoUI().SetSkipButton(true);
         GameSystem.GetGameSystem().GetInfoUI().UpdateTimer(nextWaveTimer);
-        while (nextWaveTimer > -1)
+        while (nextWaveTimer > 0)
         {
             nextWaveTimer -= 1;
             GameSystem.GetGameSystem().GetInfoUI().UpdateTimer(nextWaveTimer);

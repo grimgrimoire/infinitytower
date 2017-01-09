@@ -21,8 +21,8 @@ public class SupportModelList
 
     const string RESOURCE = "Prefab/BuffUnit/";
     const int PRICE_TIER_1 = 1000;
-    const int PRICE_TIER_2 = 1500;
-    const int PRICE_TIER_3 = 2000;
+    const int PRICE_TIER_2 = 2000;
+    const int PRICE_TIER_3 = 3000;
 
     public static int TOTAL_SUPPORT = 4;
 
@@ -198,7 +198,7 @@ public class SupportModelList
         SupportModel model = new SupportModel();
         model.name = "Fire support";
         model.price = PRICE_TIER_1;
-        model.supportImpl = new FireSupport(1);
+        model.supportImpl = new FireSupport(2);
         model.upgradeCode = 1;
         model.supportModelPrefabName = RESOURCE + "FireBuff";
         model.imageUIIndex = 4;
@@ -212,7 +212,7 @@ public class SupportModelList
         SupportModel model = new SupportModel();
         model.name = "Ice support";
         model.price = PRICE_TIER_1;
-        model.supportImpl = new IceSupport(1);
+        model.supportImpl = new IceSupport(2);
         model.upgradeCode = 3;
         model.imageUIIndex = 7;
         model.supportModelPrefabName = RESOURCE + "IceBuff";
@@ -226,7 +226,7 @@ public class SupportModelList
         SupportModel model = new SupportModel();
         model.name = "Thunder support";
         model.price = PRICE_TIER_1;
-        model.supportImpl = new ThunderSupport(1);
+        model.supportImpl = new ThunderSupport(2);
         model.supportModelPrefabName = RESOURCE + "ElectricityBuff";
         model.upgradeCode = 5;
         model.imageUIIndex = 10;
@@ -240,7 +240,7 @@ public class SupportModelList
         SupportModel model = new SupportModel();
         model.name = "Earth support";
         model.price = PRICE_TIER_1;
-        model.supportImpl = new EarthSupport(1);
+        model.supportImpl = new EarthSupport(2);
         model.supportModelPrefabName = RESOURCE + "EarthBuff";
         model.upgradeCode = 7;
         model.imageUIIndex = 13;
@@ -254,7 +254,7 @@ public class SupportModelList
         SupportModel model = new SupportModel();
         model.name = "Fire support";
         model.price = PRICE_TIER_2;
-        model.supportImpl = new FireSupport(2);
+        model.supportImpl = new FireSupport(5);
         model.supportModelPrefabName = RESOURCE + "FireBuff2";
         model.upgradeCode = 2;
         model.imageUIIndex = 5;
@@ -268,7 +268,7 @@ public class SupportModelList
         SupportModel model = new SupportModel();
         model.name = "Ice support";
         model.price = PRICE_TIER_2;
-        model.supportImpl = new IceSupport(2);
+        model.supportImpl = new IceSupport(5);
         model.upgradeCode = 4;
         model.imageUIIndex = 8;
         model.supportModelPrefabName = RESOURCE + "IceBuff2";
@@ -282,7 +282,7 @@ public class SupportModelList
         SupportModel model = new SupportModel();
         model.name = "Thunder support";
         model.price = PRICE_TIER_2;
-        model.supportImpl = new ThunderSupport(2);
+        model.supportImpl = new ThunderSupport(5);
         model.upgradeCode = 6;
         model.imageUIIndex = 11;
         model.supportModelPrefabName = RESOURCE + "ElectricityBuff2";
@@ -296,7 +296,7 @@ public class SupportModelList
         SupportModel model = new SupportModel();
         model.name = "Earth support";
         model.price = PRICE_TIER_2;
-        model.supportImpl = new EarthSupport(2);
+        model.supportImpl = new EarthSupport(5);
         model.upgradeCode = 8;
         model.imageUIIndex = 14;
         model.supportModelPrefabName = RESOURCE + "EarthBuff2";
@@ -310,7 +310,7 @@ public class SupportModelList
         SupportModel model = new SupportModel();
         model.name = "Fire support";
         model.price = PRICE_TIER_3;
-        model.supportImpl = new FireSupport(3);
+        model.supportImpl = new FireSupport(10);
         model.supportModelPrefabName = RESOURCE + "FireBuff3";
         model.upgradeCode = 9;
         model.imageUIIndex = 6;
@@ -324,7 +324,7 @@ public class SupportModelList
         SupportModel model = new SupportModel();
         model.name = "Ice support";
         model.price = PRICE_TIER_3;
-        model.supportImpl = new IceSupport(3);
+        model.supportImpl = new IceSupport(10);
         model.supportModelPrefabName = RESOURCE + "IceBuff3";
         model.upgradeCode = 9;
         model.imageUIIndex = 9;
@@ -338,7 +338,7 @@ public class SupportModelList
         SupportModel model = new SupportModel();
         model.name = "Thunder support";
         model.price = PRICE_TIER_3;
-        model.supportImpl = new ThunderSupport(3);
+        model.supportImpl = new ThunderSupport(10);
         model.supportModelPrefabName = RESOURCE + "ElectricityBuff3";
         model.upgradeCode = 9;
         model.imageUIIndex = 12;
@@ -352,7 +352,7 @@ public class SupportModelList
         SupportModel model = new SupportModel();
         model.name = "Earth support";
         model.price = PRICE_TIER_3;
-        model.supportImpl = new EarthSupport(3);
+        model.supportImpl = new EarthSupport(10);
         model.supportModelPrefabName = RESOURCE + "EarthBuff3";
         model.upgradeCode = 9;
         model.imageUIIndex = 15;
