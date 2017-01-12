@@ -9,6 +9,7 @@ public class MainMenuUI : MonoBehaviour
     public GameObject startButton;
     public GameObject recordButton;
     public GameObject overlay;
+    public GameObject tutorial;
     public Text version;
     public Text record1;
     public Text record2;
@@ -39,6 +40,16 @@ public class MainMenuUI : MonoBehaviour
     public void RecordButtonPressed()
     {
         ShowRecord();
+    }
+
+    public void ShowTutorial()
+    {
+        tutorial.SetActive(true);
+    }
+
+    public void HideTutorial()
+    {
+        tutorial.SetActive(false);
     }
 
     public void HideOverlay()
