@@ -54,10 +54,11 @@ public class PTDAds
 
     public void ShowIntersitialAds()
     {
-        if (interstitialAds.IsLoaded())
-            interstitialAds.Show();
-        else
-            RequestInterstitialAds();
+        if (interstitialAds != null)
+            if (interstitialAds.IsLoaded())
+                interstitialAds.Show();
+            else
+                RequestInterstitialAds();
     }
 
 }
