@@ -27,7 +27,7 @@ public class ScatterExplosives : MonoBehaviour {
 
     public ScatterExplosives SetDamageType(int damage, DamageType damageType)
     {
-        this.damage = damage/2;
+        this.damage = damage/4;
         this.damageType = damageType;
         return this;
     }

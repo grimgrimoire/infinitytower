@@ -404,7 +404,7 @@ public class ArtilleryModelList
         arrow.damageType = DamageType.Piercing;
         arrow.price = UPGRADE_1_PRICE;
         arrow.projectilePrefabName = PATH_PROJECTILE + "arrow";
-        arrow.shootImpl = new LinearProjectileArtillery(arrow);
+        arrow.shootImpl = new LinearProjectileArtillery(arrow, 8);
         arrow.upgradeCode = UPGRADE_ARCHER;
         arrow.upgradeBranch = 2;
         arrow.imageUIindex = 3;
@@ -425,7 +425,7 @@ public class ArtilleryModelList
         arrow.damageType = DamageType.Piercing;
         arrow.price = UPGRADE_2_PRICE;
         arrow.projectilePrefabName = PATH_PROJECTILE + "arrow";
-        arrow.shootImpl = new LinearProjectileArtillery(arrow);
+        arrow.shootImpl = new LinearProjectileArtillery(arrow, 8);
         arrow.upgradeCode = UPGRADE_ARCHER_HUNTER;
         arrow.upgradeBranch = 3;
         arrow.imageUIindex = 3;
@@ -591,7 +591,7 @@ public class ArtilleryModelList
         ArtilleryModel cannon = new ArtilleryModel();
         cannon.name = "Guardman";
         cannon.lockRange = 6f;
-        cannon.fireDelay = 1.25f;
+        cannon.fireDelay = 1.5f;
         cannon.poolSize = 20;
         cannon.lockNumber = 1;
         cannon.damage = 40;
@@ -613,9 +613,9 @@ public class ArtilleryModelList
         ArtilleryModel cannon = new ArtilleryModel();
         cannon.name = "HighGuardman";
         cannon.lockRange = 6f;
-        cannon.fireDelay = 1.25f;
+        cannon.fireDelay = 1.5f;
         cannon.lockNumber = 1;
-        cannon.damage = 70;
+        cannon.damage = 60;
         cannon.poolSize = 30;
         cannon.ingameModelPrefabName = PATH_CANNON + "HighGuardman";
         cannon.damageType = DamageType.Explosive;
@@ -658,7 +658,7 @@ public class ArtilleryModelList
         cannon.lockRange = 6f;
         cannon.fireDelay = 3f;
         cannon.lockNumber = 1;
-        cannon.damage = 1000;
+        cannon.damage = 1200;
         cannon.ingameModelPrefabName = PATH_CANNON + "Admiral";
         cannon.targetingImpl = new GroundTargetOnly();
         cannon.damageType = DamageType.Explosive;
@@ -805,9 +805,9 @@ public class ArtilleryModelList
         ArtilleryModel gunner = new ArtilleryModel();
         gunner.name = "Maniac";
         gunner.lockRange = 6f;
-        gunner.fireDelay = 0.02f;
+        gunner.fireDelay = 0.06f;
         gunner.lockNumber = 1;
-        gunner.damage = 30;
+        gunner.damage = 90;
         gunner.poolSize = 30;
         gunner.ingameModelPrefabName = PATH_GUNNER + "Maniac";
         gunner.damageType = DamageType.Impact;
@@ -828,7 +828,7 @@ public class ArtilleryModelList
         gunner.lockRange = 7f;
         gunner.fireDelay = 4f;
         gunner.lockNumber = 1;
-        gunner.damage = 400;
+        gunner.damage = 600;
         gunner.ingameModelPrefabName = PATH_GUNNER + "Rocketeer";
         gunner.damageType = DamageType.Explosive;
         gunner.price = UPGRADE_4_PRICE;
@@ -910,7 +910,7 @@ public class ArtilleryModelList
         mage.lockRange = 7f;
         mage.fireDelay = 4f;
         mage.lockNumber = 1;
-        mage.damage = 50;
+        mage.damage = 80;
         mage.ingameModelPrefabName = PATH_MAGE + "Alchemist";
         mage.damageType = DamageType.Magic;
         mage.price = UPGRADE_3_PRICE;
@@ -970,7 +970,7 @@ public class ArtilleryModelList
         mage.lockRange = 7f;
         mage.fireDelay = 3f;
         mage.lockNumber = 1;
-        mage.damage = 150;
+        mage.damage = 200;
         mage.ingameModelPrefabName = PATH_MAGE + "GrandAlchemist";
         mage.damageType = DamageType.Magic;
         mage.price = UPGRADE_4_PRICE;
@@ -1000,7 +1000,7 @@ public class ArtilleryModelList
         mage.upgradeCode = UPGRADE_NONE;
         mage.upgradeBranch = 1;
         mage.imageUIindex = 23;
-        mage.description = "Summon Meteor with very high damage and stun target (30% chance)";
+        mage.description = "Summon Meteor with very high damage and stun target (100% chance)";
         mage.Initialize(); return mage;
     }
 

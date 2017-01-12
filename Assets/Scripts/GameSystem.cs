@@ -22,11 +22,6 @@ public class GameSystem : MonoBehaviour
     MasterSpawner spawnSystem;
     ObjectPool objectPool;
 
-    string adUnitId = "ca-app-pub-5838986938071394/2684071660";
-    string fullAdUnitId = "ca-app-pub-5838986938071394/9648935264";
-    InterstitialAd interstitialAds;
-    BannerView bannerView;
-
     // Use this for initialization
     void Start()
     {
@@ -44,11 +39,23 @@ public class GameSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape) && isGameStarted)
+            controlUI.PauseButtonClicked();
+    }
 
+    void OnApplicationPause(bool isPause)
+    {
+        if (!isPause)
+        {
+            PTDAds.GetInstance().ShowIntersitialAds();
+            if(isGameStarted)
+                controlUI.PauseGame();
+        }
     }
 
     IEnumerator initGame()
     {
+        controlUI.EnableLoading();
         float temp = Time.realtimeSinceStartup;
         yield return objectPool.InitiatePooling();
         Debug.Log("Time for initiatepooling " + (Time.realtimeSinceStartup - temp));
@@ -61,8 +68,7 @@ public class GameSystem : MonoBehaviour
         spawnSystem.UpdateSpawnerList();
         UpdateGoldValue();
         controlUI.DissableLoading();
-        RequestBannerAds();
-        RequestInterstitialAds();
+        PTDAds.GetInstance().RequestBannerAds();
     }
 
     public void SpawnEnemyStart()
@@ -73,10 +79,11 @@ public class GameSystem : MonoBehaviour
     public void TakeDamage(int damage)
     {
         lives -= damage;
-        if(lives > 0)
+        if (lives > 0)
         {
             UpdateLives();
-        }else
+        }
+        else
         {
             UpdateLives();
             GameOver();
@@ -86,7 +93,7 @@ public class GameSystem : MonoBehaviour
     public void GameOver()
     {
         spawnSystem.StopSpawner();
-        foreach(GameObject hostile in hostiles)
+        foreach (GameObject hostile in hostiles)
         {
             hostile.GetComponent<HostileMainScript>().SetSpeed(0);
         }
@@ -95,7 +102,7 @@ public class GameSystem : MonoBehaviour
         towerScript.GameOverAnimation();
         controlUI.GameOver();
         isGameStarted = false;
-        RemoveBannerAds();
+        PTDAds.GetInstance().RemoveBannerAds();
     }
 
     public ObjectPool GetObjectPool()
@@ -190,31 +197,6 @@ public class GameSystem : MonoBehaviour
         infoUI.UpdateScore(score);
     }
 
-    private void RequestBannerAds()
-    {
-        bannerView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.Bottom);
-        AdRequest request = new AdRequest.Builder().AddTestDevice(AdRequest.TestDeviceSimulator).AddTestDevice("637993DD2A7CB6EA72E1DB3D321D9FA2").AddTestDevice("87B9EB774E931A17FDC569BF47E25E07").Build();
-        bannerView.LoadAd(request);
-        bannerView.Show();
-    }
-
-    private void RequestInterstitialAds()
-    {
-        interstitialAds = new InterstitialAd(fullAdUnitId);
-        AdRequest request = new AdRequest.Builder().AddTestDevice(AdRequest.TestDeviceSimulator).AddTestDevice("637993DD2A7CB6EA72E1DB3D321D9FA2").AddTestDevice("87B9EB774E931A17FDC569BF47E25E07").Build();
-        interstitialAds.LoadAd(request);
-    }
-
-    public void RemoveBannerAds()
-    {
-        bannerView.Hide();
-    }
-
-    public void ShowIntersitialAds()
-    {
-        interstitialAds.Show();
-    }
-    
     public void MoveToMainMenu()
     {
         SceneManager.LoadScene(0);

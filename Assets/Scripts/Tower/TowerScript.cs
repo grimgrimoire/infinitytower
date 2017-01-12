@@ -53,10 +53,20 @@ public class TowerScript : MonoBehaviour, DialogInterface
         if (GameSystem.GetGameSystem().GetGold() >= GetCurrentCost())
         {
             GameSystem.GetGameSystem().AddGold(-GetCurrentCost());
-            GameSystem.GetGameSystem().TakeDamage(-10);
+            GameSystem.GetGameSystem().TakeDamage(-5);
             cost++;
             AddFloor();
         }
+        else
+            NotEnoughtGold();
+    }
+
+    public void NotEnoughtGold()
+    {
+        DialogUI dialog = GameSystem.GetGameSystem().GetControlUI().dialogUI;
+        dialog.gameObject.SetActive(true);
+        dialog.SetDialogType(false);
+        dialog.SetMessage("Not enough gold");
     }
 
     public void GameOverAnimation()
@@ -96,8 +106,10 @@ public class TowerScript : MonoBehaviour, DialogInterface
                 return 800;
             case 3:
                 return 1200;
-            default:
+            case 4:
                 return 1500;
+            default:
+                return 2000;
         }
     }
 

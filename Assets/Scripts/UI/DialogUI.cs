@@ -59,20 +59,20 @@ public class DialogUI : MonoBehaviour
 
     public void OnOkButtonClicked()
     {
+        gameObject.SetActive(false);
         if (dialog != null)
             dialog.OnOkButtonClicked();
-        gameObject.SetActive(false);
     }
 
     public void OnNoButtonClicked()
     {
-        dialog.OnNoButtonClicked();
         gameObject.SetActive(false);
+        dialog.OnNoButtonClicked();
     }
 
     public void OnYesButtonClicked()
     {
-        dialog.OnYesButtonClicked();
         gameObject.SetActive(false);
+        dialog.OnYesButtonClicked();
     }
 }

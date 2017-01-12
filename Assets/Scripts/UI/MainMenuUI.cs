@@ -9,6 +9,7 @@ public class MainMenuUI : MonoBehaviour
     public GameObject startButton;
     public GameObject recordButton;
     public GameObject overlay;
+    public Text version;
     public Text record1;
     public Text record2;
     public Text record3;
@@ -19,11 +20,15 @@ public class MainMenuUI : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        version.text = "Version " + Application.version;
+        PTDAds.GetInstance().RequestInterstitialAds();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
     }
 
     public void StartButtonPressed()

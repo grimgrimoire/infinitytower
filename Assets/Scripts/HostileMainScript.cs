@@ -260,6 +260,20 @@ public class HostileMainScript : MonoBehaviour
             expl.SetActive(true);
             gameObject.SetActive(false);
         }
+        else if (corpse == CorpsePrefab.ExplosionLarge)
+        {
+            GameObject expl = GameSystem.GetGameSystem().GetObjectPool().GetAirExLarge();
+            expl.transform.position = transform.position;
+            expl.SetActive(true);
+            gameObject.SetActive(false);
+        }
+        else if (corpse == CorpsePrefab.BloodLarge)
+        {
+            GameObject expl = GameSystem.GetGameSystem().GetObjectPool().GetBloodLarge();
+            expl.transform.position = transform.position;
+            expl.SetActive(true);
+            gameObject.SetActive(false);
+        }
         else
         {
             gameObject.SetActive(false);

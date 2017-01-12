@@ -28,6 +28,8 @@ public class ObjectPool : MonoBehaviour
     string meteorEx = "Prefab/Projectile/MeteorExplosion";
     string poisonGas = "Prefab/Projectile/PoisonGas";
     string stunExplosion = "Prefab/Projectile/StunExplosion";
+    string bloodL = "Prefab/DeadEffect/BloodLarge";
+    string airExplodeL = "Prefab/DeadEffect/AirExplodeLarge";
 
     PoolClass peon1Pool;
     PoolClass peon2Pool;
@@ -52,6 +54,8 @@ public class ObjectPool : MonoBehaviour
     PoolClass stunExPool;
     PoolClass elite1Pool;
     PoolClass elite2Pool;
+    PoolClass bloodLPool;
+    PoolClass airExLPool;
 
     public IEnumerator InitiatePooling()
     {
@@ -78,6 +82,8 @@ public class ObjectPool : MonoBehaviour
         poisonPool = new PoolClass(poisonGas, 15);
         airExPool = new PoolClass(airExplode, 20);
         stunExPool = new PoolClass(stunExplosion, 15);
+        airExLPool = new PoolClass(airExplodeL, 15);
+        bloodLPool = new PoolClass(bloodL, 10);
         yield return peon1Pool.InitiatePooling();
         yield return peon2Pool.InitiatePooling();
         yield return peon3Pool.InitiatePooling();
@@ -101,7 +107,19 @@ public class ObjectPool : MonoBehaviour
         yield return peon10Pool.InitiatePooling();
         yield return peon11Pool.InitiatePooling();
         yield return peon12Pool.InitiatePooling();
+        yield return bloodLPool.InitiatePooling();
+        yield return airExLPool.InitiatePooling();
         yield return new WaitForEndOfFrame();
+    }
+
+    public GameObject GetBloodLarge()
+    {
+        return bloodLPool.GetFromPool();
+    }
+
+    public GameObject GetAirExLarge()
+    {
+        return airExLPool.GetFromPool();
     }
 
     public GameObject GetStunExp()

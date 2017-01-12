@@ -10,5 +10,5 @@ public enum DamageType
 
 public enum CorpsePrefab
 {
-    Blood, Explosion, Animation, None
+    Blood, Explosion, Animation, BloodLarge, ExplosionLarge, None
 }

@@ -12,7 +12,7 @@ public class KnockbackDebuff : MonoBehaviour
         public override void BuffEffect(HostileMainScript hostile)
         {
             if (hostile.armor != ArmorType.Heavy)
-                hostile.SetSpeed(-10);
+                hostile.SetSpeed(-5);
         }
 
         public override float Duration()

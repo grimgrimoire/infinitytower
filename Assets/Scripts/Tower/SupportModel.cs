@@ -203,7 +203,7 @@ public class SupportModelList
         model.supportModelPrefabName = RESOURCE + "FireBuff";
         model.imageUIIndex = 4;
         model.description = "Change Damage Type to Explosive and Increase damage";
-        model.bonusDamage = "+10%";
+        model.bonusDamage = "+20%";
         return model;
     }
 
@@ -217,7 +217,7 @@ public class SupportModelList
         model.imageUIIndex = 7;
         model.supportModelPrefabName = RESOURCE + "IceBuff";
         model.description = "Change Damage Type to Piercing and Increase fire rate";
-        model.bonusSpeed = "+10%";
+        model.bonusSpeed = "+20%";
         return model;
     }
 
@@ -231,7 +231,7 @@ public class SupportModelList
         model.upgradeCode = 5;
         model.imageUIIndex = 10;
         model.description = "Change Damage Type to Arcane and Increase fire rate";
-        model.bonusSpeed = "+10%";
+        model.bonusSpeed = "+20%";
         return model;
     }
 
@@ -245,7 +245,7 @@ public class SupportModelList
         model.upgradeCode = 7;
         model.imageUIIndex = 13;
         model.description = "Change Damage Type to Impact and Increase damage";
-        model.bonusSpeed = "+10%";
+        model.bonusSpeed = "+20%";
         return model;
     }
 
@@ -259,7 +259,7 @@ public class SupportModelList
         model.upgradeCode = 2;
         model.imageUIIndex = 5;
         model.description = "Change Damage Type to Explosive and Increase damage";
-        model.bonusDamage = "+20%";
+        model.bonusDamage = "+50%";
         return model;
     }
 
@@ -273,7 +273,7 @@ public class SupportModelList
         model.imageUIIndex = 8;
         model.supportModelPrefabName = RESOURCE + "IceBuff2";
         model.description = "Change Damage Type to Piercing and Increase fire rate";
-        model.bonusSpeed = "+20%";
+        model.bonusSpeed = "+50%";
         return model;
     }
 
@@ -287,7 +287,7 @@ public class SupportModelList
         model.imageUIIndex = 11;
         model.supportModelPrefabName = RESOURCE + "ElectricityBuff2";
         model.description = "Change Damage Type to Arcane and Increase fire rate";
-        model.bonusSpeed = "+20%";
+        model.bonusSpeed = "+50%";
         return model;
     }
 
@@ -301,7 +301,7 @@ public class SupportModelList
         model.imageUIIndex = 14;
         model.supportModelPrefabName = RESOURCE + "EarthBuff2";
         model.description = "Change Damage Type to Impact and Increase damage";
-        model.bonusSpeed = "+20%";
+        model.bonusSpeed = "+50%";
         return model;
     }
 
@@ -310,12 +310,12 @@ public class SupportModelList
         SupportModel model = new SupportModel();
         model.name = "Fire support";
         model.price = PRICE_TIER_3;
-        model.supportImpl = new FireSupport(10);
+        model.supportImpl = new FireSupport(8);
         model.supportModelPrefabName = RESOURCE + "FireBuff3";
         model.upgradeCode = 9;
         model.imageUIIndex = 6;
         model.description = "Change Damage Type to Explosive and Increase damage";
-        model.bonusDamage = "+30%";
+        model.bonusDamage = "+80%";
         return model;
     }
 
@@ -324,12 +324,12 @@ public class SupportModelList
         SupportModel model = new SupportModel();
         model.name = "Ice support";
         model.price = PRICE_TIER_3;
-        model.supportImpl = new IceSupport(10);
+        model.supportImpl = new IceSupport(8);
         model.supportModelPrefabName = RESOURCE + "IceBuff3";
         model.upgradeCode = 9;
         model.imageUIIndex = 9;
         model.description = "Change Damage Type to Piercing and Increase fire rate";
-        model.bonusSpeed = "+30%";
+        model.bonusSpeed = "+80%";
         return model;
     }
 
@@ -338,12 +338,12 @@ public class SupportModelList
         SupportModel model = new SupportModel();
         model.name = "Thunder support";
         model.price = PRICE_TIER_3;
-        model.supportImpl = new ThunderSupport(10);
+        model.supportImpl = new ThunderSupport(8);
         model.supportModelPrefabName = RESOURCE + "ElectricityBuff3";
         model.upgradeCode = 9;
         model.imageUIIndex = 12;
         model.description = "Change Damage Type to Arcane and Increase fire rate";
-        model.bonusSpeed = "+30%";
+        model.bonusSpeed = "80%";
         return model;
     }
 
@@ -352,12 +352,12 @@ public class SupportModelList
         SupportModel model = new SupportModel();
         model.name = "Earth support";
         model.price = PRICE_TIER_3;
-        model.supportImpl = new EarthSupport(10);
+        model.supportImpl = new EarthSupport(8);
         model.supportModelPrefabName = RESOURCE + "EarthBuff3";
         model.upgradeCode = 9;
         model.imageUIIndex = 15;
         model.description = "Change Damage Type to Impact and Increase damage";
-        model.bonusSpeed = "+30%";
+        model.bonusSpeed = "+80%";
         return model;
     }
 

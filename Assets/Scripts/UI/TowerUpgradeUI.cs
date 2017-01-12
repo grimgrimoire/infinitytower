@@ -180,6 +180,10 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler, DialogInterfa
             artillery.SetModel(model);
             LoadAvailableArtilleryUpgrades();
         }
+        else if (model.price > GameSystem.GetGameSystem().GetGold())
+        {
+            NotEnoughtGold();
+        }
     }
 
     public void OnBuySupport(SupportModel model)
@@ -190,7 +194,10 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler, DialogInterfa
             support.SetImplements(model);
             LoadAvailableSupportUpgrades();
         }
-
+        else
+        {
+            NotEnoughtGold();
+        }
     }
 
     public void OnYesButtonClicked()
@@ -209,6 +216,15 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler, DialogInterfa
             support.SetImplements(model);
             LoadAvailableSupportUpgrades();
         }
+    }
+
+    public void NotEnoughtGold()
+    {
+        DialogUI dialog = GameSystem.GetGameSystem().GetControlUI().dialogUI;
+        dialog.gameObject.SetActive(true);
+        dialog.SetDialogType(false);
+        dialog.SetMessage("Not enough gold");
+        dialog.SetInterface(this);
     }
 
     public void ShowUpgradeDetail()

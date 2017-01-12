@@ -79,9 +79,16 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
         dialog.SetMessage("Quit game?");
         dialog.SetDialogType(true);
         dialog.SetInterface(this);
-
         pauseMenu.SetActive(false);
         pauseOverlay.SetActive(false);
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        GameSystem.GetGameSystem().SetGamePaused(true);
+        pauseMenu.SetActive(true);
+        pauseOverlay.SetActive(true);
     }
 
     public void PauseButtonClicked()
@@ -96,10 +103,7 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
             }
             else
             {
-                Time.timeScale = 0;
-                GameSystem.GetGameSystem().SetGamePaused(true);
-                pauseMenu.SetActive(true);
-                pauseOverlay.SetActive(true);
+                PauseGame();
             }
     }
 
@@ -108,7 +112,7 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
         pauseOverlay.SetActive(true);
         pauseButton.SetActive(false);
         returnButton.SetActive(true);
-        GameSystem.GetGameSystem().ShowIntersitialAds();
+        PTDAds.GetInstance().ShowIntersitialAds();
     }
 
     public void OnReturnButtonClick()
@@ -207,6 +211,12 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
         pauseButton.SetActive(true);
     }
 
+    public void EnableLoading()
+    {
+        loadingOverlay.SetActive(true);
+        pauseButton.SetActive(false);
+    }
+
     public void OnOkButtonClicked()
     {
     }
@@ -220,7 +230,8 @@ public class ControlUI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeg
     public void OnYesButtonClicked()
     {
         Time.timeScale = 1;
-        GameSystem.GetGameSystem().RemoveBannerAds();
+        PTDAds.GetInstance().RemoveBannerAds();
+        PTDAds.GetInstance().ShowIntersitialAds();
         SceneManager.LoadScene(0);
     }
 
