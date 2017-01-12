@@ -1,12 +1,9 @@
 fileFormatVersion: 2
-guid: ba7709a652aa4f047aaaf838bf194d4a
-timeCreated: 1483085982
+guid: c005ca66e71686b42aaa38134fa04cb5
+timeCreated: 1484211883
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: MainMenu_0
-    21300002: MainMenu_1
-    21300004: MainMenu_2
+  fileIDToRecycleName: {}
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -33,7 +30,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: 16
+    aniso: -1
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -41,7 +38,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -54,46 +51,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: MainMenu_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 760
-        height: 1200
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 1, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MainMenu_1
-      rect:
-        serializedVersion: 2
-        x: 803
-        y: 943
-        width: 140
-        height: 46
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MainMenu_2
-      rect:
-        serializedVersion: 2
-        x: 840
-        y: 810
-        width: 70
-        height: 85
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
+    sprites: []
     outline: []
   spritePackingTag: 
   userData: 
