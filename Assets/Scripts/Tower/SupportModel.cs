@@ -245,7 +245,7 @@ public class SupportModelList
         model.upgradeCode = 7;
         model.imageUIIndex = 13;
         model.description = "Change Damage Type to Impact and Increase damage";
-        model.bonusSpeed = "+20%";
+        model.bonusDamage = "+20%";
         return model;
     }
 
@@ -301,7 +301,7 @@ public class SupportModelList
         model.imageUIIndex = 14;
         model.supportModelPrefabName = RESOURCE + "EarthBuff2";
         model.description = "Change Damage Type to Impact and Increase damage";
-        model.bonusSpeed = "+50%";
+        model.bonusDamage = "+50%";
         return model;
     }
 
@@ -357,7 +357,7 @@ public class SupportModelList
         model.upgradeCode = 9;
         model.imageUIIndex = 15;
         model.description = "Change Damage Type to Impact and Increase damage";
-        model.bonusSpeed = "+80%";
+        model.bonusDamage = "+80%";
         return model;
     }
 

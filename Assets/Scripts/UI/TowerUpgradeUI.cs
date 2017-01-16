@@ -91,6 +91,7 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler, DialogInterfa
         {
             Destroy(upgradeList.GetChild(i).gameObject);
         }
+        DismissUpgradeDetail();
     }
 
     public void LoadAvailableSupportUpgrades()
@@ -252,5 +253,10 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler, DialogInterfa
             }
 
         }
+    }
+
+    public void DismissUpgradeDetail()
+    {
+        upgradeDetailUI.CancelButtonClick();
     }
 }

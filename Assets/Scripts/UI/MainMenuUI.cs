@@ -29,7 +29,15 @@ public class MainMenuUI : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-            Application.Quit();
+        {
+            if (tutorial.activeSelf)
+                HideTutorial();
+            else if (overlay.activeSelf)
+                HideOverlay();
+            else
+                Application.Quit();
+        }
+
     }
 
     public void StartButtonPressed()

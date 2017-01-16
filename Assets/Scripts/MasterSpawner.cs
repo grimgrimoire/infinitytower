@@ -429,16 +429,41 @@ public class MasterSpawner : MonoBehaviour
         waveLevel++;
         waveNumber = 10 + (Mathf.FloorToInt(waveLevel / 5) * 5) + (Mathf.FloorToInt(waveLevel / 40f) * 5 * Mathf.CeilToInt((waveLevel - 40) / 5f));
         Debug.Log(waveNumber);
+        //healthMultiplier = 1 + (
+        //    (waveLevel - (1 + Mathf.FloorToInt(waveLevel / 5))) * SmallIncrement()
+        //    +
+        //    ((Mathf.FloorToInt(waveLevel / 5)) * LargeIncrement())
+        //    )
+        //    +
+        //    (Mathf.FloorToInt(waveLevel / 20f) * 0.2f * (waveLevel - 20))
+        //    +
+        //    (Mathf.FloorToInt(waveLevel / 40f) * 4)
+        //    +
+        //    (Mathf.FloorToInt(waveLevel / 100f) * 1 * (waveLevel - 100))
+        //    ;
         healthMultiplier = 1 + (
-            (waveLevel - (1 + Mathf.FloorToInt(waveLevel / 5))) * SmallIncrement()
-            +
-            ((Mathf.FloorToInt(waveLevel / 5)) * LargeIncrement())
-            )
-            +
-            (Mathf.FloorToInt(waveLevel / 40f) * 0.2f * (waveLevel - 40))
-            +
-            (Mathf.FloorToInt(waveLevel / 40f) * 4)
-            ;
+               (waveLevel - (1 + Mathf.FloorToInt(waveLevel / 5f))) * SmallIncrement()
+               +
+               ((Mathf.FloorToInt(waveLevel / 5f)) * LargeIncrement())
+               )
+               ;
+        if (waveLevel >= 40)
+        {
+            healthMultiplier += (Mathf.FloorToInt((waveLevel - 20) / 20f) * 2);
+            healthMultiplier += (waveLevel - 40) * 0.2f;
+            healthMultiplier += (Mathf.FloorToInt(waveLevel / 5f) * 0.2f);
+            healthMultiplier += (
+                (Mathf.FloorToInt((waveLevel - 40) / 20f) * 0.1f * (waveLevel - 40))
+                );
+        }
+        if (waveLevel > 80)
+        {
+            healthMultiplier += (waveLevel - 80) * 0.4f;
+            healthMultiplier += (Mathf.FloorToInt((waveLevel - 80) / 5f) * 0.6f);
+            healthMultiplier += (
+                (Mathf.FloorToInt((waveLevel - 80) / 20f) * 0.4f * (waveLevel - 80))
+                );
+        }
         GameSystem.GetGameSystem().UpdateWave(waveLevel);
     }
 

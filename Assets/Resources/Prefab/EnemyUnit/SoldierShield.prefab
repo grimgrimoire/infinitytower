@@ -308,7 +308,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012648173968}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.4581227, y: -0.53691477, z: 0}
+  m_LocalPosition: {x: -1.873, y: -0.41414595, z: 0}
   m_LocalScale: {x: 0.16850796, y: 0.168508, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -581,7 +581,7 @@ MonoBehaviour:
   isGroundUnit: 1
   isAlive: 0
   isShield: 1
-  corpse: 3
+  corpse: 5
   inactiveDelay: 0
   animator: {fileID: 0}
   damage: 1

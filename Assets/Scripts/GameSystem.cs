@@ -78,15 +78,18 @@ public class GameSystem : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        lives -= damage;
         if (lives > 0)
         {
-            UpdateLives();
-        }
-        else
-        {
-            UpdateLives();
-            GameOver();
+            lives -= damage;
+            if (lives > 0)
+            {
+                UpdateLives();
+            }
+            else
+            {
+                UpdateLives();
+                GameOver();
+            }
         }
     }
 
