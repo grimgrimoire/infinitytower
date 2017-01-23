@@ -427,20 +427,15 @@ public class MasterSpawner : MonoBehaviour
     private void CalculateWaveLevel()
     {
         waveLevel++;
+        if (waveLevel == 50)
+        {
+            PTDPlay.Ach50Wave();
+            GameSystem.GetGameSystem().AchievementManager().CheckAchievement50();
+        }
+        else if (waveLevel == 100)
+            PTDPlay.Ach100Wave();
         waveNumber = 10 + (Mathf.FloorToInt(waveLevel / 5) * 5) + (Mathf.FloorToInt(waveLevel / 40f) * 5 * Mathf.CeilToInt((waveLevel - 40) / 5f));
         Debug.Log(waveNumber);
-        //healthMultiplier = 1 + (
-        //    (waveLevel - (1 + Mathf.FloorToInt(waveLevel / 5))) * SmallIncrement()
-        //    +
-        //    ((Mathf.FloorToInt(waveLevel / 5)) * LargeIncrement())
-        //    )
-        //    +
-        //    (Mathf.FloorToInt(waveLevel / 20f) * 0.2f * (waveLevel - 20))
-        //    +
-        //    (Mathf.FloorToInt(waveLevel / 40f) * 4)
-        //    +
-        //    (Mathf.FloorToInt(waveLevel / 100f) * 1 * (waveLevel - 100))
-        //    ;
         healthMultiplier = 1 + (
                (waveLevel - (1 + Mathf.FloorToInt(waveLevel / 5f))) * SmallIncrement()
                +

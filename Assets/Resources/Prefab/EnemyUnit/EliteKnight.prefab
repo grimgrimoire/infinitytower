@@ -455,7 +455,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012177320808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.5424294, y: -0.55187404, z: 0.2890625}
+  m_LocalPosition: {x: 1.346, y: -0.454, z: 0.2890625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -721,6 +721,7 @@ MonoBehaviour:
   damage: 3
   animationSpeed: 1
   score: 100
+  killType: 1
 --- !u!114 &114000013185053208
 MonoBehaviour:
   m_ObjectHideFlags: 1

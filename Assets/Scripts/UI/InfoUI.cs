@@ -89,6 +89,9 @@ public class InfoUI : MonoBehaviour
         finalScore.text = "Your score :\n " + score;
         finalScore.gameObject.SetActive(true);
         ScoreSystem.SaveData(score);
+        if (score >= 100000)
+            PTDPlay.AchStrategist();
+        PTDPlay.Scoreboard(score);
     }
 
 }

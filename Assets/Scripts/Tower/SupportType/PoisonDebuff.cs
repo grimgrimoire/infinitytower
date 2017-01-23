@@ -48,6 +48,7 @@ public class PoisonDebuff : MonoBehaviour {
             while (hostile.health > 0)
             {
                 hostile.TakeDamage(damage, DamageType.Magic);
+                GameSystem.GetGameSystem().AchievementManager().ChemicalDamage(damage);
                 if (hostile.health < 0)
                 {
                     hostile.RemoveBuffTag(GetBuffTag());

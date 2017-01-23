@@ -171,6 +171,8 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler, DialogInterfa
     {
         if (model.price <= GameSystem.GetGameSystem().GetGold() && model.price != 0)
         {
+            CheckAchievement3rdTier(model);
+            CheckAchievementNoMagic(model);
             GameSystem.GetGameSystem().AddGold(-model.price);
             artillery.SetModel(model);
             LoadAvailableArtilleryUpgrades();
@@ -187,10 +189,23 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler, DialogInterfa
         }
     }
 
+    private void CheckAchievementNoMagic(ArtilleryModel model)
+    {
+        if (model.upgradeCode == ArtilleryModelList.UPGRADE_MAGE)
+            GameSystem.GetGameSystem().UseMagic();
+    }
+
+    private void CheckAchievement3rdTier(ArtilleryModel model)
+    {
+        if (model.upgradeCode == ArtilleryModelList.UPGRADE_NONE)
+            PTDPlay.AchBestDefender();
+    }
+
     public void OnBuySupport(SupportModel model)
     {
         if (model.price <= GameSystem.GetGameSystem().GetGold())
         {
+            CheckAchievement3rdTier(model);
             GameSystem.GetGameSystem().AddGold(-model.price);
             support.SetImplements(model);
             LoadAvailableSupportUpgrades();
@@ -199,6 +214,12 @@ public class TowerUpgradeUI : MonoBehaviour, IPointerClickHandler, DialogInterfa
         {
             NotEnoughtGold();
         }
+    }
+
+    private void CheckAchievement3rdTier(SupportModel model)
+    {
+        if (model.upgradeCode == SupportModelList.UPGRADE_NONE)
+            PTDPlay.AchSupport();
     }
 
     public void OnYesButtonClicked()

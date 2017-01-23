@@ -29,7 +29,7 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: {x: 0, y: 0, z: 13.929001}
+        value: {x: 0, y: 0, z: 26.774002}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -41,7 +41,7 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: {x: 0, y: 0, z: -42.416}
+        value: {x: 0, y: 0, z: -31.176}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -179,7 +179,7 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 13.929001
+        value: 26.774002
         inSlope: 117.412
         outSlope: 117.412
         tangentMode: 10
@@ -224,7 +224,7 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: -42.416
+        value: -31.176
         inSlope: 117.597
         outSlope: 117.597
         tangentMode: 10
@@ -272,7 +272,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
+    attribute: m_LocalEulerAngles.z
     path: UpperArm_L
     classID: 4
     script: {fileID: 0}
@@ -292,7 +292,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
+    attribute: m_LocalEulerAngles.x
     path: UpperArm_L
     classID: 4
     script: {fileID: 0}

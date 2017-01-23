@@ -10,6 +10,8 @@ public class MainMenuUI : MonoBehaviour
     public GameObject recordButton;
     public GameObject overlay;
     public GameObject tutorial;
+    public GameObject achBtn;
+    public GameObject leaderBtn;
     public Text version;
     public Text record1;
     public Text record2;
@@ -17,12 +19,14 @@ public class MainMenuUI : MonoBehaviour
     public Text record4;
     public Text record5;
     public Text record6;
+    public Text signInOutText;
 
     // Use this for initialization
     void Start()
     {
         version.text = "Version " + Application.version;
         PTDAds.GetInstance().RequestInterstitialAds();
+        PTDPlay.InitializePlayGame(this);
     }
 
     // Update is called once per frame
@@ -38,6 +42,35 @@ public class MainMenuUI : MonoBehaviour
                 Application.Quit();
         }
 
+    }
+
+    public void ShowGPlaySignIn()
+    {
+        signInOutText.text = "Sign in";
+        achBtn.SetActive(false);
+        leaderBtn.SetActive(false);
+    }
+
+    public void ShowGPlaySignOut()
+    {
+        signInOutText.text = "Sign out";
+        achBtn.SetActive(true);
+        leaderBtn.SetActive(true);
+    }
+
+    public void SignInOutPressed()
+    {
+        PTDPlay.ToggleLogin(this);
+    }
+
+    public void ShowAchievement()
+    {
+        PTDPlay.ShowAchievement();
+    }
+
+    public void ShowLeaderboard()
+    {
+        PTDPlay.ShowLeaderboard();
     }
 
     public void StartButtonPressed()

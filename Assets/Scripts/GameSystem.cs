@@ -21,6 +21,7 @@ public class GameSystem : MonoBehaviour
     int nextLevel;
     MasterSpawner spawnSystem;
     ObjectPool objectPool;
+    GameplayAchievementManager achievementManager;
 
     // Use this for initialization
     void Start()
@@ -32,6 +33,7 @@ public class GameSystem : MonoBehaviour
         hostiles = new List<GameObject>();
         objectPool = GetComponent<ObjectPool>();
         spawnSystem = GetComponent<MasterSpawner>();
+        achievementManager = GetComponent<GameplayAchievementManager>();
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         StartCoroutine(initGame());
     }
@@ -48,7 +50,7 @@ public class GameSystem : MonoBehaviour
         if (!isPause)
         {
             PTDAds.GetInstance().ShowIntersitialAds();
-            if(isGameStarted)
+            if (isGameStarted)
                 controlUI.PauseGame();
         }
     }
@@ -78,6 +80,10 @@ public class GameSystem : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (spawnSystem.waveLevel < 50 && damage > 0)
+        {
+            achievementManager.TakeDamageBefore50();
+        }
         if (lives > 0)
         {
             lives -= damage;
@@ -106,6 +112,7 @@ public class GameSystem : MonoBehaviour
         controlUI.GameOver();
         isGameStarted = false;
         PTDAds.GetInstance().RemoveBannerAds();
+        achievementManager.GameOver();
     }
 
     public ObjectPool GetObjectPool()
@@ -158,6 +165,8 @@ public class GameSystem : MonoBehaviour
         gold += value;
         infoUI.ShowAddGold(value);
         UpdateGoldValue();
+        if (gold >= 5000)
+            PTDPlay.AchFrugal();
     }
 
     public int GetGold()
@@ -200,8 +209,19 @@ public class GameSystem : MonoBehaviour
         infoUI.UpdateScore(score);
     }
 
+    public void UseMagic()
+    {
+        if (spawnSystem.waveLevel < 50)
+            achievementManager.UseMagic();
+    }
+
     public void MoveToMainMenu()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public GameplayAchievementManager AchievementManager()
+    {
+        return achievementManager;
     }
 }

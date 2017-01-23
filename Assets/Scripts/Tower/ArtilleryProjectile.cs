@@ -14,8 +14,6 @@ public class ArtilleryProjectile : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        sprites = GetComponent<SpriteRenderer>();
-        col = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -43,6 +41,11 @@ public class ArtilleryProjectile : MonoBehaviour
     {
         this.target = target;
         transform.right = target - (Vector2)transform.position;
+        if (sprites == null)
+        {
+            sprites = GetComponent<SpriteRenderer>();
+            col = GetComponent<BoxCollider2D>();
+        }
         sprites.enabled = true;
         col.enabled = true;
     }

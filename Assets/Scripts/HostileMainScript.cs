@@ -22,6 +22,7 @@ public class HostileMainScript : MonoBehaviour
     public int damage = 1;
     public float animationSpeed = 1;
     public int score = 0;
+    public int killType = 0;
 
     private HostileInterface[] hostileInterfaces;
     private int initialHealth;
@@ -124,6 +125,12 @@ public class HostileMainScript : MonoBehaviour
             {
                 if (healthBar != null)
                     healthBar.localScale = Vector3.zero;
+                if (!isShield)
+                    GameSystem.GetGameSystem().AchievementManager().Kill();
+                if(killType == 1)
+                    GameSystem.GetGameSystem().AchievementManager().KnightKill();
+                if(killType == 2)
+                    GameSystem.GetGameSystem().AchievementManager().DragonKill();
                 Killed();
                 GetScore();
             }

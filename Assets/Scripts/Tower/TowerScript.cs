@@ -54,6 +54,8 @@ public class TowerScript : MonoBehaviour, DialogInterface
         {
             GameSystem.GetGameSystem().AddGold(-GetCurrentCost());
             GameSystem.GetGameSystem().TakeDamage(-5);
+            if (cost == 12)
+                PTDPlay.Ach13Floors();
             cost++;
             AddFloor();
         }
@@ -108,6 +110,8 @@ public class TowerScript : MonoBehaviour, DialogInterface
                 return 1200;
             case 4:
                 return 1500;
+            case 13:
+                return 2000;
             default:
                 return 2000;
         }

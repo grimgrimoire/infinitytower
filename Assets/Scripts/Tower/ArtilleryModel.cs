@@ -50,12 +50,12 @@ public class ArtilleryModelList
     const int UPGRADE_SHOOTER = 10;
     const int UPGRADE_SNIPER = 11;
     const int UPGRADE_GUNSLINGER = 12;
-    const int UPGRADE_MAGE = 13;
+    public const int UPGRADE_MAGE = 13;
     const int UPGRADE_SORCERER = 14;
     const int UPGRADE_WIZARD = 15;
     const int UPGRADE_ALCHEMIST = 16;
     const int UPGRADE_SAGE = 17;
-    const int UPGRADE_NONE = 18;
+    public const int UPGRADE_NONE = 18;
 
     const string PATH_ARCHER = "Prefab/TowerUnit/Archer/";
     const string PATH_CANNON = "Prefab/TowerUnit/Cannon/";
@@ -1000,7 +1000,7 @@ public class ArtilleryModelList
         mage.upgradeCode = UPGRADE_NONE;
         mage.upgradeBranch = 1;
         mage.imageUIindex = 23;
-        mage.description = "Summon Meteor with very high damage and stun target (100% chance)";
+        mage.description = "Summon Meteor with very high damage and stun target (100% chance, grounds only)";
         mage.Initialize(); return mage;
     }
 
@@ -1020,7 +1020,7 @@ public class ArtilleryModelList
         mage.upgradeCode = UPGRADE_NONE;
         mage.upgradeBranch = 1;
         mage.imageUIindex = 25;
-        mage.description = "Summon Tornado with knockback effect.";
+        mage.description = "Summon Tornado with knockback effect (target grounds only)";
         mage.Initialize(); return mage;
     }
     //End Mage model

@@ -1,0 +1,10 @@
+lastUpgrade=00936
+proj.pluginVersion=0.9.36
+proj.AppId=651019340526
+and.BundleId=com.GermStudio.PapermanTD
+proj.classDir=Assets
+proj.ConstantsClassName=GPGSIds
+and.ResourceData=%3c%3fxml+version%3d%221.0%22+encoding%3d%22utf-8%22%3f%3e%0d%0a%3c%21--%0d%0aGoogle+Play+game+services+IDs.%0d%0aSave+this+file+as+res%2fvalues%2fgames-ids.xml+in+your+project.%0d%0a--%3e%0d%0a%3cresources%3e%0d%0a++%3cstring+name%3d%22app_id%22%3e651019340526%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22package_name%22%3ecom.GermStudio.PapermanTD%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22achievement_conqueror%22%3eCgkI7pWbnvkSEAIQAg%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22achievement_impenetrable_defense%22%3eCgkI7pWbnvkSEAIQBA%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22achievement_strategist%22%3eCgkI7pWbnvkSEAIQCg%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22achievement_sky_is_the_limit%22%3eCgkI7pWbnvkSEAIQAQ%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22achievement_destroyer%22%3eCgkI7pWbnvkSEAIQCQ%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22achievement_veteran%22%3eCgkI7pWbnvkSEAIQDA%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22achievement_chemical_warfare%22%3eCgkI7pWbnvkSEAIQDQ%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22achievement_knight_slayer%22%3eCgkI7pWbnvkSEAIQCw%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22achievement_dragon_slayer%22%3eCgkI7pWbnvkSEAIQBg%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22achievement_no_magic%22%3eCgkI7pWbnvkSEAIQDw%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22achievement_frugal%22%3eCgkI7pWbnvkSEAIQBw%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22achievement_best_support%22%3eCgkI7pWbnvkSEAIQBQ%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22achievement_best_defender%22%3eCgkI7pWbnvkSEAIQCA%3c%2fstring%3e%0d%0a++%3cstring+name%3d%22leaderboard_high_score%22%3eCgkI7pWbnvkSEAIQAw%3c%2fstring%3e%0d%0a%3c%2fresources%3e%0d%0a
+and.ClientId=651019340526-ajric9uar55g75ip2vrtq4pe093op1lj.apps.googleusercontent.com
+proj.requireGPlus=false
+android.SetupDone=true

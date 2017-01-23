@@ -24,7 +24,8 @@ public class SupportModelList
     const int PRICE_TIER_2 = 2000;
     const int PRICE_TIER_3 = 3000;
 
-    public static int TOTAL_SUPPORT = 4;
+    public const int TOTAL_SUPPORT = 4;
+    public const int UPGRADE_NONE = 9; 
 
     public static int GetTotalSupport(int code)
     {
